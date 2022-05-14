@@ -139,5 +139,20 @@
     <ClInclude Include="..\..\Source\FPS\Weapons\WeaponBase.h">
       <Filter>Source\FPS\Weapons</Filter>
     </ClInclude>
+    <Filter Include="Source\FPS\Weapons\Projectiles">
+      <UniqueIdentifier>{9FFCF5F8-0A6D-3FAE-A67E-C86A78B77084}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\FPS\Weapons\Projectiles\Casing.cpp">
+      <Filter>Source\FPS\Weapons\Projectiles</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\Weapons\Projectiles\Casing.h">
+      <Filter>Source\FPS\Weapons\Projectiles</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\FPS\Weapons\Projectiles\ProjectileBase.cpp">
+      <Filter>Source\FPS\Weapons\Projectiles</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\Weapons\Projectiles\ProjectileBase.h">
+      <Filter>Source\FPS\Weapons\Projectiles</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

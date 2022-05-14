@@ -1,0 +1,15 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\projectilebase.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "u:\\fps\\intermediate\\build\\win64\\fpseditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\development\\fps\\definitions.fps.h",
+            "u:\\fps\\source\\fps\\weapons\\projectiles\\projectilebase.h",
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\projectilebase.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

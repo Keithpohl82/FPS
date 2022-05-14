@@ -7,7 +7,6 @@
 /IGNORE:4221
 /NODEFAULTLIB
 "U:\FPS\Intermediate\Build\Win64\FPSEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
-"U:\FPS\Intermediate\Build\Win64\UnrealEditor\Development\FPS\FPS.cpp.obj"
 "U:\FPS\Intermediate\Build\Win64\UnrealEditor\Development\FPS\CharacterAnimInstance.cpp.obj"
 "U:\FPS\Intermediate\Build\Win64\UnrealEditor\Development\FPS\MasterCharacter.cpp.obj"
 "U:\FPS\Intermediate\Build\Win64\UnrealEditor\Development\FPS\CombatComponent.cpp.obj"
@@ -19,6 +18,9 @@
 "U:\FPS\Intermediate\Build\Win64\UnrealEditor\Development\FPS\MasterPlayerState.cpp.obj"
 "U:\FPS\Intermediate\Build\Win64\UnrealEditor\Development\FPS\PlayerHUD.cpp.obj"
 "U:\FPS\Intermediate\Build\Win64\UnrealEditor\Development\FPS\PlayerOverlay.cpp.obj"
+"U:\FPS\Intermediate\Build\Win64\UnrealEditor\Development\FPS\WeaponBase.cpp.obj"
+"U:\FPS\Intermediate\Build\Win64\UnrealEditor\Development\FPS\FPS.cpp.obj"
+"U:\FPS\Intermediate\Build\Win64\UnrealEditor\Development\FPS\ProjectileBase.cpp.obj"
 "U:\FPS\Intermediate\Build\Win64\UnrealEditor\Development\FPS\CharacterAnimInstance.gen.cpp.obj"
 "U:\FPS\Intermediate\Build\Win64\UnrealEditor\Development\FPS\CombatComponent.gen.cpp.obj"
 "U:\FPS\Intermediate\Build\Win64\UnrealEditor\Development\FPS\FPS.init.gen.cpp.obj"
@@ -31,5 +33,7 @@
 "U:\FPS\Intermediate\Build\Win64\UnrealEditor\Development\FPS\MasterPlayerState.gen.cpp.obj"
 "U:\FPS\Intermediate\Build\Win64\UnrealEditor\Development\FPS\PlayerHUD.gen.cpp.obj"
 "U:\FPS\Intermediate\Build\Win64\UnrealEditor\Development\FPS\PlayerOverlay.gen.cpp.obj"
+"U:\FPS\Intermediate\Build\Win64\UnrealEditor\Development\FPS\ProjectileBase.gen.cpp.obj"
+"U:\FPS\Intermediate\Build\Win64\UnrealEditor\Development\FPS\WeaponBase.gen.cpp.obj"
 "U:\FPS\Intermediate\Build\Win64\UnrealEditor\Development\FPS\Default.rc2.res"
 /OUT:"U:\FPS\Intermediate\Build\Win64\UnrealEditor\Development\FPS\UnrealEditor-FPS.lib"
