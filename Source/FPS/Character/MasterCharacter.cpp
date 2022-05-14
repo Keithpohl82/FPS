@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "Character/MasterCharacter.h"
+#include "MasterCharacter.h"
 
 // Sets default values
 AMasterCharacter::AMasterCharacter()

@@ -11,10 +11,15 @@
     <None Include="..\..\Source\FPSEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\.gitattributes" />
+    <None Include="..\..\.gitignore" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
       <Filter>Config</Filter>
     </None>
     <None Include="..\..\Config\DefaultEngine.ini">
@@ -38,11 +43,101 @@
     <Filter Include="Source\FPS\Character">
       <UniqueIdentifier>{D9C015CA-0E0D-37A6-A18C-FF540724D590}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\FPS\Character\CharacterAnimInstance.cpp">
+      <Filter>Source\FPS\Character</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\Character\CharacterAnimInstance.h">
+      <Filter>Source\FPS\Character</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\FPS\Character\MasterCharacter.cpp">
       <Filter>Source\FPS\Character</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\FPS\Character\MasterCharacter.h">
       <Filter>Source\FPS\Character</Filter>
+    </ClInclude>
+    <Filter Include="Source\FPS\Components">
+      <UniqueIdentifier>{B0A064B2-7022-38F9-93E9-8CA1858E4232}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\FPS\Components\CombatComponent.cpp">
+      <Filter>Source\FPS\Components</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\Components\CombatComponent.h">
+      <Filter>Source\FPS\Components</Filter>
+    </ClInclude>
+    <Filter Include="Source\FPS\GameModes">
+      <UniqueIdentifier>{6808A2EB-22CD-3E81-AEDE-5555C6F8938D}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\FPS\GameModes\LobbyGameMode.cpp">
+      <Filter>Source\FPS\GameModes</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\GameModes\LobbyGameMode.h">
+      <Filter>Source\FPS\GameModes</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\FPS\GameModes\MasterGameMode.cpp">
+      <Filter>Source\FPS\GameModes</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\GameModes\MasterGameMode.h">
+      <Filter>Source\FPS\GameModes</Filter>
+    </ClInclude>
+    <Filter Include="Source\FPS\GameState">
+      <UniqueIdentifier>{D1C6923D-8163-39FD-8A63-F3A90F327926}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\FPS\GameState\MasterGameState.cpp">
+      <Filter>Source\FPS\GameState</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\GameState\MasterGameState.h">
+      <Filter>Source\FPS\GameState</Filter>
+    </ClInclude>
+    <Filter Include="Source\FPS\Interfaces">
+      <UniqueIdentifier>{FB6EEA57-6A9E-37CE-817A-8575EFD69AEA}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\FPS\Interfaces\InteractWithCrosshairsInterface.cpp">
+      <Filter>Source\FPS\Interfaces</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\Interfaces\InteractWithCrosshairsInterface.h">
+      <Filter>Source\FPS\Interfaces</Filter>
+    </ClInclude>
+    <Filter Include="Source\FPS\PlayerController">
+      <UniqueIdentifier>{9BD67226-A44E-3C65-8401-3B825E8E401F}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\FPS\PlayerController\MasterPlayerController.cpp">
+      <Filter>Source\FPS\PlayerController</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\PlayerController\MasterPlayerController.h">
+      <Filter>Source\FPS\PlayerController</Filter>
+    </ClInclude>
+    <Filter Include="Source\FPS\PlayerState">
+      <UniqueIdentifier>{D7DDFD21-3132-3FF4-8E10-18687A245BE2}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\FPS\PlayerState\MasterPlayerState.cpp">
+      <Filter>Source\FPS\PlayerState</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\PlayerState\MasterPlayerState.h">
+      <Filter>Source\FPS\PlayerState</Filter>
+    </ClInclude>
+    <Filter Include="Source\FPS\UI">
+      <UniqueIdentifier>{8F67E7DE-684D-3FF4-8A08-8FF519888906}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\FPS\UI\PlayerHUD.cpp">
+      <Filter>Source\FPS\UI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\UI\PlayerHUD.h">
+      <Filter>Source\FPS\UI</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\FPS\UI\PlayerOverlay.cpp">
+      <Filter>Source\FPS\UI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\UI\PlayerOverlay.h">
+      <Filter>Source\FPS\UI</Filter>
+    </ClInclude>
+    <Filter Include="Source\FPS\Weapons">
+      <UniqueIdentifier>{996C991C-084B-3CE0-9BC8-A13B75FBCA84}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\FPS\Weapons\WeaponBase.cpp">
+      <Filter>Source\FPS\Weapons</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\Weapons\WeaponBase.h">
+      <Filter>Source\FPS\Weapons</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

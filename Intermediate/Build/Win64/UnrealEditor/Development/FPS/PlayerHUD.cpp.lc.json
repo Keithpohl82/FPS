@@ -1,0 +1,20 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "u:\\fps\\source\\fps\\ui\\playerhud.cpp",
+        "ProvidedModule": "",
+        "PCH": "u:\\fps\\intermediate\\build\\win64\\fpseditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\development\\fps\\definitions.fps.h",
+            "u:\\fps\\source\\fps\\ui\\playerhud.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\hud.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\hudhitbox.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\debugtextinfo.h",
+            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\debugtextinfo.generated.h",
+            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\hud.generated.h",
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\playerhud.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
