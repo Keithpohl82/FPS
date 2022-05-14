@@ -318,7 +318,7 @@ void AMasterCharacter::UpdateHUDHealth()
 	}
 }
 
-void AMasterCharacter::SetOverlappingWeapon(AWeapon* Weapon)
+void AMasterCharacter::SetOverlappingWeapon(AWeaponBase* Weapon)
 {
 	if (OverlappingWeapon)
 	{
@@ -344,7 +344,7 @@ bool AMasterCharacter::IsAiming()
 	return (Combat && Combat->bAiming);
 }
 
-AWeapon* AMasterCharacter::GetEquippedWeapon()
+AWeaponBase* AMasterCharacter::GetEquippedWeapon()
 {
 	if (Combat == nullptr) return nullptr;
 	return Combat->EquippedWeapon;
@@ -547,7 +547,7 @@ void AMasterCharacter::MulticastElim_Implementation()
 	}
 }
 
-void AMasterCharacter::OnRep_OverlappingWeapon(AWeapon* LastWeapon)
+void AMasterCharacter::OnRep_OverlappingWeapon(AWeaponBase* LastWeapon)
 {
 	if (OverlappingWeapon)
 	{

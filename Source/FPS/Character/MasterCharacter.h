@@ -45,9 +45,9 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category = Camera)
 	class UCameraComponent* FPPCamera;
 	UPROPERTY(ReplicatedUsing = OnRep_OverlappingWeapon)
-	class AWeapon* OverlappingWeapon;
+	class AWeaponBase* OverlappingWeapon;
 	UFUNCTION()
-	void OnRep_OverlappingWeapon(AWeapon* LastWeapon);
+	void OnRep_OverlappingWeapon(AWeaponBase* LastWeapon);
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Combat, meta = (AllowPrivateAccess = "true"))
 	class UCombatComponent* Combat;
 	UFUNCTION(Server, Reliable)
@@ -153,10 +153,10 @@ protected:
 
 public:	
 	
-	void SetOverlappingWeapon(AWeapon* Weapon);
+	void SetOverlappingWeapon(AWeaponBase* Weapon);
 	bool IsWeaponEquipped();
 	bool IsAiming();
-	AWeapon* GetEquippedWeapon();
+	AWeaponBase* GetEquippedWeapon();
 	FVector GetHitTarget() const;
 
 	FORCEINLINE float GetAO_Yaw() const { return AO_Yaw; }
