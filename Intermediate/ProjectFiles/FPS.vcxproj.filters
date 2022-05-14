@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\FPS.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{F31BBDD1-B3E8-3BCC-9652-680E16935819}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\FPS.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\FPSEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\FPS">
+      <UniqueIdentifier>{50532BBC-C583-3744-9249-9A843E673DCF}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\FPS\FPS.Build.cs">
+      <Filter>Source\FPS</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\FPS\FPS.cpp">
+      <Filter>Source\FPS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\FPS.h">
+      <Filter>Source\FPS</Filter>
+    </ClInclude>
+    <Filter Include="Source\FPS\Character">
+      <UniqueIdentifier>{D9C015CA-0E0D-37A6-A18C-FF540724D590}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\FPS\Character\MasterCharacter.cpp">
+      <Filter>Source\FPS\Character</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\Character\MasterCharacter.h">
+      <Filter>Source\FPS\Character</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
