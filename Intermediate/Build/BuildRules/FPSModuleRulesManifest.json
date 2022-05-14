@@ -1,6 +1,7 @@
 {
 	"SourceFiles": [
 		"U:\\FPS\\Source\\FPS\\FPS.Build.cs",
+		"U:\\FPS\\Plugins\\MultiplayerSessions\\Source\\MultiplayerSessions\\MultiplayerSessions.Build.cs",
 		"U:\\FPS\\Source\\FPS.Target.cs",
 		"U:\\FPS\\Source\\FPSEditor.Target.cs"
 	],
