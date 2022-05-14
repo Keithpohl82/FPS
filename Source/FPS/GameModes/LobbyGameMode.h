@@ -14,4 +14,7 @@ class FPS_API ALobbyGameMode : public AGameMode
 {
 	GENERATED_BODY()
 	
+public:
+
+	virtual void PostLogin(APlayerController* NewPlayer) override;
 };
