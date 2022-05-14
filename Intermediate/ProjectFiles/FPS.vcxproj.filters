@@ -155,4 +155,15 @@
       <Filter>Source\FPS\Weapons\Projectiles</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\FPS\Weapons\WeaponTypes.h">
+      <Filter>Source\FPS\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\FPS\TypeClasses\CombatState.h">
+      <Filter>Source\FPS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\FPS\TypeClasses\TurningInPlace.h">
+      <Filter>Source\FPS</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>
