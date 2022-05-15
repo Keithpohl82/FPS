@@ -16,13 +16,14 @@ class FPS_API AMasterGameMode : public AGameMode
 	
 public:
 	AMasterGameMode();
+
 	virtual void Tick(float DeltaSeconds) override;
 
 	virtual void PlayerEliminated(class AMasterCharacter* ElimmedCharacter, class AMasterPlayerController* VictimController, AMasterPlayerController* KillerController);
 	virtual void RequestRespawn(ACharacter* ElimmedCharacter, AController* ElimmedController);
 
 	UPROPERTY(EditDefaultsOnly)
-		float WarmupTime = 10.f;
+	float WarmupTime = 10.f;
 
 	float LevelStartingTime = 0.f;
 
@@ -32,5 +33,6 @@ protected:
 	virtual void OnMatchStateSet() override;
 
 private:
+
 	float CountdownTime = 0.f;
 };

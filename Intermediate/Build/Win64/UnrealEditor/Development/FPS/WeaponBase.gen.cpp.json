@@ -7,6 +7,7 @@
         "Includes": [
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\development\\fps\\definitions.fps.h",
             "u:\\fps\\source\\fps\\weapons\\weaponbase.h",
+            "u:\\fps\\source\\fps\\weapons\\weapontypes.h",
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\weaponbase.generated.h"
         ],
         "ImportedModules": [],

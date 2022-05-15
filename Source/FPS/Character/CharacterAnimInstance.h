@@ -34,7 +34,7 @@ private:
 	UPROPERTY(BlueprintReadOnly, Category = Animations, meta = (AllowPrivateAccess = "true"))
 		bool bWeaponEquipped;
 
-	class AWeapon* EquippedWeapon;
+	class AWeaponBase* EquippedWeapon;
 
 	UPROPERTY(BlueprintReadOnly, Category = Animations, meta = (AllowPrivateAccess = "true"))
 		bool bIsCrouched;

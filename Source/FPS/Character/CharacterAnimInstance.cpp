@@ -6,6 +6,7 @@
 #include "Kismet/KismetMathLibrary.h"
 #include "FPS/Weapons/WeaponBase.h"
 #include "FPS/TypeClasses/CombatState.h"
+#include "FPS/Character/MasterCharacter.h"
 
 void UCharacterAnimInstance::NativeInitializeAnimation()
 {

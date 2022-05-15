@@ -13,9 +13,140 @@ void EmptyLinkFunctionForGeneratedCodeMasterPlayerController() {}
 	FPS_API UClass* Z_Construct_UClass_AMasterPlayerController();
 	ENGINE_API UClass* Z_Construct_UClass_APlayerController();
 	UPackage* Z_Construct_UPackage__Script_FPS();
+	FPS_API UClass* Z_Construct_UClass_APlayerHUD_NoRegister();
+	FPS_API UClass* Z_Construct_UClass_UPlayerOverlay_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(AMasterPlayerController::execOnRep_MatchState)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->OnRep_MatchState();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AMasterPlayerController::execClientReportServerTime)
+	{
+		P_GET_PROPERTY(FFloatProperty,Z_Param_TimeOfClientRequest);
+		P_GET_PROPERTY(FFloatProperty,Z_Param_TimeServerReceivedClientRequest);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ClientReportServerTime_Implementation(Z_Param_TimeOfClientRequest,Z_Param_TimeServerReceivedClientRequest);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AMasterPlayerController::execServerRequestServerTime)
+	{
+		P_GET_PROPERTY(FFloatProperty,Z_Param_TimeOfClientRequest);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ServerRequestServerTime_Implementation(Z_Param_TimeOfClientRequest);
+		P_NATIVE_END;
+	}
+	static FName NAME_AMasterPlayerController_ClientReportServerTime = FName(TEXT("ClientReportServerTime"));
+	void AMasterPlayerController::ClientReportServerTime(float TimeOfClientRequest, float TimeServerReceivedClientRequest)
+	{
+		MasterPlayerController_eventClientReportServerTime_Parms Parms;
+		Parms.TimeOfClientRequest=TimeOfClientRequest;
+		Parms.TimeServerReceivedClientRequest=TimeServerReceivedClientRequest;
+		ProcessEvent(FindFunctionChecked(NAME_AMasterPlayerController_ClientReportServerTime),&Parms);
+	}
+	static FName NAME_AMasterPlayerController_ServerRequestServerTime = FName(TEXT("ServerRequestServerTime"));
+	void AMasterPlayerController::ServerRequestServerTime(float TimeOfClientRequest)
+	{
+		MasterPlayerController_eventServerRequestServerTime_Parms Parms;
+		Parms.TimeOfClientRequest=TimeOfClientRequest;
+		ProcessEvent(FindFunctionChecked(NAME_AMasterPlayerController_ServerRequestServerTime),&Parms);
+	}
 	void AMasterPlayerController::StaticRegisterNativesAMasterPlayerController()
 	{
+		UClass* Class = AMasterPlayerController::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "ClientReportServerTime", &AMasterPlayerController::execClientReportServerTime },
+			{ "OnRep_MatchState", &AMasterPlayerController::execOnRep_MatchState },
+			{ "ServerRequestServerTime", &AMasterPlayerController::execServerRequestServerTime },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_AMasterPlayerController_ClientReportServerTime_Statics
+	{
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_TimeOfClientRequest;
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_TimeServerReceivedClientRequest;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AMasterPlayerController_ClientReportServerTime_Statics::NewProp_TimeOfClientRequest = { "TimeOfClientRequest", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(MasterPlayerController_eventClientReportServerTime_Parms, TimeOfClientRequest), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AMasterPlayerController_ClientReportServerTime_Statics::NewProp_TimeServerReceivedClientRequest = { "TimeServerReceivedClientRequest", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(MasterPlayerController_eventClientReportServerTime_Parms, TimeServerReceivedClientRequest), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMasterPlayerController_ClientReportServerTime_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMasterPlayerController_ClientReportServerTime_Statics::NewProp_TimeOfClientRequest,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMasterPlayerController_ClientReportServerTime_Statics::NewProp_TimeServerReceivedClientRequest,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMasterPlayerController_ClientReportServerTime_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "PlayerController/MasterPlayerController.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMasterPlayerController_ClientReportServerTime_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMasterPlayerController, nullptr, "ClientReportServerTime", nullptr, nullptr, sizeof(MasterPlayerController_eventClientReportServerTime_Parms), Z_Construct_UFunction_AMasterPlayerController_ClientReportServerTime_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMasterPlayerController_ClientReportServerTime_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x01080CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMasterPlayerController_ClientReportServerTime_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AMasterPlayerController_ClientReportServerTime_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AMasterPlayerController_ClientReportServerTime()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMasterPlayerController_ClientReportServerTime_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AMasterPlayerController_OnRep_MatchState_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMasterPlayerController_OnRep_MatchState_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "PlayerController/MasterPlayerController.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMasterPlayerController_OnRep_MatchState_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMasterPlayerController, nullptr, "OnRep_MatchState", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMasterPlayerController_OnRep_MatchState_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AMasterPlayerController_OnRep_MatchState_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AMasterPlayerController_OnRep_MatchState()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMasterPlayerController_OnRep_MatchState_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AMasterPlayerController_ServerRequestServerTime_Statics
+	{
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_TimeOfClientRequest;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AMasterPlayerController_ServerRequestServerTime_Statics::NewProp_TimeOfClientRequest = { "TimeOfClientRequest", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(MasterPlayerController_eventServerRequestServerTime_Parms, TimeOfClientRequest), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMasterPlayerController_ServerRequestServerTime_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMasterPlayerController_ServerRequestServerTime_Statics::NewProp_TimeOfClientRequest,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMasterPlayerController_ServerRequestServerTime_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "/*\n\x09 * Sync time between client and server.\n\x09 */" },
+		{ "ModuleRelativePath", "PlayerController/MasterPlayerController.h" },
+		{ "ToolTip", "* Sync time between client and server." },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMasterPlayerController_ServerRequestServerTime_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMasterPlayerController, nullptr, "ServerRequestServerTime", nullptr, nullptr, sizeof(MasterPlayerController_eventServerRequestServerTime_Parms), Z_Construct_UFunction_AMasterPlayerController_ServerRequestServerTime_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMasterPlayerController_ServerRequestServerTime_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00280CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMasterPlayerController_ServerRequestServerTime_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AMasterPlayerController_ServerRequestServerTime_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AMasterPlayerController_ServerRequestServerTime()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMasterPlayerController_ServerRequestServerTime_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(AMasterPlayerController);
 	UClass* Z_Construct_UClass_AMasterPlayerController_NoRegister()
@@ -25,15 +156,42 @@ void EmptyLinkFunctionForGeneratedCodeMasterPlayerController() {}
 	struct Z_Construct_UClass_AMasterPlayerController_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_TimeSyncFrequency_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_TimeSyncFrequency;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_HUD_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_HUD;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_MatchTime_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_MatchTime;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_MatchState_MetaData[];
+#endif
+		static const UECodeGen_Private::FNamePropertyParams NewProp_MatchState;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_PlayerOverlay_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_PlayerOverlay;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
 	};
 	UObject* (*const Z_Construct_UClass_AMasterPlayerController_Statics::DependentSingletons[])() = {
 		(UObject* (*)())Z_Construct_UClass_APlayerController,
 		(UObject* (*)())Z_Construct_UPackage__Script_FPS,
+	};
+	const FClassFunctionLinkInfo Z_Construct_UClass_AMasterPlayerController_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_AMasterPlayerController_ClientReportServerTime, "ClientReportServerTime" }, // 189248043
+		{ &Z_Construct_UFunction_AMasterPlayerController_OnRep_MatchState, "OnRep_MatchState" }, // 2393187143
+		{ &Z_Construct_UFunction_AMasterPlayerController_ServerRequestServerTime, "ServerRequestServerTime" }, // 1427345142
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterPlayerController_Statics::Class_MetaDataParams[] = {
@@ -43,6 +201,46 @@ void EmptyLinkFunctionForGeneratedCodeMasterPlayerController() {}
 		{ "ModuleRelativePath", "PlayerController/MasterPlayerController.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_TimeSyncFrequency_MetaData[] = {
+		{ "Category", "MasterPlayerController" },
+		{ "ModuleRelativePath", "PlayerController/MasterPlayerController.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_TimeSyncFrequency = { "TimeSyncFrequency", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterPlayerController, TimeSyncFrequency), METADATA_PARAMS(Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_TimeSyncFrequency_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_TimeSyncFrequency_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_HUD_MetaData[] = {
+		{ "ModuleRelativePath", "PlayerController/MasterPlayerController.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_HUD = { "HUD", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterPlayerController, HUD), Z_Construct_UClass_APlayerHUD_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_HUD_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_HUD_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_MatchTime_MetaData[] = {
+		{ "Category", "MasterPlayerController" },
+		{ "ModuleRelativePath", "PlayerController/MasterPlayerController.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_MatchTime = { "MatchTime", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterPlayerController, MatchTime), METADATA_PARAMS(Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_MatchTime_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_MatchTime_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_MatchState_MetaData[] = {
+		{ "ModuleRelativePath", "PlayerController/MasterPlayerController.h" },
+	};
+#endif
+	const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_MatchState = { "MatchState", "OnRep_MatchState", (EPropertyFlags)0x0040000100000020, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterPlayerController, MatchState), METADATA_PARAMS(Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_MatchState_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_MatchState_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_PlayerOverlay_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "PlayerController/MasterPlayerController.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_PlayerOverlay = { "PlayerOverlay", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterPlayerController, PlayerOverlay), Z_Construct_UClass_UPlayerOverlay_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_PlayerOverlay_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_PlayerOverlay_MetaData)) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AMasterPlayerController_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_TimeSyncFrequency,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_HUD,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_MatchTime,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_MatchState,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_PlayerOverlay,
+	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AMasterPlayerController_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AMasterPlayerController>::IsAbstract,
 	};
@@ -51,12 +249,12 @@ void EmptyLinkFunctionForGeneratedCodeMasterPlayerController() {}
 		"Game",
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
-		nullptr,
+		FuncInfo,
+		Z_Construct_UClass_AMasterPlayerController_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
+		UE_ARRAY_COUNT(Z_Construct_UClass_AMasterPlayerController_Statics::PropPointers),
 		0,
 		0x009002A4u,
 		METADATA_PARAMS(Z_Construct_UClass_AMasterPlayerController_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterPlayerController_Statics::Class_MetaDataParams))
@@ -73,15 +271,25 @@ void EmptyLinkFunctionForGeneratedCodeMasterPlayerController() {}
 	{
 		return AMasterPlayerController::StaticClass();
 	}
+
+	void AMasterPlayerController::ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const
+	{
+		static const FName Name_MatchState(TEXT("MatchState"));
+
+		const bool bIsValid = true
+			&& Name_MatchState == ClassReps[(int32)ENetFields_Private::MatchState].Property->GetFName();
+
+		checkf(bIsValid, TEXT("UHT Generated Rep Indices do not match runtime populated Rep Indices for properties in AMasterPlayerController"));
+	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AMasterPlayerController);
 	struct Z_CompiledInDeferFile_FID_FPS_Source_FPS_PlayerController_MasterPlayerController_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_PlayerController_MasterPlayerController_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMasterPlayerController, AMasterPlayerController::StaticClass, TEXT("AMasterPlayerController"), &Z_Registration_Info_UClass_AMasterPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMasterPlayerController), 964145368U) },
+		{ Z_Construct_UClass_AMasterPlayerController, AMasterPlayerController::StaticClass, TEXT("AMasterPlayerController"), &Z_Registration_Info_UClass_AMasterPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMasterPlayerController), 3164132058U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_PlayerController_MasterPlayerController_h_3431153323(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_PlayerController_MasterPlayerController_h_3554739106(TEXT("/Script/FPS"),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_PlayerController_MasterPlayerController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_PlayerController_MasterPlayerController_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

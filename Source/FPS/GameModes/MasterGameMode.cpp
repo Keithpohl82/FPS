@@ -3,12 +3,17 @@
 
 #include "MasterGameMode.h"
 #include "Kismet/GameplayStatics.h"
-#include "ShaderCompilerCommon/Public/ShaderCompilerCommon.h"
 #include "GameFramework/PlayerStart.h"
 #include "FPS/Character/MasterCharacter.h"
 #include "FPS/PlayerController/MasterPlayerController.h"
 #include "FPS/PlayerState/MasterPlayerState.h"
 
+
+
+AMasterGameMode::AMasterGameMode()
+{
+	bDelayedStart = true;
+}
 
 void AMasterGameMode::Tick(float DeltaSeconds)
 {
@@ -56,5 +61,26 @@ void AMasterGameMode::RequestRespawn(ACharacter* ElimmedCharacter, AController* 
 		UGameplayStatics::GetAllActorsOfClass(this, APlayerStart::StaticClass(), PlayerStarts);
 		int32 Selection = FMath::RandRange(0, PlayerStarts.Num() - 1);
 		RestartPlayerAtPlayerStart(ElimmedController, PlayerStarts[Selection]);
+	}
+}
+
+void AMasterGameMode::BeginPlay()
+{
+	Super::BeginPlay();
+
+	LevelStartingTime = GetWorld()->GetTimeSeconds();
+}
+
+void AMasterGameMode::OnMatchStateSet()
+{
+	Super::OnMatchStateSet();
+
+	for (FConstPlayerControllerIterator It = GetWorld()->GetPlayerControllerIterator(); It; ++It)
+	{
+		AMasterPlayerController* MasterPlayerController = Cast<AMasterPlayerController>(*It);
+		if (MasterPlayerController)
+		{
+			MasterPlayerController->OnMatchStateSet(MatchState);
+		}
 	}
 }

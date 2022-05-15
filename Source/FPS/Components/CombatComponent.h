@@ -54,7 +54,7 @@ private:
 	UPROPERTY()
 	class AMasterPlayerController* MasterPlayerController;
 	UPROPERTY()
-	class APlyerHUD* HUD;
+	class APlayerHUD* HUD;
 	UPROPERTY(ReplicatedUsing = OnRep_EquippedWeapon)
 	AWeaponBase* EquippedWeapon;
 	UPROPERTY(Replicated)

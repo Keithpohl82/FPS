@@ -415,7 +415,7 @@ void AMasterCharacter::PostInitializeComponents()
 	Super::PostInitializeComponents();
 	if (Combat)
 	{
-		Combat->Character = this;
+		Combat->MasterCharacter = this;
 	}
 }
 

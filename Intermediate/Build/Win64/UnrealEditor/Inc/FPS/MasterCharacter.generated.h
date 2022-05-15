@@ -8,33 +8,77 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class AActor;
+class UDamageType;
+class AController;
+class AWeaponBase;
 #ifdef FPS_MasterCharacter_generated_h
 #error "MasterCharacter.generated.h already included, missing '#pragma once' in MasterCharacter.h"
 #endif
 #define FPS_MasterCharacter_generated_h
 
-#define FID_FPS_Source_FPS_Character_MasterCharacter_h_12_SPARSE_DATA
-#define FID_FPS_Source_FPS_Character_MasterCharacter_h_12_RPC_WRAPPERS
-#define FID_FPS_Source_FPS_Character_MasterCharacter_h_12_RPC_WRAPPERS_NO_PURE_DECLS
-#define FID_FPS_Source_FPS_Character_MasterCharacter_h_12_INCLASS_NO_PURE_DECLS \
+#define FID_FPS_Source_FPS_Character_MasterCharacter_h_17_SPARSE_DATA
+#define FID_FPS_Source_FPS_Character_MasterCharacter_h_17_RPC_WRAPPERS \
+	virtual void ServerEquipButtonPressed_Implementation(); \
+	virtual void MulticastElim_Implementation(); \
+ \
+	DECLARE_FUNCTION(execReceivedDamage); \
+	DECLARE_FUNCTION(execUpdateDissolveMaterial); \
+	DECLARE_FUNCTION(execOnRep_Health); \
+	DECLARE_FUNCTION(execServerEquipButtonPressed); \
+	DECLARE_FUNCTION(execOnRep_OverlappingWeapon); \
+	DECLARE_FUNCTION(execMulticastElim);
+
+
+#define FID_FPS_Source_FPS_Character_MasterCharacter_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void ServerEquipButtonPressed_Implementation(); \
+	virtual void MulticastElim_Implementation(); \
+ \
+	DECLARE_FUNCTION(execReceivedDamage); \
+	DECLARE_FUNCTION(execUpdateDissolveMaterial); \
+	DECLARE_FUNCTION(execOnRep_Health); \
+	DECLARE_FUNCTION(execServerEquipButtonPressed); \
+	DECLARE_FUNCTION(execOnRep_OverlappingWeapon); \
+	DECLARE_FUNCTION(execMulticastElim);
+
+
+#define FID_FPS_Source_FPS_Character_MasterCharacter_h_17_EVENT_PARMS
+#define FID_FPS_Source_FPS_Character_MasterCharacter_h_17_CALLBACK_WRAPPERS
+#define FID_FPS_Source_FPS_Character_MasterCharacter_h_17_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMasterCharacter(); \
 	friend struct Z_Construct_UClass_AMasterCharacter_Statics; \
 public: \
 	DECLARE_CLASS(AMasterCharacter, ACharacter, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/FPS"), NO_API) \
-	DECLARE_SERIALIZER(AMasterCharacter)
+	DECLARE_SERIALIZER(AMasterCharacter) \
+	virtual UObject* _getUObject() const override { return const_cast<AMasterCharacter*>(this); } \
+	enum class ENetFields_Private : uint16 \
+	{ \
+		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
+		OverlappingWeapon=NETFIELD_REP_START, \
+		Health, \
+		NETFIELD_REP_END=Health	}; \
+	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
-#define FID_FPS_Source_FPS_Character_MasterCharacter_h_12_INCLASS \
+#define FID_FPS_Source_FPS_Character_MasterCharacter_h_17_INCLASS \
 private: \
 	static void StaticRegisterNativesAMasterCharacter(); \
 	friend struct Z_Construct_UClass_AMasterCharacter_Statics; \
 public: \
 	DECLARE_CLASS(AMasterCharacter, ACharacter, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/FPS"), NO_API) \
-	DECLARE_SERIALIZER(AMasterCharacter)
+	DECLARE_SERIALIZER(AMasterCharacter) \
+	virtual UObject* _getUObject() const override { return const_cast<AMasterCharacter*>(this); } \
+	enum class ENetFields_Private : uint16 \
+	{ \
+		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
+		OverlappingWeapon=NETFIELD_REP_START, \
+		Health, \
+		NETFIELD_REP_END=Health	}; \
+	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
-#define FID_FPS_Source_FPS_Character_MasterCharacter_h_12_STANDARD_CONSTRUCTORS \
+#define FID_FPS_Source_FPS_Character_MasterCharacter_h_17_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AMasterCharacter(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AMasterCharacter) \
@@ -47,7 +91,7 @@ private: \
 public:
 
 
-#define FID_FPS_Source_FPS_Character_MasterCharacter_h_12_ENHANCED_CONSTRUCTORS \
+#define FID_FPS_Source_FPS_Character_MasterCharacter_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AMasterCharacter(AMasterCharacter&&); \
@@ -58,25 +102,30 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AMasterCharacter)
 
 
-#define FID_FPS_Source_FPS_Character_MasterCharacter_h_9_PROLOG
-#define FID_FPS_Source_FPS_Character_MasterCharacter_h_12_GENERATED_BODY_LEGACY \
+#define FID_FPS_Source_FPS_Character_MasterCharacter_h_14_PROLOG \
+	FID_FPS_Source_FPS_Character_MasterCharacter_h_17_EVENT_PARMS
+
+
+#define FID_FPS_Source_FPS_Character_MasterCharacter_h_17_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_FPS_Source_FPS_Character_MasterCharacter_h_12_SPARSE_DATA \
-	FID_FPS_Source_FPS_Character_MasterCharacter_h_12_RPC_WRAPPERS \
-	FID_FPS_Source_FPS_Character_MasterCharacter_h_12_INCLASS \
-	FID_FPS_Source_FPS_Character_MasterCharacter_h_12_STANDARD_CONSTRUCTORS \
+	FID_FPS_Source_FPS_Character_MasterCharacter_h_17_SPARSE_DATA \
+	FID_FPS_Source_FPS_Character_MasterCharacter_h_17_RPC_WRAPPERS \
+	FID_FPS_Source_FPS_Character_MasterCharacter_h_17_CALLBACK_WRAPPERS \
+	FID_FPS_Source_FPS_Character_MasterCharacter_h_17_INCLASS \
+	FID_FPS_Source_FPS_Character_MasterCharacter_h_17_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define FID_FPS_Source_FPS_Character_MasterCharacter_h_12_GENERATED_BODY \
+#define FID_FPS_Source_FPS_Character_MasterCharacter_h_17_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_FPS_Source_FPS_Character_MasterCharacter_h_12_SPARSE_DATA \
-	FID_FPS_Source_FPS_Character_MasterCharacter_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_FPS_Source_FPS_Character_MasterCharacter_h_12_INCLASS_NO_PURE_DECLS \
-	FID_FPS_Source_FPS_Character_MasterCharacter_h_12_ENHANCED_CONSTRUCTORS \
+	FID_FPS_Source_FPS_Character_MasterCharacter_h_17_SPARSE_DATA \
+	FID_FPS_Source_FPS_Character_MasterCharacter_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_FPS_Source_FPS_Character_MasterCharacter_h_17_CALLBACK_WRAPPERS \
+	FID_FPS_Source_FPS_Character_MasterCharacter_h_17_INCLASS_NO_PURE_DECLS \
+	FID_FPS_Source_FPS_Character_MasterCharacter_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

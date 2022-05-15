@@ -13,7 +13,9 @@
             "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\serverstatreplicator.generated.h",
             "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\gamemodebase.generated.h",
             "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\gamemode.generated.h",
-            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\lobbygamemode.generated.h"
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\lobbygamemode.generated.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamestatebase.h",
+            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\gamestatebase.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

@@ -27,16 +27,16 @@ UCombatComponent::UCombatComponent()
 void UCombatComponent::BeginPlay()
 {
 	Super::BeginPlay();
-	if (Character)
+	if (MasterCharacter)
 	{
-		Character->GetCharacterMovement()->MaxWalkSpeed = BaseWalkSpeed;
+		MasterCharacter->GetCharacterMovement()->MaxWalkSpeed = BaseWalkSpeed;
 
-		if (Character->GetFollowCamera())
+		if (MasterCharacter->GetFollowCamera())
 		{
-			DefaultFOV = Character->GetFollowCamera()->FieldOfView;
+			DefaultFOV = MasterCharacter->GetFollowCamera()->FieldOfView;
 			CurrentFOV = DefaultFOV;
 		}
-		if (Character->HasAuthority())
+		if (MasterCharacter->HasAuthority())
 		{
 			InitializeCarriedAmmo();
 		}
@@ -57,7 +57,7 @@ void UCombatComponent::SetAiming(bool bIsAiming)
 void UCombatComponent::ServerSetAiming_Implementation(bool bIsAiming)
 {
 	bAiming = bIsAiming;
-	if (Character)
+	if (MasterCharacter)
 	{
 		MasterCharacter->GetCharacterMovement()->MaxWalkSpeed = bIsAiming ? AimWalkSpeed : BaseWalkSpeed;
 	}
@@ -65,11 +65,11 @@ void UCombatComponent::ServerSetAiming_Implementation(bool bIsAiming)
 
 void UCombatComponent::OnRep_EquippedWeapon()
 {
-	if (EquippedWeapon && Character)
+	if (EquippedWeapon && MasterCharacter)
 	{
 
 		EquippedWeapon->SetWeaponState(EWeaponState::EWS_Equipped);
-		const USkeletalMeshSocket* HandSocket = Character->GetMesh()->GetSocketByName(FName("WeaponSocket"));
+		const USkeletalMeshSocket* HandSocket = MasterCharacter->GetMesh()->GetSocketByName(FName("WeaponSocket"));
 		if (HandSocket)
 		{
 			HandSocket->AttachActor(EquippedWeapon, MasterCharacter->GetMesh());
@@ -195,12 +195,12 @@ void UCombatComponent::SetHUDCrosshairs(float DeltaTime)
 			// [0, 600] -> [0, 1]
 			FVector2D WalkSpeedRange(0.f, MasterCharacter->GetCharacterMovement()->MaxWalkSpeed);
 			FVector2D VelocityMultiplierRange(0.f, 1.f);
-			FVector Velocity = Character->GetVelocity();
+			FVector Velocity = MasterCharacter->GetVelocity();
 			Velocity.Z = 0.f;
 
 			CrosshairVelociyFactor = FMath::GetMappedRangeValueClamped(WalkSpeedRange, VelocityMultiplierRange, Velocity.Size());
 
-			if (Character->GetCharacterMovement()->IsFalling())
+			if (MasterCharacter->GetCharacterMovement()->IsFalling())
 			{
 				CrosshairInAirFactor = FMath::FInterpTo(CrosshairInAirFactor, 2.25f, DeltaTime, 2.25f);
 			}
@@ -375,12 +375,12 @@ void UCombatComponent::EquipWeapon(class AWeaponBase* WeaponToEquip)
 	}
 	EquippedWeapon = WeaponToEquip;
 	EquippedWeapon->SetWeaponState(EWeaponState::EWS_Equipped);
-	const USkeletalMeshSocket* HandSocket = Character->GetMesh()->GetSocketByName(FName("WeaponSocket"));
+	const USkeletalMeshSocket* HandSocket = MasterCharacter->GetMesh()->GetSocketByName(FName("WeaponSocket"));
 	if (HandSocket)
 	{
-		HandSocket->AttachActor(EquippedWeapon, Character->GetMesh());
+		HandSocket->AttachActor(EquippedWeapon, MasterCharacter->GetMesh());
 	}
-	EquippedWeapon->SetOwner(Character);
+	EquippedWeapon->SetOwner(MasterCharacter);
 	EquippedWeapon->SetHUDAmmo();
 	if (CarriedAmmoMap.Contains(EquippedWeapon->GetWeaponType()))
 	{
@@ -393,14 +393,14 @@ void UCombatComponent::EquipWeapon(class AWeaponBase* WeaponToEquip)
 	}
 	if (EquippedWeapon->EquipSound)
 	{
-		UGameplayStatics::PlaySoundAtLocation(this, EquippedWeapon->EquipSound, Character->GetActorLocation());
+		UGameplayStatics::PlaySoundAtLocation(this, EquippedWeapon->EquipSound, MasterCharacter->GetActorLocation());
 	}
 	if (EquippedWeapon->IsEmpty())
 	{
 		Reload();
 	}
-	Character->GetCharacterMovement()->bOrientRotationToMovement = false;
-	Character->bUseControllerRotationYaw = true;
+	MasterCharacter->GetCharacterMovement()->bOrientRotationToMovement = false;
+	MasterCharacter->bUseControllerRotationYaw = true;
 }
 
 void UCombatComponent::Reload()

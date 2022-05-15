@@ -13,5 +13,22 @@ UCLASS()
 class FPS_API AMasterPlayerState : public APlayerState
 {
 	GENERATED_BODY()
-	
+		
+public:
+	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+	virtual void OnRep_Score() override;
+	UFUNCTION()
+	virtual void OnRep_Deaths();
+	void AddToScore(float ScoreAmount);
+	void AddToDeaths(int32 Deaths);
+
+private:
+
+	UPROPERTY()
+	class AMasterCharacter* MasterCharacter;
+	UPROPERTY()
+	class AMasterPlayerController* MasterPlayerController;
+
+	UPROPERTY(ReplicatedUsing = OnRep_Deaths)
+	int32 NumDeaths;
 };

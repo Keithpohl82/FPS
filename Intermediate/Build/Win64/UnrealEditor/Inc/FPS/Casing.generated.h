@@ -8,14 +8,25 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class UPrimitiveComponent;
+class AActor;
+struct FHitResult;
 #ifdef FPS_Casing_generated_h
 #error "Casing.generated.h already included, missing '#pragma once' in Casing.h"
 #endif
 #define FPS_Casing_generated_h
 
 #define FID_FPS_Source_FPS_Weapons_Projectiles_Casing_h_12_SPARSE_DATA
-#define FID_FPS_Source_FPS_Weapons_Projectiles_Casing_h_12_RPC_WRAPPERS
-#define FID_FPS_Source_FPS_Weapons_Projectiles_Casing_h_12_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_FPS_Source_FPS_Weapons_Projectiles_Casing_h_12_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execOnHit);
+
+
+#define FID_FPS_Source_FPS_Weapons_Projectiles_Casing_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execOnHit);
+
+
 #define FID_FPS_Source_FPS_Weapons_Projectiles_Casing_h_12_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesACasing(); \

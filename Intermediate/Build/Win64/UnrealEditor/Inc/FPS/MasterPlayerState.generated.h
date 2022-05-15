@@ -14,15 +14,29 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FPS_MasterPlayerState_generated_h
 
 #define FID_FPS_Source_FPS_PlayerState_MasterPlayerState_h_15_SPARSE_DATA
-#define FID_FPS_Source_FPS_PlayerState_MasterPlayerState_h_15_RPC_WRAPPERS
-#define FID_FPS_Source_FPS_PlayerState_MasterPlayerState_h_15_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_FPS_Source_FPS_PlayerState_MasterPlayerState_h_15_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execOnRep_Deaths);
+
+
+#define FID_FPS_Source_FPS_PlayerState_MasterPlayerState_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execOnRep_Deaths);
+
+
 #define FID_FPS_Source_FPS_PlayerState_MasterPlayerState_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMasterPlayerState(); \
 	friend struct Z_Construct_UClass_AMasterPlayerState_Statics; \
 public: \
 	DECLARE_CLASS(AMasterPlayerState, APlayerState, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/FPS"), NO_API) \
-	DECLARE_SERIALIZER(AMasterPlayerState)
+	DECLARE_SERIALIZER(AMasterPlayerState) \
+	enum class ENetFields_Private : uint16 \
+	{ \
+		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
+		NumDeaths=NETFIELD_REP_START, \
+		NETFIELD_REP_END=NumDeaths	}; \
+	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
 #define FID_FPS_Source_FPS_PlayerState_MasterPlayerState_h_15_INCLASS \
@@ -31,7 +45,13 @@ private: \
 	friend struct Z_Construct_UClass_AMasterPlayerState_Statics; \
 public: \
 	DECLARE_CLASS(AMasterPlayerState, APlayerState, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/FPS"), NO_API) \
-	DECLARE_SERIALIZER(AMasterPlayerState)
+	DECLARE_SERIALIZER(AMasterPlayerState) \
+	enum class ENetFields_Private : uint16 \
+	{ \
+		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
+		NumDeaths=NETFIELD_REP_START, \
+		NETFIELD_REP_END=NumDeaths	}; \
+	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
 #define FID_FPS_Source_FPS_PlayerState_MasterPlayerState_h_15_STANDARD_CONSTRUCTORS \
