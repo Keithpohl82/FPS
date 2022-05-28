@@ -180,7 +180,6 @@ void AMasterCharacter::FireButtonReleased()
 	}
 }
 
-
 void AMasterCharacter::HideCameraIfCharacterClose()
 {
 	if (!IsLocallyControlled()) return;
@@ -382,7 +381,6 @@ void AMasterCharacter::Tick(float DeltaTime)
 	HideCameraIfCharacterClose();
 	PollInit();
 }
-
 
 void AMasterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
