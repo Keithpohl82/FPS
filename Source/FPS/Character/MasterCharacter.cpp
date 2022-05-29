@@ -62,7 +62,6 @@ AMasterCharacter::AMasterCharacter()
 	DissolveTimeline = CreateDefaultSubobject<UTimelineComponent>(TEXT("DissolveTimelineComponant"));
 }
 
-
 void AMasterCharacter::BeginPlay()
 {
 	Super::BeginPlay();
