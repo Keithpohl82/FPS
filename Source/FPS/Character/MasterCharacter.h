@@ -91,7 +91,7 @@ private:
 	class AMasterPlayerController* MasterPlayercontroller;
 	FTimerHandle RespawnTimer;
 	UPROPERTY(EditDefaultsOnly)
-	float RespawnTimeDelay = 3.f;
+	float RespawnTimeDelay = 2.f;
 	void RespawnTimerFinished();
 
 	/*
