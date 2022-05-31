@@ -176,7 +176,20 @@
             "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\dynamicpropertypath.generated.h",
             "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\widgetblueprintgeneratedclass.generated.h",
             "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\userwidget.generated.h",
-            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\playeroverlay.generated.h"
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\playeroverlay.generated.h",
+            "u:\\fps\\source\\fps\\ui\\announcement.h",
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\announcement.generated.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\kismet\\gameplaystatics.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\kismet\\kismetsystemlibrary.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\coreuobject\\public\\uobject\\propertyaccessutil.h",
+            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\kismetsystemlibrary.generated.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\sound\\dialoguetypes.h",
+            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\dialoguetypes.generated.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\kismet\\gameplaystaticstypes.h",
+            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\gameplaystaticstypes.generated.h",
+            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\gameplaystatics.generated.h",
+            "u:\\fps\\source\\fps\\gamemodes\\mastergamemode.h",
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\mastergamemode.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

@@ -23,6 +23,24 @@ void EmptyLinkFunctionForGeneratedCodeMasterPlayerController() {}
 		P_THIS->OnRep_MatchState();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(AMasterPlayerController::execClientJoinMidGame)
+	{
+		P_GET_PROPERTY(FNameProperty,Z_Param_StateOfMatch);
+		P_GET_PROPERTY(FFloatProperty,Z_Param_Warmup);
+		P_GET_PROPERTY(FFloatProperty,Z_Param_Match);
+		P_GET_PROPERTY(FFloatProperty,Z_Param_StartingTime);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ClientJoinMidGame_Implementation(Z_Param_StateOfMatch,Z_Param_Warmup,Z_Param_Match,Z_Param_StartingTime);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AMasterPlayerController::execServerCheckMatchState)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ServerCheckMatchState_Implementation();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AMasterPlayerController::execClientReportServerTime)
 	{
 		P_GET_PROPERTY(FFloatProperty,Z_Param_TimeOfClientRequest);
@@ -40,6 +58,16 @@ void EmptyLinkFunctionForGeneratedCodeMasterPlayerController() {}
 		P_THIS->ServerRequestServerTime_Implementation(Z_Param_TimeOfClientRequest);
 		P_NATIVE_END;
 	}
+	static FName NAME_AMasterPlayerController_ClientJoinMidGame = FName(TEXT("ClientJoinMidGame"));
+	void AMasterPlayerController::ClientJoinMidGame(FName StateOfMatch, float Warmup, float Match, float StartingTime)
+	{
+		MasterPlayerController_eventClientJoinMidGame_Parms Parms;
+		Parms.StateOfMatch=StateOfMatch;
+		Parms.Warmup=Warmup;
+		Parms.Match=Match;
+		Parms.StartingTime=StartingTime;
+		ProcessEvent(FindFunctionChecked(NAME_AMasterPlayerController_ClientJoinMidGame),&Parms);
+	}
 	static FName NAME_AMasterPlayerController_ClientReportServerTime = FName(TEXT("ClientReportServerTime"));
 	void AMasterPlayerController::ClientReportServerTime(float TimeOfClientRequest, float TimeServerReceivedClientRequest)
 	{
@@ -47,6 +75,11 @@ void EmptyLinkFunctionForGeneratedCodeMasterPlayerController() {}
 		Parms.TimeOfClientRequest=TimeOfClientRequest;
 		Parms.TimeServerReceivedClientRequest=TimeServerReceivedClientRequest;
 		ProcessEvent(FindFunctionChecked(NAME_AMasterPlayerController_ClientReportServerTime),&Parms);
+	}
+	static FName NAME_AMasterPlayerController_ServerCheckMatchState = FName(TEXT("ServerCheckMatchState"));
+	void AMasterPlayerController::ServerCheckMatchState()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_AMasterPlayerController_ServerCheckMatchState),NULL);
 	}
 	static FName NAME_AMasterPlayerController_ServerRequestServerTime = FName(TEXT("ServerRequestServerTime"));
 	void AMasterPlayerController::ServerRequestServerTime(float TimeOfClientRequest)
@@ -59,11 +92,50 @@ void EmptyLinkFunctionForGeneratedCodeMasterPlayerController() {}
 	{
 		UClass* Class = AMasterPlayerController::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "ClientJoinMidGame", &AMasterPlayerController::execClientJoinMidGame },
 			{ "ClientReportServerTime", &AMasterPlayerController::execClientReportServerTime },
 			{ "OnRep_MatchState", &AMasterPlayerController::execOnRep_MatchState },
+			{ "ServerCheckMatchState", &AMasterPlayerController::execServerCheckMatchState },
 			{ "ServerRequestServerTime", &AMasterPlayerController::execServerRequestServerTime },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_AMasterPlayerController_ClientJoinMidGame_Statics
+	{
+		static const UECodeGen_Private::FNamePropertyParams NewProp_StateOfMatch;
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_Warmup;
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_Match;
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_StartingTime;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FNamePropertyParams Z_Construct_UFunction_AMasterPlayerController_ClientJoinMidGame_Statics::NewProp_StateOfMatch = { "StateOfMatch", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(MasterPlayerController_eventClientJoinMidGame_Parms, StateOfMatch), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AMasterPlayerController_ClientJoinMidGame_Statics::NewProp_Warmup = { "Warmup", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(MasterPlayerController_eventClientJoinMidGame_Parms, Warmup), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AMasterPlayerController_ClientJoinMidGame_Statics::NewProp_Match = { "Match", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(MasterPlayerController_eventClientJoinMidGame_Parms, Match), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AMasterPlayerController_ClientJoinMidGame_Statics::NewProp_StartingTime = { "StartingTime", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(MasterPlayerController_eventClientJoinMidGame_Parms, StartingTime), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMasterPlayerController_ClientJoinMidGame_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMasterPlayerController_ClientJoinMidGame_Statics::NewProp_StateOfMatch,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMasterPlayerController_ClientJoinMidGame_Statics::NewProp_Warmup,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMasterPlayerController_ClientJoinMidGame_Statics::NewProp_Match,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMasterPlayerController_ClientJoinMidGame_Statics::NewProp_StartingTime,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMasterPlayerController_ClientJoinMidGame_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "PlayerController/MasterPlayerController.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMasterPlayerController_ClientJoinMidGame_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMasterPlayerController, nullptr, "ClientJoinMidGame", nullptr, nullptr, sizeof(MasterPlayerController_eventClientJoinMidGame_Parms), Z_Construct_UFunction_AMasterPlayerController_ClientJoinMidGame_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMasterPlayerController_ClientJoinMidGame_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x01080CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMasterPlayerController_ClientJoinMidGame_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AMasterPlayerController_ClientJoinMidGame_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AMasterPlayerController_ClientJoinMidGame()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMasterPlayerController_ClientJoinMidGame_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_AMasterPlayerController_ClientReportServerTime_Statics
 	{
@@ -118,6 +190,28 @@ void EmptyLinkFunctionForGeneratedCodeMasterPlayerController() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AMasterPlayerController_ServerCheckMatchState_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMasterPlayerController_ServerCheckMatchState_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "PlayerController/MasterPlayerController.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMasterPlayerController_ServerCheckMatchState_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMasterPlayerController, nullptr, "ServerCheckMatchState", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00280CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMasterPlayerController_ServerCheckMatchState_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AMasterPlayerController_ServerCheckMatchState_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AMasterPlayerController_ServerCheckMatchState()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMasterPlayerController_ServerCheckMatchState_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_AMasterPlayerController_ServerRequestServerTime_Statics
 	{
 		static const UECodeGen_Private::FFloatPropertyParams NewProp_TimeOfClientRequest;
@@ -169,10 +263,6 @@ void EmptyLinkFunctionForGeneratedCodeMasterPlayerController() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_HUD;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_MatchTime_MetaData[];
-#endif
-		static const UECodeGen_Private::FFloatPropertyParams NewProp_MatchTime;
-#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_MatchState_MetaData[];
 #endif
 		static const UECodeGen_Private::FNamePropertyParams NewProp_MatchState;
@@ -189,8 +279,10 @@ void EmptyLinkFunctionForGeneratedCodeMasterPlayerController() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_FPS,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AMasterPlayerController_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_AMasterPlayerController_ClientJoinMidGame, "ClientJoinMidGame" }, // 3610744005
 		{ &Z_Construct_UFunction_AMasterPlayerController_ClientReportServerTime, "ClientReportServerTime" }, // 189248043
 		{ &Z_Construct_UFunction_AMasterPlayerController_OnRep_MatchState, "OnRep_MatchState" }, // 2393187143
+		{ &Z_Construct_UFunction_AMasterPlayerController_ServerCheckMatchState, "ServerCheckMatchState" }, // 2435528204
 		{ &Z_Construct_UFunction_AMasterPlayerController_ServerRequestServerTime, "ServerRequestServerTime" }, // 1427345142
 	};
 #if WITH_METADATA
@@ -215,13 +307,6 @@ void EmptyLinkFunctionForGeneratedCodeMasterPlayerController() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_HUD = { "HUD", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterPlayerController, HUD), Z_Construct_UClass_APlayerHUD_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_HUD_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_HUD_MetaData)) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_MatchTime_MetaData[] = {
-		{ "Category", "MasterPlayerController" },
-		{ "ModuleRelativePath", "PlayerController/MasterPlayerController.h" },
-	};
-#endif
-	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_MatchTime = { "MatchTime", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterPlayerController, MatchTime), METADATA_PARAMS(Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_MatchTime_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_MatchTime_MetaData)) };
-#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_MatchState_MetaData[] = {
 		{ "ModuleRelativePath", "PlayerController/MasterPlayerController.h" },
 	};
@@ -237,7 +322,6 @@ void EmptyLinkFunctionForGeneratedCodeMasterPlayerController() {}
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AMasterPlayerController_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_TimeSyncFrequency,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_HUD,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_MatchTime,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_MatchState,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_PlayerOverlay,
 	};
@@ -287,9 +371,9 @@ void EmptyLinkFunctionForGeneratedCodeMasterPlayerController() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_PlayerController_MasterPlayerController_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMasterPlayerController, AMasterPlayerController::StaticClass, TEXT("AMasterPlayerController"), &Z_Registration_Info_UClass_AMasterPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMasterPlayerController), 3164132058U) },
+		{ Z_Construct_UClass_AMasterPlayerController, AMasterPlayerController::StaticClass, TEXT("AMasterPlayerController"), &Z_Registration_Info_UClass_AMasterPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMasterPlayerController), 4068041340U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_PlayerController_MasterPlayerController_h_3554739106(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_PlayerController_MasterPlayerController_h_2898910961(TEXT("/Script/FPS"),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_PlayerController_MasterPlayerController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_PlayerController_MasterPlayerController_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

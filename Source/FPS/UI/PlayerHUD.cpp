@@ -3,6 +3,7 @@
 
 #include "PlayerHUD.h"
 #include "PlayerOverlay.h"
+#include "Announcement.h"
 #include "Blueprint/UserWidget.h"
 #include "GameFramework/PlayerController.h"
 
@@ -43,6 +44,16 @@ void APlayerHUD::DrawHUD()
 			FVector2D Spread(0.f, SpreadScaled);
 			DrawCrosshair(HUDPackage.CrosshairsBottom, ViewportCenter, Spread, HUDPackage.CrosshairColor);
 		}
+	}
+}
+
+void APlayerHUD::AddAnnouncement()
+{
+	APlayerController* PlayerController = GetOwningPlayerController();
+	if (PlayerController && AnnouncementClass)
+	{
+		Announcement = CreateWidget<UAnnouncement>(PlayerController, AnnouncementClass);
+		Announcement->AddToViewport();
 	}
 }
 

@@ -17,6 +17,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerHUD() {}
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	UMG_API UClass* Z_Construct_UClass_UUserWidget_NoRegister();
 	FPS_API UClass* Z_Construct_UClass_UPlayerOverlay_NoRegister();
+	FPS_API UClass* Z_Construct_UClass_UAnnouncement_NoRegister();
 // End Cross Module References
 	static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_HUDPackage;
 class UScriptStruct* FHUDPackage::StaticStruct()
@@ -93,6 +94,14 @@ template<> FPS_API UScriptStruct* StaticStruct<FHUDPackage>()
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_PlayerOverlay;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_AnnouncementClass_MetaData[];
+#endif
+		static const UECodeGen_Private::FClassPropertyParams NewProp_AnnouncementClass;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_Announcement_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_Announcement;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_CrosshairSpreadMax_MetaData[];
 #endif
 		static const UECodeGen_Private::FFloatPropertyParams NewProp_CrosshairSpreadMax;
@@ -128,6 +137,20 @@ template<> FPS_API UScriptStruct* StaticStruct<FHUDPackage>()
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APlayerHUD_Statics::NewProp_PlayerOverlay = { "PlayerOverlay", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APlayerHUD, PlayerOverlay), Z_Construct_UClass_UPlayerOverlay_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APlayerHUD_Statics::NewProp_PlayerOverlay_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayerHUD_Statics::NewProp_PlayerOverlay_MetaData)) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerHUD_Statics::NewProp_AnnouncementClass_MetaData[] = {
+		{ "Category", "Announcements" },
+		{ "ModuleRelativePath", "UI/PlayerHUD.h" },
+	};
+#endif
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_APlayerHUD_Statics::NewProp_AnnouncementClass = { "AnnouncementClass", nullptr, (EPropertyFlags)0x0014000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APlayerHUD, AnnouncementClass), Z_Construct_UClass_UUserWidget_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_APlayerHUD_Statics::NewProp_AnnouncementClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayerHUD_Statics::NewProp_AnnouncementClass_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerHUD_Statics::NewProp_Announcement_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/PlayerHUD.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APlayerHUD_Statics::NewProp_Announcement = { "Announcement", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APlayerHUD, Announcement), Z_Construct_UClass_UAnnouncement_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APlayerHUD_Statics::NewProp_Announcement_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayerHUD_Statics::NewProp_Announcement_MetaData)) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerHUD_Statics::NewProp_CrosshairSpreadMax_MetaData[] = {
 		{ "Category", "PlayerHUD" },
 		{ "ModuleRelativePath", "UI/PlayerHUD.h" },
@@ -137,6 +160,8 @@ template<> FPS_API UScriptStruct* StaticStruct<FHUDPackage>()
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_APlayerHUD_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerHUD_Statics::NewProp_PlayerOverlayClass,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerHUD_Statics::NewProp_PlayerOverlay,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerHUD_Statics::NewProp_AnnouncementClass,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerHUD_Statics::NewProp_Announcement,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerHUD_Statics::NewProp_CrosshairSpreadMax,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_APlayerHUD_Statics::StaticCppClassTypeInfo = {
@@ -179,9 +204,9 @@ template<> FPS_API UScriptStruct* StaticStruct<FHUDPackage>()
 		{ FHUDPackage::StaticStruct, Z_Construct_UScriptStruct_FHUDPackage_Statics::NewStructOps, TEXT("HUDPackage"), &Z_Registration_Info_UScriptStruct_HUDPackage, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FHUDPackage), 1559767089U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_UI_PlayerHUD_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_APlayerHUD, APlayerHUD::StaticClass, TEXT("APlayerHUD"), &Z_Registration_Info_UClass_APlayerHUD, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APlayerHUD), 1545127642U) },
+		{ Z_Construct_UClass_APlayerHUD, APlayerHUD::StaticClass, TEXT("APlayerHUD"), &Z_Registration_Info_UClass_APlayerHUD, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APlayerHUD), 2589529177U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_UI_PlayerHUD_h_973059723(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_UI_PlayerHUD_h_1760518525(TEXT("/Script/FPS"),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_UI_PlayerHUD_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_UI_PlayerHUD_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_UI_PlayerHUD_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_UI_PlayerHUD_h_Statics::ScriptStructInfo),
 		nullptr, 0);

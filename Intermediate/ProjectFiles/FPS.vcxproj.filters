@@ -184,6 +184,12 @@
     <Filter Include="Source\FPS\UI">
       <UniqueIdentifier>{8F67E7DE-684D-3FF4-8A08-8FF519888906}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\FPS\UI\Announcement.cpp">
+      <Filter>Source\FPS\UI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\UI\Announcement.h">
+      <Filter>Source\FPS\UI</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\FPS\UI\PlayerHUD.cpp">
       <Filter>Source\FPS\UI</Filter>
     </ClCompile>
