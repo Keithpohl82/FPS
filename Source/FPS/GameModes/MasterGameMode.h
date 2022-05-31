@@ -6,6 +6,12 @@
 #include "GameFramework/GameMode.h"
 #include "MasterGameMode.generated.h"
 
+
+namespace MatchState
+{
+	extern FPS_API const FName Cooldown; // Match Ended. Display winner. Begin cooldown timer.
+}
+
 /**
  * 
  */
@@ -28,6 +34,9 @@ public:
 	UPROPERTY(EditDefaultsOnly)
 	float MatchTime = 120.f;
 
+	UPROPERTY(EditDefaultsOnly)
+	float CooldownTime = 10.f;
+
 	float LevelStartingTime = 0.f;
 
 protected:
@@ -38,4 +47,9 @@ protected:
 private:
 
 	float CountdownTime = 0.f;
+
+
+public:
+
+	FORCEINLINE float GetCountdownTime() const { return CountdownTime; }
 };

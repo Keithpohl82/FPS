@@ -15,7 +15,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 #define FID_FPS_Source_FPS_PlayerController_MasterPlayerController_h_15_SPARSE_DATA
 #define FID_FPS_Source_FPS_PlayerController_MasterPlayerController_h_15_RPC_WRAPPERS \
-	virtual void ClientJoinMidGame_Implementation(FName StateOfMatch, float Warmup, float Match, float StartingTime); \
+	virtual void ClientJoinMidGame_Implementation(FName StateOfMatch, float Warmup, float Match, float StartingTime, float Cooldown); \
 	virtual void ServerCheckMatchState_Implementation(); \
 	virtual void ClientReportServerTime_Implementation(float TimeOfClientRequest, float TimeServerReceivedClientRequest); \
 	virtual void ServerRequestServerTime_Implementation(float TimeOfClientRequest); \
@@ -28,7 +28,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 
 #define FID_FPS_Source_FPS_PlayerController_MasterPlayerController_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
-	virtual void ClientJoinMidGame_Implementation(FName StateOfMatch, float Warmup, float Match, float StartingTime); \
+	virtual void ClientJoinMidGame_Implementation(FName StateOfMatch, float Warmup, float Match, float StartingTime, float Cooldown); \
 	virtual void ServerCheckMatchState_Implementation(); \
 	virtual void ClientReportServerTime_Implementation(float TimeOfClientRequest, float TimeServerReceivedClientRequest); \
 	virtual void ServerRequestServerTime_Implementation(float TimeOfClientRequest); \
@@ -47,6 +47,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 		float Warmup; \
 		float Match; \
 		float StartingTime; \
+		float Cooldown; \
 	}; \
 	struct MasterPlayerController_eventClientReportServerTime_Parms \
 	{ \

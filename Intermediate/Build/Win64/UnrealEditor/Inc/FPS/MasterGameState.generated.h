@@ -22,7 +22,13 @@ private: \
 	friend struct Z_Construct_UClass_AMasterGameState_Statics; \
 public: \
 	DECLARE_CLASS(AMasterGameState, AGameState, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/FPS"), NO_API) \
-	DECLARE_SERIALIZER(AMasterGameState)
+	DECLARE_SERIALIZER(AMasterGameState) \
+	enum class ENetFields_Private : uint16 \
+	{ \
+		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
+		TopScoringPlayers=NETFIELD_REP_START, \
+		NETFIELD_REP_END=TopScoringPlayers	}; \
+	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
 #define FID_FPS_Source_FPS_GameState_MasterGameState_h_15_INCLASS \
@@ -31,7 +37,13 @@ private: \
 	friend struct Z_Construct_UClass_AMasterGameState_Statics; \
 public: \
 	DECLARE_CLASS(AMasterGameState, AGameState, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/FPS"), NO_API) \
-	DECLARE_SERIALIZER(AMasterGameState)
+	DECLARE_SERIALIZER(AMasterGameState) \
+	enum class ENetFields_Private : uint16 \
+	{ \
+		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
+		TopScoringPlayers=NETFIELD_REP_START, \
+		NETFIELD_REP_END=TopScoringPlayers	}; \
+	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
 #define FID_FPS_Source_FPS_GameState_MasterGameState_h_15_STANDARD_CONSTRUCTORS \

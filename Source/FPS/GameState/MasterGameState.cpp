@@ -2,4 +2,31 @@
 
 
 #include "MasterGameState.h"
+#include "Net/UnrealNetwork.h"
+#include "FPS/PlayerState/MasterPlayerState.h"
 
+void AMasterGameState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	DOREPLIFETIME(AMasterGameState, TopScoringPlayers);
+}
+
+void AMasterGameState::UpdateTopScore(class AMasterPlayerState* ScoringPlayer)
+{
+	if (TopScoringPlayers.Num() == 0)
+	{
+		TopScoringPlayers.Add(ScoringPlayer);
+		TopScore = ScoringPlayer->GetScore();
+	}
+	else if (ScoringPlayer->GetScore() == TopScore)
+	{
+		TopScoringPlayers.AddUnique(ScoringPlayer);
+	}
+	else if (ScoringPlayer->GetScore() > TopScore)
+	{
+		TopScoringPlayers.Empty();
+		TopScoringPlayers.AddUnique(ScoringPlayer);
+		TopScore = ScoringPlayer->GetScore();
+	}
+}

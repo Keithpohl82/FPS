@@ -74,6 +74,8 @@ void AMasterCharacter::BeginPlay()
 
 void AMasterCharacter::MoveForward(float Value)
 {
+	if (bDisableGameplay) return;
+
 	if (Controller != nullptr && Value != 0.f)
 	{
 		const FRotator YawRotation(0.f, Controller->GetControlRotation().Yaw, 0.f);
@@ -84,6 +86,8 @@ void AMasterCharacter::MoveForward(float Value)
 
 void AMasterCharacter::MoveRight(float Value)
 {
+	if (bDisableGameplay) return;
+
 	if (Controller != nullptr && Value != 0.f)
 	{
 		const FRotator YawRotation(0.f, Controller->GetControlRotation().Yaw, 0.f);
@@ -104,6 +108,8 @@ void AMasterCharacter::Turn(float Value)
 
 void AMasterCharacter::EquipButtonPressed()
 {
+	if (bDisableGameplay) return;
+
 	if (Combat)
 	{
 		if (HasAuthority())
@@ -119,16 +125,22 @@ void AMasterCharacter::EquipButtonPressed()
 
 void AMasterCharacter::CrouchButtonPressed()
 {
+	if (bDisableGameplay) return;
+
 	Crouch();
 }
 
 void AMasterCharacter::CrouchButtonReleased()
 {
+	if (bDisableGameplay) return;
+
 	UnCrouch();
 }
 
 void AMasterCharacter::AimButtonPressed()
 {
+	if (bDisableGameplay) return;
+
 	if (Combat)
 	{
 		Combat->SetAiming(true);
@@ -137,6 +149,8 @@ void AMasterCharacter::AimButtonPressed()
 
 void AMasterCharacter::AimButtonReleased()
 {
+	if (bDisableGameplay) return;
+
 	if (Combat)
 	{
 		Combat->SetAiming(false);
@@ -145,6 +159,8 @@ void AMasterCharacter::AimButtonReleased()
 
 void AMasterCharacter::ReloadWeapon()
 {
+	if (bDisableGameplay) return;
+
 	if (Combat)
 	{
 		Combat->Reload();
@@ -153,6 +169,8 @@ void AMasterCharacter::ReloadWeapon()
 
 void AMasterCharacter::Jump()
 {
+	if (bDisableGameplay) return;
+
 	if (bIsCrouched)
 	{
 		UnCrouch();
@@ -165,6 +183,8 @@ void AMasterCharacter::Jump()
 
 void AMasterCharacter::FireButtonPressed()
 {
+	if (bDisableGameplay) return;
+
 	if (Combat)
 	{
 		Combat->FireButtonPressed(true);
@@ -173,9 +193,35 @@ void AMasterCharacter::FireButtonPressed()
 
 void AMasterCharacter::FireButtonReleased()
 {
+	if (bDisableGameplay) return;
+
 	if (Combat)
 	{
 		Combat->FireButtonPressed(false);
+	}
+}
+
+void AMasterCharacter::RotateInPlace(float DeltaTime)
+{
+	if (bDisableGameplay)
+	{
+		bUseControllerRotationYaw = false;
+		TurningInPlace = ETurningInPlace::ETIP_NotTurning;
+		return;
+	}
+
+	if (GetLocalRole() > ENetRole::ROLE_SimulatedProxy && IsLocallyControlled())
+	{
+		AimOffset(DeltaTime);
+	}
+	else
+	{
+		TimeSinceLastMovementReplication += DeltaTime;
+		if (TimeSinceLastMovementReplication > 0.25f)
+		{
+			OnRep_ReplicatedMovement();
+		}
+		CalculateAO_Pitch();
 	}
 }
 
@@ -363,20 +409,7 @@ ECombatState AMasterCharacter::GetCombatState() const
 void AMasterCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	if (GetLocalRole() > ENetRole::ROLE_SimulatedProxy && IsLocallyControlled())
-	{
-		AimOffset(DeltaTime);
-	}
-	else
-	{
-		TimeSinceLastMovementReplication += DeltaTime;
-		if (TimeSinceLastMovementReplication > 0.25f)
-		{
-			OnRep_ReplicatedMovement();
-		}
-		CalculateAO_Pitch();
-	}
-
+	RotateInPlace(DeltaTime);
 	HideCameraIfCharacterClose();
 	PollInit();
 }
@@ -404,7 +437,9 @@ void AMasterCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 	DOREPLIFETIME_CONDITION(AMasterCharacter, OverlappingWeapon, COND_OwnerOnly);
-	DOREPLIFETIME(AMasterCharacter, Health)
+	DOREPLIFETIME(AMasterCharacter, Health);
+	DOREPLIFETIME(AMasterCharacter, bDisableGameplay)
+
 }
 
 void AMasterCharacter::PostInitializeComponents()
@@ -431,6 +466,14 @@ void AMasterCharacter::Destroyed()
 	if (ElimBotComponent)
 	{
 		ElimBotComponent->DestroyComponent();
+	}
+
+	AMasterGameMode* MasterGameMode = Cast<AMasterGameMode>(UGameplayStatics::GetGameMode(this));
+	bool bMatchNotInProgress = MasterGameMode && MasterGameMode->GetMatchState() != MatchState::InProgress;
+
+	if (Combat && Combat->EquippedWeapon && bMatchNotInProgress)
+	{
+		Combat->EquippedWeapon->Destroy();
 	}
 }
 
@@ -518,12 +561,13 @@ void AMasterCharacter::MulticastElim_Implementation()
 	StartDissolve();
 
 	// Disables Character Movement.
-	GetCharacterMovement()->DisableMovement();
-	GetCharacterMovement()->StopMovementImmediately();
-	if (MasterPlayercontroller)
+	bDisableGameplay = true;
+	if (Combat)
 	{
-		DisableInput(MasterPlayercontroller);
+		Combat->FireButtonPressed(false);
 	}
+
+	
 	// Disable Collision
 	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	GetMesh()->SetCollisionEnabled(ECollisionEnabled::NoCollision);

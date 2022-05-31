@@ -13,10 +13,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define FPS_MasterGameMode_generated_h
 
-#define FID_FPS_Source_FPS_GameModes_MasterGameMode_h_15_SPARSE_DATA
-#define FID_FPS_Source_FPS_GameModes_MasterGameMode_h_15_RPC_WRAPPERS
-#define FID_FPS_Source_FPS_GameModes_MasterGameMode_h_15_RPC_WRAPPERS_NO_PURE_DECLS
-#define FID_FPS_Source_FPS_GameModes_MasterGameMode_h_15_INCLASS_NO_PURE_DECLS \
+#define FID_FPS_Source_FPS_GameModes_MasterGameMode_h_21_SPARSE_DATA
+#define FID_FPS_Source_FPS_GameModes_MasterGameMode_h_21_RPC_WRAPPERS
+#define FID_FPS_Source_FPS_GameModes_MasterGameMode_h_21_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_FPS_Source_FPS_GameModes_MasterGameMode_h_21_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMasterGameMode(); \
 	friend struct Z_Construct_UClass_AMasterGameMode_Statics; \
@@ -25,7 +25,7 @@ public: \
 	DECLARE_SERIALIZER(AMasterGameMode)
 
 
-#define FID_FPS_Source_FPS_GameModes_MasterGameMode_h_15_INCLASS \
+#define FID_FPS_Source_FPS_GameModes_MasterGameMode_h_21_INCLASS \
 private: \
 	static void StaticRegisterNativesAMasterGameMode(); \
 	friend struct Z_Construct_UClass_AMasterGameMode_Statics; \
@@ -34,7 +34,7 @@ public: \
 	DECLARE_SERIALIZER(AMasterGameMode)
 
 
-#define FID_FPS_Source_FPS_GameModes_MasterGameMode_h_15_STANDARD_CONSTRUCTORS \
+#define FID_FPS_Source_FPS_GameModes_MasterGameMode_h_21_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AMasterGameMode(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AMasterGameMode) \
@@ -47,7 +47,7 @@ private: \
 public:
 
 
-#define FID_FPS_Source_FPS_GameModes_MasterGameMode_h_15_ENHANCED_CONSTRUCTORS \
+#define FID_FPS_Source_FPS_GameModes_MasterGameMode_h_21_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AMasterGameMode(AMasterGameMode&&); \
@@ -58,25 +58,25 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AMasterGameMode)
 
 
-#define FID_FPS_Source_FPS_GameModes_MasterGameMode_h_12_PROLOG
-#define FID_FPS_Source_FPS_GameModes_MasterGameMode_h_15_GENERATED_BODY_LEGACY \
+#define FID_FPS_Source_FPS_GameModes_MasterGameMode_h_18_PROLOG
+#define FID_FPS_Source_FPS_GameModes_MasterGameMode_h_21_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_FPS_Source_FPS_GameModes_MasterGameMode_h_15_SPARSE_DATA \
-	FID_FPS_Source_FPS_GameModes_MasterGameMode_h_15_RPC_WRAPPERS \
-	FID_FPS_Source_FPS_GameModes_MasterGameMode_h_15_INCLASS \
-	FID_FPS_Source_FPS_GameModes_MasterGameMode_h_15_STANDARD_CONSTRUCTORS \
+	FID_FPS_Source_FPS_GameModes_MasterGameMode_h_21_SPARSE_DATA \
+	FID_FPS_Source_FPS_GameModes_MasterGameMode_h_21_RPC_WRAPPERS \
+	FID_FPS_Source_FPS_GameModes_MasterGameMode_h_21_INCLASS \
+	FID_FPS_Source_FPS_GameModes_MasterGameMode_h_21_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define FID_FPS_Source_FPS_GameModes_MasterGameMode_h_15_GENERATED_BODY \
+#define FID_FPS_Source_FPS_GameModes_MasterGameMode_h_21_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_FPS_Source_FPS_GameModes_MasterGameMode_h_15_SPARSE_DATA \
-	FID_FPS_Source_FPS_GameModes_MasterGameMode_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_FPS_Source_FPS_GameModes_MasterGameMode_h_15_INCLASS_NO_PURE_DECLS \
-	FID_FPS_Source_FPS_GameModes_MasterGameMode_h_15_ENHANCED_CONSTRUCTORS \
+	FID_FPS_Source_FPS_GameModes_MasterGameMode_h_21_SPARSE_DATA \
+	FID_FPS_Source_FPS_GameModes_MasterGameMode_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_FPS_Source_FPS_GameModes_MasterGameMode_h_21_INCLASS_NO_PURE_DECLS \
+	FID_FPS_Source_FPS_GameModes_MasterGameMode_h_21_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

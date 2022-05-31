@@ -7,7 +7,12 @@
 #include "FPS/Character/MasterCharacter.h"
 #include "FPS/PlayerController/MasterPlayerController.h"
 #include "FPS/PlayerState/MasterPlayerState.h"
+#include "FPS/GameState/MasterGameState.h"
 
+namespace MatchState
+{
+	const FName Cooldown = FName("Cooldown");
+}
 
 
 AMasterGameMode::AMasterGameMode()
@@ -27,16 +32,38 @@ void AMasterGameMode::Tick(float DeltaSeconds)
 			StartMatch();
 		}
 	}
+	else if (MatchState == MatchState::InProgress)
+	{
+		CountdownTime = WarmupTime + MatchTime - GetWorld()->GetTimeSeconds() + LevelStartingTime;
+		if (CountdownTime <= 0.f)
+		{
+			SetMatchState(MatchState::Cooldown);
+		}
+	}
+	else if (MatchState == MatchState::Cooldown)
+	{
+		CountdownTime = CountdownTime + WarmupTime + MatchTime - GetWorld()->GetTimeSeconds() + LevelStartingTime;
+		if (CountdownTime <= 0.f)
+		{
+			RestartGame();
+		}
+	}
 }
 
 void AMasterGameMode::PlayerEliminated(class AMasterCharacter* ElimmedCharacter, class AMasterPlayerController* VictimController, AMasterPlayerController* KillerController)
 {
+	if (KillerController == nullptr || KillerController->PlayerState == nullptr) return;
+	if (VictimController == nullptr || VictimController->PlayerState == nullptr) return;
+	
 	AMasterPlayerState* KillerPlayerState = KillerController ? Cast<AMasterPlayerState>(KillerController->PlayerState) : nullptr;
 	AMasterPlayerState* VictimPlayerState = VictimController ? Cast<AMasterPlayerState>(VictimController->PlayerState) : nullptr;
 
-	if (KillerPlayerState && KillerPlayerState != VictimPlayerState)
+	AMasterGameState* MasterGameState = GetGameState<AMasterGameState>();
+
+	if (KillerPlayerState && KillerPlayerState != VictimPlayerState && MasterGameState)
 	{
 		KillerPlayerState->AddToScore(1.f);
+		MasterGameState->UpdateTopScore(KillerPlayerState);
 	}
 	if (VictimPlayerState)
 	{
