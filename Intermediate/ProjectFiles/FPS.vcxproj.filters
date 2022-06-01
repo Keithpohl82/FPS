@@ -241,5 +241,11 @@
     <ClInclude Include="..\..\Source\FPS\Weapons\Projectiles\ProjectileBullet.h">
       <Filter>Source\FPS\Weapons\Projectiles</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\FPS\Weapons\Projectiles\ProjectileRocket.cpp">
+      <Filter>Source\FPS\Weapons\Projectiles</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\Weapons\Projectiles\ProjectileRocket.h">
+      <Filter>Source\FPS\Weapons\Projectiles</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

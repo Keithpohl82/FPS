@@ -35,6 +35,7 @@ void EmptyLinkFunctionForGeneratedCodeWeaponTypes() {}
 	};
 	const UECodeGen_Private::FEnumeratorParam Z_Construct_UEnum_FPS_EWeaponType_Statics::Enumerators[] = {
 		{ "EWeaponType::EWT_AssaultRifle", (int64)EWeaponType::EWT_AssaultRifle },
+		{ "EWeaponType::EWT_RocketLauncher", (int64)EWeaponType::EWT_RocketLauncher },
 		{ "EWeaponType::EWT_MAX", (int64)EWeaponType::EWT_MAX },
 	};
 #if WITH_METADATA
@@ -44,6 +45,8 @@ void EmptyLinkFunctionForGeneratedCodeWeaponTypes() {}
 		{ "EWT_AssaultRifle.Name", "EWeaponType::EWT_AssaultRifle" },
 		{ "EWT_MAX.DisplayName", "DefaultMAX" },
 		{ "EWT_MAX.Name", "EWeaponType::EWT_MAX" },
+		{ "EWT_RocketLauncher.DisplayName", "Rocket Launcher" },
+		{ "EWT_RocketLauncher.Name", "EWeaponType::EWT_RocketLauncher" },
 		{ "ModuleRelativePath", "Weapons/WeaponTypes.h" },
 	};
 #endif
@@ -72,9 +75,9 @@ void EmptyLinkFunctionForGeneratedCodeWeaponTypes() {}
 		static const FEnumRegisterCompiledInInfo EnumInfo[];
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_WeaponTypes_h_Statics::EnumInfo[] = {
-		{ EWeaponType_StaticEnum, TEXT("EWeaponType"), &Z_Registration_Info_UEnum_EWeaponType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1923125087U) },
+		{ EWeaponType_StaticEnum, TEXT("EWeaponType"), &Z_Registration_Info_UEnum_EWeaponType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 4103642430U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_WeaponTypes_h_1070299980(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_WeaponTypes_h_2808818496(TEXT("/Script/FPS"),
 		nullptr, 0,
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_WeaponTypes_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_WeaponTypes_h_Statics::EnumInfo));

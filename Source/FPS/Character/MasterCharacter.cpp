@@ -562,6 +562,7 @@ void AMasterCharacter::MulticastElim_Implementation()
 
 	// Disables Character Movement.
 	bDisableGameplay = true;
+	GetCharacterMovement()->DisableMovement();
 	if (Combat)
 	{
 		Combat->FireButtonPressed(false);
