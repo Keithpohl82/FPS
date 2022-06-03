@@ -13,6 +13,11 @@ void EmptyLinkFunctionForGeneratedCodeProjectileRocket() {}
 	FPS_API UClass* Z_Construct_UClass_AProjectileRocket();
 	FPS_API UClass* Z_Construct_UClass_AProjectileBase();
 	UPackage* Z_Construct_UPackage__Script_FPS();
+	NIAGARA_API UClass* Z_Construct_UClass_UNiagaraSystem_NoRegister();
+	NIAGARA_API UClass* Z_Construct_UClass_UNiagaraComponent_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_USoundCue_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_UAudioComponent_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_USoundAttenuation_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 // End Cross Module References
 	void AProjectileRocket::StaticRegisterNativesAProjectileRocket()
@@ -30,9 +35,33 @@ void EmptyLinkFunctionForGeneratedCodeProjectileRocket() {}
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_TrailSystem_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_TrailSystem;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_TrailSystemComponent_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_TrailSystemComponent;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ProjectileLoop_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_ProjectileLoop;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ProjectileLoopComponent_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_ProjectileLoopComponent;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_LoopingSoundAttenuation_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_LoopingSoundAttenuation;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_RocketMesh_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_RocketMesh;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_DestroyTime_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_DestroyTime;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -49,6 +78,41 @@ void EmptyLinkFunctionForGeneratedCodeProjectileRocket() {}
 	};
 #endif
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProjectileRocket_Statics::NewProp_TrailSystem_MetaData[] = {
+		{ "Category", "ProjectileRocket" },
+		{ "ModuleRelativePath", "Weapons/Projectiles/ProjectileRocket.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AProjectileRocket_Statics::NewProp_TrailSystem = { "TrailSystem", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AProjectileRocket, TrailSystem), Z_Construct_UClass_UNiagaraSystem_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AProjectileRocket_Statics::NewProp_TrailSystem_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AProjectileRocket_Statics::NewProp_TrailSystem_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProjectileRocket_Statics::NewProp_TrailSystemComponent_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Weapons/Projectiles/ProjectileRocket.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AProjectileRocket_Statics::NewProp_TrailSystemComponent = { "TrailSystemComponent", nullptr, (EPropertyFlags)0x0020080000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AProjectileRocket, TrailSystemComponent), Z_Construct_UClass_UNiagaraComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AProjectileRocket_Statics::NewProp_TrailSystemComponent_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AProjectileRocket_Statics::NewProp_TrailSystemComponent_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProjectileRocket_Statics::NewProp_ProjectileLoop_MetaData[] = {
+		{ "Category", "ProjectileRocket" },
+		{ "ModuleRelativePath", "Weapons/Projectiles/ProjectileRocket.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AProjectileRocket_Statics::NewProp_ProjectileLoop = { "ProjectileLoop", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AProjectileRocket, ProjectileLoop), Z_Construct_UClass_USoundCue_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AProjectileRocket_Statics::NewProp_ProjectileLoop_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AProjectileRocket_Statics::NewProp_ProjectileLoop_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProjectileRocket_Statics::NewProp_ProjectileLoopComponent_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Weapons/Projectiles/ProjectileRocket.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AProjectileRocket_Statics::NewProp_ProjectileLoopComponent = { "ProjectileLoopComponent", nullptr, (EPropertyFlags)0x0020080000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AProjectileRocket, ProjectileLoopComponent), Z_Construct_UClass_UAudioComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AProjectileRocket_Statics::NewProp_ProjectileLoopComponent_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AProjectileRocket_Statics::NewProp_ProjectileLoopComponent_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProjectileRocket_Statics::NewProp_LoopingSoundAttenuation_MetaData[] = {
+		{ "Category", "ProjectileRocket" },
+		{ "ModuleRelativePath", "Weapons/Projectiles/ProjectileRocket.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AProjectileRocket_Statics::NewProp_LoopingSoundAttenuation = { "LoopingSoundAttenuation", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AProjectileRocket, LoopingSoundAttenuation), Z_Construct_UClass_USoundAttenuation_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AProjectileRocket_Statics::NewProp_LoopingSoundAttenuation_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AProjectileRocket_Statics::NewProp_LoopingSoundAttenuation_MetaData)) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProjectileRocket_Statics::NewProp_RocketMesh_MetaData[] = {
 		{ "Category", "ProjectileRocket" },
 		{ "EditInline", "true" },
@@ -56,8 +120,21 @@ void EmptyLinkFunctionForGeneratedCodeProjectileRocket() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AProjectileRocket_Statics::NewProp_RocketMesh = { "RocketMesh", nullptr, (EPropertyFlags)0x00400000000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AProjectileRocket, RocketMesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AProjectileRocket_Statics::NewProp_RocketMesh_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AProjectileRocket_Statics::NewProp_RocketMesh_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProjectileRocket_Statics::NewProp_DestroyTime_MetaData[] = {
+		{ "Category", "ProjectileRocket" },
+		{ "ModuleRelativePath", "Weapons/Projectiles/ProjectileRocket.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AProjectileRocket_Statics::NewProp_DestroyTime = { "DestroyTime", nullptr, (EPropertyFlags)0x0040000000020001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AProjectileRocket, DestroyTime), METADATA_PARAMS(Z_Construct_UClass_AProjectileRocket_Statics::NewProp_DestroyTime_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AProjectileRocket_Statics::NewProp_DestroyTime_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AProjectileRocket_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectileRocket_Statics::NewProp_TrailSystem,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectileRocket_Statics::NewProp_TrailSystemComponent,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectileRocket_Statics::NewProp_ProjectileLoop,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectileRocket_Statics::NewProp_ProjectileLoopComponent,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectileRocket_Statics::NewProp_LoopingSoundAttenuation,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectileRocket_Statics::NewProp_RocketMesh,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectileRocket_Statics::NewProp_DestroyTime,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AProjectileRocket_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AProjectileRocket>::IsAbstract,
@@ -95,9 +172,9 @@ void EmptyLinkFunctionForGeneratedCodeProjectileRocket() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_Projectiles_ProjectileRocket_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AProjectileRocket, AProjectileRocket::StaticClass, TEXT("AProjectileRocket"), &Z_Registration_Info_UClass_AProjectileRocket, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AProjectileRocket), 3299152776U) },
+		{ Z_Construct_UClass_AProjectileRocket, AProjectileRocket::StaticClass, TEXT("AProjectileRocket"), &Z_Registration_Info_UClass_AProjectileRocket, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AProjectileRocket), 1685940031U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_Projectiles_ProjectileRocket_h_1869209492(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_Projectiles_ProjectileRocket_h_3797349631(TEXT("/Script/FPS"),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_Projectiles_ProjectileRocket_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_Projectiles_ProjectileRocket_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

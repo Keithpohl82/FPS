@@ -18,10 +18,10 @@ void EmptyLinkFunctionForGeneratedCodeProjectileBase() {}
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
 	ENGINE_API UClass* Z_Construct_UClass_UBoxComponent_NoRegister();
-	ENGINE_API UClass* Z_Construct_UClass_UProjectileMovementComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UParticleSystem_NoRegister();
-	ENGINE_API UClass* Z_Construct_UClass_UParticleSystemComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USoundCue_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_UProjectileMovementComponent_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_UParticleSystemComponent_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(AProjectileBase::execOnHit)
 	{
@@ -136,6 +136,14 @@ void EmptyLinkFunctionForGeneratedCodeProjectileBase() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_CollisionBox;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ImpactParticles_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_ImpactParticles;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ImpactSound_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_ImpactSound;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_ProjectileMovementComp_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_ProjectileMovementComp;
@@ -147,14 +155,6 @@ void EmptyLinkFunctionForGeneratedCodeProjectileBase() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_TracerComp_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_TracerComp;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_ImpactParticles_MetaData[];
-#endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_ImpactParticles;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_ImpactSound_MetaData[];
-#endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_ImpactSound;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -186,7 +186,21 @@ void EmptyLinkFunctionForGeneratedCodeProjectileBase() {}
 		{ "ModuleRelativePath", "Weapons/Projectiles/ProjectileBase.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AProjectileBase_Statics::NewProp_CollisionBox = { "CollisionBox", nullptr, (EPropertyFlags)0x0040000000080009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AProjectileBase, CollisionBox), Z_Construct_UClass_UBoxComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AProjectileBase_Statics::NewProp_CollisionBox_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AProjectileBase_Statics::NewProp_CollisionBox_MetaData)) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AProjectileBase_Statics::NewProp_CollisionBox = { "CollisionBox", nullptr, (EPropertyFlags)0x0020080000080009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AProjectileBase, CollisionBox), Z_Construct_UClass_UBoxComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AProjectileBase_Statics::NewProp_CollisionBox_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AProjectileBase_Statics::NewProp_CollisionBox_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProjectileBase_Statics::NewProp_ImpactParticles_MetaData[] = {
+		{ "Category", "ProjectileBase" },
+		{ "ModuleRelativePath", "Weapons/Projectiles/ProjectileBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AProjectileBase_Statics::NewProp_ImpactParticles = { "ImpactParticles", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AProjectileBase, ImpactParticles), Z_Construct_UClass_UParticleSystem_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AProjectileBase_Statics::NewProp_ImpactParticles_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AProjectileBase_Statics::NewProp_ImpactParticles_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProjectileBase_Statics::NewProp_ImpactSound_MetaData[] = {
+		{ "Category", "ProjectileBase" },
+		{ "ModuleRelativePath", "Weapons/Projectiles/ProjectileBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AProjectileBase_Statics::NewProp_ImpactSound = { "ImpactSound", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AProjectileBase, ImpactSound), Z_Construct_UClass_USoundCue_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AProjectileBase_Statics::NewProp_ImpactSound_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AProjectileBase_Statics::NewProp_ImpactSound_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProjectileBase_Statics::NewProp_ProjectileMovementComp_MetaData[] = {
 		{ "Category", "ProjectileBase" },
@@ -209,28 +223,14 @@ void EmptyLinkFunctionForGeneratedCodeProjectileBase() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AProjectileBase_Statics::NewProp_TracerComp = { "TracerComp", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AProjectileBase, TracerComp), Z_Construct_UClass_UParticleSystemComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AProjectileBase_Statics::NewProp_TracerComp_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AProjectileBase_Statics::NewProp_TracerComp_MetaData)) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProjectileBase_Statics::NewProp_ImpactParticles_MetaData[] = {
-		{ "Category", "ProjectileBase" },
-		{ "ModuleRelativePath", "Weapons/Projectiles/ProjectileBase.h" },
-	};
-#endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AProjectileBase_Statics::NewProp_ImpactParticles = { "ImpactParticles", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AProjectileBase, ImpactParticles), Z_Construct_UClass_UParticleSystem_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AProjectileBase_Statics::NewProp_ImpactParticles_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AProjectileBase_Statics::NewProp_ImpactParticles_MetaData)) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProjectileBase_Statics::NewProp_ImpactSound_MetaData[] = {
-		{ "Category", "ProjectileBase" },
-		{ "ModuleRelativePath", "Weapons/Projectiles/ProjectileBase.h" },
-	};
-#endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AProjectileBase_Statics::NewProp_ImpactSound = { "ImpactSound", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AProjectileBase, ImpactSound), Z_Construct_UClass_USoundCue_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AProjectileBase_Statics::NewProp_ImpactSound_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AProjectileBase_Statics::NewProp_ImpactSound_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AProjectileBase_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectileBase_Statics::NewProp_Damage,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectileBase_Statics::NewProp_CollisionBox,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectileBase_Statics::NewProp_ImpactParticles,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectileBase_Statics::NewProp_ImpactSound,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectileBase_Statics::NewProp_ProjectileMovementComp,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectileBase_Statics::NewProp_Tracer,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectileBase_Statics::NewProp_TracerComp,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectileBase_Statics::NewProp_ImpactParticles,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectileBase_Statics::NewProp_ImpactSound,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AProjectileBase_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AProjectileBase>::IsAbstract,
@@ -268,9 +268,9 @@ void EmptyLinkFunctionForGeneratedCodeProjectileBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_Projectiles_ProjectileBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AProjectileBase, AProjectileBase::StaticClass, TEXT("AProjectileBase"), &Z_Registration_Info_UClass_AProjectileBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AProjectileBase), 2406419752U) },
+		{ Z_Construct_UClass_AProjectileBase, AProjectileBase::StaticClass, TEXT("AProjectileBase"), &Z_Registration_Info_UClass_AProjectileBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AProjectileBase), 3301361967U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_Projectiles_ProjectileBase_h_2613634925(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_Projectiles_ProjectileBase_h_1510768611(TEXT("/Script/FPS"),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_Projectiles_ProjectileBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_Projectiles_ProjectileBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
