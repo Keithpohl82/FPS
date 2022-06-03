@@ -211,6 +211,12 @@
     <ClInclude Include="..\..\Source\FPS\Weapons\ProjectileWeapon.h">
       <Filter>Source\FPS\Weapons</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\FPS\Weapons\RocketMovementComponent.cpp">
+      <Filter>Source\FPS\Weapons</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\Weapons\RocketMovementComponent.h">
+      <Filter>Source\FPS\Weapons</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\FPS\Weapons\WeaponBase.cpp">
       <Filter>Source\FPS\Weapons</Filter>
     </ClCompile>

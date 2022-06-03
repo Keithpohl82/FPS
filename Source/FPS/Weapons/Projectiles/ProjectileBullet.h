@@ -14,6 +14,9 @@ class FPS_API AProjectileBullet : public AProjectileBase
 {
 	GENERATED_BODY()
 	
+public:
+
+	AProjectileBullet();
 
 protected:
 

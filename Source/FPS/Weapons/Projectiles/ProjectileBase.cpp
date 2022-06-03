@@ -5,7 +5,6 @@
 #include "Particles/ParticleSystemComponent.h"
 #include "Particles/ParticleSystem.h"
 #include "Components/BoxComponent.h"
-#include "GameFramework/ProjectileMovementComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "FPS/Character/MasterCharacter.h"
 #include "Sound/SoundCue.h"
@@ -25,8 +24,7 @@ AProjectileBase::AProjectileBase()
 	CollisionBox->SetCollisionResponseToChannel(ECollisionChannel::ECC_WorldStatic, ECollisionResponse::ECR_Block);
 	CollisionBox->SetCollisionResponseToChannel(ECC_SkeletalMesh, ECollisionResponse::ECR_Block);
 
-	ProjectileMovementComp = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("Projectile Movement Comp"));
-	ProjectileMovementComp->bRotationFollowsVelocity = true;
+
 }
 
 
@@ -41,6 +39,7 @@ void AProjectileBase::BeginPlay()
 	{
 		CollisionBox->OnComponentHit.AddDynamic(this, &AProjectileBase::OnHit);
 	}
+	
 }
 
 

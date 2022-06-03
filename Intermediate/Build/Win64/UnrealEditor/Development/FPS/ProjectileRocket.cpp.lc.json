@@ -178,7 +178,13 @@
             "d:\\ue_5.0\\engine\\plugins\\fx\\niagara\\intermediate\\build\\win64\\unrealeditor\\inc\\niagara\\niagaraworldmanager.generated.h",
             "d:\\ue_5.0\\engine\\plugins\\fx\\niagara\\source\\niagara\\public\\niagaravariant.h",
             "d:\\ue_5.0\\engine\\plugins\\fx\\niagara\\intermediate\\build\\win64\\unrealeditor\\inc\\niagara\\niagaravariant.generated.h",
-            "d:\\ue_5.0\\engine\\plugins\\fx\\niagara\\intermediate\\build\\win64\\unrealeditor\\inc\\niagara\\niagaracomponent.generated.h"
+            "d:\\ue_5.0\\engine\\plugins\\fx\\niagara\\intermediate\\build\\win64\\unrealeditor\\inc\\niagara\\niagaracomponent.generated.h",
+            "u:\\fps\\source\\fps\\weapons\\rocketmovementcomponent.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\projectilemovementcomponent.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\movementcomponent.h",
+            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\movementcomponent.generated.h",
+            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\projectilemovementcomponent.generated.h",
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\rocketmovementcomponent.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []
