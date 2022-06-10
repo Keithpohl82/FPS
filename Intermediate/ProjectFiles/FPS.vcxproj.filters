@@ -205,6 +205,12 @@
     <Filter Include="Source\FPS\Weapons">
       <UniqueIdentifier>{996C991C-084B-3CE0-9BC8-A13B75FBCA84}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\FPS\Weapons\HitScanWeapon.cpp">
+      <Filter>Source\FPS\Weapons</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\Weapons\HitScanWeapon.h">
+      <Filter>Source\FPS\Weapons</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\FPS\Weapons\ProjectileWeapon.cpp">
       <Filter>Source\FPS\Weapons</Filter>
     </ClCompile>

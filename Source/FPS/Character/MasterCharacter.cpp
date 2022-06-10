@@ -507,6 +507,9 @@ void AMasterCharacter::PlayReloadMontage()
 		case EWeaponType::EWT_RocketLauncher:
 			SectionName = FName("RocketLauncher");
 			break;
+		case EWeaponType::EWT_Pistol:
+			SectionName = FName("Pistol");
+			break;
 		}
 		AnimInstance->Montage_JumpToSection(SectionName);
 	}
