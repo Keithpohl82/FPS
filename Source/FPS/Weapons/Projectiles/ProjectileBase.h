@@ -17,6 +17,9 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	virtual void Destroyed() override;
 
+	//UPROPERTY(EditAnywhere)
+	//float InitialSpeed = 15000;
+
 protected:
 
 	virtual void BeginPlay() override;
