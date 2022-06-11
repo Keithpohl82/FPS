@@ -5,6 +5,8 @@
 #include "Engine/SkeletalMeshSocket.h"
 #include "FPS/Character/MasterCharacter.h"
 #include "Kismet/GameplayStatics.h"
+#include "Particles/ParticleSystemComponent.h"
+
 
 void AHitScanWeapon::Fire(const FVector& HitTarget)
 {
@@ -26,8 +28,10 @@ void AHitScanWeapon::Fire(const FVector& HitTarget)
 		if (World)
 		{
 			World->LineTraceSingleByChannel(FireHit, Start, End, ECollisionChannel::ECC_Visibility);
+			FVector BeamEnd = End;
 			if (FireHit.bBlockingHit)
 			{
+			BeamEnd = FireHit.ImpactPoint;
 				AMasterCharacter* MasterCharacter = Cast<AMasterCharacter>(FireHit.GetActor());
 				if (MasterCharacter)
 				{
@@ -39,6 +43,14 @@ void AHitScanWeapon::Fire(const FVector& HitTarget)
 				if (ImpactParticles)
 				{
 					UGameplayStatics::SpawnEmitterAtLocation(World, ImpactParticles, FireHit.ImpactPoint, FireHit.ImpactNormal.Rotation());
+				}
+			}
+			if (BeamParticle)
+			{
+				UParticleSystemComponent* Beam = UGameplayStatics::SpawnEmitterAtLocation(World, BeamParticle, SocketTransform);
+				if (Beam)
+				{
+					Beam->SetVectorParameter(FName("Target"), BeamEnd);
 				}
 			}
 		}
