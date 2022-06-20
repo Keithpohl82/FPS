@@ -33,12 +33,9 @@ void AHitScanWeapon::Fire(const FVector& HitTarget)
 			{
 			BeamEnd = FireHit.ImpactPoint;
 				AMasterCharacter* MasterCharacter = Cast<AMasterCharacter>(FireHit.GetActor());
-				if (MasterCharacter)
-				{
-				if (HasAuthority())
+				if (MasterCharacter && HasAuthority() && InstigatorController)
 				{
 					UGameplayStatics::ApplyDamage(MasterCharacter, Damage, InstigatorController, this, UDamageType::StaticClass());
-				}
 				}
 				if (ImpactParticles)
 				{
