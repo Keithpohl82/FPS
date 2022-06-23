@@ -492,11 +492,12 @@ void AMasterCharacter::PlayFireMontage(bool bAiming)
 
 void AMasterCharacter::PlayReloadMontage()
 {
-	if (Combat == nullptr || Combat->EquippedWeapon) return;
+	if (Combat == nullptr || Combat->EquippedWeapon == nullptr) return;
 	UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
 	if (AnimInstance && ReloadMontage)
 	{
 		AnimInstance->Montage_Play(ReloadMontage);
+		
 		FName SectionName;
 
 		switch (Combat->EquippedWeapon->GetWeaponType())

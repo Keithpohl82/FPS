@@ -37,7 +37,6 @@ void AProjectileBase::BeginPlay()
 	{
 		CollisionBox->OnComponentHit.AddDynamic(this, &AProjectileBase::OnHit);
 	}
-	
 }
 
 
