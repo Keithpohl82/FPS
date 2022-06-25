@@ -10,7 +10,7 @@
 
 #include "CombatComponent.generated.h"
 
-#define TRACE_LENGTH 100000.f
+
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class FPS_API UCombatComponent : public UActorComponent
