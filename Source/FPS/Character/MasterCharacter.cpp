@@ -514,6 +514,9 @@ void AMasterCharacter::PlayReloadMontage()
 		case EWeaponType::EWT_SubMachineGun:
 			SectionName = FName("Rifle");
 			break;
+		case EWeaponType::EWT_ShotGun:
+			SectionName = FName("Rifle");
+			break;
 		}
 		AnimInstance->Montage_JumpToSection(SectionName);
 	}
