@@ -39,6 +39,7 @@ void EmptyLinkFunctionForGeneratedCodeWeaponTypes() {}
 		{ "EWeaponType::EWT_Pistol", (int64)EWeaponType::EWT_Pistol },
 		{ "EWeaponType::EWT_SubMachineGun", (int64)EWeaponType::EWT_SubMachineGun },
 		{ "EWeaponType::EWT_ShotGun", (int64)EWeaponType::EWT_ShotGun },
+		{ "EWeaponType::EWT_SniperRifle", (int64)EWeaponType::EWT_SniperRifle },
 		{ "EWeaponType::EWT_MAX", (int64)EWeaponType::EWT_MAX },
 	};
 #if WITH_METADATA
@@ -54,6 +55,8 @@ void EmptyLinkFunctionForGeneratedCodeWeaponTypes() {}
 		{ "EWT_RocketLauncher.Name", "EWeaponType::EWT_RocketLauncher" },
 		{ "EWT_ShotGun.DisplayName", "Shotgun" },
 		{ "EWT_ShotGun.Name", "EWeaponType::EWT_ShotGun" },
+		{ "EWT_SniperRifle.DisplayName", "Sniper Rifle" },
+		{ "EWT_SniperRifle.Name", "EWeaponType::EWT_SniperRifle" },
 		{ "EWT_SubMachineGun.DisplayName", "SubMachine Gun" },
 		{ "EWT_SubMachineGun.Name", "EWeaponType::EWT_SubMachineGun" },
 		{ "ModuleRelativePath", "Weapons/WeaponTypes.h" },
@@ -84,9 +87,9 @@ void EmptyLinkFunctionForGeneratedCodeWeaponTypes() {}
 		static const FEnumRegisterCompiledInInfo EnumInfo[];
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_WeaponTypes_h_Statics::EnumInfo[] = {
-		{ EWeaponType_StaticEnum, TEXT("EWeaponType"), &Z_Registration_Info_UEnum_EWeaponType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 4171152752U) },
+		{ EWeaponType_StaticEnum, TEXT("EWeaponType"), &Z_Registration_Info_UEnum_EWeaponType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2571961412U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_WeaponTypes_h_4117499432(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_WeaponTypes_h_2913295977(TEXT("/Script/FPS"),
 		nullptr, 0,
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_WeaponTypes_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_WeaponTypes_h_Statics::EnumInfo));

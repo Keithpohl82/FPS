@@ -91,6 +91,13 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 	{
 		ProcessEvent(FindFunctionChecked(NAME_AMasterCharacter_ServerEquipButtonPressed),NULL);
 	}
+	static FName NAME_AMasterCharacter_ShowSniperScopeWidget = FName(TEXT("ShowSniperScopeWidget"));
+	void AMasterCharacter::ShowSniperScopeWidget(bool bShowScopeWidget)
+	{
+		MasterCharacter_eventShowSniperScopeWidget_Parms Parms;
+		Parms.bShowScopeWidget=bShowScopeWidget ? true : false;
+		ProcessEvent(FindFunctionChecked(NAME_AMasterCharacter_ShowSniperScopeWidget),&Parms);
+	}
 	void AMasterCharacter::StaticRegisterNativesAMasterCharacter()
 	{
 		UClass* Class = AMasterCharacter::StaticClass();
@@ -258,6 +265,39 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AMasterCharacter_ShowSniperScopeWidget_Statics
+	{
+		static void NewProp_bShowScopeWidget_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bShowScopeWidget;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_AMasterCharacter_ShowSniperScopeWidget_Statics::NewProp_bShowScopeWidget_SetBit(void* Obj)
+	{
+		((MasterCharacter_eventShowSniperScopeWidget_Parms*)Obj)->bShowScopeWidget = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AMasterCharacter_ShowSniperScopeWidget_Statics::NewProp_bShowScopeWidget = { "bShowScopeWidget", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(MasterCharacter_eventShowSniperScopeWidget_Parms), &Z_Construct_UFunction_AMasterCharacter_ShowSniperScopeWidget_Statics::NewProp_bShowScopeWidget_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMasterCharacter_ShowSniperScopeWidget_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMasterCharacter_ShowSniperScopeWidget_Statics::NewProp_bShowScopeWidget,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMasterCharacter_ShowSniperScopeWidget_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Character/MasterCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMasterCharacter_ShowSniperScopeWidget_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMasterCharacter, nullptr, "ShowSniperScopeWidget", nullptr, nullptr, sizeof(MasterCharacter_eventShowSniperScopeWidget_Parms), Z_Construct_UFunction_AMasterCharacter_ShowSniperScopeWidget_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMasterCharacter_ShowSniperScopeWidget_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMasterCharacter_ShowSniperScopeWidget_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AMasterCharacter_ShowSniperScopeWidget_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AMasterCharacter_ShowSniperScopeWidget()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMasterCharacter_ShowSniperScopeWidget_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_AMasterCharacter_UpdateDissolveMaterial_Statics
 	{
 		struct MasterCharacter_eventUpdateDissolveMaterial_Parms
@@ -410,6 +450,7 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 		{ &Z_Construct_UFunction_AMasterCharacter_OnRep_OverlappingWeapon, "OnRep_OverlappingWeapon" }, // 823773337
 		{ &Z_Construct_UFunction_AMasterCharacter_ReceivedDamage, "ReceivedDamage" }, // 3740417203
 		{ &Z_Construct_UFunction_AMasterCharacter_ServerEquipButtonPressed, "ServerEquipButtonPressed" }, // 1891842035
+		{ &Z_Construct_UFunction_AMasterCharacter_ShowSniperScopeWidget, "ShowSniperScopeWidget" }, // 27566159
 		{ &Z_Construct_UFunction_AMasterCharacter_UpdateDissolveMaterial, "UpdateDissolveMaterial" }, // 4117495447
 	};
 #if WITH_METADATA
@@ -671,9 +712,9 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMasterCharacter, AMasterCharacter::StaticClass, TEXT("AMasterCharacter"), &Z_Registration_Info_UClass_AMasterCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMasterCharacter), 2406348349U) },
+		{ Z_Construct_UClass_AMasterCharacter, AMasterCharacter::StaticClass, TEXT("AMasterCharacter"), &Z_Registration_Info_UClass_AMasterCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMasterCharacter), 243181425U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_446858284(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_3114971335(TEXT("/Script/FPS"),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

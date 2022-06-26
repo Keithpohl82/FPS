@@ -39,6 +39,9 @@ public:
 	UPROPERTY(Replicated)
 	bool bDisableGameplay = false;
 
+	UFUNCTION(BlueprintImplementableEvent)
+	void ShowSniperScopeWidget(bool bShowScopeWidget);
+
 private:
 	
 	UPROPERTY(EditDefaultsOnly, Category = Camera)

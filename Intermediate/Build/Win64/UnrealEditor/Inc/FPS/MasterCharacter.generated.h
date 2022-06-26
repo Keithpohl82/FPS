@@ -42,7 +42,13 @@ class AWeaponBase;
 	DECLARE_FUNCTION(execMulticastElim);
 
 
-#define FID_FPS_Source_FPS_Character_MasterCharacter_h_17_EVENT_PARMS
+#define FID_FPS_Source_FPS_Character_MasterCharacter_h_17_EVENT_PARMS \
+	struct MasterCharacter_eventShowSniperScopeWidget_Parms \
+	{ \
+		bool bShowScopeWidget; \
+	};
+
+
 #define FID_FPS_Source_FPS_Character_MasterCharacter_h_17_CALLBACK_WRAPPERS
 #define FID_FPS_Source_FPS_Character_MasterCharacter_h_17_INCLASS_NO_PURE_DECLS \
 private: \
