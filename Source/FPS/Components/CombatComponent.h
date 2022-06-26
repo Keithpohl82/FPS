@@ -108,20 +108,21 @@ private:
 
 	TMap<EWeaponType, int32> CarriedAmmoMap;
 
+	// Starting Reserve ammo. Set to 0 after testing
 	UPROPERTY(EditAnywhere)
 	int32 StartingARAmmo = 30;
 	UPROPERTY(EditAnywhere)
-	int32 StartingRocketAmmo = 0;
+	int32 StartingRocketAmmo = 30;
 	UPROPERTY(EditAnywhere)
-	int32 StartingPistolAmmo = 0;
+	int32 StartingPistolAmmo = 30;
 	UPROPERTY(EditAnywhere)
-	int32 StartingSMGAmmo = 0;
+	int32 StartingSMGAmmo = 30;
 	UPROPERTY(EditAnywhere)
-	int32 StartingShotgunAmmo = 0;
+	int32 StartingShotgunAmmo = 30;
 	UPROPERTY(EditAnywhere)
-	int32 StartingSniperAmmo = 0;
+	int32 StartingSniperAmmo = 30;
 	UPROPERTY(EditAnywhere)
-	int32 StartingGrenadeLauncherAmmo = 0;
+	int32 StartingGrenadeLauncherAmmo = 30;
 
 
 	void InitializeCarriedAmmo();
