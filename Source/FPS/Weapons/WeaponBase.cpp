@@ -8,6 +8,7 @@
 #include "Net/UnrealNetwork.h"
 #include "Projectiles/Casing.h"
 #include "FPS/Character/MasterCharacter.h"
+#include "FPS/Components/CombatComponent.h"
 #include "FPS/PlayerController/MasterPlayerController.h"
 
 
@@ -104,6 +105,10 @@ void AWeaponBase::OnRep_WeaponState()
 void AWeaponBase::OnRep_Ammo()
 {
 	OwnerCharacter = OwnerCharacter == nullptr ? Cast<AMasterCharacter>(GetOwner()) : OwnerCharacter;
+	if (OwnerCharacter && OwnerCharacter->GetCombat() && IsFull())
+	{
+		OwnerCharacter->GetCombat()->JumpToShotgunEnd();
+	}
 	SetHUDAmmo();
 }
 
@@ -149,6 +154,11 @@ void AWeaponBase::SetWeaponState(EWeaponState State)
 bool AWeaponBase::IsEmpty()
 {
 	return Ammo <= 0;
+}
+
+bool AWeaponBase::IsFull()
+{
+	return Ammo == MagCapacity;
 }
 
 void AWeaponBase::Tick(float DeltaTime)

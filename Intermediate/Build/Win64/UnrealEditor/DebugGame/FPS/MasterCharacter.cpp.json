@@ -71,6 +71,8 @@
             "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\soundnode.generated.h",
             "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\soundcue.generated.h",
             "u:\\fps\\source\\fps\\fps.h",
+            "u:\\fps\\source\\fps\\character\\characteraniminstance.h",
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\characteraniminstance.generated.h",
             "u:\\fps\\source\\fps\\components\\combatcomponent.h",
             "u:\\fps\\source\\fps\\ui\\playerhud.h",
             "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\hud.h",

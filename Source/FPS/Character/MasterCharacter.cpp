@@ -12,6 +12,7 @@
 #include "Particles/ParticleSystemComponent.h"
 #include "Sound/SoundCue.h"
 #include "FPS/FPS.h"
+#include "CharacterAnimInstance.h"
 #include "FPS/Components/CombatComponent.h"
 #include "FPS/Weapons/WeaponBase.h"
 #include "FPS/Weapons/WeaponTypes.h"
