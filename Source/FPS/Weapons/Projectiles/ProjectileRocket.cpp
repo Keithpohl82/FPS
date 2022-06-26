@@ -8,7 +8,6 @@
 #include "Sound/SoundCue.h"
 #include "Components/BoxComponent.h"
 #include "Components/AudioComponent.h"
-
 #include "FPS/Weapons/RocketMovementComponent.h"
 
 AProjectileRocket::AProjectileRocket()
