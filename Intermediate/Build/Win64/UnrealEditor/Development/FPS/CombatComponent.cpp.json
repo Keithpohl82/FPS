@@ -62,6 +62,8 @@
             "u:\\fps\\source\\fps\\interfaces\\interactwithcrosshairsinterface.h",
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\interactwithcrosshairsinterface.generated.h",
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\mastercharacter.generated.h",
+            "u:\\fps\\source\\fps\\character\\characteraniminstance.h",
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\characteraniminstance.generated.h",
             "u:\\fps\\source\\fps\\playercontroller\\masterplayercontroller.h",
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\masterplayercontroller.generated.h",
             "u:\\fps\\source\\fps\\weapons\\weaponbase.h",

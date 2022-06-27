@@ -125,15 +125,14 @@ void UCombatComponent::ShotgunShellReload()
 
 void UCombatComponent::JumpToShotgunEnd()
 {
-	if (EquippedWeapon->IsFull())
-	{
 		// Jump to Shotgun End Section
+
 		UAnimInstance* AnimInstance = MasterCharacter->GetMesh()->GetAnimInstance();
 		if (AnimInstance && MasterCharacter->GetReloadMontage())
 		{
 			AnimInstance->Montage_JumpToSection(FName("ShotgunEnd"));
+			UE_LOG(LogTemp, Warning, TEXT("Jumed to ShotgunEnd"));
 		}
-	}
 }
 
 void UCombatComponent::ServerFire_Implementation(const FVector_NetQuantize& TraceHitTarget)
@@ -149,6 +148,7 @@ void UCombatComponent::MulticastFire_Implementation(const FVector_NetQuantize& T
 		MasterCharacter->PlayFireMontage(bAiming);
 		EquippedWeapon->Fire(TraceHitTarget);
 		CombatState = ECombatState::ECS_Unoccupied;
+		UE_LOG(LogTemp, Warning, TEXT("Jumed to ShotgunEnd called from multicast fire"));
 		return;
 	}
 	if (MasterCharacter && CombatState == ECombatState::ECS_Unoccupied)
@@ -328,6 +328,7 @@ void UCombatComponent::StartFireTimer()
 bool UCombatComponent::CanFire()
 {
 	if (EquippedWeapon == nullptr) return false;
+
 	if (!EquippedWeapon->IsEmpty() && bCanFire && CombatState == ECombatState::ECS_Reloading && EquippedWeapon->GetWeaponType() == EWeaponType::EWT_ShotGun) return true;
 	
 	return !EquippedWeapon->IsEmpty() && bCanFire && CombatState == ECombatState::ECS_Unoccupied;
@@ -336,6 +337,7 @@ bool UCombatComponent::CanFire()
 void UCombatComponent::OnRep_CarriedAmmo()
 {
 	MasterPlayerController = MasterPlayerController == nullptr ? Cast<AMasterPlayerController>(MasterCharacter->Controller) : MasterPlayerController;
+
 	if (MasterPlayerController)
 	{
 		MasterPlayerController->SetHUDCarriedAmmo(CarriedAmmo);
