@@ -7,7 +7,6 @@
 #include "FPS/UI/PlayerHUD.h"
 #include "FPS/TypeClasses/CombatState.h"
 #include "FPS/Weapons/WeaponTypes.h"
-
 #include "CombatComponent.generated.h"
 
 
@@ -117,17 +116,17 @@ private:
 	UPROPERTY(EditAnywhere)
 	int32 StartingARAmmo = 30;
 	UPROPERTY(EditAnywhere)
-	int32 StartingRocketAmmo = 30;
+	int32 StartingRocketAmmo = 0;
 	UPROPERTY(EditAnywhere)
-	int32 StartingPistolAmmo = 30;
+	int32 StartingPistolAmmo = 0;
 	UPROPERTY(EditAnywhere)
-	int32 StartingSMGAmmo = 30;
+	int32 StartingSMGAmmo = 0;
 	UPROPERTY(EditAnywhere)
-	int32 StartingShotgunAmmo = 30;
+	int32 StartingShotgunAmmo = 0;
 	UPROPERTY(EditAnywhere)
-	int32 StartingSniperAmmo = 30;
+	int32 StartingSniperAmmo = 0;
 	UPROPERTY(EditAnywhere)
-	int32 StartingGrenadeLauncherAmmo = 30;
+	int32 StartingGrenadeLauncherAmmo = 0;
 
 
 	void InitializeCarriedAmmo();
