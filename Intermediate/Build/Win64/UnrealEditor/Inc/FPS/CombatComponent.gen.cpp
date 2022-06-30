@@ -56,6 +56,13 @@ void EmptyLinkFunctionForGeneratedCodeCombatComponent() {}
 		P_THIS->ServerFire_Implementation(Z_Param_TraceHitTarget);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(UCombatComponent::execServerThrowGrenade)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ServerThrowGrenade_Implementation();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UCombatComponent::execOnRep_EquippedWeapon)
 	{
 		P_FINISH;
@@ -69,6 +76,13 @@ void EmptyLinkFunctionForGeneratedCodeCombatComponent() {}
 		P_FINISH;
 		P_NATIVE_BEGIN;
 		P_THIS->ServerSetAiming_Implementation(Z_Param_bIsAiming);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UCombatComponent::execThrowGrenadeFished)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ThrowGrenadeFished();
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(UCombatComponent::execShotgunShellReload)
@@ -111,6 +125,11 @@ void EmptyLinkFunctionForGeneratedCodeCombatComponent() {}
 		Parms.bIsAiming=bIsAiming ? true : false;
 		ProcessEvent(FindFunctionChecked(NAME_UCombatComponent_ServerSetAiming),&Parms);
 	}
+	static FName NAME_UCombatComponent_ServerThrowGrenade = FName(TEXT("ServerThrowGrenade"));
+	void UCombatComponent::ServerThrowGrenade()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_UCombatComponent_ServerThrowGrenade),NULL);
+	}
 	void UCombatComponent::StaticRegisterNativesUCombatComponent()
 	{
 		UClass* Class = UCombatComponent::StaticClass();
@@ -123,7 +142,9 @@ void EmptyLinkFunctionForGeneratedCodeCombatComponent() {}
 			{ "ServerFire", &UCombatComponent::execServerFire },
 			{ "ServerReload", &UCombatComponent::execServerReload },
 			{ "ServerSetAiming", &UCombatComponent::execServerSetAiming },
+			{ "ServerThrowGrenade", &UCombatComponent::execServerThrowGrenade },
 			{ "ShotgunShellReload", &UCombatComponent::execShotgunShellReload },
+			{ "ThrowGrenadeFished", &UCombatComponent::execThrowGrenadeFished },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -342,6 +363,28 @@ void EmptyLinkFunctionForGeneratedCodeCombatComponent() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UCombatComponent_ServerThrowGrenade_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCombatComponent_ServerThrowGrenade_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Components/CombatComponent.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCombatComponent_ServerThrowGrenade_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCombatComponent, nullptr, "ServerThrowGrenade", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00280CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCombatComponent_ServerThrowGrenade_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCombatComponent_ServerThrowGrenade_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UCombatComponent_ServerThrowGrenade()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCombatComponent_ServerThrowGrenade_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_UCombatComponent_ShotgunShellReload_Statics
 	{
 #if WITH_METADATA
@@ -361,6 +404,28 @@ void EmptyLinkFunctionForGeneratedCodeCombatComponent() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCombatComponent_ShotgunShellReload_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UCombatComponent_ThrowGrenadeFished_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCombatComponent_ThrowGrenadeFished_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Components/CombatComponent.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCombatComponent_ThrowGrenadeFished_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCombatComponent, nullptr, "ThrowGrenadeFished", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCombatComponent_ThrowGrenadeFished_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCombatComponent_ThrowGrenadeFished_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UCombatComponent_ThrowGrenadeFished()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCombatComponent_ThrowGrenadeFished_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -463,7 +528,9 @@ void EmptyLinkFunctionForGeneratedCodeCombatComponent() {}
 		{ &Z_Construct_UFunction_UCombatComponent_ServerFire, "ServerFire" }, // 278319863
 		{ &Z_Construct_UFunction_UCombatComponent_ServerReload, "ServerReload" }, // 3382802192
 		{ &Z_Construct_UFunction_UCombatComponent_ServerSetAiming, "ServerSetAiming" }, // 1853333694
+		{ &Z_Construct_UFunction_UCombatComponent_ServerThrowGrenade, "ServerThrowGrenade" }, // 4256355321
 		{ &Z_Construct_UFunction_UCombatComponent_ShotgunShellReload, "ShotgunShellReload" }, // 965009109
+		{ &Z_Construct_UFunction_UCombatComponent_ThrowGrenadeFished, "ThrowGrenadeFished" }, // 2922569920
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCombatComponent_Statics::Class_MetaDataParams[] = {
@@ -594,7 +661,7 @@ void EmptyLinkFunctionForGeneratedCodeCombatComponent() {}
 		{ "ModuleRelativePath", "Components/CombatComponent.h" },
 	};
 #endif
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UCombatComponent_Statics::NewProp_CombatState = { "CombatState", "OnRep_CombatState", (EPropertyFlags)0x0040000100000020, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCombatComponent, CombatState), Z_Construct_UEnum_FPS_ECombatState, METADATA_PARAMS(Z_Construct_UClass_UCombatComponent_Statics::NewProp_CombatState_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCombatComponent_Statics::NewProp_CombatState_MetaData)) }; // 4227155520
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UCombatComponent_Statics::NewProp_CombatState = { "CombatState", "OnRep_CombatState", (EPropertyFlags)0x0040000100000020, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCombatComponent, CombatState), Z_Construct_UEnum_FPS_ECombatState, METADATA_PARAMS(Z_Construct_UClass_UCombatComponent_Statics::NewProp_CombatState_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCombatComponent_Statics::NewProp_CombatState_MetaData)) }; // 1170974792
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UCombatComponent_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatComponent_Statics::NewProp_MasterPlayerController,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatComponent_Statics::NewProp_HUD,
@@ -667,9 +734,9 @@ void EmptyLinkFunctionForGeneratedCodeCombatComponent() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Components_CombatComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCombatComponent, UCombatComponent::StaticClass, TEXT("UCombatComponent"), &Z_Registration_Info_UClass_UCombatComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatComponent), 309947857U) },
+		{ Z_Construct_UClass_UCombatComponent, UCombatComponent::StaticClass, TEXT("UCombatComponent"), &Z_Registration_Info_UClass_UCombatComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatComponent), 3319068748U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Components_CombatComponent_h_3194992083(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Components_CombatComponent_h_3486406516(TEXT("/Script/FPS"),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_Components_CombatComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_Components_CombatComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

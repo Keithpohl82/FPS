@@ -31,6 +31,7 @@ public:
 	void PlayReloadMontage();
 	void PlayHitReactMontage();
 	void PlayElimMontage();
+	void PlayThrowGrenadeMontage();
 
 	void Elim();
 	UFUNCTION(NetMulticast, Reliable)
@@ -72,6 +73,8 @@ private:
 	UAnimMontage* ElimMontage;
 	UPROPERTY(EditAnywhere, Category = Combat)
 	UAnimMontage* ReloadMontage;
+	UPROPERTY(EditAnywhere, Category = Combat)
+	UAnimMontage* ThrowGrenadeMontage;
 	UPROPERTY(EditAnywhere)
 	float CameraThreshold = 200.f;
 	bool bRotateRootBone;
@@ -146,6 +149,7 @@ protected:
 	virtual void Jump() override;
 	void FireButtonPressed();
 	void FireButtonReleased();
+	void GrenadeButtonPressed();
 	void RotateInPlace(float DeltaTime);
 
 	void HideCameraIfCharacterClose();

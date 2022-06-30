@@ -38,6 +38,9 @@ public:
 
 	void JumpToShotgunEnd();
 
+	UFUNCTION(BlueprintCallable)
+	void ThrowGrenadeFished();
+
 protected:
 
 	virtual void BeginPlay() override;
@@ -47,6 +50,9 @@ protected:
 	UFUNCTION()
 	void OnRep_EquippedWeapon();
 	void Fire();
+	void ThrowGrenade();
+	UFUNCTION(Server, Reliable)
+	void ServerThrowGrenade();
 	
 	UFUNCTION(Server, Reliable)
 	void ServerFire(const FVector_NetQuantize& TraceHitTarget);

@@ -74,7 +74,7 @@ void UCharacterAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
 			RightHandRotation = FMath::RInterpTo(RightHandRotation, LookAtRotation, DeltaSeconds, 30.f);
 		}
 	}
-	bUseFABRIK = MasterCharacter->GetCombatState() != ECombatState::ECS_Reloading;
-	bUseAimOffsets = MasterCharacter->GetCombatState() != ECombatState::ECS_Reloading && !MasterCharacter->GetDisableGameplay();
-	bTransformRightHand = MasterCharacter->GetCombatState() != ECombatState::ECS_Reloading && !MasterCharacter->GetDisableGameplay();
+	bUseFABRIK = MasterCharacter->GetCombatState() == ECombatState::ECS_Unoccupied;
+	bUseAimOffsets = MasterCharacter->GetCombatState() == ECombatState::ECS_Unoccupied && !MasterCharacter->GetDisableGameplay();
+	bTransformRightHand = MasterCharacter->GetCombatState() == ECombatState::ECS_Unoccupied && !MasterCharacter->GetDisableGameplay();
 }

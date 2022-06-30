@@ -384,6 +384,10 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_ReloadMontage;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ThrowGrenadeMontage_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_ThrowGrenadeMontage;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_CameraThreshold_MetaData[];
 #endif
 		static const UECodeGen_Private::FFloatPropertyParams NewProp_CameraThreshold;
@@ -538,6 +542,13 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMasterCharacter_Statics::NewProp_ReloadMontage = { "ReloadMontage", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterCharacter, ReloadMontage), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_ReloadMontage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_ReloadMontage_MetaData)) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterCharacter_Statics::NewProp_ThrowGrenadeMontage_MetaData[] = {
+		{ "Category", "Combat" },
+		{ "ModuleRelativePath", "Character/MasterCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMasterCharacter_Statics::NewProp_ThrowGrenadeMontage = { "ThrowGrenadeMontage", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterCharacter, ThrowGrenadeMontage), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_ThrowGrenadeMontage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_ThrowGrenadeMontage_MetaData)) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterCharacter_Statics::NewProp_CameraThreshold_MetaData[] = {
 		{ "Category", "MasterCharacter" },
 		{ "ModuleRelativePath", "Character/MasterCharacter.h" },
@@ -645,6 +656,7 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_HitReactMontage,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_ElimMontage,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_ReloadMontage,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_ThrowGrenadeMontage,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_CameraThreshold,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_MaxHealth,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_Health,
@@ -712,9 +724,9 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMasterCharacter, AMasterCharacter::StaticClass, TEXT("AMasterCharacter"), &Z_Registration_Info_UClass_AMasterCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMasterCharacter), 243181425U) },
+		{ Z_Construct_UClass_AMasterCharacter, AMasterCharacter::StaticClass, TEXT("AMasterCharacter"), &Z_Registration_Info_UClass_AMasterCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMasterCharacter), 2937564743U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_3114971335(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_1826424777(TEXT("/Script/FPS"),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

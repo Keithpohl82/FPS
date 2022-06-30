@@ -105,6 +105,30 @@ void UCombatComponent::Fire()
 	}
 }
 
+void UCombatComponent::ThrowGrenade()
+{
+	if (CombatState != ECombatState::ECS_Unoccupied) return;
+	
+	CombatState = ECombatState::ECS_ThrowingGrenade;
+	if (MasterCharacter)
+	{
+		MasterCharacter->PlayThrowGrenadeMontage();
+	}
+	if (MasterCharacter && !MasterCharacter->IsLocallyControlled())
+	{
+		ServerThrowGrenade();
+	}
+}
+
+void UCombatComponent::ServerThrowGrenade_Implementation()
+{
+	CombatState = ECombatState::ECS_ThrowingGrenade;
+	if (MasterCharacter)
+	{
+		MasterCharacter->PlayThrowGrenadeMontage();
+	}
+}
+
 void UCombatComponent::FireButtonPressed(bool bPressed)
 {
 	bFireButtonPressed = bPressed;
@@ -133,6 +157,11 @@ void UCombatComponent::JumpToShotgunEnd()
 			AnimInstance->Montage_JumpToSection(FName("StopReloading"));
 			UE_LOG(LogTemp, Warning, TEXT("Called From JumpToShotgunEnd"));
 		}
+}
+
+void UCombatComponent::ThrowGrenadeFished()
+{
+	CombatState = ECombatState::ECS_Unoccupied;
 }
 
 void UCombatComponent::ServerFire_Implementation(const FVector_NetQuantize& TraceHitTarget)
@@ -382,6 +411,12 @@ void UCombatComponent::OnRep_CombatState()
 			Fire();
 		}
 		break;
+		case ECombatState::ECS_ThrowingGrenade:
+			if (MasterCharacter && !MasterCharacter->IsLocallyControlled())
+			{
+				MasterCharacter->PlayThrowGrenadeMontage();
+			}
+		break;
 	}
 }
 
@@ -456,6 +491,7 @@ void UCombatComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out
 void UCombatComponent::EquipWeapon(class AWeaponBase* WeaponToEquip)
 {
 	if (MasterCharacter == nullptr || WeaponToEquip == nullptr) return;
+	if (CombatState != ECombatState::ECS_Unoccupied) return;
 	if (EquippedWeapon)
 	{
 		EquippedWeapon->Dropped();
@@ -492,7 +528,7 @@ void UCombatComponent::EquipWeapon(class AWeaponBase* WeaponToEquip)
 
 void UCombatComponent::Reload()
 {
-	if (CarriedAmmo > 0 && CombatState != ECombatState::ECS_Reloading)
+	if (CarriedAmmo > 0 && CombatState == ECombatState::ECS_Unoccupied)
 	{
 		ServerReload();
 	}

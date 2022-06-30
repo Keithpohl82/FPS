@@ -19,6 +19,7 @@ struct FVector_NetQuantize;
 	virtual void ServerReload_Implementation(); \
 	virtual void MulticastFire_Implementation(FVector_NetQuantize const& TraceHitTarget); \
 	virtual void ServerFire_Implementation(FVector_NetQuantize const& TraceHitTarget); \
+	virtual void ServerThrowGrenade_Implementation(); \
 	virtual void ServerSetAiming_Implementation(bool bIsAiming); \
  \
 	DECLARE_FUNCTION(execOnRep_CombatState); \
@@ -26,8 +27,10 @@ struct FVector_NetQuantize;
 	DECLARE_FUNCTION(execServerReload); \
 	DECLARE_FUNCTION(execMulticastFire); \
 	DECLARE_FUNCTION(execServerFire); \
+	DECLARE_FUNCTION(execServerThrowGrenade); \
 	DECLARE_FUNCTION(execOnRep_EquippedWeapon); \
 	DECLARE_FUNCTION(execServerSetAiming); \
+	DECLARE_FUNCTION(execThrowGrenadeFished); \
 	DECLARE_FUNCTION(execShotgunShellReload); \
 	DECLARE_FUNCTION(execFinishReloading);
 
@@ -36,6 +39,7 @@ struct FVector_NetQuantize;
 	virtual void ServerReload_Implementation(); \
 	virtual void MulticastFire_Implementation(FVector_NetQuantize const& TraceHitTarget); \
 	virtual void ServerFire_Implementation(FVector_NetQuantize const& TraceHitTarget); \
+	virtual void ServerThrowGrenade_Implementation(); \
 	virtual void ServerSetAiming_Implementation(bool bIsAiming); \
  \
 	DECLARE_FUNCTION(execOnRep_CombatState); \
@@ -43,8 +47,10 @@ struct FVector_NetQuantize;
 	DECLARE_FUNCTION(execServerReload); \
 	DECLARE_FUNCTION(execMulticastFire); \
 	DECLARE_FUNCTION(execServerFire); \
+	DECLARE_FUNCTION(execServerThrowGrenade); \
 	DECLARE_FUNCTION(execOnRep_EquippedWeapon); \
 	DECLARE_FUNCTION(execServerSetAiming); \
+	DECLARE_FUNCTION(execThrowGrenadeFished); \
 	DECLARE_FUNCTION(execShotgunShellReload); \
 	DECLARE_FUNCTION(execFinishReloading);
 

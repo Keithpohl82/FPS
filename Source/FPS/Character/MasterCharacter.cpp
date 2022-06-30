@@ -202,6 +202,14 @@ void AMasterCharacter::FireButtonReleased()
 	}
 }
 
+void AMasterCharacter::GrenadeButtonPressed()
+{
+	if (Combat)
+	{
+		Combat->ThrowGrenade();
+	}
+}
+
 void AMasterCharacter::RotateInPlace(float DeltaTime)
 {
 	if (bDisableGameplay)
@@ -432,6 +440,7 @@ void AMasterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 	PlayerInputComponent->BindAction(TEXT("Fire"), IE_Pressed, this, &AMasterCharacter::FireButtonPressed);
 	PlayerInputComponent->BindAction(TEXT("Fire"), IE_Released, this, &AMasterCharacter::FireButtonReleased);
 	PlayerInputComponent->BindAction(TEXT("ReloadWeapon"), IE_Pressed, this, &AMasterCharacter::ReloadWeapon);
+	PlayerInputComponent->BindAction(TEXT("ThrowGrenade"), IE_Pressed, this, &AMasterCharacter::GrenadeButtonPressed);
 }
 
 void AMasterCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
@@ -547,6 +556,15 @@ void AMasterCharacter::PlayElimMontage()
 	if (AnimInstance && ElimMontage)
 	{
 		AnimInstance->Montage_Play(ElimMontage);
+	}
+}
+
+void AMasterCharacter::PlayThrowGrenadeMontage()
+{
+	UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
+	if (AnimInstance && ThrowGrenadeMontage)
+	{
+		AnimInstance->Montage_Play(ThrowGrenadeMontage);
 	}
 }
 
