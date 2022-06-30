@@ -19,13 +19,20 @@ class FPS_API UCombatComponent : public UActorComponent
 public:	
 	friend class AMasterCharacter;
 	UCombatComponent();
+
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
 	void EquipWeapon(class AWeaponBase* WeaponToEquip);
+
 	void Reload();
+
 	UFUNCTION(BlueprintCallable)
 	void FinishReloading();
+
 	void FireButtonPressed(bool bPressed);
+
 	UFUNCTION(BlueprintCallable)
 	void ShotgunShellReload();
 

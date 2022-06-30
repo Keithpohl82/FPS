@@ -108,7 +108,7 @@ void AWeaponBase::OnRep_Ammo()
 	if (OwnerCharacter && OwnerCharacter->GetCombat() && IsFull())
 	{
 		OwnerCharacter->GetCombat()->JumpToShotgunEnd();
-		UE_LOG(LogTemp, Warning, TEXT("Jump to shotgun called from weapon."));
+		UE_LOG(LogTemp, Warning, TEXT("Jump to shotgun called from weapon OnRep_Ammo."));
 	}
 	SetHUDAmmo();
 }

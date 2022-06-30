@@ -130,8 +130,8 @@ void UCombatComponent::JumpToShotgunEnd()
 		UAnimInstance* AnimInstance = MasterCharacter->GetMesh()->GetAnimInstance();
 		if (AnimInstance && MasterCharacter->GetReloadMontage())
 		{
-			AnimInstance->Montage_JumpToSection(FName("StopReload"));
-			UE_LOG(LogTemp, Warning, TEXT("Jumed to ShotgunEnd"));
+			AnimInstance->Montage_JumpToSection(FName("StopReloading"));
+			UE_LOG(LogTemp, Warning, TEXT("Called From JumpToShotgunEnd"));
 		}
 }
 
@@ -146,10 +146,12 @@ void UCombatComponent::MulticastFire_Implementation(const FVector_NetQuantize& T
 
 	if (MasterCharacter && CombatState == ECombatState::ECS_Reloading && EquippedWeapon->GetWeaponType() == EWeaponType::EWT_ShotGun)
 	{
+		//JumpToShotgunEnd(); Works but fills ammo.
 		MasterCharacter->PlayFireMontage(bAiming);
 		EquippedWeapon->Fire(TraceHitTarget);
 		CombatState = ECombatState::ECS_Unoccupied;
 		UE_LOG(LogTemp, Warning, TEXT("Jumed to ShotgunEnd called from multicast fire"));
+		
 		return;
 	}
 
@@ -331,8 +333,11 @@ bool UCombatComponent::CanFire()
 {
 	if (EquippedWeapon == nullptr) return false;
 
-	if (!EquippedWeapon->IsEmpty() && bCanFire && CombatState == ECombatState::ECS_Reloading && EquippedWeapon->GetWeaponType() == EWeaponType::EWT_ShotGun) return true;
-	
+	if (!EquippedWeapon->IsEmpty() && bCanFire && CombatState == ECombatState::ECS_Reloading && EquippedWeapon->GetWeaponType() == EWeaponType::EWT_ShotGun)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("CanFire was called for Shotgun"));
+		return true;
+	}
 	return !EquippedWeapon->IsEmpty() && bCanFire && CombatState == ECombatState::ECS_Unoccupied;
 }
 
@@ -415,8 +420,11 @@ void UCombatComponent::UpdateShotgunAmmoValues()
 	{
 		MasterPlayerController->SetHUDCarriedAmmo(CarriedAmmo);
 	}
+
 	EquippedWeapon->AddAmmo(-1);
+
 	bCanFire = true;
+
 	if (EquippedWeapon->IsFull() || CarriedAmmo == 0)
 	{
 		JumpToShotgunEnd();	
@@ -493,10 +501,12 @@ void UCombatComponent::Reload()
 void UCombatComponent::FinishReloading()
 {
 	if (MasterCharacter == nullptr) return;
+
 	if (MasterCharacter->HasAuthority())
 	{
 		CombatState = ECombatState::ECS_Unoccupied;
 		UpdateAmmoValues();
+		UE_LOG(LogTemp, Warning, TEXT("FinishReloading was called"));
 	}
 	if (bFireButtonPressed)
 	{
