@@ -53,6 +53,14 @@ public:
 	float FireDelay = .15f;
 	UPROPERTY(EditAnywhere, Category = WeaponFire)
 	bool bAutomatic = true;
+
+	/*
+	Enable or Disable custom depth
+	*/
+
+	void EnableCustomDepth(bool bEnable);
+
+
 protected:
 
 	virtual void BeginPlay() override;
