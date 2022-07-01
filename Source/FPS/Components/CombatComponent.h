@@ -179,7 +179,7 @@ private:
 	UFUNCTION()
 	void OnRep_Grenades();
 
-	UPROPERTY(ReplicatedUsing = OnRep_Grenades)
+	UPROPERTY(ReplicatedUsing = OnRep_Grenades, EditAnywhere)
 	int32 Grenades = 2;
 	UPROPERTY(EditAnywhere)
 	int32 MaxGrenades = 2;
