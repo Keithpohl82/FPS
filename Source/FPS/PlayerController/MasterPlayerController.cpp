@@ -182,6 +182,11 @@ void AMasterPlayerController::PoolInit()
 				SetHUDHealth(HUDHealth, HUDMaxHealth);
 				SetHUDScore(HUDScore);
 				SetHUDDeaths(HUDDeaths);
+				AMasterCharacter* MasterCharacter = Cast<AMasterCharacter>(GetPawn());
+				if (MasterCharacter && MasterCharacter->GetCombat())
+				{
+					SetHUDNades(MasterCharacter->GetCombat()->GetGrenades());
+				}
 			}
 		}
 	}
@@ -368,6 +373,21 @@ void AMasterPlayerController::SetHUDAnnouncementCountdown(float CountdownTime)
 
 		FString CountdownText = FString::Printf(TEXT("%02d:%02d"), Minutes, Seconds);
 		HUD->Announcement->WarmupTime->SetText(FText::FromString(CountdownText));
+	}
+}
+
+void AMasterPlayerController::SetHUDNades(int32 Grenades)
+{
+	HUD = HUD == nullptr ? Cast<APlayerHUD>(GetHUD()) : HUD;
+	bool bHUDValid = HUD && HUD->PlayerOverlay && HUD->PlayerOverlay->GrenadesText;
+	if (bHUDValid)
+	{
+		FString GrenadesText = FString::Printf(TEXT("%d"), Grenades);
+		HUD->PlayerOverlay->GrenadesText->SetText(FText::FromString(GrenadesText));
+	}
+	else
+	{
+		HUDGrenades = Grenades;
 	}
 }
 

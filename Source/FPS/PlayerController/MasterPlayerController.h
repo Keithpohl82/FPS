@@ -24,6 +24,7 @@ public:
 	void SetHUDCarriedAmmo(int32 Ammo);
 	void SetHUDMatchCountdown(float CountdownTime);
 	void SetHUDAnnouncementCountdown(float CountdownTime);
+	void SetHUDNades(int32 Grenades);
 	virtual void OnPossess(APawn* InPawn) override;
 	virtual void Tick(float DeltaSeconds) override;
 	virtual float GetServerTime();
@@ -89,6 +90,7 @@ private:
 	float HUDMaxHealth;
 	float HUDScore;
 	int32 HUDDeaths;
+	int32 HUDGrenades;
 
 	UPROPERTY()
 	class AMasterGameMode* MasterGameMode;

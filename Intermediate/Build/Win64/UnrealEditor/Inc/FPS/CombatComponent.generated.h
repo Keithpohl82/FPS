@@ -21,8 +21,10 @@ struct FVector_NetQuantize;
 	virtual void MulticastFire_Implementation(FVector_NetQuantize const& TraceHitTarget); \
 	virtual void ServerFire_Implementation(FVector_NetQuantize const& TraceHitTarget); \
 	virtual void ServerSetAiming_Implementation(bool bIsAiming); \
+	virtual void ServerLaunchGrenade_Implementation(FVector_NetQuantize const& Target); \
  \
 	DECLARE_FUNCTION(execOnRep_CombatState); \
+	DECLARE_FUNCTION(execOnRep_Grenades); \
 	DECLARE_FUNCTION(execOnRep_CarriedAmmo); \
 	DECLARE_FUNCTION(execServerReload); \
 	DECLARE_FUNCTION(execServerThrowGrenade); \
@@ -30,6 +32,7 @@ struct FVector_NetQuantize;
 	DECLARE_FUNCTION(execServerFire); \
 	DECLARE_FUNCTION(execOnRep_EquippedWeapon); \
 	DECLARE_FUNCTION(execServerSetAiming); \
+	DECLARE_FUNCTION(execServerLaunchGrenade); \
 	DECLARE_FUNCTION(execLaunchGrenade); \
 	DECLARE_FUNCTION(execThrowGrenadeFished); \
 	DECLARE_FUNCTION(execShotgunShellReload); \
@@ -42,8 +45,10 @@ struct FVector_NetQuantize;
 	virtual void MulticastFire_Implementation(FVector_NetQuantize const& TraceHitTarget); \
 	virtual void ServerFire_Implementation(FVector_NetQuantize const& TraceHitTarget); \
 	virtual void ServerSetAiming_Implementation(bool bIsAiming); \
+	virtual void ServerLaunchGrenade_Implementation(FVector_NetQuantize const& Target); \
  \
 	DECLARE_FUNCTION(execOnRep_CombatState); \
+	DECLARE_FUNCTION(execOnRep_Grenades); \
 	DECLARE_FUNCTION(execOnRep_CarriedAmmo); \
 	DECLARE_FUNCTION(execServerReload); \
 	DECLARE_FUNCTION(execServerThrowGrenade); \
@@ -51,6 +56,7 @@ struct FVector_NetQuantize;
 	DECLARE_FUNCTION(execServerFire); \
 	DECLARE_FUNCTION(execOnRep_EquippedWeapon); \
 	DECLARE_FUNCTION(execServerSetAiming); \
+	DECLARE_FUNCTION(execServerLaunchGrenade); \
 	DECLARE_FUNCTION(execLaunchGrenade); \
 	DECLARE_FUNCTION(execThrowGrenadeFished); \
 	DECLARE_FUNCTION(execShotgunShellReload); \
@@ -65,6 +71,10 @@ struct FVector_NetQuantize;
 	struct CombatComponent_eventServerFire_Parms \
 	{ \
 		FVector_NetQuantize TraceHitTarget; \
+	}; \
+	struct CombatComponent_eventServerLaunchGrenade_Parms \
+	{ \
+		FVector_NetQuantize Target; \
 	}; \
 	struct CombatComponent_eventServerSetAiming_Parms \
 	{ \
@@ -86,6 +96,7 @@ public: \
 		EquippedWeapon=NETFIELD_REP_START, \
 		bAiming, \
 		CarriedAmmo, \
+		Grenades, \
 		CombatState, \
 		NETFIELD_REP_END=CombatState	}; \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
@@ -104,6 +115,7 @@ public: \
 		EquippedWeapon=NETFIELD_REP_START, \
 		bAiming, \
 		CarriedAmmo, \
+		Grenades, \
 		CombatState, \
 		NETFIELD_REP_END=CombatState	}; \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
