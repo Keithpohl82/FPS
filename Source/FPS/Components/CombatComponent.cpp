@@ -14,6 +14,7 @@
 #include "TimerManager.h"
 #include "Sound/SoundCue.h"
 #include "FPS/UI/PlayerHUD.h"
+#include "FPS/Weapons/Projectiles/ProjectileBase.h"
 
 
 UCombatComponent::UCombatComponent()
@@ -448,17 +449,26 @@ void UCombatComponent::MulticastFire_Implementation(const FVector_NetQuantize& T
 
 void UCombatComponent::ThrowGrenade()
 {
-	if (CombatState != ECombatState::ECS_Unoccupied) return;
+	if (CombatState != ECombatState::ECS_Unoccupied || EquippedWeapon == nullptr) return;
 	
 	CombatState = ECombatState::ECS_ThrowingGrenade;
 	if (MasterCharacter)
 	{
 		MasterCharacter->PlayThrowGrenadeMontage();
 		AttachActorToLeftHand(EquippedWeapon);
+		ShowAttachedGrenade(true);
 	}
 	if (MasterCharacter && !MasterCharacter->HasAuthority())
 	{
 		ServerThrowGrenade();
+	}
+}
+
+void UCombatComponent::ShowAttachedGrenade(bool bShowGrenade)
+{
+	if (MasterCharacter && MasterCharacter->GetAttachedGrenade())
+	{
+		MasterCharacter->GetAttachedGrenade()->SetVisibility(bShowGrenade);
 	}
 }
 
@@ -469,6 +479,7 @@ void UCombatComponent::ServerThrowGrenade_Implementation()
 	{
 		MasterCharacter->PlayThrowGrenadeMontage();
 		AttachActorToLeftHand(EquippedWeapon);
+		ShowAttachedGrenade(true);
 	}
 }
 
@@ -496,6 +507,27 @@ void UCombatComponent::ThrowGrenadeFished()
 {
 	CombatState = ECombatState::ECS_Unoccupied;
 	AttachActorToRightHand(EquippedWeapon);
+}
+
+void UCombatComponent::LaunchGrenade()
+{
+	UE_LOG(LogTemp, Warning, TEXT("LaunchGrenade Called"));
+	ShowAttachedGrenade(false);
+	if (MasterCharacter && MasterCharacter->HasAuthority() && GrenadeClass && MasterCharacter->GetAttachedGrenade())
+	{
+		const FVector StartingLocation = MasterCharacter->GetAttachedGrenade()->GetComponentLocation();
+		FVector ToTarget = HitTarget - StartingLocation;
+		FActorSpawnParameters SpawnParams;
+		SpawnParams.Instigator = MasterCharacter;
+		SpawnParams.Owner = MasterCharacter;
+		UWorld* World = GetWorld();
+		UE_LOG(LogTemp, Warning, TEXT("MasterCharacter && MasterCharacter->HasAuthority() && GrenadeClass && MasterCharacter->GetAttachedGrenade() are all valid"));
+		if (World)
+		{
+			World->SpawnActor<AProjectileBase>(GrenadeClass, StartingLocation, ToTarget.Rotation(), SpawnParams);
+			UE_LOG(LogTemp, Warning, TEXT("Grenade should spawn"));
+		}
+	}
 }
 
 void UCombatComponent::InterpFOV(float DeltaTime)
@@ -594,6 +626,7 @@ void UCombatComponent::OnRep_CombatState()
 			{
 				MasterCharacter->PlayThrowGrenadeMontage();
 				AttachActorToLeftHand(EquippedWeapon);
+				ShowAttachedGrenade(true);
 			}
 		break;
 	}

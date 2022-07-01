@@ -30,6 +30,7 @@ struct FVector_NetQuantize;
 	DECLARE_FUNCTION(execServerFire); \
 	DECLARE_FUNCTION(execOnRep_EquippedWeapon); \
 	DECLARE_FUNCTION(execServerSetAiming); \
+	DECLARE_FUNCTION(execLaunchGrenade); \
 	DECLARE_FUNCTION(execThrowGrenadeFished); \
 	DECLARE_FUNCTION(execShotgunShellReload); \
 	DECLARE_FUNCTION(execFinishReloading);
@@ -50,6 +51,7 @@ struct FVector_NetQuantize;
 	DECLARE_FUNCTION(execServerFire); \
 	DECLARE_FUNCTION(execOnRep_EquippedWeapon); \
 	DECLARE_FUNCTION(execServerSetAiming); \
+	DECLARE_FUNCTION(execLaunchGrenade); \
 	DECLARE_FUNCTION(execThrowGrenadeFished); \
 	DECLARE_FUNCTION(execShotgunShellReload); \
 	DECLARE_FUNCTION(execFinishReloading);

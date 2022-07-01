@@ -41,6 +41,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void ThrowGrenadeFished();
 
+	UFUNCTION(BlueprintCallable)
+	void LaunchGrenade();
+
 protected:
 
 	virtual void BeginPlay() override;
@@ -79,8 +82,13 @@ protected:
 
 	void ThrowGrenade();
 
+	void ShowAttachedGrenade(bool bShowGrenade);
+
 	UFUNCTION(Server, Reliable)
 	void ServerThrowGrenade();
+
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<class AProjectileBase> GrenadeClass;
 
 	UFUNCTION(Server, Reliable)
 	void ServerReload();
@@ -176,6 +184,8 @@ private:
 
 	void UpdateAmmoValues();
 	void UpdateShotgunAmmoValues();
+
+
 
 public:	
 
