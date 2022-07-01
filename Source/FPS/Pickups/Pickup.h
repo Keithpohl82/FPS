@@ -12,9 +12,11 @@ class FPS_API APickup : public AActor
 	GENERATED_BODY()
 	
 public:	
-
 	APickup();
+
 	virtual void Tick(float DeltaTime) override;
+
+	virtual void Destroyed() override;
 protected:
 
 	virtual void BeginPlay() override;
@@ -26,6 +28,12 @@ private:
 
 	UPROPERTY(EditAnywhere)
 	class USphereComponent* OverlapSphere;
+
+	UPROPERTY(EditAnywhere)
+	class USoundCue* PickupSound;
+
+	UPROPERTY(EditAnywhere)
+	UStaticMeshComponent* PickupMesh;
 
 public:	
 
