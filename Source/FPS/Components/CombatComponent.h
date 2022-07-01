@@ -44,25 +44,49 @@ public:
 protected:
 
 	virtual void BeginPlay() override;
+
 	void SetAiming(bool bIsAiming);
+
 	UFUNCTION(Server, Reliable)
 	void ServerSetAiming(bool bIsAiming);
+
 	UFUNCTION()
 	void OnRep_EquippedWeapon();
+
+	void DropEquippedWeapon();
+
+	void AttachActorToRightHand(AActor* ActorToAttach);
+
+	void AttachActorToLeftHand(AActor* ActorToAttach);
+
+	void UpdateCarriedAmmo();
+	
+	void PlayEquipWeaponSound();
+
+	void ReloadEmptyWeapon();
+
 	void Fire();
+
 	void ThrowGrenade();
+
 	UFUNCTION(Server, Reliable)
 	void ServerThrowGrenade();
 	
 	UFUNCTION(Server, Reliable)
 	void ServerFire(const FVector_NetQuantize& TraceHitTarget);
+
 	UFUNCTION(NetMulticast, Reliable)
 	void MulticastFire(const FVector_NetQuantize& TraceHitTarget);
+
 	void TraceUnderCrosshairs(FHitResult& TraceHitResult);
+
 	void SetHUDCrosshairs(float DeltaTime);
+
 	UFUNCTION(Server, Reliable)
 	void ServerReload();
+
 	void HandleReload();
+
 	int32 AmountToReload();
 
 private:
