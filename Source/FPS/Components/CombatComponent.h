@@ -26,12 +26,12 @@ public:
 
 	void EquipWeapon(class AWeaponBase* WeaponToEquip);
 
+	void FireButtonPressed(bool bPressed);
+
 	void Reload();
 
 	UFUNCTION(BlueprintCallable)
 	void FinishReloading();
-
-	void FireButtonPressed(bool bPressed);
 
 	UFUNCTION(BlueprintCallable)
 	void ShotgunShellReload();
@@ -53,6 +53,10 @@ protected:
 	UFUNCTION()
 	void OnRep_EquippedWeapon();
 
+	void TraceUnderCrosshairs(FHitResult& TraceHitResult);
+
+	void SetHUDCrosshairs(float DeltaTime);
+
 	void DropEquippedWeapon();
 
 	void AttachActorToRightHand(AActor* ActorToAttach);
@@ -67,20 +71,16 @@ protected:
 
 	void Fire();
 
-	void ThrowGrenade();
-
-	UFUNCTION(Server, Reliable)
-	void ServerThrowGrenade();
-	
 	UFUNCTION(Server, Reliable)
 	void ServerFire(const FVector_NetQuantize& TraceHitTarget);
 
 	UFUNCTION(NetMulticast, Reliable)
 	void MulticastFire(const FVector_NetQuantize& TraceHitTarget);
 
-	void TraceUnderCrosshairs(FHitResult& TraceHitResult);
+	void ThrowGrenade();
 
-	void SetHUDCrosshairs(float DeltaTime);
+	UFUNCTION(Server, Reliable)
+	void ServerThrowGrenade();
 
 	UFUNCTION(Server, Reliable)
 	void ServerReload();
@@ -151,7 +151,7 @@ private:
 
 	// Starting Reserve ammo. Set to 0 after testing
 	UPROPERTY(EditAnywhere)
-	int32 StartingARAmmo = 30;
+	int32 StartingARAmmo = 0;
 	UPROPERTY(EditAnywhere)
 	int32 StartingRocketAmmo = 0;
 	UPROPERTY(EditAnywhere)

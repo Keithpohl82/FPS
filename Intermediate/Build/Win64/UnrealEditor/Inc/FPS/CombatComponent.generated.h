@@ -17,17 +17,17 @@ struct FVector_NetQuantize;
 #define FID_FPS_Source_FPS_Components_CombatComponent_h_17_SPARSE_DATA
 #define FID_FPS_Source_FPS_Components_CombatComponent_h_17_RPC_WRAPPERS \
 	virtual void ServerReload_Implementation(); \
+	virtual void ServerThrowGrenade_Implementation(); \
 	virtual void MulticastFire_Implementation(FVector_NetQuantize const& TraceHitTarget); \
 	virtual void ServerFire_Implementation(FVector_NetQuantize const& TraceHitTarget); \
-	virtual void ServerThrowGrenade_Implementation(); \
 	virtual void ServerSetAiming_Implementation(bool bIsAiming); \
  \
 	DECLARE_FUNCTION(execOnRep_CombatState); \
 	DECLARE_FUNCTION(execOnRep_CarriedAmmo); \
 	DECLARE_FUNCTION(execServerReload); \
+	DECLARE_FUNCTION(execServerThrowGrenade); \
 	DECLARE_FUNCTION(execMulticastFire); \
 	DECLARE_FUNCTION(execServerFire); \
-	DECLARE_FUNCTION(execServerThrowGrenade); \
 	DECLARE_FUNCTION(execOnRep_EquippedWeapon); \
 	DECLARE_FUNCTION(execServerSetAiming); \
 	DECLARE_FUNCTION(execThrowGrenadeFished); \
@@ -37,17 +37,17 @@ struct FVector_NetQuantize;
 
 #define FID_FPS_Source_FPS_Components_CombatComponent_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
 	virtual void ServerReload_Implementation(); \
+	virtual void ServerThrowGrenade_Implementation(); \
 	virtual void MulticastFire_Implementation(FVector_NetQuantize const& TraceHitTarget); \
 	virtual void ServerFire_Implementation(FVector_NetQuantize const& TraceHitTarget); \
-	virtual void ServerThrowGrenade_Implementation(); \
 	virtual void ServerSetAiming_Implementation(bool bIsAiming); \
  \
 	DECLARE_FUNCTION(execOnRep_CombatState); \
 	DECLARE_FUNCTION(execOnRep_CarriedAmmo); \
 	DECLARE_FUNCTION(execServerReload); \
+	DECLARE_FUNCTION(execServerThrowGrenade); \
 	DECLARE_FUNCTION(execMulticastFire); \
 	DECLARE_FUNCTION(execServerFire); \
-	DECLARE_FUNCTION(execServerThrowGrenade); \
 	DECLARE_FUNCTION(execOnRep_EquippedWeapon); \
 	DECLARE_FUNCTION(execServerSetAiming); \
 	DECLARE_FUNCTION(execThrowGrenadeFished); \

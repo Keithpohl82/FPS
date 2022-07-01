@@ -40,6 +40,13 @@ void EmptyLinkFunctionForGeneratedCodeCombatComponent() {}
 		P_THIS->ServerReload_Implementation();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(UCombatComponent::execServerThrowGrenade)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ServerThrowGrenade_Implementation();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UCombatComponent::execMulticastFire)
 	{
 		P_GET_STRUCT(FVector_NetQuantize,Z_Param_TraceHitTarget);
@@ -54,13 +61,6 @@ void EmptyLinkFunctionForGeneratedCodeCombatComponent() {}
 		P_FINISH;
 		P_NATIVE_BEGIN;
 		P_THIS->ServerFire_Implementation(Z_Param_TraceHitTarget);
-		P_NATIVE_END;
-	}
-	DEFINE_FUNCTION(UCombatComponent::execServerThrowGrenade)
-	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->ServerThrowGrenade_Implementation();
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(UCombatComponent::execOnRep_EquippedWeapon)
