@@ -154,6 +154,15 @@
     <ClInclude Include="..\..\Source\FPS\Interfaces\InteractWithCrosshairsInterface.h">
       <Filter>Source\FPS\Interfaces</Filter>
     </ClInclude>
+    <Filter Include="Source\FPS\Pickups">
+      <UniqueIdentifier>{B86C3B5B-D263-3919-B66B-9A30B61029E4}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\FPS\Pickups\Pickup.cpp">
+      <Filter>Source\FPS\Pickups</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\Pickups\Pickup.h">
+      <Filter>Source\FPS\Pickups</Filter>
+    </ClInclude>
     <Filter Include="Source\FPS\PlayerController">
       <UniqueIdentifier>{9BD67226-A44E-3C65-8401-3B825E8E401F}</UniqueIdentifier>
     </Filter>
