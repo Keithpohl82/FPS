@@ -176,7 +176,7 @@ void UCombatComponent::ThrowGrenade()
 		MasterCharacter->PlayThrowGrenadeMontage();
 		AttachActorToLeftHand(EquippedWeapon);
 	}
-	if (MasterCharacter && !MasterCharacter->IsLocallyControlled())
+	if (MasterCharacter && !MasterCharacter->HasAuthority())
 	{
 		ServerThrowGrenade();
 	}
@@ -577,7 +577,7 @@ void UCombatComponent::EquipWeapon(class AWeaponBase* WeaponToEquip)
 
 void UCombatComponent::Reload()
 {
-	if (CarriedAmmo > 0 && CombatState == ECombatState::ECS_Unoccupied)
+	if (CarriedAmmo > 0 && CombatState == ECombatState::ECS_Unoccupied && EquippedWeapon && !EquippedWeapon->IsFull())
 	{
 		ServerReload();
 	}
