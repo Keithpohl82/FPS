@@ -24,7 +24,8 @@
             "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\components\\spherecomponent.h",
             "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\components\\shapecomponent.h",
             "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\shapecomponent.generated.h",
-            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\spherecomponent.generated.h"
+            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\spherecomponent.generated.h",
+            "u:\\fps\\source\\fps\\weapons\\weapontypes.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

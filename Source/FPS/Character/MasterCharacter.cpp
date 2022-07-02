@@ -35,12 +35,12 @@ AMasterCharacter::AMasterCharacter()
 	TPPCamera->SetupAttachment(SpringArm, USpringArmComponent::SocketName);
 	TPPCamera->bUsePawnControlRotation = false;
 	// Change to true to use Third person Camera
-	TPPCamera->SetActiveFlag(true);
+	TPPCamera->SetActiveFlag(false);
 
 	FPPCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("First Person Camera"));
 	FPPCamera->SetupAttachment(GetMesh(), FName(TEXT("Head")));
 	// Change to false to use Third person camera
-	FPPCamera->SetActiveFlag(false);
+	FPPCamera->SetActiveFlag(true);
 
 	bUseControllerRotationYaw = false;
 	GetCharacterMovement()->bOrientRotationToMovement = true;
