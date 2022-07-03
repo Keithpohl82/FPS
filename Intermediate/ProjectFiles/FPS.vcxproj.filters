@@ -115,6 +115,12 @@
     <Filter Include="Source\FPS\Components">
       <UniqueIdentifier>{B0A064B2-7022-38F9-93E9-8CA1858E4232}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\FPS\Components\BuffComponent.cpp">
+      <Filter>Source\FPS\Components</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\Components\BuffComponent.h">
+      <Filter>Source\FPS\Components</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\FPS\Components\CombatComponent.cpp">
       <Filter>Source\FPS\Components</Filter>
     </ClCompile>

@@ -14,6 +14,7 @@
 #include "FPS/FPS.h"
 #include "CharacterAnimInstance.h"
 #include "FPS/Components/CombatComponent.h"
+#include "FPS/Components/BuffComponent.h"
 #include "FPS/Weapons/WeaponBase.h"
 #include "FPS/Weapons/WeaponTypes.h"
 #include "FPS/GameModes/MasterGameMode.h"
@@ -45,8 +46,11 @@ AMasterCharacter::AMasterCharacter()
 	bUseControllerRotationYaw = false;
 	GetCharacterMovement()->bOrientRotationToMovement = true;
 
-	Combat = CreateDefaultSubobject<UCombatComponent>(TEXT("CombatComponent"));
+	Combat = CreateDefaultSubobject<UCombatComponent>(TEXT("Combat Component"));
 	Combat->SetIsReplicated(true);
+
+	Buff = CreateDefaultSubobject<UBuffComponent>(TEXT("Buff Component"));
+	Buff->SetIsReplicated(true);
 
 	GetCharacterMovement()->NavAgentProps.bCanCrouch = true;
 	GetCharacterMovement()->RotationRate = FRotator(0.f, 0.f, 850.f);
@@ -468,6 +472,10 @@ void AMasterCharacter::PostInitializeComponents()
 	if (Combat)
 	{
 		Combat->MasterCharacter = this;
+	}
+	if (Buff)
+	{
+		Buff->MasterCharacter = this;
 	}
 }
 
