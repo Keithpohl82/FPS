@@ -83,6 +83,8 @@
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\playerhud.generated.h",
             "u:\\fps\\source\\fps\\weapons\\weapontypes.h",
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\combatcomponent.generated.h",
+            "u:\\fps\\source\\fps\\components\\buffcomponent.h",
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\buffcomponent.generated.h",
             "u:\\fps\\source\\fps\\weapons\\weaponbase.h",
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\weaponbase.generated.h",
             "u:\\fps\\source\\fps\\gamemodes\\mastergamemode.h",

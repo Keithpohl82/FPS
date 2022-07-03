@@ -57,7 +57,7 @@ private:
 	void OnRep_OverlappingWeapon(AWeaponBase* LastWeapon);
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Combat, meta = (AllowPrivateAccess = "true"))
 	class UCombatComponent* Combat;
-	UPROPERTY(VisibleAnywhere, Category = Combat, meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(VisibleAnywhere)
 	class UBuffComponent* Buff;
 
 	UFUNCTION(Server, Reliable)

@@ -1,0 +1,41 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "u:\\fps\\source\\fps\\pickups\\ammopickup.cpp",
+        "ProvidedModule": "",
+        "PCH": "u:\\fps\\intermediate\\build\\win64\\fpseditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\development\\fps\\definitions.fps.h",
+            "u:\\fps\\source\\fps\\pickups\\ammopickup.h",
+            "u:\\fps\\source\\fps\\pickups\\pickup.h",
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\pickup.generated.h",
+            "u:\\fps\\source\\fps\\weapons\\weapontypes.h",
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\ammopickup.generated.h",
+            "u:\\fps\\source\\fps\\character\\mastercharacter.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\character.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\charactermovementreplication.h",
+            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\charactermovementreplication.generated.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\rootmotionsource.h",
+            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\rootmotionsource.generated.h",
+            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\character.generated.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\components\\timelinecomponent.h",
+            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\timelinecomponent.generated.h",
+            "u:\\fps\\source\\fps\\typeclasses\\combatstate.h",
+            "u:\\fps\\source\\fps\\typeclasses\\turninginplace.h",
+            "u:\\fps\\source\\fps\\interfaces\\interactwithcrosshairsinterface.h",
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\interactwithcrosshairsinterface.generated.h",
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\mastercharacter.generated.h",
+            "u:\\fps\\source\\fps\\components\\combatcomponent.h",
+            "u:\\fps\\source\\fps\\ui\\playerhud.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\hud.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\hudhitbox.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\debugtextinfo.h",
+            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\debugtextinfo.generated.h",
+            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\hud.generated.h",
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\playerhud.generated.h",
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\combatcomponent.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

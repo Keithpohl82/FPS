@@ -36,20 +36,20 @@ AMasterCharacter::AMasterCharacter()
 	TPPCamera->SetupAttachment(SpringArm, USpringArmComponent::SocketName);
 	TPPCamera->bUsePawnControlRotation = false;
 	// Change to true to use Third person Camera
-	TPPCamera->SetActiveFlag(false);
+	TPPCamera->SetActiveFlag(true);
 
 	FPPCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("First Person Camera"));
 	FPPCamera->SetupAttachment(GetMesh(), FName(TEXT("Head")));
 	// Change to false to use Third person camera
-	FPPCamera->SetActiveFlag(true);
+	FPPCamera->SetActiveFlag(false);
 
 	bUseControllerRotationYaw = false;
 	GetCharacterMovement()->bOrientRotationToMovement = true;
 
-	Combat = CreateDefaultSubobject<UCombatComponent>(TEXT("Combat Component"));
+	Combat = CreateDefaultSubobject<UCombatComponent>(TEXT("CombatComponent"));
 	Combat->SetIsReplicated(true);
 
-	Buff = CreateDefaultSubobject<UBuffComponent>(TEXT("Buff Component"));
+	Buff = CreateDefaultSubobject<UBuffComponent>(TEXT("BuffComponent"));
 	Buff->SetIsReplicated(true);
 
 	GetCharacterMovement()->NavAgentProps.bCanCrouch = true;
