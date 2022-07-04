@@ -10,7 +10,6 @@
 AHealthPickup::AHealthPickup()
 {
 	bReplicates = true;
-
 }
 
 

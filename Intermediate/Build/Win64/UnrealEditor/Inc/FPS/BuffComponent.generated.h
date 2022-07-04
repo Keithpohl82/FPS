@@ -15,18 +15,26 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 #define FID_FPS_Source_FPS_Components_BuffComponent_h_13_SPARSE_DATA
 #define FID_FPS_Source_FPS_Components_BuffComponent_h_13_RPC_WRAPPERS \
+	virtual void MulticastJumpBuff_Implementation(float JumpVelocity); \
 	virtual void MulticastSpeedBuff_Implementation(float BaseSpeed, float CrouchSpeed); \
  \
+	DECLARE_FUNCTION(execMulticastJumpBuff); \
 	DECLARE_FUNCTION(execMulticastSpeedBuff);
 
 
 #define FID_FPS_Source_FPS_Components_BuffComponent_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void MulticastJumpBuff_Implementation(float JumpVelocity); \
 	virtual void MulticastSpeedBuff_Implementation(float BaseSpeed, float CrouchSpeed); \
  \
+	DECLARE_FUNCTION(execMulticastJumpBuff); \
 	DECLARE_FUNCTION(execMulticastSpeedBuff);
 
 
 #define FID_FPS_Source_FPS_Components_BuffComponent_h_13_EVENT_PARMS \
+	struct BuffComponent_eventMulticastJumpBuff_Parms \
+	{ \
+		float JumpVelocity; \
+	}; \
 	struct BuffComponent_eventMulticastSpeedBuff_Parms \
 	{ \
 		float BaseSpeed; \

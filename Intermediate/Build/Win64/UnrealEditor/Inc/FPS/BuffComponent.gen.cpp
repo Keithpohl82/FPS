@@ -15,6 +15,14 @@ void EmptyLinkFunctionForGeneratedCodeBuffComponent() {}
 	UPackage* Z_Construct_UPackage__Script_FPS();
 	FPS_API UClass* Z_Construct_UClass_AMasterCharacter_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(UBuffComponent::execMulticastJumpBuff)
+	{
+		P_GET_PROPERTY(FFloatProperty,Z_Param_JumpVelocity);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->MulticastJumpBuff_Implementation(Z_Param_JumpVelocity);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UBuffComponent::execMulticastSpeedBuff)
 	{
 		P_GET_PROPERTY(FFloatProperty,Z_Param_BaseSpeed);
@@ -23,6 +31,13 @@ void EmptyLinkFunctionForGeneratedCodeBuffComponent() {}
 		P_NATIVE_BEGIN;
 		P_THIS->MulticastSpeedBuff_Implementation(Z_Param_BaseSpeed,Z_Param_CrouchSpeed);
 		P_NATIVE_END;
+	}
+	static FName NAME_UBuffComponent_MulticastJumpBuff = FName(TEXT("MulticastJumpBuff"));
+	void UBuffComponent::MulticastJumpBuff(float JumpVelocity)
+	{
+		BuffComponent_eventMulticastJumpBuff_Parms Parms;
+		Parms.JumpVelocity=JumpVelocity;
+		ProcessEvent(FindFunctionChecked(NAME_UBuffComponent_MulticastJumpBuff),&Parms);
 	}
 	static FName NAME_UBuffComponent_MulticastSpeedBuff = FName(TEXT("MulticastSpeedBuff"));
 	void UBuffComponent::MulticastSpeedBuff(float BaseSpeed, float CrouchSpeed)
@@ -36,9 +51,38 @@ void EmptyLinkFunctionForGeneratedCodeBuffComponent() {}
 	{
 		UClass* Class = UBuffComponent::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "MulticastJumpBuff", &UBuffComponent::execMulticastJumpBuff },
 			{ "MulticastSpeedBuff", &UBuffComponent::execMulticastSpeedBuff },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_UBuffComponent_MulticastJumpBuff_Statics
+	{
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_JumpVelocity;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_UBuffComponent_MulticastJumpBuff_Statics::NewProp_JumpVelocity = { "JumpVelocity", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(BuffComponent_eventMulticastJumpBuff_Parms, JumpVelocity), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UBuffComponent_MulticastJumpBuff_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UBuffComponent_MulticastJumpBuff_Statics::NewProp_JumpVelocity,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UBuffComponent_MulticastJumpBuff_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Components/BuffComponent.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UBuffComponent_MulticastJumpBuff_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UBuffComponent, nullptr, "MulticastJumpBuff", nullptr, nullptr, sizeof(BuffComponent_eventMulticastJumpBuff_Parms), Z_Construct_UFunction_UBuffComponent_MulticastJumpBuff_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UBuffComponent_MulticastJumpBuff_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00044CC1, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UBuffComponent_MulticastJumpBuff_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UBuffComponent_MulticastJumpBuff_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UBuffComponent_MulticastJumpBuff()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UBuffComponent_MulticastJumpBuff_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_UBuffComponent_MulticastSpeedBuff_Statics
 	{
@@ -96,6 +140,7 @@ void EmptyLinkFunctionForGeneratedCodeBuffComponent() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_FPS,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UBuffComponent_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_UBuffComponent_MulticastJumpBuff, "MulticastJumpBuff" }, // 4097671754
 		{ &Z_Construct_UFunction_UBuffComponent_MulticastSpeedBuff, "MulticastSpeedBuff" }, // 2994027458
 	};
 #if WITH_METADATA
@@ -151,9 +196,9 @@ void EmptyLinkFunctionForGeneratedCodeBuffComponent() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Components_BuffComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UBuffComponent, UBuffComponent::StaticClass, TEXT("UBuffComponent"), &Z_Registration_Info_UClass_UBuffComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBuffComponent), 2585715575U) },
+		{ Z_Construct_UClass_UBuffComponent, UBuffComponent::StaticClass, TEXT("UBuffComponent"), &Z_Registration_Info_UClass_UBuffComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBuffComponent), 3651518516U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Components_BuffComponent_h_246110179(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Components_BuffComponent_h_892129556(TEXT("/Script/FPS"),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_Components_BuffComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_Components_BuffComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

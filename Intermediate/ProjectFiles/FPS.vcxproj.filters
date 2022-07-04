@@ -175,6 +175,12 @@
     <ClInclude Include="..\..\Source\FPS\Pickups\HealthPickup.h">
       <Filter>Source\FPS\Pickups</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\FPS\Pickups\JumpPickup.cpp">
+      <Filter>Source\FPS\Pickups</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\Pickups\JumpPickup.h">
+      <Filter>Source\FPS\Pickups</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\FPS\Pickups\Pickup.cpp">
       <Filter>Source\FPS\Pickups</Filter>
     </ClCompile>
