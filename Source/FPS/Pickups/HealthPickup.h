@@ -17,7 +17,7 @@ class FPS_API AHealthPickup : public APickup
 public:
 
 	AHealthPickup();
-	virtual void Destroyed() override;
+	
 
 protected:
 
@@ -31,9 +31,5 @@ private:
 	UPROPERTY(EditAnywhere)
 	float HealingTime = 5.f;
 
-	UPROPERTY(VisibleAnywhere)
-	class UNiagaraComponent* PickupEffectComponent;
 
-	UPROPERTY(EditAnywhere)
-	class UNiagaraSystem* PickupEffect;
 };

@@ -14,8 +14,27 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FPS_BuffComponent_generated_h
 
 #define FID_FPS_Source_FPS_Components_BuffComponent_h_13_SPARSE_DATA
-#define FID_FPS_Source_FPS_Components_BuffComponent_h_13_RPC_WRAPPERS
-#define FID_FPS_Source_FPS_Components_BuffComponent_h_13_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_FPS_Source_FPS_Components_BuffComponent_h_13_RPC_WRAPPERS \
+	virtual void MulticastSpeedBuff_Implementation(float BaseSpeed, float CrouchSpeed); \
+ \
+	DECLARE_FUNCTION(execMulticastSpeedBuff);
+
+
+#define FID_FPS_Source_FPS_Components_BuffComponent_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void MulticastSpeedBuff_Implementation(float BaseSpeed, float CrouchSpeed); \
+ \
+	DECLARE_FUNCTION(execMulticastSpeedBuff);
+
+
+#define FID_FPS_Source_FPS_Components_BuffComponent_h_13_EVENT_PARMS \
+	struct BuffComponent_eventMulticastSpeedBuff_Parms \
+	{ \
+		float BaseSpeed; \
+		float CrouchSpeed; \
+	};
+
+
+#define FID_FPS_Source_FPS_Components_BuffComponent_h_13_CALLBACK_WRAPPERS
 #define FID_FPS_Source_FPS_Components_BuffComponent_h_13_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUBuffComponent(); \
@@ -58,12 +77,16 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(UBuffComponent)
 
 
-#define FID_FPS_Source_FPS_Components_BuffComponent_h_10_PROLOG
+#define FID_FPS_Source_FPS_Components_BuffComponent_h_10_PROLOG \
+	FID_FPS_Source_FPS_Components_BuffComponent_h_13_EVENT_PARMS
+
+
 #define FID_FPS_Source_FPS_Components_BuffComponent_h_13_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	FID_FPS_Source_FPS_Components_BuffComponent_h_13_SPARSE_DATA \
 	FID_FPS_Source_FPS_Components_BuffComponent_h_13_RPC_WRAPPERS \
+	FID_FPS_Source_FPS_Components_BuffComponent_h_13_CALLBACK_WRAPPERS \
 	FID_FPS_Source_FPS_Components_BuffComponent_h_13_INCLASS \
 	FID_FPS_Source_FPS_Components_BuffComponent_h_13_STANDARD_CONSTRUCTORS \
 public: \
@@ -75,6 +98,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	FID_FPS_Source_FPS_Components_BuffComponent_h_13_SPARSE_DATA \
 	FID_FPS_Source_FPS_Components_BuffComponent_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_FPS_Source_FPS_Components_BuffComponent_h_13_CALLBACK_WRAPPERS \
 	FID_FPS_Source_FPS_Components_BuffComponent_h_13_INCLASS_NO_PURE_DECLS \
 	FID_FPS_Source_FPS_Components_BuffComponent_h_13_ENHANCED_CONSTRUCTORS \
 private: \

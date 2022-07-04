@@ -476,6 +476,7 @@ void AMasterCharacter::PostInitializeComponents()
 	if (Buff)
 	{
 		Buff->MasterCharacter = this;
+		Buff->SetInitialSpeeds(GetCharacterMovement()->MaxWalkSpeed, GetCharacterMovement()->MaxWalkSpeedCrouched);
 	}
 }
 
