@@ -2,6 +2,7 @@
 
 
 #include "BuffComponent.h"
+#include "FPS/Character/MasterCharacter.h"
 
 
 UBuffComponent::UBuffComponent()
@@ -10,20 +11,38 @@ UBuffComponent::UBuffComponent()
 
 }
 
-
-// Called when the game starts
 void UBuffComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
 }
 
-
-// Called every frame
 void UBuffComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-
+	HealRampUp(DeltaTime);
 }
 
+void UBuffComponent::Heal(float HealAmount, float HealingTime)
+{
+	bHealing = true;
+	HealingRate = HealAmount / HealingTime;
+	AmountToHeal += HealAmount;
+}
+
+void UBuffComponent::HealRampUp(float DeltaTime)
+{
+	if (!bHealing || MasterCharacter == nullptr || MasterCharacter->IsElimmed()) return;
+	
+	const float HealThisFrame = HealingRate * DeltaTime;
+
+	MasterCharacter->SetHealth(FMath::Clamp(MasterCharacter->GetHealth() + HealThisFrame, 0.f, MasterCharacter->GetMaxHealth()));
+	MasterCharacter->UpdateHUDHealth();
+	AmountToHeal -= HealThisFrame;
+	if (AmountToHeal <= 0 || MasterCharacter->GetHealth() >= MasterCharacter->GetMaxHealth())
+	{
+		bHealing = false;
+		AmountToHeal = 0.f;
+	}
+}

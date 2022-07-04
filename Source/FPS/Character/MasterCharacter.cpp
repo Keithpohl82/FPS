@@ -699,10 +699,14 @@ float AMasterCharacter::CalculateSpeed()
 	return Velocity.Size();
 }
 
-void AMasterCharacter::OnRep_Health()
+void AMasterCharacter::OnRep_Health(float LastHealth)
 {
-	PlayHitReactMontage();
 	UpdateHUDHealth();
+
+	if (Health < LastHealth)
+	{
+		PlayHitReactMontage();
+	}
 }
 
 void AMasterCharacter::RespawnTimerFinished()
