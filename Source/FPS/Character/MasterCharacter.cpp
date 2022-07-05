@@ -385,6 +385,15 @@ void AMasterCharacter::UpdateHUDHealth()
 	}
 }
 
+void AMasterCharacter::UpdateHUDShield()
+{
+	MasterPlayercontroller = MasterPlayercontroller == nullptr ? Cast<AMasterPlayerController>(Controller) : MasterPlayercontroller;
+	if (MasterPlayercontroller)
+	{
+		MasterPlayercontroller->SetHUDShield(Shield, MaxShield);
+	}
+}
+
 void AMasterCharacter::SetOverlappingWeapon(AWeaponBase* Weapon)
 {
 	if (OverlappingWeapon)
@@ -462,6 +471,7 @@ void AMasterCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 	DOREPLIFETIME_CONDITION(AMasterCharacter, OverlappingWeapon, COND_OwnerOnly);
 	DOREPLIFETIME(AMasterCharacter, Health);
+	DOREPLIFETIME(AMasterCharacter, Shield);
 	DOREPLIFETIME(AMasterCharacter, bDisableGameplay)
 
 }
@@ -706,6 +716,16 @@ void AMasterCharacter::OnRep_Health(float LastHealth)
 	UpdateHUDHealth();
 
 	if (Health < LastHealth)
+	{
+		PlayHitReactMontage();
+	}
+}
+
+void AMasterCharacter::OnRep_Shield(float LastShield)
+{
+	UpdateHUDShield();
+
+	if (Shield < LastShield)
 	{
 		PlayHitReactMontage();
 	}

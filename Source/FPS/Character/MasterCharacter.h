@@ -34,6 +34,7 @@ public:
 	void PlayThrowGrenadeMontage();
 
 	void UpdateHUDHealth();
+	void UpdateHUDShield();
 
 	void Elim();
 	UFUNCTION(NetMulticast, Reliable)
@@ -98,9 +99,22 @@ private:
 	float MaxHealth = 100.f;
 	UPROPERTY(ReplicatedUsing = OnRep_Health, VisibleAnywhere, Category = PlayerStats)
 	float Health = 100.f;
-	bool bElimmed = false;
 	UFUNCTION()
 	void OnRep_Health(float LastHealth);
+
+	/*
+		PlayerShield
+	*/
+
+	UPROPERTY(EditAnywhere, Category = PlayerStats)
+	float MaxShield = 100.f;
+	UPROPERTY(ReplicatedUsing = OnRep_Shield, VisibleAnywhere, Category = PlayerStats)
+	float Shield = 100.f;
+	UFUNCTION()
+	void OnRep_Shield(float LastShield);
+
+	bool bElimmed = false;
+	
 	UPROPERTY()
 	class AMasterPlayerController* MasterPlayercontroller;
 	FTimerHandle RespawnTimer;

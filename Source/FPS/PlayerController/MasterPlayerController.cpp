@@ -180,6 +180,7 @@ void AMasterPlayerController::PoolInit()
 			if (PlayerOverlay)
 			{
 				SetHUDHealth(HUDHealth, HUDMaxHealth);
+				SetHUDShield(HUDShield, HUDMaxShield);
 				SetHUDScore(HUDScore);
 				SetHUDDeaths(HUDDeaths);
 				AMasterCharacter* MasterCharacter = Cast<AMasterCharacter>(GetPawn());
@@ -278,6 +279,25 @@ void AMasterPlayerController::SetHUDHealth(float Health, float MaxHealth)
 		bInitializeCharacterOverlay = true;
 		HUDHealth = Health;
 		HUDMaxHealth = MaxHealth;
+	}
+}
+
+void AMasterPlayerController::SetHUDShield(float Shield, float MaxShield)
+{
+	HUD = HUD == nullptr ? Cast<APlayerHUD>(GetHUD()) : HUD;
+	bool bHUDValid = HUD && HUD->PlayerOverlay && HUD->PlayerOverlay->ShieldBar && HUD->PlayerOverlay->ShieldText;
+	if (bHUDValid)
+	{
+		const float ShieldPercent = Shield / MaxShield;
+		HUD->PlayerOverlay->ShieldBar->SetPercent(ShieldPercent);
+		FString ShieldText = FString::Printf(TEXT("%d/%d"), FMath::CeilToInt(Shield), FMath::CeilToInt(MaxShield));
+		HUD->PlayerOverlay->ShieldText->SetText(FText::FromString(ShieldText));
+	}
+	else
+	{
+		bInitializeCharacterOverlay = true;
+		HUDShield = Shield;
+		HUDMaxShield = MaxShield;
 	}
 }
 

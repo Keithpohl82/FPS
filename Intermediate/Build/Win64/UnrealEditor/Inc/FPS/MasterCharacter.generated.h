@@ -24,6 +24,7 @@ class AWeaponBase;
  \
 	DECLARE_FUNCTION(execReceivedDamage); \
 	DECLARE_FUNCTION(execUpdateDissolveMaterial); \
+	DECLARE_FUNCTION(execOnRep_Shield); \
 	DECLARE_FUNCTION(execOnRep_Health); \
 	DECLARE_FUNCTION(execServerEquipButtonPressed); \
 	DECLARE_FUNCTION(execOnRep_OverlappingWeapon); \
@@ -36,6 +37,7 @@ class AWeaponBase;
  \
 	DECLARE_FUNCTION(execReceivedDamage); \
 	DECLARE_FUNCTION(execUpdateDissolveMaterial); \
+	DECLARE_FUNCTION(execOnRep_Shield); \
 	DECLARE_FUNCTION(execOnRep_Health); \
 	DECLARE_FUNCTION(execServerEquipButtonPressed); \
 	DECLARE_FUNCTION(execOnRep_OverlappingWeapon); \
@@ -64,7 +66,8 @@ public: \
 		bDisableGameplay=NETFIELD_REP_START, \
 		OverlappingWeapon, \
 		Health, \
-		NETFIELD_REP_END=Health	}; \
+		Shield, \
+		NETFIELD_REP_END=Shield	}; \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
@@ -82,7 +85,8 @@ public: \
 		bDisableGameplay=NETFIELD_REP_START, \
 		OverlappingWeapon, \
 		Health, \
-		NETFIELD_REP_END=Health	}; \
+		Shield, \
+		NETFIELD_REP_END=Shield	}; \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 

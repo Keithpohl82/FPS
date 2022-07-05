@@ -54,6 +54,14 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 		P_THIS->UpdateDissolveMaterial(Z_Param_DissolveValue);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(AMasterCharacter::execOnRep_Shield)
+	{
+		P_GET_PROPERTY(FFloatProperty,Z_Param_LastShield);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->OnRep_Shield(Z_Param_LastShield);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AMasterCharacter::execOnRep_Health)
 	{
 		P_GET_PROPERTY(FFloatProperty,Z_Param_LastHealth);
@@ -108,6 +116,7 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 			{ "MulticastElim", &AMasterCharacter::execMulticastElim },
 			{ "OnRep_Health", &AMasterCharacter::execOnRep_Health },
 			{ "OnRep_OverlappingWeapon", &AMasterCharacter::execOnRep_OverlappingWeapon },
+			{ "OnRep_Shield", &AMasterCharacter::execOnRep_Shield },
 			{ "ReceivedDamage", &AMasterCharacter::execReceivedDamage },
 			{ "ServerEquipButtonPressed", &AMasterCharacter::execServerEquipButtonPressed },
 			{ "UpdateDissolveMaterial", &AMasterCharacter::execUpdateDissolveMaterial },
@@ -197,6 +206,38 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMasterCharacter_OnRep_OverlappingWeapon_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AMasterCharacter_OnRep_Shield_Statics
+	{
+		struct MasterCharacter_eventOnRep_Shield_Parms
+		{
+			float LastShield;
+		};
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_LastShield;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AMasterCharacter_OnRep_Shield_Statics::NewProp_LastShield = { "LastShield", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(MasterCharacter_eventOnRep_Shield_Parms, LastShield), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMasterCharacter_OnRep_Shield_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMasterCharacter_OnRep_Shield_Statics::NewProp_LastShield,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMasterCharacter_OnRep_Shield_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Character/MasterCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMasterCharacter_OnRep_Shield_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMasterCharacter, nullptr, "OnRep_Shield", nullptr, nullptr, sizeof(Z_Construct_UFunction_AMasterCharacter_OnRep_Shield_Statics::MasterCharacter_eventOnRep_Shield_Parms), Z_Construct_UFunction_AMasterCharacter_OnRep_Shield_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMasterCharacter_OnRep_Shield_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMasterCharacter_OnRep_Shield_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AMasterCharacter_OnRep_Shield_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AMasterCharacter_OnRep_Shield()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMasterCharacter_OnRep_Shield_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -417,6 +458,14 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 #endif
 		static const UECodeGen_Private::FFloatPropertyParams NewProp_Health;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_MaxShield_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_MaxShield;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_Shield_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_Shield;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_MasterPlayercontroller_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_MasterPlayercontroller;
@@ -473,6 +522,7 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 		{ &Z_Construct_UFunction_AMasterCharacter_MulticastElim, "MulticastElim" }, // 3551899359
 		{ &Z_Construct_UFunction_AMasterCharacter_OnRep_Health, "OnRep_Health" }, // 1595230739
 		{ &Z_Construct_UFunction_AMasterCharacter_OnRep_OverlappingWeapon, "OnRep_OverlappingWeapon" }, // 823773337
+		{ &Z_Construct_UFunction_AMasterCharacter_OnRep_Shield, "OnRep_Shield" }, // 1355617023
 		{ &Z_Construct_UFunction_AMasterCharacter_ReceivedDamage, "ReceivedDamage" }, // 3740417203
 		{ &Z_Construct_UFunction_AMasterCharacter_ServerEquipButtonPressed, "ServerEquipButtonPressed" }, // 1891842035
 		{ &Z_Construct_UFunction_AMasterCharacter_ShowSniperScopeWidget, "ShowSniperScopeWidget" }, // 27566159
@@ -601,6 +651,22 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMasterCharacter_Statics::NewProp_Health = { "Health", "OnRep_Health", (EPropertyFlags)0x0040000100020021, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterCharacter, Health), METADATA_PARAMS(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_Health_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_Health_MetaData)) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterCharacter_Statics::NewProp_MaxShield_MetaData[] = {
+		{ "Category", "PlayerStats" },
+		{ "Comment", "/*\n\x09\x09PlayerShield\n\x09*/" },
+		{ "ModuleRelativePath", "Character/MasterCharacter.h" },
+		{ "ToolTip", "PlayerShield" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMasterCharacter_Statics::NewProp_MaxShield = { "MaxShield", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterCharacter, MaxShield), METADATA_PARAMS(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_MaxShield_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_MaxShield_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterCharacter_Statics::NewProp_Shield_MetaData[] = {
+		{ "Category", "PlayerStats" },
+		{ "ModuleRelativePath", "Character/MasterCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMasterCharacter_Statics::NewProp_Shield = { "Shield", "OnRep_Shield", (EPropertyFlags)0x0040000100020021, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterCharacter, Shield), METADATA_PARAMS(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_Shield_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_Shield_MetaData)) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterCharacter_Statics::NewProp_MasterPlayercontroller_MetaData[] = {
 		{ "ModuleRelativePath", "Character/MasterCharacter.h" },
 	};
@@ -700,6 +766,8 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_CameraThreshold,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_MaxHealth,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_Health,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_MaxShield,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_Shield,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_MasterPlayercontroller,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_RespawnTimeDelay,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_DissolveTimeline,
@@ -751,11 +819,13 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 		static const FName Name_bDisableGameplay(TEXT("bDisableGameplay"));
 		static const FName Name_OverlappingWeapon(TEXT("OverlappingWeapon"));
 		static const FName Name_Health(TEXT("Health"));
+		static const FName Name_Shield(TEXT("Shield"));
 
 		const bool bIsValid = true
 			&& Name_bDisableGameplay == ClassReps[(int32)ENetFields_Private::bDisableGameplay].Property->GetFName()
 			&& Name_OverlappingWeapon == ClassReps[(int32)ENetFields_Private::OverlappingWeapon].Property->GetFName()
-			&& Name_Health == ClassReps[(int32)ENetFields_Private::Health].Property->GetFName();
+			&& Name_Health == ClassReps[(int32)ENetFields_Private::Health].Property->GetFName()
+			&& Name_Shield == ClassReps[(int32)ENetFields_Private::Shield].Property->GetFName();
 
 		checkf(bIsValid, TEXT("UHT Generated Rep Indices do not match runtime populated Rep Indices for properties in AMasterCharacter"));
 	}
@@ -765,9 +835,9 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMasterCharacter, AMasterCharacter::StaticClass, TEXT("AMasterCharacter"), &Z_Registration_Info_UClass_AMasterCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMasterCharacter), 3142347514U) },
+		{ Z_Construct_UClass_AMasterCharacter, AMasterCharacter::StaticClass, TEXT("AMasterCharacter"), &Z_Registration_Info_UClass_AMasterCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMasterCharacter), 575611641U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_1008157875(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_147875604(TEXT("/Script/FPS"),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
