@@ -179,14 +179,14 @@ void AMasterPlayerController::PoolInit()
 			PlayerOverlay = HUD->PlayerOverlay;
 			if (PlayerOverlay)
 			{
-				SetHUDHealth(HUDHealth, HUDMaxHealth);
-				SetHUDShield(HUDShield, HUDMaxShield);
-				SetHUDScore(HUDScore);
-				SetHUDDeaths(HUDDeaths);
+				if (bInitializeHealth) SetHUDHealth(HUDHealth, HUDMaxHealth);
+				if (bInitializeShield) SetHUDShield(HUDShield, HUDMaxShield);
+				if (bInitializeScore) SetHUDScore(HUDScore);
+				if (bInitializeDeaths) SetHUDDeaths(HUDDeaths);
 				AMasterCharacter* MasterCharacter = Cast<AMasterCharacter>(GetPawn());
 				if (MasterCharacter && MasterCharacter->GetCombat())
 				{
-					SetHUDNades(MasterCharacter->GetCombat()->GetGrenades());
+					if (bInitializeGrenades) SetHUDNades(MasterCharacter->GetCombat()->GetGrenades());
 				}
 			}
 		}
@@ -276,7 +276,7 @@ void AMasterPlayerController::SetHUDHealth(float Health, float MaxHealth)
 	}
 	else
 	{
-		bInitializeCharacterOverlay = true;
+		bInitializeHealth = true;
 		HUDHealth = Health;
 		HUDMaxHealth = MaxHealth;
 	}
@@ -295,7 +295,7 @@ void AMasterPlayerController::SetHUDShield(float Shield, float MaxShield)
 	}
 	else
 	{
-		bInitializeCharacterOverlay = true;
+		bInitializeShield = true;
 		HUDShield = Shield;
 		HUDMaxShield = MaxShield;
 	}
@@ -312,7 +312,7 @@ void AMasterPlayerController::SetHUDScore(float Score)
 	}
 	else
 	{
-		bInitializeCharacterOverlay = true;
+		bInitializeScore = true;
 		HUDScore = Score;
 	}
 }
@@ -328,7 +328,7 @@ void AMasterPlayerController::SetHUDDeaths(int32 Deaths)
 	}
 	else
 	{
-		bInitializeCharacterOverlay = true;
+		bInitializeDeaths = true;
 		HUDDeaths = Deaths;
 	}
 }
@@ -407,6 +407,7 @@ void AMasterPlayerController::SetHUDNades(int32 Grenades)
 	}
 	else
 	{
+		bInitializeGrenades = true;
 		HUDGrenades = Grenades;
 	}
 }
