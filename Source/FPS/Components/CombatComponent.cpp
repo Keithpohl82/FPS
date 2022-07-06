@@ -433,10 +433,12 @@ void UCombatComponent::MulticastFire_Implementation(const FVector_NetQuantize& T
 
 	if (MasterCharacter && CombatState == ECombatState::ECS_Reloading && EquippedWeapon->GetWeaponType() == EWeaponType::EWT_ShotGun)
 	{
+	
+		CombatState = ECombatState::ECS_Unoccupied;
 		//JumpToShotgunEnd(); Works but fills ammo.
 		MasterCharacter->PlayFireMontage(bAiming);
 		EquippedWeapon->Fire(TraceHitTarget);
-		CombatState = ECombatState::ECS_Unoccupied;
+		
 		UE_LOG(LogTemp, Warning, TEXT("Jumed to ShotgunEnd called from multicast fire"));
 
 		return;
