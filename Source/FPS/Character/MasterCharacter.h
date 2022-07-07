@@ -227,7 +227,8 @@ protected:
 	UFUNCTION()
 	void ReceivedDamage(AActor* DamagedActor, float Damage, const UDamageType* DamageType, class AController* InstigatorController, AActor* DamageCauser);
 	
-	
+	void DropOrDestroyWeapon(AWeaponBase* Weapon);
+	void DropOrDestroyWeapons();
 
 public:	
 	
