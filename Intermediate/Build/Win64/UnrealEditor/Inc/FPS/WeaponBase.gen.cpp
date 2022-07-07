@@ -53,6 +53,7 @@ void EmptyLinkFunctionForGeneratedCodeWeaponBase() {}
 	const UECodeGen_Private::FEnumeratorParam Z_Construct_UEnum_FPS_EWeaponState_Statics::Enumerators[] = {
 		{ "EWeaponState::EWS_Initial", (int64)EWeaponState::EWS_Initial },
 		{ "EWeaponState::EWS_Equipped", (int64)EWeaponState::EWS_Equipped },
+		{ "EWeaponState::EWS_EquippedSecondary", (int64)EWeaponState::EWS_EquippedSecondary },
 		{ "EWeaponState::EWS_Dropped", (int64)EWeaponState::EWS_Dropped },
 		{ "EWeaponState::EWS_MAX", (int64)EWeaponState::EWS_MAX },
 	};
@@ -63,6 +64,8 @@ void EmptyLinkFunctionForGeneratedCodeWeaponBase() {}
 		{ "EWS_Dropped.Name", "EWeaponState::EWS_Dropped" },
 		{ "EWS_Equipped.DisplayName", "Equipped" },
 		{ "EWS_Equipped.Name", "EWeaponState::EWS_Equipped" },
+		{ "EWS_EquippedSecondary.DisplayName", "EquippedSecondary" },
+		{ "EWS_EquippedSecondary.Name", "EWeaponState::EWS_EquippedSecondary" },
 		{ "EWS_Initial.DisplayName", "Initial State" },
 		{ "EWS_Initial.Name", "EWeaponState::EWS_Initial" },
 		{ "EWS_MAX.DisplayName", "DefaultMax" },
@@ -536,7 +539,7 @@ void EmptyLinkFunctionForGeneratedCodeWeaponBase() {}
 		{ "ModuleRelativePath", "Weapons/WeaponBase.h" },
 	};
 #endif
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AWeaponBase_Statics::NewProp_WeaponState = { "WeaponState", "OnRep_WeaponState", (EPropertyFlags)0x0040000100020021, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AWeaponBase, WeaponState), Z_Construct_UEnum_FPS_EWeaponState, METADATA_PARAMS(Z_Construct_UClass_AWeaponBase_Statics::NewProp_WeaponState_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AWeaponBase_Statics::NewProp_WeaponState_MetaData)) }; // 1374022951
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AWeaponBase_Statics::NewProp_WeaponState = { "WeaponState", "OnRep_WeaponState", (EPropertyFlags)0x0040000100020021, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AWeaponBase, WeaponState), Z_Construct_UEnum_FPS_EWeaponState, METADATA_PARAMS(Z_Construct_UClass_AWeaponBase_Statics::NewProp_WeaponState_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AWeaponBase_Statics::NewProp_WeaponState_MetaData)) }; // 814166859
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AWeaponBase_Statics::NewProp_FireAnimation_MetaData[] = {
 		{ "Category", "WeaponProperties" },
@@ -675,12 +678,12 @@ void EmptyLinkFunctionForGeneratedCodeWeaponBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_WeaponBase_h_Statics::EnumInfo[] = {
-		{ EWeaponState_StaticEnum, TEXT("EWeaponState"), &Z_Registration_Info_UEnum_EWeaponState, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1374022951U) },
+		{ EWeaponState_StaticEnum, TEXT("EWeaponState"), &Z_Registration_Info_UEnum_EWeaponState, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 814166859U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_WeaponBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AWeaponBase, AWeaponBase::StaticClass, TEXT("AWeaponBase"), &Z_Registration_Info_UClass_AWeaponBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AWeaponBase), 2901683840U) },
+		{ Z_Construct_UClass_AWeaponBase, AWeaponBase::StaticClass, TEXT("AWeaponBase"), &Z_Registration_Info_UClass_AWeaponBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AWeaponBase), 2816876608U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_WeaponBase_h_3783110452(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_WeaponBase_h_210535246(TEXT("/Script/FPS"),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_WeaponBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_WeaponBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_WeaponBase_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_WeaponBase_h_Statics::EnumInfo));

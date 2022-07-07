@@ -26,6 +26,8 @@ public:
 
 	void EquipWeapon(class AWeaponBase* WeaponToEquip);
 
+	void SwapWeapons();
+
 	void FireButtonPressed(bool bPressed);
 
 	void Reload();
@@ -241,4 +243,5 @@ public:
 
 	FORCEINLINE int32 GetGrenades() const { return Grenades; }
 
+	bool ShouldSwapWeapons();
 };

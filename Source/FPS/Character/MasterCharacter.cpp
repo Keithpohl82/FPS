@@ -725,7 +725,14 @@ void AMasterCharacter::ServerEquipButtonPressed_Implementation()
 {
 	if (Combat && HasAuthority())
 	{
-		Combat->EquipWeapon(OverlappingWeapon);
+		if (OverlappingWeapon)
+		{
+			Combat->EquipWeapon(OverlappingWeapon);
+		}
+		else if (Combat->ShouldSwapWeapons())
+		{
+			Combat->SwapWeapons();
+		}
 	}
 }
 
