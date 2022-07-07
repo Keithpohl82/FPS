@@ -183,6 +183,9 @@ void AMasterPlayerController::PoolInit()
 				if (bInitializeShield) SetHUDShield(HUDShield, HUDMaxShield);
 				if (bInitializeScore) SetHUDScore(HUDScore);
 				if (bInitializeDeaths) SetHUDDeaths(HUDDeaths);
+				if (bInitializeCarriedAmmo) SetHUDCarriedAmmo(HUDCarriedAmmo);
+				if (bInitializeWeaponAmmo) SetHUDWeaponAmmo(HUDWeaponAmmo);
+
 				AMasterCharacter* MasterCharacter = Cast<AMasterCharacter>(GetPawn());
 				if (MasterCharacter && MasterCharacter->GetCombat())
 				{
@@ -342,6 +345,11 @@ void AMasterPlayerController::SetHUDWeaponAmmo(int32 Ammo)
 		FString WeaponAmmoText = FString::Printf(TEXT("%d"), Ammo);
 		HUD->PlayerOverlay->WeaponAmmoAmount->SetText(FText::FromString(WeaponAmmoText));
 	}
+	else
+	{
+		bInitializeWeaponAmmo = true;
+		HUDWeaponAmmo = Ammo;
+	}
 }
 
 void AMasterPlayerController::SetHUDCarriedAmmo(int32 Ammo)
@@ -352,6 +360,11 @@ void AMasterPlayerController::SetHUDCarriedAmmo(int32 Ammo)
 	{
 		FString CarriedAmmoText = FString::Printf(TEXT("%d"), Ammo);
 		HUD->PlayerOverlay->CarriedAmmoAmount->SetText(FText::FromString(CarriedAmmoText));
+	}
+	else
+	{
+		bInitializeCarriedAmmo = true;
+		HUDCarriedAmmo = Ammo;
 	}
 }
 

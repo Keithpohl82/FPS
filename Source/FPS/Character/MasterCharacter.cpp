@@ -20,6 +20,7 @@
 #include "FPS/GameModes/MasterGameMode.h"
 #include "FPS/PlayerController/MasterPlayerController.h"
 #include "FPS/PlayerState/MasterPlayerState.h"
+#include "FPS/Weapons/WeaponBase.h"
 
 
 
@@ -74,6 +75,8 @@ AMasterCharacter::AMasterCharacter()
 void AMasterCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+	SpawnDefaultWeapon();
+	UpdateHUDAmmo();
 	UpdateHUDHealth();
 	UpdateHUDShield();
 	if (HasAuthority())
@@ -413,6 +416,16 @@ void AMasterCharacter::UpdateHUDShield()
 	}
 }
 
+void AMasterCharacter::UpdateHUDAmmo()
+{
+	MasterPlayercontroller = MasterPlayercontroller == nullptr ? Cast<AMasterPlayerController>(Controller) : MasterPlayercontroller;
+	if (MasterPlayercontroller && Combat && Combat->EquippedWeapon)
+	{
+		MasterPlayercontroller->SetHUDCarriedAmmo(Combat->CarriedAmmo);
+		MasterPlayercontroller->SetHUDWeaponAmmo(Combat->EquippedWeapon->GetAmmo());
+	}
+}
+
 void AMasterCharacter::SetOverlappingWeapon(AWeaponBase* Weapon)
 {
 	if (OverlappingWeapon)
@@ -621,7 +634,14 @@ void AMasterCharacter::Elim()
 {
 	if (Combat && Combat->EquippedWeapon)
 	{
-		Combat->EquippedWeapon->Dropped();
+		if (Combat->EquippedWeapon->bDestroyWeapon)
+		{
+			Combat->EquippedWeapon->Destroy();
+		}
+		else
+		{ 
+			Combat->EquippedWeapon->Dropped();
+		}
 	}
 	MulticastElim();
 	GetWorldTimerManager().SetTimer(RespawnTimer, this, &AMasterCharacter::RespawnTimerFinished, RespawnTimeDelay);
@@ -678,6 +698,21 @@ void AMasterCharacter::MulticastElim_Implementation()
 	if (bHideSniperScope)
 	{
 		ShowSniperScopeWidget(false);
+	}
+}
+
+void AMasterCharacter::SpawnDefaultWeapon()
+{
+	AMasterGameMode* MasterGameMode = Cast<AMasterGameMode>(UGameplayStatics::GetGameMode(this));
+	UWorld* World = GetWorld();
+	if (MasterGameMode && World && !bElimmed && DefaultWeaponClass)
+	{
+		AWeaponBase* StartingWeapon = World->SpawnActor<AWeaponBase>(DefaultWeaponClass);
+		StartingWeapon->bDestroyWeapon = true;
+		if (Combat)
+		{
+			Combat->EquipWeapon(StartingWeapon);
+		}
 	}
 }
 

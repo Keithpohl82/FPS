@@ -35,6 +35,7 @@ public:
 
 	void UpdateHUDHealth();
 	void UpdateHUDShield();
+	void UpdateHUDAmmo();
 
 	void Elim();
 	UFUNCTION(NetMulticast, Reliable)
@@ -45,6 +46,8 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void ShowSniperScopeWidget(bool bShowScopeWidget);
+
+	void SpawnDefaultWeapon();
 
 private:
 	
@@ -158,6 +161,13 @@ private:
 
 	UPROPERTY(VisibleAnywhere)
 	UStaticMeshComponent* AttachedGrenade;
+
+	/*
+		Default Weapon
+	*/
+
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<AWeaponBase> DefaultWeaponClass;
 	
 protected:
 	
@@ -186,6 +196,7 @@ protected:
 	void SimProxyTurn();
 	UFUNCTION()
 	void ReceivedDamage(AActor* DamagedActor, float Damage, const UDamageType* DamageType, class AController* InstigatorController, AActor* DamageCauser);
+	
 	
 
 public:	

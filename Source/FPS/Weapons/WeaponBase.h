@@ -60,6 +60,8 @@ public:
 
 	void EnableCustomDepth(bool bEnable);
 
+	bool bDestroyWeapon = false;
+
 
 protected:
 
