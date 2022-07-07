@@ -30,6 +30,7 @@ struct FVector_NetQuantize;
 	DECLARE_FUNCTION(execServerThrowGrenade); \
 	DECLARE_FUNCTION(execMulticastFire); \
 	DECLARE_FUNCTION(execServerFire); \
+	DECLARE_FUNCTION(execOnRep_SecondaryWeapon); \
 	DECLARE_FUNCTION(execOnRep_EquippedWeapon); \
 	DECLARE_FUNCTION(execServerSetAiming); \
 	DECLARE_FUNCTION(execServerLaunchGrenade); \
@@ -54,6 +55,7 @@ struct FVector_NetQuantize;
 	DECLARE_FUNCTION(execServerThrowGrenade); \
 	DECLARE_FUNCTION(execMulticastFire); \
 	DECLARE_FUNCTION(execServerFire); \
+	DECLARE_FUNCTION(execOnRep_SecondaryWeapon); \
 	DECLARE_FUNCTION(execOnRep_EquippedWeapon); \
 	DECLARE_FUNCTION(execServerSetAiming); \
 	DECLARE_FUNCTION(execServerLaunchGrenade); \
@@ -94,6 +96,7 @@ public: \
 	{ \
 		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
 		EquippedWeapon=NETFIELD_REP_START, \
+		SecondaryWeapon, \
 		bAiming, \
 		CarriedAmmo, \
 		Grenades, \
@@ -113,6 +116,7 @@ public: \
 	{ \
 		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
 		EquippedWeapon=NETFIELD_REP_START, \
+		SecondaryWeapon, \
 		bAiming, \
 		CarriedAmmo, \
 		Grenades, \

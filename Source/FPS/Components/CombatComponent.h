@@ -61,6 +61,9 @@ protected:
 	UFUNCTION()
 	void OnRep_EquippedWeapon();
 
+	UFUNCTION()
+	void OnRep_SecondaryWeapon();
+
 	void TraceUnderCrosshairs(FHitResult& TraceHitResult);
 
 	void SetHUDCrosshairs(float DeltaTime);
@@ -71,9 +74,11 @@ protected:
 
 	void AttachActorToLeftHand(AActor* ActorToAttach);
 
+	void AttachActorToBackpack(AActor* ActorToAttach);
+
 	void UpdateCarriedAmmo();
 	
-	void PlayEquipWeaponSound();
+	void PlayEquipWeaponSound(AWeaponBase* WeaponToEquip);
 
 	void ReloadEmptyWeapon();
 
@@ -102,21 +107,35 @@ protected:
 
 	int32 AmountToReload();
 
+	void EquipPrimaryWeapon(AWeaponBase* WeaponToEquip);
+
+	void EquipSecondaryWeapon(AWeaponBase* WeaponToEquip);
+
 private:
 
 	AMasterCharacter* MasterCharacter;
+
 	UPROPERTY()
 	class AMasterPlayerController* MasterPlayerController;
+
 	UPROPERTY()
 	class APlayerHUD* HUD;
+
 	UPROPERTY(ReplicatedUsing = OnRep_EquippedWeapon)
 	AWeaponBase* EquippedWeapon;
+
+	UPROPERTY(ReplicatedUsing = OnRep_SecondaryWeapon)
+	AWeaponBase*SecondaryWeapon;
+
 	UPROPERTY(Replicated)
 	bool bAiming;
+
 	UPROPERTY(EditAnywhere)
 	float BaseWalkSpeed;
+
 	UPROPERTY(EditAnywhere)
 	float AimWalkSpeed;
+
 	bool bFireButtonPressed;
 
 	FVector HitTarget;
@@ -136,11 +155,15 @@ private:
 
 	 // Field of view when not aiming. set to camera's base FOV in BeginPlay
 	float DefaultFOV;
+
 	UPROPERTY(EditAnywhere, Category = CombatAiming)
 	float ZoomedFOV = 30.f;
+
 	UPROPERTY(EditAnywhere, Category = CombatAiming)
 	float ZoomInterSpeed = 20.f;
+
 	float CurrentFOV;
+
 	void InterpFOV(float DeltaTime);
 
 	/*
@@ -148,9 +171,13 @@ private:
 	 */
 
 	FTimerHandle FireTimer;
+
 	bool bCanFire = true;
+
 	void FireTimerFinished();
+
 	void StartFireTimer();
+
 	bool CanFire();
 
 	// Carried Ammo for the Currently-Equipped Weapon.
@@ -168,16 +195,22 @@ private:
 	// Starting Reserve ammo. Set to 0 after testing
 	UPROPERTY(EditAnywhere)
 	int32 StartingARAmmo = 0;
+
 	UPROPERTY(EditAnywhere)
 	int32 StartingRocketAmmo = 0;
+
 	UPROPERTY(EditAnywhere)
 	int32 StartingPistolAmmo = 0;
+
 	UPROPERTY(EditAnywhere)
 	int32 StartingSMGAmmo = 0;
+
 	UPROPERTY(EditAnywhere)
 	int32 StartingShotgunAmmo = 0;
+
 	UPROPERTY(EditAnywhere)
 	int32 StartingSniperAmmo = 0;
+
 	UPROPERTY(EditAnywhere)
 	int32 StartingGrenadeLauncherAmmo = 0;
 	
@@ -186,6 +219,7 @@ private:
 
 	UPROPERTY(ReplicatedUsing = OnRep_Grenades, EditAnywhere)
 	int32 Grenades = 2;
+
 	UPROPERTY(EditAnywhere)
 	int32 MaxGrenades = 2;
 
@@ -200,13 +234,11 @@ private:
 	void OnRep_CombatState();
 
 	void UpdateAmmoValues();
+
 	void UpdateShotgunAmmoValues();
-
-
 
 public:	
 
 	FORCEINLINE int32 GetGrenades() const { return Grenades; }
 
-		
 };

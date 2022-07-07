@@ -93,8 +93,6 @@ void AWeaponBase::OnRep_WeaponState()
 			WeaponMesh->SetEnableGravity(true);
 			WeaponMesh->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
 		}
-
-		EnableCustomDepth(false);
 		break;
 	case EWeaponState::EWS_Dropped:
 
@@ -147,7 +145,7 @@ void AWeaponBase::SetWeaponState(EWeaponState State)
 		WeaponMesh->SetEnableGravity(true);
 		WeaponMesh->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
 		}
-		EnableCustomDepth(false);
+	
 		break;
 	case EWeaponState::EWS_Dropped:
 		if (HasAuthority())
@@ -200,7 +198,12 @@ void AWeaponBase::OnRep_Owner()
 	}
 	else
 	{
-		SetHUDAmmo();
+		OwnerCharacter = OwnerCharacter == nullptr ? Cast<AMasterCharacter>(Owner) : OwnerCharacter;
+		if (OwnerCharacter && OwnerCharacter->GetEquippedWeapon() && OwnerCharacter->GetEquippedWeapon() == this)
+		{
+			SetHUDAmmo();
+		}
+		
 	}
 }
 

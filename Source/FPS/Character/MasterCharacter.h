@@ -53,21 +53,28 @@ private:
 	
 	UPROPERTY(EditDefaultsOnly, Category = Camera)
 	class USpringArmComponent* SpringArm;
+
 	UPROPERTY(EditDefaultsOnly, Category = Camera)
 	class UCameraComponent* TPPCamera;
+
 	UPROPERTY(EditDefaultsOnly, Category = Camera)
 	class UCameraComponent* FPPCamera;
+
 	UPROPERTY(ReplicatedUsing = OnRep_OverlappingWeapon)
 	class AWeaponBase* OverlappingWeapon;
+
 	UFUNCTION()
 	void OnRep_OverlappingWeapon(AWeaponBase* LastWeapon);
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Combat, meta = (AllowPrivateAccess = "true"))
 	class UCombatComponent* Combat;
+
 	UPROPERTY(VisibleAnywhere)
 	class UBuffComponent* Buff;
 
 	UFUNCTION(Server, Reliable)
 	void ServerEquipButtonPressed();
+
 	void TurnInPlace(float DeltaTime);
 	float AO_Yaw;
 	float InterpAO_Yaw;
@@ -76,16 +83,22 @@ private:
 	ETurningInPlace TurningInPlace;
 	UPROPERTY(EditAnywhere, Category = Combat)
 	class UAnimMontage* FireWeaponMontage;
+
 	UPROPERTY(EditAnywhere, Category = Combat)
 	UAnimMontage* HitReactMontage;
+
 	UPROPERTY(EditAnywhere, Category = Combat)
 	UAnimMontage* ElimMontage;
+
 	UPROPERTY(EditAnywhere, Category = Combat)
 	UAnimMontage* ReloadMontage;
+
 	UPROPERTY(EditAnywhere, Category = Combat)
 	UAnimMontage* ThrowGrenadeMontage;
+
 	UPROPERTY(EditAnywhere)
 	float CameraThreshold = 200.f;
+
 	bool bRotateRootBone;
 	float TurnThreshold = 0.5f;
 	FRotator ProxyRotationLastFrame;
@@ -100,8 +113,10 @@ private:
 
 	UPROPERTY(EditAnywhere, Category = PlayerStats)
 	float MaxHealth = 100.f;
+
 	UPROPERTY(ReplicatedUsing = OnRep_Health, VisibleAnywhere, Category = PlayerStats)
 	float Health = 100.f;
+
 	UFUNCTION()
 	void OnRep_Health(float LastHealth);
 
@@ -111,8 +126,10 @@ private:
 
 	UPROPERTY(EditAnywhere, Category = PlayerStats)
 	float MaxShield = 100.f;
+
 	UPROPERTY(ReplicatedUsing = OnRep_Shield, EditAnywhere, Category = PlayerStats)
 	float Shield = 100.f;
+
 	UFUNCTION()
 	void OnRep_Shield(float LastShield);
 
@@ -120,9 +137,12 @@ private:
 	
 	UPROPERTY()
 	class AMasterPlayerController* MasterPlayercontroller;
+
 	FTimerHandle RespawnTimer;
+
 	UPROPERTY(EditDefaultsOnly)
 	float RespawnTimeDelay = 2.f;
+
 	void RespawnTimerFinished();
 
 	/*
@@ -131,14 +151,20 @@ private:
 
 	UPROPERTY(VisibleAnywhere)
 	UTimelineComponent* DissolveTimeline;
+
 	FOnTimelineFloat DissolveTrack;
+
 	UFUNCTION()
 	void UpdateDissolveMaterial(float DissolveValue);
+
 	void StartDissolve();
+
 	UPROPERTY(EditAnywhere)
 	UCurveFloat* DissolveCurve;
+
 	UPROPERTY(VisibleAnywhere, Category = Elim)
 	UMaterialInstanceDynamic* DynamicDissolveMaterialInstance;
+
 	UPROPERTY(EditAnywhere, Category = Elim)
 	UMaterialInstance* DissolveMaterialInstance;
 
@@ -148,10 +174,13 @@ private:
 
 	UPROPERTY(EditAnywhere)
 	UParticleSystem* ElimBotEffect;
+
 	UPROPERTY(VisibleAnywhere)
 	UParticleSystemComponent* ElimBotComponent;
+
 	UPROPERTY(EditAnywhere)
 	class USoundCue* ElimBotSound;
+
 	UPROPERTY()
 	class AMasterPlayerState* MasterPlayerState;
 
@@ -194,6 +223,7 @@ protected:
 	void CalculateAO_Pitch();
 	void AimOffset(float DeltaTime);
 	void SimProxyTurn();
+
 	UFUNCTION()
 	void ReceivedDamage(AActor* DamagedActor, float Damage, const UDamageType* DamageType, class AController* InstigatorController, AActor* DamageCauser);
 	
