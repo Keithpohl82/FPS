@@ -175,7 +175,10 @@
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\playerhud.generated.h",
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\combatcomponent.generated.h",
             "u:\\fps\\source\\fps\\playercontroller\\masterplayercontroller.h",
-            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\masterplayercontroller.generated.h"
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\masterplayercontroller.generated.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\kismet\\kismetmathlibrary.h",
+            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\kismetmathlibrary.generated.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\kismet\\kismetmathlibrary.inl"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []
