@@ -15,6 +15,7 @@
 #include "Sound/SoundCue.h"
 #include "FPS/UI/PlayerHUD.h"
 #include "FPS/Weapons/Projectiles/ProjectileBase.h"
+#include "FPS/Weapons/Shotgun.h"
 
 
 UCombatComponent::UCombatComponent()
@@ -503,24 +504,36 @@ void UCombatComponent::Fire()
 
 void UCombatComponent::FireProjectileWeapon()
 {
-	LocalFire(HitTarget);
-	ServerFire(HitTarget);
+	if (EquippedWeapon && MasterCharacter)
+	{
+		HitTarget = EquippedWeapon->bUseScatter ? EquippedWeapon->TraceEndWithScatter(HitTarget) : HitTarget;
+		if (!MasterCharacter->HasAuthority()) LocalFire(HitTarget);
+		ServerFire(HitTarget);
+	}
+
 }
 
 void UCombatComponent::FireHitScanWeapon()
 {
-	if (EquippedWeapon)
+	if (EquippedWeapon && MasterCharacter)
 	{
 		HitTarget = EquippedWeapon->bUseScatter ? EquippedWeapon->TraceEndWithScatter(HitTarget) : HitTarget;
 		
-		LocalFire(HitTarget);
+		if (!MasterCharacter->HasAuthority()) LocalFire(HitTarget);
 		ServerFire(HitTarget);
 	}
 }
 
 void UCombatComponent::FireShotgunWeapon()
 {
-	
+	AShotgun* Shotgun = Cast<AShotgun>(EquippedWeapon);
+	if (Shotgun && MasterCharacter)
+	{
+		TArray<FVector_NetQuantize> HitTargets;
+		Shotgun->ShotgunTraceEndWithScatter(HitTarget, HitTargets);
+		if (!MasterCharacter->HasAuthority()) LocalShotgunFire(HitTargets);
+		ServerShotgunFire(HitTargets);
+	}
 }
 
 void UCombatComponent::FireButtonPressed(bool bPressed)
@@ -545,27 +558,40 @@ void UCombatComponent::MulticastFire_Implementation(const FVector_NetQuantize& T
 	LocalFire(TraceHitTarget);
 }
 
+void UCombatComponent::ServerShotgunFire_Implementation(const TArray<FVector_NetQuantize>& TraceHitTargets)
+{
+	MulticastShotgunFire(TraceHitTargets);
+}
+
+void UCombatComponent::MulticastShotgunFire_Implementation(const TArray<FVector_NetQuantize>& TraceHitTargets)
+{
+	if (MasterCharacter && MasterCharacter->IsLocallyControlled() && !MasterCharacter->HasAuthority()) return;
+	LocalShotgunFire(TraceHitTargets);
+}
+
 void UCombatComponent::LocalFire(const FVector_NetQuantize& TraceHitTarget)
 {
 	if (EquippedWeapon == nullptr) return;
-
-	if (MasterCharacter && CombatState == ECombatState::ECS_Reloading && EquippedWeapon->GetWeaponType() == EWeaponType::EWT_ShotGun)
-	{
-
-		CombatState = ECombatState::ECS_Unoccupied;
-		JumpToShotgunEnd();
-		MasterCharacter->PlayFireMontage(bAiming);
-		EquippedWeapon->Fire(TraceHitTarget);
-
-		UE_LOG(LogTemp, Warning, TEXT("Jumed to ShotgunEnd called from multicast fire"));
-
-		return;
-	}
 
 	if (MasterCharacter && CombatState == ECombatState::ECS_Unoccupied)
 	{
 		MasterCharacter->PlayFireMontage(bAiming);
 		EquippedWeapon->Fire(TraceHitTarget);
+	}
+}
+
+void UCombatComponent::LocalShotgunFire(const TArray<FVector_NetQuantize>& TraceHitTargets)
+{
+
+	AShotgun* Shotgun = Cast<AShotgun>(EquippedWeapon);
+	if (Shotgun == nullptr || MasterCharacter == nullptr) return;
+
+	if (CombatState == ECombatState::ECS_Reloading || CombatState == ECombatState::ECS_Unoccupied)
+	{
+		JumpToShotgunEnd();
+		MasterCharacter->PlayFireMontage(bAiming);
+		Shotgun->FireShotgun(TraceHitTargets);
+		CombatState = ECombatState::ECS_Unoccupied;
 	}
 }
 

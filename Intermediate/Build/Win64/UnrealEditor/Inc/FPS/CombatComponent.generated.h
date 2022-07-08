@@ -18,6 +18,8 @@ struct FVector_NetQuantize;
 #define FID_FPS_Source_FPS_Components_CombatComponent_h_17_RPC_WRAPPERS \
 	virtual void ServerReload_Implementation(); \
 	virtual void ServerThrowGrenade_Implementation(); \
+	virtual void MulticastShotgunFire_Implementation(TArray<FVector_NetQuantize> const& TraceHitTargets); \
+	virtual void ServerShotgunFire_Implementation(TArray<FVector_NetQuantize> const& TraceHitTargets); \
 	virtual void MulticastFire_Implementation(FVector_NetQuantize const& TraceHitTarget); \
 	virtual void ServerFire_Implementation(FVector_NetQuantize const& TraceHitTarget); \
 	virtual void ServerSetAiming_Implementation(bool bIsAiming); \
@@ -28,6 +30,8 @@ struct FVector_NetQuantize;
 	DECLARE_FUNCTION(execOnRep_CarriedAmmo); \
 	DECLARE_FUNCTION(execServerReload); \
 	DECLARE_FUNCTION(execServerThrowGrenade); \
+	DECLARE_FUNCTION(execMulticastShotgunFire); \
+	DECLARE_FUNCTION(execServerShotgunFire); \
 	DECLARE_FUNCTION(execMulticastFire); \
 	DECLARE_FUNCTION(execServerFire); \
 	DECLARE_FUNCTION(execOnRep_SecondaryWeapon); \
@@ -43,6 +47,8 @@ struct FVector_NetQuantize;
 #define FID_FPS_Source_FPS_Components_CombatComponent_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
 	virtual void ServerReload_Implementation(); \
 	virtual void ServerThrowGrenade_Implementation(); \
+	virtual void MulticastShotgunFire_Implementation(TArray<FVector_NetQuantize> const& TraceHitTargets); \
+	virtual void ServerShotgunFire_Implementation(TArray<FVector_NetQuantize> const& TraceHitTargets); \
 	virtual void MulticastFire_Implementation(FVector_NetQuantize const& TraceHitTarget); \
 	virtual void ServerFire_Implementation(FVector_NetQuantize const& TraceHitTarget); \
 	virtual void ServerSetAiming_Implementation(bool bIsAiming); \
@@ -53,6 +59,8 @@ struct FVector_NetQuantize;
 	DECLARE_FUNCTION(execOnRep_CarriedAmmo); \
 	DECLARE_FUNCTION(execServerReload); \
 	DECLARE_FUNCTION(execServerThrowGrenade); \
+	DECLARE_FUNCTION(execMulticastShotgunFire); \
+	DECLARE_FUNCTION(execServerShotgunFire); \
 	DECLARE_FUNCTION(execMulticastFire); \
 	DECLARE_FUNCTION(execServerFire); \
 	DECLARE_FUNCTION(execOnRep_SecondaryWeapon); \
@@ -70,6 +78,10 @@ struct FVector_NetQuantize;
 	{ \
 		FVector_NetQuantize TraceHitTarget; \
 	}; \
+	struct CombatComponent_eventMulticastShotgunFire_Parms \
+	{ \
+		TArray<FVector_NetQuantize> TraceHitTargets; \
+	}; \
 	struct CombatComponent_eventServerFire_Parms \
 	{ \
 		FVector_NetQuantize TraceHitTarget; \
@@ -81,6 +93,10 @@ struct FVector_NetQuantize;
 	struct CombatComponent_eventServerSetAiming_Parms \
 	{ \
 		bool bIsAiming; \
+	}; \
+	struct CombatComponent_eventServerShotgunFire_Parms \
+	{ \
+		TArray<FVector_NetQuantize> TraceHitTargets; \
 	};
 
 

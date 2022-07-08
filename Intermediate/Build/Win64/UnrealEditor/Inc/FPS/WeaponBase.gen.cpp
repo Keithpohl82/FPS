@@ -445,6 +445,14 @@ void EmptyLinkFunctionForGeneratedCodeWeaponBase() {}
 		static void NewProp_bUseScatter_SetBit(void* Obj);
 		static const UECodeGen_Private::FBoolPropertyParams NewProp_bUseScatter;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_DistanceToSpher_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_DistanceToSpher;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_SphereRadius_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_SphereRadius;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_PickupWidget_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_PickupWidget;
@@ -498,14 +506,6 @@ void EmptyLinkFunctionForGeneratedCodeWeaponBase() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_WeaponType_MetaData[];
 #endif
 		static const UECodeGen_Private::FEnumPropertyParams NewProp_WeaponType;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_DistanceToSpher_MetaData[];
-#endif
-		static const UECodeGen_Private::FFloatPropertyParams NewProp_DistanceToSpher;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_SphereRadius_MetaData[];
-#endif
-		static const UECodeGen_Private::FFloatPropertyParams NewProp_SphereRadius;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -608,6 +608,22 @@ void EmptyLinkFunctionForGeneratedCodeWeaponBase() {}
 	}
 	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AWeaponBase_Statics::NewProp_bUseScatter = { "bUseScatter", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AWeaponBase), &Z_Construct_UClass_AWeaponBase_Statics::NewProp_bUseScatter_SetBit, METADATA_PARAMS(Z_Construct_UClass_AWeaponBase_Statics::NewProp_bUseScatter_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AWeaponBase_Statics::NewProp_bUseScatter_MetaData)) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AWeaponBase_Statics::NewProp_DistanceToSpher_MetaData[] = {
+		{ "Category", "Weapon Scatter" },
+		{ "Comment", "/*\n\x09Trace End with Scatter\n*/" },
+		{ "ModuleRelativePath", "Weapons/WeaponBase.h" },
+		{ "ToolTip", "Trace End with Scatter" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AWeaponBase_Statics::NewProp_DistanceToSpher = { "DistanceToSpher", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AWeaponBase, DistanceToSpher), METADATA_PARAMS(Z_Construct_UClass_AWeaponBase_Statics::NewProp_DistanceToSpher_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AWeaponBase_Statics::NewProp_DistanceToSpher_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AWeaponBase_Statics::NewProp_SphereRadius_MetaData[] = {
+		{ "Category", "Weapon Scatter" },
+		{ "ModuleRelativePath", "Weapons/WeaponBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AWeaponBase_Statics::NewProp_SphereRadius = { "SphereRadius", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AWeaponBase, SphereRadius), METADATA_PARAMS(Z_Construct_UClass_AWeaponBase_Statics::NewProp_SphereRadius_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AWeaponBase_Statics::NewProp_SphereRadius_MetaData)) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AWeaponBase_Statics::NewProp_PickupWidget_MetaData[] = {
 		{ "Category", "WeaponProperties" },
 		{ "EditInline", "true" },
@@ -703,22 +719,6 @@ void EmptyLinkFunctionForGeneratedCodeWeaponBase() {}
 	};
 #endif
 	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AWeaponBase_Statics::NewProp_WeaponType = { "WeaponType", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AWeaponBase, WeaponType), Z_Construct_UEnum_FPS_EWeaponType, METADATA_PARAMS(Z_Construct_UClass_AWeaponBase_Statics::NewProp_WeaponType_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AWeaponBase_Statics::NewProp_WeaponType_MetaData)) }; // 4048719725
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AWeaponBase_Statics::NewProp_DistanceToSpher_MetaData[] = {
-		{ "Category", "Weapon Scatter" },
-		{ "Comment", "/*\n\x09\x09Trace End with Scatter\n\x09*/" },
-		{ "ModuleRelativePath", "Weapons/WeaponBase.h" },
-		{ "ToolTip", "Trace End with Scatter" },
-	};
-#endif
-	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AWeaponBase_Statics::NewProp_DistanceToSpher = { "DistanceToSpher", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AWeaponBase, DistanceToSpher), METADATA_PARAMS(Z_Construct_UClass_AWeaponBase_Statics::NewProp_DistanceToSpher_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AWeaponBase_Statics::NewProp_DistanceToSpher_MetaData)) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AWeaponBase_Statics::NewProp_SphereRadius_MetaData[] = {
-		{ "Category", "Weapon Scatter" },
-		{ "ModuleRelativePath", "Weapons/WeaponBase.h" },
-	};
-#endif
-	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AWeaponBase_Statics::NewProp_SphereRadius = { "SphereRadius", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AWeaponBase, SphereRadius), METADATA_PARAMS(Z_Construct_UClass_AWeaponBase_Statics::NewProp_SphereRadius_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AWeaponBase_Statics::NewProp_SphereRadius_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AWeaponBase_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWeaponBase_Statics::NewProp_CrosshairsCenter,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWeaponBase_Statics::NewProp_CrosshairsLeft,
@@ -731,6 +731,8 @@ void EmptyLinkFunctionForGeneratedCodeWeaponBase() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWeaponBase_Statics::NewProp_FireType_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWeaponBase_Statics::NewProp_FireType,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWeaponBase_Statics::NewProp_bUseScatter,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWeaponBase_Statics::NewProp_DistanceToSpher,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWeaponBase_Statics::NewProp_SphereRadius,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWeaponBase_Statics::NewProp_PickupWidget,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWeaponBase_Statics::NewProp_WeaponMesh,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWeaponBase_Statics::NewProp_AreaSphere,
@@ -746,8 +748,6 @@ void EmptyLinkFunctionForGeneratedCodeWeaponBase() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWeaponBase_Statics::NewProp_OwnerPlayerController,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWeaponBase_Statics::NewProp_WeaponType_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWeaponBase_Statics::NewProp_WeaponType,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWeaponBase_Statics::NewProp_DistanceToSpher,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWeaponBase_Statics::NewProp_SphereRadius,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AWeaponBase_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AWeaponBase>::IsAbstract,
@@ -802,9 +802,9 @@ void EmptyLinkFunctionForGeneratedCodeWeaponBase() {}
 		{ EFireType_StaticEnum, TEXT("EFireType"), &Z_Registration_Info_UEnum_EFireType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 911766565U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_WeaponBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AWeaponBase, AWeaponBase::StaticClass, TEXT("AWeaponBase"), &Z_Registration_Info_UClass_AWeaponBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AWeaponBase), 676005074U) },
+		{ Z_Construct_UClass_AWeaponBase, AWeaponBase::StaticClass, TEXT("AWeaponBase"), &Z_Registration_Info_UClass_AWeaponBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AWeaponBase), 745881202U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_WeaponBase_h_3023281930(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_WeaponBase_h_876611229(TEXT("/Script/FPS"),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_WeaponBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_WeaponBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_WeaponBase_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_WeaponBase_h_Statics::EnumInfo));

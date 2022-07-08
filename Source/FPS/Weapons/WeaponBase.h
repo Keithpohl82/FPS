@@ -99,6 +99,16 @@ protected:
 	UFUNCTION()
 	void OnSphereEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 
+	/*
+	Trace End with Scatter
+*/
+
+	UPROPERTY(EditAnywhere, Category = "Weapon Scatter")
+		float DistanceToSpher = 800.f;
+
+	UPROPERTY(EditAnywhere, Category = "Weapon Scatter")
+		float SphereRadius = 75.f;
+
 private:
 
 	UPROPERTY(VisibleAnywhere, Category = "WeaponProperties")
@@ -149,15 +159,7 @@ private:
 	UPROPERTY(EditAnywhere)
 	EWeaponType WeaponType;
 
-	/*
-		Trace End with Scatter
-	*/
 
-	UPROPERTY(EditAnywhere, Category = "Weapon Scatter")
-		float DistanceToSpher = 800.f;
-
-	UPROPERTY(EditAnywhere, Category = "Weapon Scatter")
-		float SphereRadius = 75.f;
 
 public:	
 

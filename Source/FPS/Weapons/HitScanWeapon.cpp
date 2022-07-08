@@ -7,7 +7,6 @@
 #include "Kismet/GameplayStatics.h"
 #include "Particles/ParticleSystemComponent.h"
 #include "Sound/SoundCue.h"
-
 #include "WeaponTypes.h"
 #include "DrawDebugHelpers.h"
 
