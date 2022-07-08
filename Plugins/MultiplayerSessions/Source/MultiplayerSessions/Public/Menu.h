@@ -17,7 +17,7 @@ class MULTIPLAYERSESSIONS_API UMenu : public UUserWidget
 
 public:
 	UFUNCTION(BlueprintCallable)
-	void MenuSetup(int32 NumberOfPublicConnections = 6, FString TypeOfMatch = FString (TEXT("CaptureTheFlag")), FString LobbyPath = FString(TEXT("/Game/Maps/TestLevel")));
+	void MenuSetup(int32 NumberOfPublicConnections = 6, FString TypeOfMatch = FString (TEXT("CaptureTheFlag")), FString LobbyPath = FString(TEXT("/Game/Maps/TestingLevel")));
 	
 
 protected:
