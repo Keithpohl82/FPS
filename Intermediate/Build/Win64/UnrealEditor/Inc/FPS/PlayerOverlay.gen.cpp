@@ -15,6 +15,8 @@ void EmptyLinkFunctionForGeneratedCodePlayerOverlay() {}
 	UPackage* Z_Construct_UPackage__Script_FPS();
 	UMG_API UClass* Z_Construct_UClass_UProgressBar_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UTextBlock_NoRegister();
+	UMG_API UClass* Z_Construct_UClass_UImage_NoRegister();
+	UMG_API UClass* Z_Construct_UClass_UWidgetAnimation_NoRegister();
 // End Cross Module References
 	void UPlayerOverlay::StaticRegisterNativesUPlayerOverlay()
 	{
@@ -38,6 +40,10 @@ void EmptyLinkFunctionForGeneratedCodePlayerOverlay() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_HealthText_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_HealthText;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_HighPingImage_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_HighPingImage;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_ShieldBar_MetaData[];
 #endif
@@ -70,6 +76,10 @@ void EmptyLinkFunctionForGeneratedCodePlayerOverlay() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_GrenadesText_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_GrenadesText;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_HighPingAnimation_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_HighPingAnimation;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -101,6 +111,14 @@ void EmptyLinkFunctionForGeneratedCodePlayerOverlay() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_HealthText = { "HealthText", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerOverlay, HealthText), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_HealthText_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_HealthText_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_HighPingImage_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/PlayerOverlay.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_HighPingImage = { "HighPingImage", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerOverlay, HighPingImage), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_HighPingImage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_HighPingImage_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_ShieldBar_MetaData[] = {
 		{ "BindWidget", "" },
@@ -165,9 +183,17 @@ void EmptyLinkFunctionForGeneratedCodePlayerOverlay() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_GrenadesText = { "GrenadesText", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerOverlay, GrenadesText), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_GrenadesText_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_GrenadesText_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_HighPingAnimation_MetaData[] = {
+		{ "BindWidgetAnim", "" },
+		{ "ModuleRelativePath", "UI/PlayerOverlay.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_HighPingAnimation = { "HighPingAnimation", nullptr, (EPropertyFlags)0x0010000000002000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerOverlay, HighPingAnimation), Z_Construct_UClass_UWidgetAnimation_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_HighPingAnimation_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_HighPingAnimation_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UPlayerOverlay_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_HealthBar,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_HealthText,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_HighPingImage,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_ShieldBar,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_ShieldText,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_ScoreAmount,
@@ -176,6 +202,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerOverlay() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_CarriedAmmoAmount,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_MatchCountdownText,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_GrenadesText,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_HighPingAnimation,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UPlayerOverlay_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UPlayerOverlay>::IsAbstract,
@@ -213,9 +240,9 @@ void EmptyLinkFunctionForGeneratedCodePlayerOverlay() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_UI_PlayerOverlay_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UPlayerOverlay, UPlayerOverlay::StaticClass, TEXT("UPlayerOverlay"), &Z_Registration_Info_UClass_UPlayerOverlay, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPlayerOverlay), 1324247993U) },
+		{ Z_Construct_UClass_UPlayerOverlay, UPlayerOverlay::StaticClass, TEXT("UPlayerOverlay"), &Z_Registration_Info_UClass_UPlayerOverlay, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPlayerOverlay), 203113006U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_UI_PlayerOverlay_h_1720901208(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_UI_PlayerOverlay_h_1697850571(TEXT("/Script/FPS"),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_UI_PlayerOverlay_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_UI_PlayerOverlay_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

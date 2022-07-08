@@ -117,6 +117,8 @@ void UCombatComponent::EquipWeapon(class AWeaponBase* WeaponToEquip)
 
 void UCombatComponent::SwapWeapons()
 {
+	if (CombatState != ECombatState::ECS_Unoccupied) return;
+	
 	AWeaponBase* TempWeapon = EquippedWeapon;
 	EquippedWeapon = SecondaryWeapon;
 	SecondaryWeapon = TempWeapon;
@@ -478,6 +480,7 @@ void UCombatComponent::Fire()
 	{
 		bCanFire = false;
 		ServerFire(HitTarget);
+		LocalFire(HitTarget);
 		if (EquippedWeapon)
 		{
 			CrosshairShootingFactor = 1.75f;
@@ -503,16 +506,23 @@ void UCombatComponent::ServerFire_Implementation(const FVector_NetQuantize& Trac
 
 void UCombatComponent::MulticastFire_Implementation(const FVector_NetQuantize& TraceHitTarget)
 {
+	if (MasterCharacter && MasterCharacter->IsLocallyControlled() && !MasterCharacter->HasAuthority()) return;
+	
+	LocalFire(TraceHitTarget);
+}
+
+void UCombatComponent::LocalFire(const FVector_NetQuantize& TraceHitTarget)
+{
 	if (EquippedWeapon == nullptr) return;
 
 	if (MasterCharacter && CombatState == ECombatState::ECS_Reloading && EquippedWeapon->GetWeaponType() == EWeaponType::EWT_ShotGun)
 	{
-	
+
 		CombatState = ECombatState::ECS_Unoccupied;
 		JumpToShotgunEnd();
 		MasterCharacter->PlayFireMontage(bAiming);
 		EquippedWeapon->Fire(TraceHitTarget);
-		
+
 		UE_LOG(LogTemp, Warning, TEXT("Jumed to ShotgunEnd called from multicast fire"));
 
 		return;

@@ -15,6 +15,7 @@
 #include "FPS/Components/CombatComponent.h"
 #include "FPS/GameState/MasterGameState.h"
 #include "FPS/PlayerState/MasterPlayerState.h"
+#include "Components/Image.h"
 
 
 void AMasterPlayerController::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
@@ -30,6 +31,34 @@ void AMasterPlayerController::Tick(float DeltaSeconds)
 	SetHUDTime();
 	CheckTimeSync(DeltaSeconds);
 	PoolInit();
+	CheckPing(DeltaSeconds);
+}
+
+void AMasterPlayerController::CheckPing(float DeltaSeconds)
+{
+	HighPingRunningTime += DeltaSeconds;
+	if (HighPingRunningTime > CheckPingFrequency)
+	{
+		PlayerState = PlayerState == nullptr ? GetPlayerState<APlayerState>() : PlayerState;
+		if (PlayerState)
+		{
+			if (PlayerState->GetPing() * 4 > HighPingThreshold) //Ping is compressed by 4
+			{
+				HighPingWarning();
+				PingAnimationRunningTime = 0.f;
+			}
+		}
+		HighPingRunningTime = 0.f;
+	}
+	bool bHighPingAnimationPlaying = HUD && HUD->PlayerOverlay && HUD->PlayerOverlay->HighPingAnimation && HUD->PlayerOverlay->IsAnimationPlaying(HUD->PlayerOverlay->HighPingAnimation);
+	if (bHighPingAnimationPlaying)
+	{
+		PingAnimationRunningTime += DeltaSeconds;
+		if (PingAnimationRunningTime > HighPingDuration)
+		{
+			StopHighPingWarning();
+		}
+	}
 }
 
 float AMasterPlayerController::GetServerTime()
@@ -192,6 +221,31 @@ void AMasterPlayerController::PoolInit()
 					if (bInitializeGrenades) SetHUDNades(MasterCharacter->GetCombat()->GetGrenades());
 				}
 			}
+		}
+	}
+}
+
+void AMasterPlayerController::HighPingWarning()
+{
+	HUD = HUD == nullptr ? Cast<APlayerHUD>(GetHUD()) : HUD;
+	bool bHUDValid = HUD && HUD->PlayerOverlay && HUD->PlayerOverlay->HighPingImage && HUD->PlayerOverlay->HighPingAnimation;
+	if (bHUDValid)
+	{
+		HUD->PlayerOverlay->HighPingImage->SetOpacity(1.f);
+		HUD->PlayerOverlay->PlayAnimation(HUD->PlayerOverlay->HighPingAnimation, 0.f, 5);
+	}
+}
+
+void AMasterPlayerController::StopHighPingWarning()
+{
+	HUD = HUD == nullptr ? Cast<APlayerHUD>(GetHUD()) : HUD;
+	bool bHUDValid = HUD && HUD->PlayerOverlay && HUD->PlayerOverlay->HighPingImage && HUD->PlayerOverlay->HighPingAnimation;
+	if (bHUDValid)
+	{
+		HUD->PlayerOverlay->HighPingImage->SetOpacity(0.f);
+		if (HUD->PlayerOverlay->IsAnimationPlaying(HUD->PlayerOverlay->HighPingAnimation))
+		{
+			HUD->PlayerOverlay->StopAnimation(HUD->PlayerOverlay->HighPingAnimation);
 		}
 	}
 }

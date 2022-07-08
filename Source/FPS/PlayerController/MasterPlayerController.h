@@ -40,6 +40,9 @@ protected:
 	virtual void BeginPlay() override;
 	void SetHUDTime();
 	void PoolInit();
+	void HighPingWarning();
+	void StopHighPingWarning();
+	void CheckPing(float DeltaSeconds);
 
 	/*
 	 * Sync time between client and server.
@@ -104,5 +107,17 @@ private:
 
 	UPROPERTY()
 	class AMasterGameMode* MasterGameMode;
+
+	float HighPingRunningTime = 0.f;
+
+	UPROPERTY(EditAnywhere)
+	float HighPingDuration = 5.f;
+
+	float PingAnimationRunningTime = 0;
+
+	UPROPERTY(EditAnywhere)
+	float CheckPingFrequency = 20.f;
 	
+	UPROPERTY(EditAnywhere)
+	float HighPingThreshold = 50.f;
 };

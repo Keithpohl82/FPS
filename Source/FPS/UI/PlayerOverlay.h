@@ -20,6 +20,8 @@ public:
 	UPROPERTY(meta = (BindWidget))
 		class UTextBlock* HealthText;
 	UPROPERTY(meta = (BindWidget))
+		class UImage* HighPingImage;
+	UPROPERTY(meta = (BindWidget))
 		 UProgressBar* ShieldBar;
 	UPROPERTY(meta = (BindWidget))
 		 UTextBlock* ShieldText;
@@ -35,4 +37,6 @@ public:
 		UTextBlock* MatchCountdownText;
 	UPROPERTY(meta = (BindWidget))
 		UTextBlock* GrenadesText;
+	UPROPERTY(meta = (BindWidgetAnim), Transient)
+		UWidgetAnimation* HighPingAnimation;
 };
