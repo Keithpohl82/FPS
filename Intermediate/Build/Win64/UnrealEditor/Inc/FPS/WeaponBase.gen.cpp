@@ -155,11 +155,20 @@ void EmptyLinkFunctionForGeneratedCodeWeaponBase() {}
 		}
 		return Z_Registration_Info_UEnum_EFireType.InnerSingleton;
 	}
-	DEFINE_FUNCTION(AWeaponBase::execOnRep_Ammo)
+	DEFINE_FUNCTION(AWeaponBase::execClientAddAmmo)
 	{
+		P_GET_PROPERTY(FIntProperty,Z_Param_AmmoToAdd);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->OnRep_Ammo();
+		P_THIS->ClientAddAmmo_Implementation(Z_Param_AmmoToAdd);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AWeaponBase::execClientUpdateAmmo)
+	{
+		P_GET_PROPERTY(FIntProperty,Z_Param_ServerAmmo);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ClientUpdateAmmo_Implementation(Z_Param_ServerAmmo);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(AWeaponBase::execOnRep_WeaponState)
@@ -193,36 +202,85 @@ void EmptyLinkFunctionForGeneratedCodeWeaponBase() {}
 		P_THIS->OnSphereOverlap(Z_Param_OverlappedComponent,Z_Param_OtherActor,Z_Param_OtherComp,Z_Param_OtherBodyIndex,Z_Param_bFromSweep,Z_Param_Out_SweepResult);
 		P_NATIVE_END;
 	}
+	static FName NAME_AWeaponBase_ClientAddAmmo = FName(TEXT("ClientAddAmmo"));
+	void AWeaponBase::ClientAddAmmo(int32 AmmoToAdd)
+	{
+		WeaponBase_eventClientAddAmmo_Parms Parms;
+		Parms.AmmoToAdd=AmmoToAdd;
+		ProcessEvent(FindFunctionChecked(NAME_AWeaponBase_ClientAddAmmo),&Parms);
+	}
+	static FName NAME_AWeaponBase_ClientUpdateAmmo = FName(TEXT("ClientUpdateAmmo"));
+	void AWeaponBase::ClientUpdateAmmo(int32 ServerAmmo)
+	{
+		WeaponBase_eventClientUpdateAmmo_Parms Parms;
+		Parms.ServerAmmo=ServerAmmo;
+		ProcessEvent(FindFunctionChecked(NAME_AWeaponBase_ClientUpdateAmmo),&Parms);
+	}
 	void AWeaponBase::StaticRegisterNativesAWeaponBase()
 	{
 		UClass* Class = AWeaponBase::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
-			{ "OnRep_Ammo", &AWeaponBase::execOnRep_Ammo },
+			{ "ClientAddAmmo", &AWeaponBase::execClientAddAmmo },
+			{ "ClientUpdateAmmo", &AWeaponBase::execClientUpdateAmmo },
 			{ "OnRep_WeaponState", &AWeaponBase::execOnRep_WeaponState },
 			{ "OnSphereEndOverlap", &AWeaponBase::execOnSphereEndOverlap },
 			{ "OnSphereOverlap", &AWeaponBase::execOnSphereOverlap },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
-	struct Z_Construct_UFunction_AWeaponBase_OnRep_Ammo_Statics
+	struct Z_Construct_UFunction_AWeaponBase_ClientAddAmmo_Statics
 	{
+		static const UECodeGen_Private::FIntPropertyParams NewProp_AmmoToAdd;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AWeaponBase_ClientAddAmmo_Statics::NewProp_AmmoToAdd = { "AmmoToAdd", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(WeaponBase_eventClientAddAmmo_Parms, AmmoToAdd), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AWeaponBase_ClientAddAmmo_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AWeaponBase_ClientAddAmmo_Statics::NewProp_AmmoToAdd,
+	};
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AWeaponBase_OnRep_Ammo_Statics::Function_MetaDataParams[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AWeaponBase_ClientAddAmmo_Statics::Function_MetaDataParams[] = {
 		{ "ModuleRelativePath", "Weapons/WeaponBase.h" },
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AWeaponBase_OnRep_Ammo_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AWeaponBase, nullptr, "OnRep_Ammo", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AWeaponBase_OnRep_Ammo_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AWeaponBase_OnRep_Ammo_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_AWeaponBase_OnRep_Ammo()
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AWeaponBase_ClientAddAmmo_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AWeaponBase, nullptr, "ClientAddAmmo", nullptr, nullptr, sizeof(WeaponBase_eventClientAddAmmo_Parms), Z_Construct_UFunction_AWeaponBase_ClientAddAmmo_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AWeaponBase_ClientAddAmmo_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x01040CC1, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AWeaponBase_ClientAddAmmo_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AWeaponBase_ClientAddAmmo_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AWeaponBase_ClientAddAmmo()
 	{
 		static UFunction* ReturnFunction = nullptr;
 		if (!ReturnFunction)
 		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AWeaponBase_OnRep_Ammo_Statics::FuncParams);
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AWeaponBase_ClientAddAmmo_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AWeaponBase_ClientUpdateAmmo_Statics
+	{
+		static const UECodeGen_Private::FIntPropertyParams NewProp_ServerAmmo;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AWeaponBase_ClientUpdateAmmo_Statics::NewProp_ServerAmmo = { "ServerAmmo", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(WeaponBase_eventClientUpdateAmmo_Parms, ServerAmmo), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AWeaponBase_ClientUpdateAmmo_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AWeaponBase_ClientUpdateAmmo_Statics::NewProp_ServerAmmo,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AWeaponBase_ClientUpdateAmmo_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Weapons/WeaponBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AWeaponBase_ClientUpdateAmmo_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AWeaponBase, nullptr, "ClientUpdateAmmo", nullptr, nullptr, sizeof(WeaponBase_eventClientUpdateAmmo_Parms), Z_Construct_UFunction_AWeaponBase_ClientUpdateAmmo_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AWeaponBase_ClientUpdateAmmo_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x01040CC1, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AWeaponBase_ClientUpdateAmmo_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AWeaponBase_ClientUpdateAmmo_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AWeaponBase_ClientUpdateAmmo()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AWeaponBase_ClientUpdateAmmo_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -515,7 +573,8 @@ void EmptyLinkFunctionForGeneratedCodeWeaponBase() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_FPS,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AWeaponBase_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_AWeaponBase_OnRep_Ammo, "OnRep_Ammo" }, // 3956287732
+		{ &Z_Construct_UFunction_AWeaponBase_ClientAddAmmo, "ClientAddAmmo" }, // 1632275474
+		{ &Z_Construct_UFunction_AWeaponBase_ClientUpdateAmmo, "ClientUpdateAmmo" }, // 1948406519
 		{ &Z_Construct_UFunction_AWeaponBase_OnRep_WeaponState, "OnRep_WeaponState" }, // 838914817
 		{ &Z_Construct_UFunction_AWeaponBase_OnSphereEndOverlap, "OnSphereEndOverlap" }, // 4205893731
 		{ &Z_Construct_UFunction_AWeaponBase_OnSphereOverlap, "OnSphereOverlap" }, // 1030443489
@@ -691,7 +750,7 @@ void EmptyLinkFunctionForGeneratedCodeWeaponBase() {}
 		{ "ModuleRelativePath", "Weapons/WeaponBase.h" },
 	};
 #endif
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AWeaponBase_Statics::NewProp_Ammo = { "Ammo", "OnRep_Ammo", (EPropertyFlags)0x0040000100000021, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AWeaponBase, Ammo), METADATA_PARAMS(Z_Construct_UClass_AWeaponBase_Statics::NewProp_Ammo_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AWeaponBase_Statics::NewProp_Ammo_MetaData)) };
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AWeaponBase_Statics::NewProp_Ammo = { "Ammo", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AWeaponBase, Ammo), METADATA_PARAMS(Z_Construct_UClass_AWeaponBase_Statics::NewProp_Ammo_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AWeaponBase_Statics::NewProp_Ammo_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AWeaponBase_Statics::NewProp_MagCapacity_MetaData[] = {
 		{ "Category", "WeaponBase" },
@@ -783,11 +842,9 @@ void EmptyLinkFunctionForGeneratedCodeWeaponBase() {}
 	void AWeaponBase::ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const
 	{
 		static const FName Name_WeaponState(TEXT("WeaponState"));
-		static const FName Name_Ammo(TEXT("Ammo"));
 
 		const bool bIsValid = true
-			&& Name_WeaponState == ClassReps[(int32)ENetFields_Private::WeaponState].Property->GetFName()
-			&& Name_Ammo == ClassReps[(int32)ENetFields_Private::Ammo].Property->GetFName();
+			&& Name_WeaponState == ClassReps[(int32)ENetFields_Private::WeaponState].Property->GetFName();
 
 		checkf(bIsValid, TEXT("UHT Generated Rep Indices do not match runtime populated Rep Indices for properties in AWeaponBase"));
 	}
@@ -802,9 +859,9 @@ void EmptyLinkFunctionForGeneratedCodeWeaponBase() {}
 		{ EFireType_StaticEnum, TEXT("EFireType"), &Z_Registration_Info_UEnum_EFireType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 911766565U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_WeaponBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AWeaponBase, AWeaponBase::StaticClass, TEXT("AWeaponBase"), &Z_Registration_Info_UClass_AWeaponBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AWeaponBase), 745881202U) },
+		{ Z_Construct_UClass_AWeaponBase, AWeaponBase::StaticClass, TEXT("AWeaponBase"), &Z_Registration_Info_UClass_AWeaponBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AWeaponBase), 437300501U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_WeaponBase_h_876611229(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_WeaponBase_h_2591655781(TEXT("/Script/FPS"),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_WeaponBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_WeaponBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_WeaponBase_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_Weapons_WeaponBase_h_Statics::EnumInfo));

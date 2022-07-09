@@ -416,7 +416,7 @@ void UCombatComponent::UpdateAmmoValues()
 	{
 		MasterPlayerController->SetHUDCarriedAmmo(CarriedAmmo);
 	}
-	EquippedWeapon->AddAmmo(-ReloadAmount);
+	EquippedWeapon->AddAmmo(ReloadAmount);
 }
 
 void UCombatComponent::UpdateShotgunAmmoValues()
@@ -436,7 +436,7 @@ void UCombatComponent::UpdateShotgunAmmoValues()
 		MasterPlayerController->SetHUDCarriedAmmo(CarriedAmmo);
 	}
 
-	EquippedWeapon->AddAmmo(-1);
+	EquippedWeapon->AddAmmo(1);
 
 	bCanFire = true;
 

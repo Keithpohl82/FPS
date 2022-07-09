@@ -157,27 +157,48 @@ void AWeaponBase::OnSphereEndOverlap(UPrimitiveComponent* OverlappedComponent, A
 	}
 }
 
-
-
-void AWeaponBase::OnRep_Ammo()
-{
-	OwnerCharacter = OwnerCharacter == nullptr ? Cast<AMasterCharacter>(GetOwner()) : OwnerCharacter;
-	if (OwnerCharacter && OwnerCharacter->GetCombat() && IsFull())
-	{
-		OwnerCharacter->GetCombat()->JumpToShotgunEnd();
-		UE_LOG(LogTemp, Warning, TEXT("Jump to shotgun called from weapon OnRep_Ammo."));
-	}
-	SetHUDAmmo();
-}
-
 void AWeaponBase::SpendRound()
 {
 	Ammo = FMath::Clamp(Ammo - 1, 0, MagCapacity);
 	SetHUDAmmo();
+
+	if (HasAuthority())
+	{
+		ClientUpdateAmmo(Ammo);
+	}
+	else
+	{
+		++Sequence;
+	}
 }
 
+void AWeaponBase::ClientUpdateAmmo_Implementation(int32 ServerAmmo)
+{
+	if (HasAuthority()) return;
+	Ammo = ServerAmmo;
+	--Sequence;
+	Ammo -= Sequence;
+	SetHUDAmmo();
+}
 
+void AWeaponBase::AddAmmo(int32 AmmoToAdd)
+{
+	Ammo = FMath::Clamp(Ammo + AmmoToAdd, 0, MagCapacity);
+	SetHUDAmmo();
+	ClientAddAmmo(AmmoToAdd);
+}
 
+void AWeaponBase::ClientAddAmmo_Implementation(int32 AmmoToAdd)
+{
+	if (HasAuthority()) return;
+	Ammo = FMath::Clamp(Ammo + AmmoToAdd, 0, MagCapacity);
+	OwnerCharacter = OwnerCharacter == nullptr ? Cast<AMasterCharacter>(GetOwner()) : OwnerCharacter;
+	if (OwnerCharacter && OwnerCharacter->GetCombat() && IsFull())
+	{
+		OwnerCharacter->GetCombat()->JumpToShotgunEnd();
+	}
+		SetHUDAmmo();
+}
 bool AWeaponBase::IsEmpty()
 {
 	return Ammo <= 0;
@@ -223,7 +244,7 @@ void AWeaponBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifet
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 	DOREPLIFETIME(AWeaponBase, WeaponState);
-	DOREPLIFETIME(AWeaponBase, Ammo);
+	
 }
 
 void AWeaponBase::OnRep_Owner()
@@ -278,10 +299,7 @@ void AWeaponBase::Fire(const FVector& HitTarget)
 			}
 		}
 	}
-	if (HasAuthority())
-	{
-		SpendRound();
-	}
+	SpendRound();
 }
 
 void AWeaponBase::ShowPickupWidget(bool bShowWidget)
@@ -302,11 +320,6 @@ void AWeaponBase::Dropped()
 	OwnerPlayerController = nullptr;
 }
 
-void AWeaponBase::AddAmmo(int32 AmmoToAdd)
-{
-	Ammo = FMath::Clamp(Ammo - AmmoToAdd, 0, MagCapacity);
-	SetHUDAmmo();
-}
 
 void AWeaponBase::EnableCustomDepth(bool bEnable)
 {

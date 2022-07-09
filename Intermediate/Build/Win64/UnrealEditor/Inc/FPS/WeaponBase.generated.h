@@ -18,21 +18,39 @@ struct FHitResult;
 
 #define FID_FPS_Source_FPS_Weapons_WeaponBase_h_34_SPARSE_DATA
 #define FID_FPS_Source_FPS_Weapons_WeaponBase_h_34_RPC_WRAPPERS \
+	virtual void ClientAddAmmo_Implementation(int32 AmmoToAdd); \
+	virtual void ClientUpdateAmmo_Implementation(int32 ServerAmmo); \
  \
-	DECLARE_FUNCTION(execOnRep_Ammo); \
+	DECLARE_FUNCTION(execClientAddAmmo); \
+	DECLARE_FUNCTION(execClientUpdateAmmo); \
 	DECLARE_FUNCTION(execOnRep_WeaponState); \
 	DECLARE_FUNCTION(execOnSphereEndOverlap); \
 	DECLARE_FUNCTION(execOnSphereOverlap);
 
 
 #define FID_FPS_Source_FPS_Weapons_WeaponBase_h_34_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void ClientAddAmmo_Implementation(int32 AmmoToAdd); \
+	virtual void ClientUpdateAmmo_Implementation(int32 ServerAmmo); \
  \
-	DECLARE_FUNCTION(execOnRep_Ammo); \
+	DECLARE_FUNCTION(execClientAddAmmo); \
+	DECLARE_FUNCTION(execClientUpdateAmmo); \
 	DECLARE_FUNCTION(execOnRep_WeaponState); \
 	DECLARE_FUNCTION(execOnSphereEndOverlap); \
 	DECLARE_FUNCTION(execOnSphereOverlap);
 
 
+#define FID_FPS_Source_FPS_Weapons_WeaponBase_h_34_EVENT_PARMS \
+	struct WeaponBase_eventClientAddAmmo_Parms \
+	{ \
+		int32 AmmoToAdd; \
+	}; \
+	struct WeaponBase_eventClientUpdateAmmo_Parms \
+	{ \
+		int32 ServerAmmo; \
+	};
+
+
+#define FID_FPS_Source_FPS_Weapons_WeaponBase_h_34_CALLBACK_WRAPPERS
 #define FID_FPS_Source_FPS_Weapons_WeaponBase_h_34_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAWeaponBase(); \
@@ -44,8 +62,7 @@ public: \
 	{ \
 		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
 		WeaponState=NETFIELD_REP_START, \
-		Ammo, \
-		NETFIELD_REP_END=Ammo	}; \
+		NETFIELD_REP_END=WeaponState	}; \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
@@ -60,8 +77,7 @@ public: \
 	{ \
 		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
 		WeaponState=NETFIELD_REP_START, \
-		Ammo, \
-		NETFIELD_REP_END=Ammo	}; \
+		NETFIELD_REP_END=WeaponState	}; \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
@@ -89,12 +105,16 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AWeaponBase)
 
 
-#define FID_FPS_Source_FPS_Weapons_WeaponBase_h_31_PROLOG
+#define FID_FPS_Source_FPS_Weapons_WeaponBase_h_31_PROLOG \
+	FID_FPS_Source_FPS_Weapons_WeaponBase_h_34_EVENT_PARMS
+
+
 #define FID_FPS_Source_FPS_Weapons_WeaponBase_h_34_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	FID_FPS_Source_FPS_Weapons_WeaponBase_h_34_SPARSE_DATA \
 	FID_FPS_Source_FPS_Weapons_WeaponBase_h_34_RPC_WRAPPERS \
+	FID_FPS_Source_FPS_Weapons_WeaponBase_h_34_CALLBACK_WRAPPERS \
 	FID_FPS_Source_FPS_Weapons_WeaponBase_h_34_INCLASS \
 	FID_FPS_Source_FPS_Weapons_WeaponBase_h_34_STANDARD_CONSTRUCTORS \
 public: \
@@ -106,6 +126,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	FID_FPS_Source_FPS_Weapons_WeaponBase_h_34_SPARSE_DATA \
 	FID_FPS_Source_FPS_Weapons_WeaponBase_h_34_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_FPS_Source_FPS_Weapons_WeaponBase_h_34_CALLBACK_WRAPPERS \
 	FID_FPS_Source_FPS_Weapons_WeaponBase_h_34_INCLASS_NO_PURE_DECLS \
 	FID_FPS_Source_FPS_Weapons_WeaponBase_h_34_ENHANCED_CONSTRUCTORS \
 private: \
