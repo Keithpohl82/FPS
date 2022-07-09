@@ -73,7 +73,11 @@
             "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\soundnode.generated.h",
             "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\soundcue.generated.h",
             "u:\\fps\\source\\fps\\weapons\\projectiles\\projectilebase.h",
-            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\projectilebase.generated.h"
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\projectilebase.generated.h",
+            "u:\\fps\\source\\fps\\weapons\\shotgun.h",
+            "u:\\fps\\source\\fps\\weapons\\hitscanweapon.h",
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\hitscanweapon.generated.h",
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\shotgun.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []
