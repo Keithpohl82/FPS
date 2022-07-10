@@ -22,6 +22,7 @@
 #include "FPS/PlayerState/MasterPlayerState.h"
 #include "FPS/Weapons/WeaponBase.h"
 #include "Components/BoxComponent.h"
+#include "FPS/Components/LagCompensationComponent.h"
 
 
 AMasterCharacter::AMasterCharacter()
@@ -52,6 +53,8 @@ AMasterCharacter::AMasterCharacter()
 
 	Buff = CreateDefaultSubobject<UBuffComponent>(TEXT("BuffComponent"));
 	Buff->SetIsReplicated(true);
+
+	LagCompensation = CreateDefaultSubobject<ULagCompensationComponent>(TEXT("LagCompensation"));
 
 	GetCharacterMovement()->NavAgentProps.bCanCrouch = true;
 	GetCharacterMovement()->RotationRate = FRotator(0.f, 0.f, 850.f);
@@ -588,6 +591,15 @@ void AMasterCharacter::PostInitializeComponents()
 		Buff->SetInitialSpeeds(GetCharacterMovement()->MaxWalkSpeed, GetCharacterMovement()->MaxWalkSpeedCrouched);
 		Buff->SetInitialJumpVelocit(GetCharacterMovement()->JumpZVelocity);
 	}
+	if (LagCompensation)
+	{
+		LagCompensation->MasterCharacter = this;
+		if (MasterPlayercontroller)
+		{
+			LagCompensation->MasterController = Cast<AMasterPlayerController>(MasterPlayercontroller);
+		}
+	}
+
 }
 
 void AMasterCharacter::OnRep_ReplicatedMovement()

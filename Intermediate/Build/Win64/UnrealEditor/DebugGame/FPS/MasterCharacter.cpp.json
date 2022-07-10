@@ -102,7 +102,9 @@
             "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\playerstate.generated.h",
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\masterplayerstate.generated.h",
             "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\components\\boxcomponent.h",
-            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\boxcomponent.generated.h"
+            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\boxcomponent.generated.h",
+            "u:\\fps\\source\\fps\\components\\lagcompensationcomponent.h",
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\lagcompensationcomponent.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

@@ -43,12 +43,14 @@
 			"CharacterAnimInstance.gen.cpp.obj",
 			"CombatComponent.gen.cpp.obj",
 			"CombatState.gen.cpp.obj",
+			"FPS.init.gen.cpp.obj",
 			"HealthPickup.gen.cpp.obj",
 			"HitScanWeapon.gen.cpp.obj",
 			"InteractWithCrosshairsInterface.gen.cpp.obj",
 			"JumpPickup.gen.cpp.obj",
 			"LagCompensationComponent.gen.cpp.obj",
 			"LobbyGameMode.gen.cpp.obj",
+			"MasterCharacter.gen.cpp.obj",
 			"MasterGameMode.gen.cpp.obj",
 			"MasterGameState.gen.cpp.obj",
 			"MasterPlayerController.gen.cpp.obj",
@@ -68,9 +70,7 @@
 			"SpeedPickup.gen.cpp.obj",
 			"TurningInPlace.gen.cpp.obj",
 			"WeaponBase.gen.cpp.obj",
-			"WeaponTypes.gen.cpp.obj",
-			"FPS.init.gen.cpp.obj",
-			"MasterCharacter.gen.cpp.obj"
+			"WeaponTypes.gen.cpp.obj"
 		]
 	}
 }
