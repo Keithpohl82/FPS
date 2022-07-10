@@ -15,14 +15,12 @@ class FPS_API ULagCompensationComponent : public UActorComponent
 public:	
 
 	ULagCompensationComponent();
+	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 protected:
 
 	virtual void BeginPlay() override;
 
 public:	
-
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-
-		
+	
 };

@@ -6,7 +6,6 @@
 
 ULagCompensationComponent::ULagCompensationComponent()
 {
-
 	PrimaryComponentTick.bCanEverTick = true;
 
 }
