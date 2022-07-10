@@ -51,6 +51,8 @@ public:
 
 	void PickupAmmo(EWeaponType WeaponType, int32 AmmoAmount);
 
+	bool bLocallyReloading = false;
+
 protected:
 
 	virtual void BeginPlay() override;
@@ -81,8 +83,6 @@ protected:
 	void UpdateCarriedAmmo();
 	
 	void PlayEquipWeaponSound(AWeaponBase* WeaponToEquip);
-
-	void ReloadEmptyWeapon();
 
 	void Fire();
 	void FireProjectileWeapon();
@@ -118,6 +118,8 @@ protected:
 
 	void HandleReload();
 
+	void ReloadEmptyWeapon();
+
 	int32 AmountToReload();
 
 	void EquipPrimaryWeapon(AWeaponBase* WeaponToEquip);
@@ -140,8 +142,13 @@ private:
 	UPROPERTY(ReplicatedUsing = OnRep_SecondaryWeapon)
 	AWeaponBase*SecondaryWeapon;
 
-	UPROPERTY(Replicated)
-	bool bAiming;
+	UPROPERTY(ReplicatedUsing = OnRep_Aiming)
+	bool bAiming = false;
+
+	bool bAimButtonPressed = false;
+
+	UFUNCTION()
+	void OnRep_Aiming();
 
 	UPROPERTY(EditAnywhere)
 	float BaseWalkSpeed;

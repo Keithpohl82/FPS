@@ -42,6 +42,13 @@ void EmptyLinkFunctionForGeneratedCodeCombatComponent() {}
 		P_THIS->OnRep_CarriedAmmo();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(UCombatComponent::execOnRep_Aiming)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->OnRep_Aiming();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UCombatComponent::execServerReload)
 	{
 		P_FINISH;
@@ -206,6 +213,7 @@ void EmptyLinkFunctionForGeneratedCodeCombatComponent() {}
 			{ "LaunchGrenade", &UCombatComponent::execLaunchGrenade },
 			{ "MulticastFire", &UCombatComponent::execMulticastFire },
 			{ "MulticastShotgunFire", &UCombatComponent::execMulticastShotgunFire },
+			{ "OnRep_Aiming", &UCombatComponent::execOnRep_Aiming },
 			{ "OnRep_CarriedAmmo", &UCombatComponent::execOnRep_CarriedAmmo },
 			{ "OnRep_CombatState", &UCombatComponent::execOnRep_CombatState },
 			{ "OnRep_EquippedWeapon", &UCombatComponent::execOnRep_EquippedWeapon },
@@ -338,6 +346,28 @@ void EmptyLinkFunctionForGeneratedCodeCombatComponent() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCombatComponent_MulticastShotgunFire_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UCombatComponent_OnRep_Aiming_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCombatComponent_OnRep_Aiming_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Components/CombatComponent.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCombatComponent_OnRep_Aiming_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCombatComponent, nullptr, "OnRep_Aiming", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCombatComponent_OnRep_Aiming_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCombatComponent_OnRep_Aiming_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UCombatComponent_OnRep_Aiming()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCombatComponent_OnRep_Aiming_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -798,6 +828,7 @@ void EmptyLinkFunctionForGeneratedCodeCombatComponent() {}
 		{ &Z_Construct_UFunction_UCombatComponent_LaunchGrenade, "LaunchGrenade" }, // 763168658
 		{ &Z_Construct_UFunction_UCombatComponent_MulticastFire, "MulticastFire" }, // 1177720214
 		{ &Z_Construct_UFunction_UCombatComponent_MulticastShotgunFire, "MulticastShotgunFire" }, // 558748294
+		{ &Z_Construct_UFunction_UCombatComponent_OnRep_Aiming, "OnRep_Aiming" }, // 1332779861
 		{ &Z_Construct_UFunction_UCombatComponent_OnRep_CarriedAmmo, "OnRep_CarriedAmmo" }, // 2605463445
 		{ &Z_Construct_UFunction_UCombatComponent_OnRep_CombatState, "OnRep_CombatState" }, // 2546102585
 		{ &Z_Construct_UFunction_UCombatComponent_OnRep_EquippedWeapon, "OnRep_EquippedWeapon" }, // 318280251
@@ -860,7 +891,7 @@ void EmptyLinkFunctionForGeneratedCodeCombatComponent() {}
 	{
 		((UCombatComponent*)Obj)->bAiming = 1;
 	}
-	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UCombatComponent_Statics::NewProp_bAiming = { "bAiming", nullptr, (EPropertyFlags)0x0040000000000020, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UCombatComponent), &Z_Construct_UClass_UCombatComponent_Statics::NewProp_bAiming_SetBit, METADATA_PARAMS(Z_Construct_UClass_UCombatComponent_Statics::NewProp_bAiming_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCombatComponent_Statics::NewProp_bAiming_MetaData)) };
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UCombatComponent_Statics::NewProp_bAiming = { "bAiming", "OnRep_Aiming", (EPropertyFlags)0x0040000100000020, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UCombatComponent), &Z_Construct_UClass_UCombatComponent_Statics::NewProp_bAiming_SetBit, METADATA_PARAMS(Z_Construct_UClass_UCombatComponent_Statics::NewProp_bAiming_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCombatComponent_Statics::NewProp_bAiming_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCombatComponent_Statics::NewProp_BaseWalkSpeed_MetaData[] = {
 		{ "Category", "CombatComponent" },
@@ -1057,9 +1088,9 @@ void EmptyLinkFunctionForGeneratedCodeCombatComponent() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Components_CombatComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCombatComponent, UCombatComponent::StaticClass, TEXT("UCombatComponent"), &Z_Registration_Info_UClass_UCombatComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatComponent), 3359268076U) },
+		{ Z_Construct_UClass_UCombatComponent, UCombatComponent::StaticClass, TEXT("UCombatComponent"), &Z_Registration_Info_UClass_UCombatComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatComponent), 4283979483U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Components_CombatComponent_h_444972604(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Components_CombatComponent_h_3791484353(TEXT("/Script/FPS"),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_Components_CombatComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_Components_CombatComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

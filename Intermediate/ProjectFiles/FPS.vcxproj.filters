@@ -127,6 +127,12 @@
     <ClInclude Include="..\..\Source\FPS\Components\CombatComponent.h">
       <Filter>Source\FPS\Components</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\FPS\Components\LagCompensationComponent.cpp">
+      <Filter>Source\FPS\Components</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\Components\LagCompensationComponent.h">
+      <Filter>Source\FPS\Components</Filter>
+    </ClInclude>
     <Filter Include="Source\FPS\GameModes">
       <UniqueIdentifier>{6808A2EB-22CD-3E81-AEDE-5555C6F8938D}</UniqueIdentifier>
     </Filter>

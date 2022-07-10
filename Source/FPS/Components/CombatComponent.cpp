@@ -86,6 +86,7 @@ void UCombatComponent::SetAiming(bool bIsAiming)
 	{
 		MasterCharacter->ShowSniperScopeWidget(bIsAiming);
 	}
+	if (MasterCharacter->IsLocallyControlled()) bAimButtonPressed = bIsAiming;
 }
 
 void UCombatComponent::ServerSetAiming_Implementation(bool bIsAiming)
@@ -378,12 +379,15 @@ void UCombatComponent::ServerReload_Implementation()
 {
 	if (MasterCharacter == nullptr || EquippedWeapon == nullptr) return;
 	CombatState = ECombatState::ECS_Reloading;
-	HandleReload();
+	if(!MasterCharacter->IsLocallyControlled()) HandleReload();
 }
 
 void UCombatComponent::HandleReload()
 {
-	MasterCharacter->PlayReloadMontage();
+	if (MasterCharacter)
+	{
+		MasterCharacter->PlayReloadMontage();
+	}
 }
 
 int32 UCombatComponent::AmountToReload()
@@ -453,16 +457,18 @@ bool UCombatComponent::ShouldSwapWeapons()
 
 void UCombatComponent::Reload()
 {
-	if (CarriedAmmo > 0 && CombatState == ECombatState::ECS_Unoccupied && EquippedWeapon && !EquippedWeapon->IsFull())
+	if (CarriedAmmo > 0 && CombatState == ECombatState::ECS_Unoccupied && EquippedWeapon && !EquippedWeapon->IsFull() && !bLocallyReloading)
 	{
 		ServerReload();
+		HandleReload();
+		bLocallyReloading = true;
 	}
 }
 
 void UCombatComponent::FinishReloading()
 {
 	if (MasterCharacter == nullptr) return;
-
+	bLocallyReloading = false;
 	if (MasterCharacter->HasAuthority())
 	{
 		CombatState = ECombatState::ECS_Unoccupied;
@@ -711,6 +717,14 @@ void UCombatComponent::PickupAmmo(EWeaponType WeaponType, int32 AmmoAmount)
 	}
 }
 
+void UCombatComponent::OnRep_Aiming()
+{
+	if (MasterCharacter && MasterCharacter->IsLocallyControlled())
+	{
+		bAiming = bAimButtonPressed;
+	}
+}
+
 void UCombatComponent::InterpFOV(float DeltaTime)
 {
 	if (EquippedWeapon == nullptr) return;
@@ -752,7 +766,7 @@ void UCombatComponent::StartFireTimer()
 bool UCombatComponent::CanFire()
 {
 	if (EquippedWeapon == nullptr) return false;
-
+	if (bLocallyReloading) return false;
 	if (!EquippedWeapon->IsEmpty() && bCanFire && CombatState == ECombatState::ECS_Reloading && EquippedWeapon->GetWeaponType() == EWeaponType::EWT_ShotGun)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("CanFire was called for Shotgun"));
@@ -808,7 +822,7 @@ void UCombatComponent::OnRep_CombatState()
 	switch (CombatState)
 	{
 	case ECombatState::ECS_Reloading:
-		HandleReload();
+		if (MasterCharacter && !MasterCharacter->IsLocallyControlled())HandleReload();
 		break;
 	case ECombatState::ECS_Unoccupied:
 		if (bFireButtonPressed)

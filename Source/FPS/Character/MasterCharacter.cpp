@@ -463,6 +463,12 @@ ECombatState AMasterCharacter::GetCombatState() const
 	return Combat->CombatState;
 }
 
+bool AMasterCharacter::IsLocallyReloading()
+{
+	if (Combat == nullptr) return false;
+	return Combat->bLocallyReloading;
+}
+
 void AMasterCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);

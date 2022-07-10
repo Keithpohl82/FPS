@@ -30,6 +30,7 @@ void AMasterPlayerController::Tick(float DeltaSeconds)
 
 	SetHUDTime();
 	CheckTimeSync(DeltaSeconds);
+
 	PoolInit();
 	CheckPing(DeltaSeconds);
 }
@@ -42,7 +43,7 @@ void AMasterPlayerController::CheckPing(float DeltaSeconds)
 		PlayerState = PlayerState == nullptr ? GetPlayerState<APlayerState>() : PlayerState;
 		if (PlayerState)
 		{
-			if (PlayerState->GetPing() * 4 > HighPingThreshold) //Ping is compressed by 4
+			if (PlayerState->GetCompressedPing() * 4 > HighPingThreshold) //Ping is compressed by 4
 			{
 				HighPingWarning();
 				PingAnimationRunningTime = 0.f;

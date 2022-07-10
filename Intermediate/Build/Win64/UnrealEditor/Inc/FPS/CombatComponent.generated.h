@@ -28,6 +28,7 @@ struct FVector_NetQuantize;
 	DECLARE_FUNCTION(execOnRep_CombatState); \
 	DECLARE_FUNCTION(execOnRep_Grenades); \
 	DECLARE_FUNCTION(execOnRep_CarriedAmmo); \
+	DECLARE_FUNCTION(execOnRep_Aiming); \
 	DECLARE_FUNCTION(execServerReload); \
 	DECLARE_FUNCTION(execServerThrowGrenade); \
 	DECLARE_FUNCTION(execMulticastShotgunFire); \
@@ -57,6 +58,7 @@ struct FVector_NetQuantize;
 	DECLARE_FUNCTION(execOnRep_CombatState); \
 	DECLARE_FUNCTION(execOnRep_Grenades); \
 	DECLARE_FUNCTION(execOnRep_CarriedAmmo); \
+	DECLARE_FUNCTION(execOnRep_Aiming); \
 	DECLARE_FUNCTION(execServerReload); \
 	DECLARE_FUNCTION(execServerThrowGrenade); \
 	DECLARE_FUNCTION(execMulticastShotgunFire); \
