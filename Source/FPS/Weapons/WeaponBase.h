@@ -104,10 +104,21 @@ protected:
 */
 
 	UPROPERTY(EditAnywhere, Category = "Weapon Scatter")
-		float DistanceToSpher = 800.f;
+	float DistanceToSpher = 800.f;
 
 	UPROPERTY(EditAnywhere, Category = "Weapon Scatter")
-		float SphereRadius = 75.f;
+	float SphereRadius = 75.f;
+
+	UPROPERTY(EditAnywhere)
+	float Damage = 20.f;
+
+	UPROPERTY(EditAnywhere)
+	bool bUserServerSideRewind = false;
+
+	UPROPERTY()
+	class AMasterCharacter* OwnerCharacter;
+	UPROPERTY()
+	class AMasterPlayerController* OwnerPlayerController;
 
 private:
 
@@ -158,11 +169,6 @@ private:
 
 	void SpendRound();
 
-	UPROPERTY()
-	class AMasterCharacter* OwnerCharacter;
-	UPROPERTY()
-	class AMasterPlayerController* OwnerPlayerController;
-
 	UPROPERTY(EditAnywhere)
 	EWeaponType WeaponType;
 
@@ -180,5 +186,5 @@ public:
 	FORCEINLINE EWeaponType GetWeaponType() const { return WeaponType; }
 	FORCEINLINE int32 GetAmmo() const { return Ammo; }
 	FORCEINLINE int32 GetMagCapacity() const { return MagCapacity; }
-
+	FORCEINLINE float GetDamage() const { return Damage; }
 };

@@ -27,6 +27,8 @@
             "u:\\fps\\source\\fps\\interfaces\\interactwithcrosshairsinterface.h",
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\interactwithcrosshairsinterface.generated.h",
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\mastercharacter.generated.h",
+            "u:\\fps\\source\\fps\\playercontroller\\masterplayercontroller.h",
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\masterplayercontroller.generated.h",
             "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\kismet\\gameplaystatics.h",
             "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\kismet\\kismetsystemlibrary.h",
             "d:\\ue_5.0\\engine\\source\\runtime\\coreuobject\\public\\uobject\\propertyaccessutil.h",
@@ -46,7 +48,9 @@
             "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\sound\\soundcue.h",
             "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\sound\\soundnode.h",
             "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\soundnode.generated.h",
-            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\soundcue.generated.h"
+            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\soundcue.generated.h",
+            "u:\\fps\\source\\fps\\components\\lagcompensationcomponent.h",
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\lagcompensationcomponent.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

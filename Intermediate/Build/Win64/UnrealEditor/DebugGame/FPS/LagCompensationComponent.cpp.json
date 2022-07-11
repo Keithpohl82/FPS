@@ -25,7 +25,19 @@
             "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\components\\boxcomponent.h",
             "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\components\\shapecomponent.h",
             "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\shapecomponent.generated.h",
-            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\boxcomponent.generated.h"
+            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\boxcomponent.generated.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\kismet\\gameplaystatics.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\kismet\\kismetsystemlibrary.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\coreuobject\\public\\uobject\\propertyaccessutil.h",
+            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\kismetsystemlibrary.generated.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\sound\\dialoguetypes.h",
+            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\dialoguetypes.generated.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\kismet\\gameplaystaticstypes.h",
+            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\gameplaystaticstypes.generated.h",
+            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\gameplaystatics.generated.h",
+            "u:\\fps\\source\\fps\\weapons\\weaponbase.h",
+            "u:\\fps\\source\\fps\\weapons\\weapontypes.h",
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\weaponbase.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

@@ -14,10 +14,13 @@ void EmptyLinkFunctionForGeneratedCodeLagCompensationComponent() {}
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FRotator();
 	FPS_API UScriptStruct* Z_Construct_UScriptStruct_FFramePackage();
+	FPS_API UScriptStruct* Z_Construct_UScriptStruct_FServerSideRewindResult();
 	FPS_API UClass* Z_Construct_UClass_ULagCompensationComponent_NoRegister();
 	FPS_API UClass* Z_Construct_UClass_ULagCompensationComponent();
 	ENGINE_API UClass* Z_Construct_UClass_UActorComponent();
 	FPS_API UClass* Z_Construct_UClass_AMasterCharacter_NoRegister();
+	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FVector_NetQuantize();
+	FPS_API UClass* Z_Construct_UClass_AWeaponBase_NoRegister();
 	FPS_API UClass* Z_Construct_UClass_AMasterPlayerController_NoRegister();
 // End Cross Module References
 	static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_BoxInformation;
@@ -191,8 +194,179 @@ template<> FPS_API UScriptStruct* StaticStruct<FFramePackage>()
 		}
 		return Z_Registration_Info_UScriptStruct_FramePackage.InnerSingleton;
 	}
+	static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_ServerSideRewindResult;
+class UScriptStruct* FServerSideRewindResult::StaticStruct()
+{
+	if (!Z_Registration_Info_UScriptStruct_ServerSideRewindResult.OuterSingleton)
+	{
+		Z_Registration_Info_UScriptStruct_ServerSideRewindResult.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FServerSideRewindResult, Z_Construct_UPackage__Script_FPS(), TEXT("ServerSideRewindResult"));
+	}
+	return Z_Registration_Info_UScriptStruct_ServerSideRewindResult.OuterSingleton;
+}
+template<> FPS_API UScriptStruct* StaticStruct<FServerSideRewindResult>()
+{
+	return FServerSideRewindResult::StaticStruct();
+}
+	struct Z_Construct_UScriptStruct_FServerSideRewindResult_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[];
+#endif
+		static void* NewStructOps();
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_bHitConfirmed_MetaData[];
+#endif
+		static void NewProp_bHitConfirmed_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bHitConfirmed;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_bHeadshot_MetaData[];
+#endif
+		static void NewProp_bHeadshot_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bHeadshot;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+		static const UECodeGen_Private::FStructParams ReturnStructParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FServerSideRewindResult_Statics::Struct_MetaDataParams[] = {
+		{ "BlueprintType", "true" },
+		{ "ModuleRelativePath", "Components/LagCompensationComponent.h" },
+	};
+#endif
+	void* Z_Construct_UScriptStruct_FServerSideRewindResult_Statics::NewStructOps()
+	{
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FServerSideRewindResult>();
+	}
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FServerSideRewindResult_Statics::NewProp_bHitConfirmed_MetaData[] = {
+		{ "ModuleRelativePath", "Components/LagCompensationComponent.h" },
+	};
+#endif
+	void Z_Construct_UScriptStruct_FServerSideRewindResult_Statics::NewProp_bHitConfirmed_SetBit(void* Obj)
+	{
+		((FServerSideRewindResult*)Obj)->bHitConfirmed = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UScriptStruct_FServerSideRewindResult_Statics::NewProp_bHitConfirmed = { "bHitConfirmed", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(FServerSideRewindResult), &Z_Construct_UScriptStruct_FServerSideRewindResult_Statics::NewProp_bHitConfirmed_SetBit, METADATA_PARAMS(Z_Construct_UScriptStruct_FServerSideRewindResult_Statics::NewProp_bHitConfirmed_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FServerSideRewindResult_Statics::NewProp_bHitConfirmed_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FServerSideRewindResult_Statics::NewProp_bHeadshot_MetaData[] = {
+		{ "ModuleRelativePath", "Components/LagCompensationComponent.h" },
+	};
+#endif
+	void Z_Construct_UScriptStruct_FServerSideRewindResult_Statics::NewProp_bHeadshot_SetBit(void* Obj)
+	{
+		((FServerSideRewindResult*)Obj)->bHeadshot = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UScriptStruct_FServerSideRewindResult_Statics::NewProp_bHeadshot = { "bHeadshot", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(FServerSideRewindResult), &Z_Construct_UScriptStruct_FServerSideRewindResult_Statics::NewProp_bHeadshot_SetBit, METADATA_PARAMS(Z_Construct_UScriptStruct_FServerSideRewindResult_Statics::NewProp_bHeadshot_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FServerSideRewindResult_Statics::NewProp_bHeadshot_MetaData)) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FServerSideRewindResult_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FServerSideRewindResult_Statics::NewProp_bHitConfirmed,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FServerSideRewindResult_Statics::NewProp_bHeadshot,
+	};
+	const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FServerSideRewindResult_Statics::ReturnStructParams = {
+		(UObject* (*)())Z_Construct_UPackage__Script_FPS,
+		nullptr,
+		&NewStructOps,
+		"ServerSideRewindResult",
+		sizeof(FServerSideRewindResult),
+		alignof(FServerSideRewindResult),
+		Z_Construct_UScriptStruct_FServerSideRewindResult_Statics::PropPointers,
+		UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FServerSideRewindResult_Statics::PropPointers),
+		RF_Public|RF_Transient|RF_MarkAsNative,
+		EStructFlags(0x00000001),
+		METADATA_PARAMS(Z_Construct_UScriptStruct_FServerSideRewindResult_Statics::Struct_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FServerSideRewindResult_Statics::Struct_MetaDataParams))
+	};
+	UScriptStruct* Z_Construct_UScriptStruct_FServerSideRewindResult()
+	{
+		if (!Z_Registration_Info_UScriptStruct_ServerSideRewindResult.InnerSingleton)
+		{
+			UECodeGen_Private::ConstructUScriptStruct(Z_Registration_Info_UScriptStruct_ServerSideRewindResult.InnerSingleton, Z_Construct_UScriptStruct_FServerSideRewindResult_Statics::ReturnStructParams);
+		}
+		return Z_Registration_Info_UScriptStruct_ServerSideRewindResult.InnerSingleton;
+	}
+	DEFINE_FUNCTION(ULagCompensationComponent::execServerScoreRequest)
+	{
+		P_GET_OBJECT(AMasterCharacter,Z_Param_HitCharacter);
+		P_GET_STRUCT(FVector_NetQuantize,Z_Param_TraceStart);
+		P_GET_STRUCT(FVector_NetQuantize,Z_Param_HitLocation);
+		P_GET_PROPERTY(FFloatProperty,Z_Param_HitTime);
+		P_GET_OBJECT(AWeaponBase,Z_Param_DamageCauser);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ServerScoreRequest_Implementation(Z_Param_HitCharacter,Z_Param_TraceStart,Z_Param_HitLocation,Z_Param_HitTime,Z_Param_DamageCauser);
+		P_NATIVE_END;
+	}
+	static FName NAME_ULagCompensationComponent_ServerScoreRequest = FName(TEXT("ServerScoreRequest"));
+	void ULagCompensationComponent::ServerScoreRequest(AMasterCharacter* HitCharacter, FVector_NetQuantize const& TraceStart, FVector_NetQuantize const& HitLocation, float HitTime, AWeaponBase* DamageCauser)
+	{
+		LagCompensationComponent_eventServerScoreRequest_Parms Parms;
+		Parms.HitCharacter=HitCharacter;
+		Parms.TraceStart=TraceStart;
+		Parms.HitLocation=HitLocation;
+		Parms.HitTime=HitTime;
+		Parms.DamageCauser=DamageCauser;
+		ProcessEvent(FindFunctionChecked(NAME_ULagCompensationComponent_ServerScoreRequest),&Parms);
+	}
 	void ULagCompensationComponent::StaticRegisterNativesULagCompensationComponent()
 	{
+		UClass* Class = ULagCompensationComponent::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "ServerScoreRequest", &ULagCompensationComponent::execServerScoreRequest },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_ULagCompensationComponent_ServerScoreRequest_Statics
+	{
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_HitCharacter;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_TraceStart_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_TraceStart;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_HitLocation_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_HitLocation;
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_HitTime;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_DamageCauser;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ULagCompensationComponent_ServerScoreRequest_Statics::NewProp_HitCharacter = { "HitCharacter", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(LagCompensationComponent_eventServerScoreRequest_Parms, HitCharacter), Z_Construct_UClass_AMasterCharacter_NoRegister, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ULagCompensationComponent_ServerScoreRequest_Statics::NewProp_TraceStart_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ULagCompensationComponent_ServerScoreRequest_Statics::NewProp_TraceStart = { "TraceStart", nullptr, (EPropertyFlags)0x0010000008000082, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(LagCompensationComponent_eventServerScoreRequest_Parms, TraceStart), Z_Construct_UScriptStruct_FVector_NetQuantize, METADATA_PARAMS(Z_Construct_UFunction_ULagCompensationComponent_ServerScoreRequest_Statics::NewProp_TraceStart_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_ULagCompensationComponent_ServerScoreRequest_Statics::NewProp_TraceStart_MetaData)) }; // 1408259225
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ULagCompensationComponent_ServerScoreRequest_Statics::NewProp_HitLocation_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ULagCompensationComponent_ServerScoreRequest_Statics::NewProp_HitLocation = { "HitLocation", nullptr, (EPropertyFlags)0x0010000008000082, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(LagCompensationComponent_eventServerScoreRequest_Parms, HitLocation), Z_Construct_UScriptStruct_FVector_NetQuantize, METADATA_PARAMS(Z_Construct_UFunction_ULagCompensationComponent_ServerScoreRequest_Statics::NewProp_HitLocation_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_ULagCompensationComponent_ServerScoreRequest_Statics::NewProp_HitLocation_MetaData)) }; // 1408259225
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_ULagCompensationComponent_ServerScoreRequest_Statics::NewProp_HitTime = { "HitTime", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(LagCompensationComponent_eventServerScoreRequest_Parms, HitTime), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ULagCompensationComponent_ServerScoreRequest_Statics::NewProp_DamageCauser = { "DamageCauser", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(LagCompensationComponent_eventServerScoreRequest_Parms, DamageCauser), Z_Construct_UClass_AWeaponBase_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ULagCompensationComponent_ServerScoreRequest_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ULagCompensationComponent_ServerScoreRequest_Statics::NewProp_HitCharacter,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ULagCompensationComponent_ServerScoreRequest_Statics::NewProp_TraceStart,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ULagCompensationComponent_ServerScoreRequest_Statics::NewProp_HitLocation,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ULagCompensationComponent_ServerScoreRequest_Statics::NewProp_HitTime,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ULagCompensationComponent_ServerScoreRequest_Statics::NewProp_DamageCauser,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ULagCompensationComponent_ServerScoreRequest_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Components/LagCompensationComponent.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ULagCompensationComponent_ServerScoreRequest_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ULagCompensationComponent, nullptr, "ServerScoreRequest", nullptr, nullptr, sizeof(LagCompensationComponent_eventServerScoreRequest_Parms), Z_Construct_UFunction_ULagCompensationComponent_ServerScoreRequest_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ULagCompensationComponent_ServerScoreRequest_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00220CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ULagCompensationComponent_ServerScoreRequest_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ULagCompensationComponent_ServerScoreRequest_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ULagCompensationComponent_ServerScoreRequest()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ULagCompensationComponent_ServerScoreRequest_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(ULagCompensationComponent);
 	UClass* Z_Construct_UClass_ULagCompensationComponent_NoRegister()
@@ -202,6 +376,7 @@ template<> FPS_API UScriptStruct* StaticStruct<FFramePackage>()
 	struct Z_Construct_UClass_ULagCompensationComponent_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -224,6 +399,9 @@ template<> FPS_API UScriptStruct* StaticStruct<FFramePackage>()
 	UObject* (*const Z_Construct_UClass_ULagCompensationComponent_Statics::DependentSingletons[])() = {
 		(UObject* (*)())Z_Construct_UClass_UActorComponent,
 		(UObject* (*)())Z_Construct_UPackage__Script_FPS,
+	};
+	const FClassFunctionLinkInfo Z_Construct_UClass_ULagCompensationComponent_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_ULagCompensationComponent_ServerScoreRequest, "ServerScoreRequest" }, // 638084303
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ULagCompensationComponent_Statics::Class_MetaDataParams[] = {
@@ -265,11 +443,11 @@ template<> FPS_API UScriptStruct* StaticStruct<FFramePackage>()
 		"Engine",
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		Z_Construct_UClass_ULagCompensationComponent_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
 		UE_ARRAY_COUNT(Z_Construct_UClass_ULagCompensationComponent_Statics::PropPointers),
 		0,
 		0x00B000A4u,
@@ -296,11 +474,12 @@ template<> FPS_API UScriptStruct* StaticStruct<FFramePackage>()
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Components_LagCompensationComponent_h_Statics::ScriptStructInfo[] = {
 		{ FBoxInformation::StaticStruct, Z_Construct_UScriptStruct_FBoxInformation_Statics::NewStructOps, TEXT("BoxInformation"), &Z_Registration_Info_UScriptStruct_BoxInformation, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FBoxInformation), 1821991443U) },
 		{ FFramePackage::StaticStruct, Z_Construct_UScriptStruct_FFramePackage_Statics::NewStructOps, TEXT("FramePackage"), &Z_Registration_Info_UScriptStruct_FramePackage, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FFramePackage), 1071163598U) },
+		{ FServerSideRewindResult::StaticStruct, Z_Construct_UScriptStruct_FServerSideRewindResult_Statics::NewStructOps, TEXT("ServerSideRewindResult"), &Z_Registration_Info_UScriptStruct_ServerSideRewindResult, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FServerSideRewindResult), 327433932U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Components_LagCompensationComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ULagCompensationComponent, ULagCompensationComponent::StaticClass, TEXT("ULagCompensationComponent"), &Z_Registration_Info_UClass_ULagCompensationComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ULagCompensationComponent), 555753449U) },
+		{ Z_Construct_UClass_ULagCompensationComponent, ULagCompensationComponent::StaticClass, TEXT("ULagCompensationComponent"), &Z_Registration_Info_UClass_ULagCompensationComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ULagCompensationComponent), 678164916U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Components_LagCompensationComponent_h_2413615637(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Components_LagCompensationComponent_h_1787911915(TEXT("/Script/FPS"),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_Components_LagCompensationComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_Components_LagCompensationComponent_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_Components_LagCompensationComponent_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_Components_LagCompensationComponent_h_Statics::ScriptStructInfo),
 		nullptr, 0);

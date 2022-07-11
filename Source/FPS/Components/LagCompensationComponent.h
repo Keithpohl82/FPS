@@ -34,6 +34,18 @@ struct   FFramePackage
 	TMap<FName, FBoxInformation> HitBoxInfo;
 };
 
+USTRUCT(BlueprintType)
+struct FServerSideRewindResult 
+{
+	GENERATED_BODY()
+
+	UPROPERTY()
+	bool bHitConfirmed;
+
+	UPROPERTY()
+	bool bHeadshot;
+};
+
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class FPS_API ULagCompensationComponent : public UActorComponent
@@ -48,7 +60,10 @@ public:
 
 	void ShowFramePackage(const FFramePackage& Package, const FColor& Color);
 
-	void ServerSideRewind(class AMasterCharacter* HitCharacter, const FVector_NetQuantize& TraceStart, const FVector_NetQuantize& HitLocation, float HitTime);
+	FServerSideRewindResult ServerSideRewind(class AMasterCharacter* HitCharacter, const FVector_NetQuantize& TraceStart, const FVector_NetQuantize& HitLocation, float HitTime);
+
+	UFUNCTION(Server, Reliable)
+	void ServerScoreRequest(AMasterCharacter* HitCharacter, const FVector_NetQuantize& TraceStart, const FVector_NetQuantize& HitLocation, float HitTime, class AWeaponBase* DamageCauser);
 
 protected:
 	virtual void BeginPlay() override;
@@ -56,6 +71,14 @@ protected:
 	void SaveFramePackage(FFramePackage& Package);
 
 	FFramePackage InterpBetweenFrames(const FFramePackage& OlderFrame, const FFramePackage& YoungerFrame, float HitTime);
+
+	FServerSideRewindResult ConfirmHit(const FFramePackage& Package, AMasterCharacter* HitCharacter, const FVector_NetQuantize& TraceStart, const FVector_NetQuantize& HitLocation);
+
+	void CacheBoxPositions(AMasterCharacter* HitCharacter, FFramePackage& OutFramePackage);
+	void MoveBoxes(AMasterCharacter* HitCharacter, const FFramePackage& Package);
+	void ResetHitBoxes(AMasterCharacter* HitCharacter, const FFramePackage& Package);
+	void EnableCharacterMeshCollision(AMasterCharacter* HitCharacter, ECollisionEnabled::Type CollisionEnabled);
+	void SaveFramePackage();
 
 private:
 

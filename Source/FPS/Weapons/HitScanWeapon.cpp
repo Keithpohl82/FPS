@@ -4,11 +4,13 @@
 #include "HitScanWeapon.h"
 #include "Engine/SkeletalMeshSocket.h"
 #include "FPS/Character/MasterCharacter.h"
+#include "FPS/PlayerController/MasterPlayerController.h"
 #include "Kismet/GameplayStatics.h"
 #include "Particles/ParticleSystemComponent.h"
 #include "Sound/SoundCue.h"
 #include "WeaponTypes.h"
 #include "DrawDebugHelpers.h"
+#include "FPS/Components/LagCompensationComponent.h"
 
 
 void AHitScanWeapon::Fire(const FVector& HitTarget)
@@ -28,9 +30,28 @@ void AHitScanWeapon::Fire(const FVector& HitTarget)
 		FHitResult FireHit;
 		WeaponTraceHit(Start, HitTarget, FireHit);
 		AMasterCharacter* MasterCharacter = Cast<AMasterCharacter>(FireHit.GetActor());
-		if (MasterCharacter && HasAuthority() && InstigatorController)
+		if (MasterCharacter && InstigatorController)
 		{
-			UGameplayStatics::ApplyDamage(MasterCharacter, Damage, InstigatorController, this, UDamageType::StaticClass());
+			
+			if (HasAuthority() && !bUserServerSideRewind)
+			{
+				UGameplayStatics::ApplyDamage(MasterCharacter, Damage, InstigatorController, this, UDamageType::StaticClass());
+			}
+			if (!HasAuthority() && bUserServerSideRewind)
+			{
+				OwnerCharacter = OwnerCharacter == nullptr ? Cast<AMasterCharacter>(OwnerPawn) : OwnerCharacter;
+				OwnerPlayerController = OwnerPlayerController == nullptr ? Cast<AMasterPlayerController>(InstigatorController) : OwnerPlayerController;
+				if (OwnerPlayerController && OwnerCharacter && OwnerCharacter->GetLagCompensation())
+				{
+					OwnerCharacter->GetLagCompensation()->ServerScoreRequest(
+					MasterCharacter, 
+					Start, 
+					HitTarget, 
+					OwnerPlayerController->GetServerTime() - OwnerPlayerController->SingleTripTime,
+					this);
+				}
+			}
+			
 		}
 		if (ImpactParticles)
 		{
