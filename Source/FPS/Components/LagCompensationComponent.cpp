@@ -23,28 +23,6 @@ void ULagCompensationComponent::BeginPlay()
 
 }
 
-
-
-void ULagCompensationComponent::SaveFramePackage(FFramePackage& Package)
-{
-	MasterCharacter = MasterCharacter == nullptr ? Cast<AMasterCharacter>(GetOwner()) : MasterCharacter;
-	if (MasterCharacter)
-	{
-		Package.Time = GetWorld()->GetTimeSeconds();
-
-		for (auto& BoxPair : MasterCharacter->HitCollisionBoxes)
-		{
-			FBoxInformation BoxInformation;
-			BoxInformation.Location = BoxPair.Value->GetComponentLocation();
-			BoxInformation.Rotation = BoxPair.Value->GetComponentRotation();
-			BoxInformation.BoxExtent = BoxPair.Value->GetScaledBoxExtent();
-
-			Package.HitBoxInfo.Add(BoxPair.Key, BoxInformation);
-		}
-	}
-}
-
-
 FFramePackage ULagCompensationComponent::InterpBetweenFrames(const FFramePackage& OlderFrame, const FFramePackage& YoungerFrame, float HitTime)
 {
 	const float Distance = YoungerFrame.Time - OlderFrame.Time;
@@ -125,6 +103,11 @@ FServerSideRewindResult ULagCompensationComponent::ConfirmHit(const FFramePackag
 	return FServerSideRewindResult{ false, false };
 }
 
+FShotgunServerSideRewindResult ULagCompensationComponent::ShotgunConfirmHit(const TArray<FFramePackage>& FramePackages, const FVector_NetQuantize& TraceStart, const TArray<FVector_NetQuantize>& HitLocations)
+{
+
+}
+
 void ULagCompensationComponent::CacheBoxPositions(AMasterCharacter* HitCharacter, FFramePackage& OutFramePackage)
 {
 	if (HitCharacter == nullptr) return;
@@ -192,12 +175,31 @@ void ULagCompensationComponent::ShowFramePackage(const FFramePackage& Package, c
 
 FServerSideRewindResult ULagCompensationComponent::ServerSideRewind(class AMasterCharacter* HitCharacter, const FVector_NetQuantize& TraceStart, const FVector_NetQuantize& HitLocation, float HitTime)
 {
-	bool bReturn = HitCharacter == nullptr || 
-	HitCharacter->GetLagCompensation() == nullptr || 
-	HitCharacter->GetLagCompensation()->FrameHistory.GetHead() == nullptr || 
-	HitCharacter->GetLagCompensation()->FrameHistory.GetTail() == nullptr;
+	FFramePackage FrameToCheck = GetFrameToCheck(HitCharacter, HitTime);
 
-	if (bReturn) return FServerSideRewindResult();
+	return ConfirmHit(FrameToCheck, HitCharacter, TraceStart, HitLocation);
+
+}
+
+FShotgunServerSideRewindResult ULagCompensationComponent::ShotgunServerSideRewind(const TArray<AMasterCharacter*>& HitCharacters, const FVector_NetQuantize& TraceStart, const TArray<FVector_NetQuantize>& HitLocations, float HitTime)
+{
+	TArray<FFramePackage> FramesToCheck;
+	for (AMasterCharacter* HitCharacter : HitCharacters)
+	{
+		FramesToCheck.Add(GetFrameToCheck(HitCharacter, HitTime));
+	}
+}
+
+
+
+FFramePackage ULagCompensationComponent::GetFrameToCheck(AMasterCharacter* HitCharacter, float HitTime)
+{
+	bool bReturn = HitCharacter == nullptr ||
+		HitCharacter->GetLagCompensation() == nullptr ||
+		HitCharacter->GetLagCompensation()->FrameHistory.GetHead() == nullptr ||
+		HitCharacter->GetLagCompensation()->FrameHistory.GetTail() == nullptr;
+
+	if (bReturn) return FFramePackage();
 
 	// Frame package to check to varify a hit
 	FFramePackage FrameToCheck;
@@ -212,7 +214,7 @@ FServerSideRewindResult ULagCompensationComponent::ServerSideRewind(class AMaste
 	if (OldestHistoryTime > HitTime)
 	{
 		// Too far back  - Too laggy to do serverside rewind
-		return FServerSideRewindResult();
+		return FFramePackage();
 	}
 	if (OldestHistoryTime == HitTime)
 	{
@@ -247,10 +249,9 @@ FServerSideRewindResult ULagCompensationComponent::ServerSideRewind(class AMaste
 		// Interpulate between younter and older
 		FrameToCheck = InterpBetweenFrames(Older->GetValue(), Younger->GetValue(), HitTime);
 	}
-
-	return ConfirmHit(FrameToCheck, HitCharacter, TraceStart, HitLocation);
-
+	return FrameToCheck;
 }
+
 
 void ULagCompensationComponent::ServerScoreRequest_Implementation(AMasterCharacter* HitCharacter, const FVector_NetQuantize& TraceStart, const FVector_NetQuantize& HitLocation, float HitTime, class AWeaponBase* DamageCauser)
 {
@@ -294,3 +295,21 @@ void ULagCompensationComponent::SaveFramePackage()
 	}
 }
 
+void ULagCompensationComponent::SaveFramePackage(FFramePackage& Package)
+{
+	MasterCharacter = MasterCharacter == nullptr ? Cast<AMasterCharacter>(GetOwner()) : MasterCharacter;
+	if (MasterCharacter)
+	{
+		Package.Time = GetWorld()->GetTimeSeconds();
+		Package.Character = MasterCharacter;
+		for (auto& BoxPair : MasterCharacter->HitCollisionBoxes)
+		{
+			FBoxInformation BoxInformation;
+			BoxInformation.Location = BoxPair.Value->GetComponentLocation();
+			BoxInformation.Rotation = BoxPair.Value->GetComponentRotation();
+			BoxInformation.BoxExtent = BoxPair.Value->GetScaledBoxExtent();
+
+			Package.HitBoxInfo.Add(BoxPair.Key, BoxInformation);
+		}
+	}
+}
