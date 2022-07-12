@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/Content/Megascans
+/Content/MS_DWarZoneV2
+/Content/VertexAnimatedFlags
+/Content/VE_PowerUps

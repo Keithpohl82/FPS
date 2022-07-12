@@ -2373,6 +2373,26 @@
 			"Type": "DynamicLibrary"
 		},
 		{
+			"Path": "$(EngineDir)/Plugins/Marketplace/BlockoutToolsPlugin/Binaries/Win64/UnrealEditor.modules",
+			"Type": "RequiredResource"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Marketplace/BlockoutToolsPlugin/Binaries/Win64/UnrealEditor-BlockoutToolsEditorPlugin.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Marketplace/BlockoutToolsPlugin/Binaries/Win64/UnrealEditor-BlockoutToolsEditorPlugin.pdb",
+			"Type": "SymbolFile"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Marketplace/BlockoutToolsPlugin/Binaries/Win64/UnrealEditor-BlockoutToolsPlugin.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Marketplace/BlockoutToolsPlugin/Binaries/Win64/UnrealEditor-BlockoutToolsPlugin.pdb",
+			"Type": "SymbolFile"
+		},
+		{
 			"Path": "$(EngineDir)/Plugins/Media/AndroidMedia/Binaries/Win64/UnrealEditor.modules",
 			"Type": "RequiredResource"
 		},
@@ -23276,6 +23296,10 @@
 		},
 		{
 			"Path": "$(EngineDir)/Plugins/Importers/AlembicImporter/AlembicImporter.uplugin",
+			"Type": "UFS"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Marketplace/BlockoutToolsPlugin/BlockoutToolsPlugin.uplugin",
 			"Type": "UFS"
 		},
 		{
