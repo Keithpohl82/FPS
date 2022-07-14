@@ -35,10 +35,9 @@
 /FUNCTIONPADMIN
 "U:\FPS\Intermediate\Build\Win64\FPSEditor\DebugGame\Engine\SharedPCH.Engine.NonOptimized.ShadowErrors.h.obj"
 "U:\FPS\Intermediate\Build\Win64\UnrealEditor\DebugGame\FPS\Module.FPS.cpp.obj"
-"U:\FPS\Intermediate\Build\Win64\UnrealEditor\DebugGame\FPS\LagCompensationComponent.cpp.obj"
+"U:\FPS\Intermediate\Build\Win64\UnrealEditor\DebugGame\FPS\ProjectileBase.cpp.obj"
+"U:\FPS\Intermediate\Build\Win64\UnrealEditor\DebugGame\FPS\ProjectileBullet.cpp.obj"
 "U:\FPS\Intermediate\Build\Win64\UnrealEditor\DebugGame\FPS\Module.FPS.gen.cpp.obj"
-"U:\FPS\Intermediate\Build\Win64\UnrealEditor\DebugGame\FPS\FPS.init.gen.cpp.obj"
-"U:\FPS\Intermediate\Build\Win64\UnrealEditor\DebugGame\FPS\LagCompensationComponent.gen.cpp.obj"
 "U:\FPS\Intermediate\Build\Win64\UnrealEditor\DebugGame\FPS\Default.rc2.res"
 "..\Intermediate\Build\Win64\UnrealEditor\Development\Engine\UnrealEditor-Engine.lib"
 "..\Intermediate\Build\Win64\UnrealEditor\Development\UMG\UnrealEditor-UMG.lib"
