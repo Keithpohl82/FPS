@@ -4,6 +4,8 @@
 #include "Shotgun.h"
 #include "Engine/SkeletalMeshSocket.h"
 #include "FPS/Character/MasterCharacter.h"
+#include "FPS/Components/LagCompensationComponent.h"
+#include "FPS/PlayerController/MasterPlayerController.h"
 #include "Kismet/GameplayStatics.h"
 #include "Particles/ParticleSystemComponent.h"
 #include "Sound/SoundCue.h"
@@ -53,11 +55,27 @@ void AShotgun::FireShotgun(const TArray<FVector_NetQuantize>& HitTargets)
 				}
 			}
 		}
+		TArray<AMasterCharacter*> HitCharacters;
+
 		for (auto HitPair : HitMap)
 		{
-			if (HitPair.Key && HasAuthority() && InstigatorController)
+
+			if (HitPair.Key && InstigatorController)
 			{
-				UGameplayStatics::ApplyDamage(HitPair.Key, Damage * HitPair.Value, InstigatorController, this, UDamageType::StaticClass());
+				if (HasAuthority() && !bUserServerSideRewind)
+				{
+					UGameplayStatics::ApplyDamage(HitPair.Key, Damage * HitPair.Value, InstigatorController, this, UDamageType::StaticClass());
+				}
+				HitCharacters.Add(HitPair.Key);
+			}
+		}
+		if (!HasAuthority() && bUserServerSideRewind)
+		{
+			OwnerCharacter = OwnerCharacter == nullptr ? Cast<AMasterCharacter>(OwnerPawn) : OwnerCharacter;
+			OwnerPlayerController = OwnerPlayerController == nullptr ? Cast<AMasterPlayerController>(InstigatorController) : OwnerPlayerController;
+			if (OwnerPlayerController && OwnerCharacter && OwnerCharacter->GetLagCompensation() && OwnerPawn->IsLocallyControlled())
+			{
+				OwnerCharacter->GetLagCompensation()->ShotgunServerScoreRequest(HitCharacters, Start, HitTargets, OwnerPlayerController->GetServerTime() - OwnerPlayerController->SingleTripTime);
 			}
 		}
 	}

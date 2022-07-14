@@ -41,7 +41,7 @@ void AHitScanWeapon::Fire(const FVector& HitTarget)
 			{
 				OwnerCharacter = OwnerCharacter == nullptr ? Cast<AMasterCharacter>(OwnerPawn) : OwnerCharacter;
 				OwnerPlayerController = OwnerPlayerController == nullptr ? Cast<AMasterPlayerController>(InstigatorController) : OwnerPlayerController;
-				if (OwnerPlayerController && OwnerCharacter && OwnerCharacter->GetLagCompensation())
+				if (OwnerPlayerController && OwnerCharacter && OwnerCharacter->GetLagCompensation() && OwnerPawn->IsLocallyControlled())
 				{
 					OwnerCharacter->GetLagCompensation()->ServerScoreRequest(
 					MasterCharacter, 

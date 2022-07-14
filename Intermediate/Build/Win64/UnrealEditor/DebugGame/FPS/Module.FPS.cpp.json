@@ -117,7 +117,6 @@
             "u:\\fps\\source\\fps\\weapons\\hitscanweapon.h",
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\hitscanweapon.generated.h",
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\shotgun.generated.h",
-            "u:\\fps\\source\\fps\\components\\lagcompensationcomponent.cpp",
             "u:\\fps\\source\\fps\\fps.cpp",
             "u:\\fps\\source\\fps\\gamemodes\\lobbygamemode.cpp",
             "u:\\fps\\source\\fps\\gamemodes\\lobbygamemode.h",
@@ -440,7 +439,6 @@
             "u:\\fps\\source\\fps\\ui\\announcement.cpp",
             "u:\\fps\\source\\fps\\ui\\playerhud.cpp",
             "u:\\fps\\source\\fps\\ui\\playeroverlay.cpp",
-            "u:\\fps\\source\\fps\\weapons\\hitscanweapon.cpp",
             "u:\\fps\\source\\fps\\weapons\\projectiles\\casing.cpp",
             "u:\\fps\\source\\fps\\weapons\\projectiles\\casing.h",
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\casing.generated.h",
@@ -477,7 +475,6 @@
             "u:\\fps\\source\\fps\\weapons\\projectileweapon.h",
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\projectileweapon.generated.h",
             "u:\\fps\\source\\fps\\weapons\\rocketmovementcomponent.cpp",
-            "u:\\fps\\source\\fps\\weapons\\shotgun.cpp",
             "u:\\fps\\source\\fps\\weapons\\weaponbase.cpp",
             "d:\\ue_5.0\\engine\\source\\runtime\\umg\\public\\components\\widgetcomponent.h",
             "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\widgetcomponent.generated.h"
