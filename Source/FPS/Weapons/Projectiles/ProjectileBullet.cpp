@@ -2,7 +2,9 @@
 
 
 #include "ProjectileBullet.h"
-#include "GameFramework/Character.h"
+#include "FPS/Character/MasterCharacter.h"
+#include "FPS/PlayerController/MasterPlayerController.h"
+#include "FPS/Components/LagCompensationComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 
@@ -36,6 +38,7 @@ void AProjectileBullet::BeginPlay()
 {
 	Super::BeginPlay();
 
+	/**
 	FPredictProjectilePathParams PathParams;
 	PathParams.bTraceWithChannel = true;
 	PathParams.bTraceWithCollision = true;
@@ -51,20 +54,29 @@ void AProjectileBullet::BeginPlay()
 
 	FPredictProjectilePathResult PathResult;
 	
-
-
 	UGameplayStatics::PredictProjectilePath(this, PathParams, PathResult);
+	*/
 }
 
 void AProjectileBullet::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
 {
-	ACharacter* OwnerCharacter = Cast<ACharacter>(GetOwner());
+	AMasterCharacter* OwnerCharacter = Cast<AMasterCharacter>(GetOwner());
 	if (OwnerCharacter)
 	{
-		AController* OwnerController = OwnerCharacter->Controller;
+		AMasterPlayerController* OwnerController = Cast<AMasterPlayerController>(OwnerCharacter->Controller);
 		if (OwnerController)
 		{
-			UGameplayStatics::ApplyDamage(OtherActor, Damage, OwnerController, this, UDamageType::StaticClass());
+			if (OwnerCharacter->HasAuthority() && !bUseServerSideRewind)
+			{
+				UGameplayStatics::ApplyDamage(OtherActor, Damage, OwnerController, this, UDamageType::StaticClass());
+				Super::OnHit(HitComp, OtherActor, OtherComp, NormalImpulse, Hit);
+				return;
+			}
+			AMasterCharacter* HitCharacter = Cast<AMasterCharacter>(OtherActor);
+			if (bUseServerSideRewind && OwnerCharacter->GetLagCompensation() && OwnerCharacter->IsLocallyControlled() && HitCharacter)
+			{
+				OwnerCharacter->GetLagCompensation()->ProjectileServerScoreRequest(HitCharacter, TraceStart, InitialVelocity, OwnerController->GetServerTime() - OwnerController->SingleTripTime);
+			}
 		}
 	}
 

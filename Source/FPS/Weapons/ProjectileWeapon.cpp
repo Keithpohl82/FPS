@@ -31,16 +31,16 @@ void AProjectileWeapon::Fire(const FVector& HitTarget)
 		{
 			if (InstigatorPawn->HasAuthority()) // Server
 			{
-				if (InstigatorPawn->IsLocallyControlled()) // Server, Host - user replicated projectile.
+				if (InstigatorPawn->IsLocallyControlled()) // Server, Host - use replicated projectile.
 				{
 					SpawnedProjectile = World->SpawnActor<AProjectileBase>(ProjectileClass, SocketTransform.GetLocation(), TargetRotation, SpawnParams);
 					SpawnedProjectile->bUseServerSideRewind = false;
 					SpawnedProjectile->Damage = Damage;
 				}
-				else // Server, Not locally controlled - Spawn Non-Replicated Projectile, no SSR. 
+				else // Server, Not locally controlled - Spawn Non-Replicated Projectile, SSR. 
 				{
 					SpawnedProjectile = World->SpawnActor<AProjectileBase>(ServerSideRewindProjectileClass, SocketTransform.GetLocation(), TargetRotation, SpawnParams);
-					SpawnedProjectile->bUseServerSideRewind = false;
+					SpawnedProjectile->bUseServerSideRewind = true;
 				}
 			}
 			else // Client, using SSR

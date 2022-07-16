@@ -21,6 +21,7 @@ void EmptyLinkFunctionForGeneratedCodeLagCompensationComponent() {}
 	FPS_API UClass* Z_Construct_UClass_ULagCompensationComponent();
 	ENGINE_API UClass* Z_Construct_UClass_UActorComponent();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FVector_NetQuantize();
+	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FVector_NetQuantize100();
 	FPS_API UClass* Z_Construct_UClass_AWeaponBase_NoRegister();
 	FPS_API UClass* Z_Construct_UClass_AMasterPlayerController_NoRegister();
 // End Cross Module References
@@ -393,6 +394,17 @@ template<> FPS_API UScriptStruct* StaticStruct<FShotgunServerSideRewindResult>()
 		P_THIS->ShotgunServerScoreRequest_Implementation(Z_Param_HitCharacters,Z_Param_TraceStart,Z_Param_HitLocations,Z_Param_HitTime);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(ULagCompensationComponent::execProjectileServerScoreRequest)
+	{
+		P_GET_OBJECT(AMasterCharacter,Z_Param_HitCharacter);
+		P_GET_STRUCT(FVector_NetQuantize,Z_Param_TraceStart);
+		P_GET_STRUCT(FVector_NetQuantize100,Z_Param_InitalVelocity);
+		P_GET_PROPERTY(FFloatProperty,Z_Param_HitTime);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ProjectileServerScoreRequest_Implementation(Z_Param_HitCharacter,Z_Param_TraceStart,Z_Param_InitalVelocity,Z_Param_HitTime);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ULagCompensationComponent::execServerScoreRequest)
 	{
 		P_GET_OBJECT(AMasterCharacter,Z_Param_HitCharacter);
@@ -404,6 +416,16 @@ template<> FPS_API UScriptStruct* StaticStruct<FShotgunServerSideRewindResult>()
 		P_NATIVE_BEGIN;
 		P_THIS->ServerScoreRequest_Implementation(Z_Param_HitCharacter,Z_Param_TraceStart,Z_Param_HitLocation,Z_Param_HitTime,Z_Param_DamageCauser);
 		P_NATIVE_END;
+	}
+	static FName NAME_ULagCompensationComponent_ProjectileServerScoreRequest = FName(TEXT("ProjectileServerScoreRequest"));
+	void ULagCompensationComponent::ProjectileServerScoreRequest(AMasterCharacter* HitCharacter, FVector_NetQuantize const& TraceStart, FVector_NetQuantize100 const& InitalVelocity, float HitTime)
+	{
+		LagCompensationComponent_eventProjectileServerScoreRequest_Parms Parms;
+		Parms.HitCharacter=HitCharacter;
+		Parms.TraceStart=TraceStart;
+		Parms.InitalVelocity=InitalVelocity;
+		Parms.HitTime=HitTime;
+		ProcessEvent(FindFunctionChecked(NAME_ULagCompensationComponent_ProjectileServerScoreRequest),&Parms);
 	}
 	static FName NAME_ULagCompensationComponent_ServerScoreRequest = FName(TEXT("ServerScoreRequest"));
 	void ULagCompensationComponent::ServerScoreRequest(AMasterCharacter* HitCharacter, FVector_NetQuantize const& TraceStart, FVector_NetQuantize const& HitLocation, float HitTime, AWeaponBase* DamageCauser)
@@ -430,10 +452,64 @@ template<> FPS_API UScriptStruct* StaticStruct<FShotgunServerSideRewindResult>()
 	{
 		UClass* Class = ULagCompensationComponent::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "ProjectileServerScoreRequest", &ULagCompensationComponent::execProjectileServerScoreRequest },
 			{ "ServerScoreRequest", &ULagCompensationComponent::execServerScoreRequest },
 			{ "ShotgunServerScoreRequest", &ULagCompensationComponent::execShotgunServerScoreRequest },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_ULagCompensationComponent_ProjectileServerScoreRequest_Statics
+	{
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_HitCharacter;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_TraceStart_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_TraceStart;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_InitalVelocity_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_InitalVelocity;
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_HitTime;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ULagCompensationComponent_ProjectileServerScoreRequest_Statics::NewProp_HitCharacter = { "HitCharacter", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(LagCompensationComponent_eventProjectileServerScoreRequest_Parms, HitCharacter), Z_Construct_UClass_AMasterCharacter_NoRegister, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ULagCompensationComponent_ProjectileServerScoreRequest_Statics::NewProp_TraceStart_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ULagCompensationComponent_ProjectileServerScoreRequest_Statics::NewProp_TraceStart = { "TraceStart", nullptr, (EPropertyFlags)0x0010000008000082, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(LagCompensationComponent_eventProjectileServerScoreRequest_Parms, TraceStart), Z_Construct_UScriptStruct_FVector_NetQuantize, METADATA_PARAMS(Z_Construct_UFunction_ULagCompensationComponent_ProjectileServerScoreRequest_Statics::NewProp_TraceStart_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_ULagCompensationComponent_ProjectileServerScoreRequest_Statics::NewProp_TraceStart_MetaData)) }; // 1408259225
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ULagCompensationComponent_ProjectileServerScoreRequest_Statics::NewProp_InitalVelocity_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ULagCompensationComponent_ProjectileServerScoreRequest_Statics::NewProp_InitalVelocity = { "InitalVelocity", nullptr, (EPropertyFlags)0x0010000008000082, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(LagCompensationComponent_eventProjectileServerScoreRequest_Parms, InitalVelocity), Z_Construct_UScriptStruct_FVector_NetQuantize100, METADATA_PARAMS(Z_Construct_UFunction_ULagCompensationComponent_ProjectileServerScoreRequest_Statics::NewProp_InitalVelocity_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_ULagCompensationComponent_ProjectileServerScoreRequest_Statics::NewProp_InitalVelocity_MetaData)) }; // 3121577039
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_ULagCompensationComponent_ProjectileServerScoreRequest_Statics::NewProp_HitTime = { "HitTime", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(LagCompensationComponent_eventProjectileServerScoreRequest_Parms, HitTime), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ULagCompensationComponent_ProjectileServerScoreRequest_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ULagCompensationComponent_ProjectileServerScoreRequest_Statics::NewProp_HitCharacter,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ULagCompensationComponent_ProjectileServerScoreRequest_Statics::NewProp_TraceStart,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ULagCompensationComponent_ProjectileServerScoreRequest_Statics::NewProp_InitalVelocity,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ULagCompensationComponent_ProjectileServerScoreRequest_Statics::NewProp_HitTime,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ULagCompensationComponent_ProjectileServerScoreRequest_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Components/LagCompensationComponent.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ULagCompensationComponent_ProjectileServerScoreRequest_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ULagCompensationComponent, nullptr, "ProjectileServerScoreRequest", nullptr, nullptr, sizeof(LagCompensationComponent_eventProjectileServerScoreRequest_Parms), Z_Construct_UFunction_ULagCompensationComponent_ProjectileServerScoreRequest_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ULagCompensationComponent_ProjectileServerScoreRequest_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00220CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ULagCompensationComponent_ProjectileServerScoreRequest_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ULagCompensationComponent_ProjectileServerScoreRequest_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ULagCompensationComponent_ProjectileServerScoreRequest()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ULagCompensationComponent_ProjectileServerScoreRequest_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_ULagCompensationComponent_ServerScoreRequest_Statics
 	{
@@ -591,6 +667,7 @@ template<> FPS_API UScriptStruct* StaticStruct<FShotgunServerSideRewindResult>()
 		(UObject* (*)())Z_Construct_UPackage__Script_FPS,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ULagCompensationComponent_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_ULagCompensationComponent_ProjectileServerScoreRequest, "ProjectileServerScoreRequest" }, // 2340195381
 		{ &Z_Construct_UFunction_ULagCompensationComponent_ServerScoreRequest, "ServerScoreRequest" }, // 638084303
 		{ &Z_Construct_UFunction_ULagCompensationComponent_ShotgunServerScoreRequest, "ShotgunServerScoreRequest" }, // 1908179326
 	};
@@ -669,9 +746,9 @@ template<> FPS_API UScriptStruct* StaticStruct<FShotgunServerSideRewindResult>()
 		{ FShotgunServerSideRewindResult::StaticStruct, Z_Construct_UScriptStruct_FShotgunServerSideRewindResult_Statics::NewStructOps, TEXT("ShotgunServerSideRewindResult"), &Z_Registration_Info_UScriptStruct_ShotgunServerSideRewindResult, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FShotgunServerSideRewindResult), 4178990358U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Components_LagCompensationComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ULagCompensationComponent, ULagCompensationComponent::StaticClass, TEXT("ULagCompensationComponent"), &Z_Registration_Info_UClass_ULagCompensationComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ULagCompensationComponent), 2756602801U) },
+		{ Z_Construct_UClass_ULagCompensationComponent, ULagCompensationComponent::StaticClass, TEXT("ULagCompensationComponent"), &Z_Registration_Info_UClass_ULagCompensationComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ULagCompensationComponent), 1302667409U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Components_LagCompensationComponent_h_1350980415(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Components_LagCompensationComponent_h_302637878(TEXT("/Script/FPS"),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_Components_LagCompensationComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_Components_LagCompensationComponent_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_Components_LagCompensationComponent_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_Components_LagCompensationComponent_h_Statics::ScriptStructInfo),
 		nullptr, 0);
