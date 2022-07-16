@@ -25,7 +25,6 @@
 #include "U:/FPS/Source/FPS/Weapons/Projectiles/Casing.cpp"
 #include "U:/FPS/Source/FPS/Weapons/Projectiles/ProjectileGrenade.cpp"
 #include "U:/FPS/Source/FPS/Weapons/Projectiles/ProjectileRocket.cpp"
-#include "U:/FPS/Source/FPS/Weapons/ProjectileWeapon.cpp"
 #include "U:/FPS/Source/FPS/Weapons/RocketMovementComponent.cpp"
 #include "U:/FPS/Source/FPS/Weapons/Shotgun.cpp"
 #include "U:/FPS/Source/FPS/Weapons/WeaponBase.cpp"

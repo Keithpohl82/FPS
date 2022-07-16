@@ -19,6 +19,9 @@ private:
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<class AProjectileBase> ProjectileClass;
 
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<class AProjectileBase> ServerSideRewindProjectileClass;
+
 public:
 	virtual void Fire(const FVector& HitTarget) override;
 };

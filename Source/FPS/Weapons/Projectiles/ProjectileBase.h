@@ -28,6 +28,8 @@ public:
 	UPROPERTY(EditAnywhere)
 	float InitialSpeed = 15000;
 
+	float Damage = 20.f;
+
 protected:
 
 	virtual void BeginPlay() override;
@@ -43,8 +45,6 @@ protected:
 
 	void SpawnTrailSystem();
 
-	UPROPERTY(EditAnywhere)
-	float Damage = 20.f;
 	UPROPERTY(EditAnywhere)
 	class UBoxComponent* CollisionBox;
 	UPROPERTY(EditAnywhere)

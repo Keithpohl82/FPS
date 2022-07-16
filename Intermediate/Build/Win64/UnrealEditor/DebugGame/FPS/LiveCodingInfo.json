@@ -28,12 +28,12 @@
 			"Casing.cpp.obj",
 			"ProjectileGrenade.cpp.obj",
 			"ProjectileRocket.cpp.obj",
-			"ProjectileWeapon.cpp.obj",
 			"RocketMovementComponent.cpp.obj",
 			"Shotgun.cpp.obj",
 			"WeaponBase.cpp.obj",
 			"ProjectileBase.cpp.obj",
-			"ProjectileBullet.cpp.obj"
+			"ProjectileBullet.cpp.obj",
+			"ProjectileWeapon.cpp.obj"
 		],
 		"Module.FPS.gen.cpp.obj": [
 			"AmmoPickup.gen.cpp.obj",
@@ -58,7 +58,6 @@
 			"PickupSpawnPoint.gen.cpp.obj",
 			"PlayerHUD.gen.cpp.obj",
 			"PlayerOverlay.gen.cpp.obj",
-			"ProjectileWeapon.gen.cpp.obj",
 			"RocketMovementComponent.gen.cpp.obj",
 			"ShieldPickup.gen.cpp.obj",
 			"Shotgun.gen.cpp.obj",
@@ -70,7 +69,8 @@
 			"ProjectileBase.gen.cpp.obj",
 			"ProjectileBullet.gen.cpp.obj",
 			"ProjectileGrenade.gen.cpp.obj",
-			"ProjectileRocket.gen.cpp.obj"
+			"ProjectileRocket.gen.cpp.obj",
+			"ProjectileWeapon.gen.cpp.obj"
 		]
 	}
 }
