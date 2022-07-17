@@ -2,10 +2,7 @@
 	"RemapUnityFiles": 
 	{
 		"Module.FPS.cpp.obj": [
-			"CharacterAnimInstance.cpp.obj",
-			"MasterCharacter.cpp.obj",
 			"BuffComponent.cpp.obj",
-			"CombatComponent.cpp.obj",
 			"LagCompensationComponent.cpp.obj",
 			"FPS.cpp.obj",
 			"LobbyGameMode.cpp.obj",
@@ -19,6 +16,7 @@
 			"PickupSpawnPoint.cpp.obj",
 			"ShieldPickup.cpp.obj",
 			"SpeedPickup.cpp.obj",
+			"MasterPlayerController.cpp.obj",
 			"MasterPlayerState.cpp.obj",
 			"Announcement.cpp.obj",
 			"PlayerHUD.cpp.obj",
@@ -29,10 +27,12 @@
 			"ProjectileBullet.cpp.obj",
 			"ProjectileGrenade.cpp.obj",
 			"ProjectileRocket.cpp.obj",
-			"ProjectileWeapon.cpp.obj",
 			"RocketMovementComponent.cpp.obj",
 			"Shotgun.cpp.obj",
-			"MasterPlayerController.cpp.obj",
+			"CharacterAnimInstance.cpp.obj",
+			"MasterCharacter.cpp.obj",
+			"CombatComponent.cpp.obj",
+			"ProjectileWeapon.cpp.obj",
 			"WeaponBase.cpp.obj"
 		],
 		"Module.FPS.gen.cpp.obj": [
@@ -41,16 +41,15 @@
 			"BuffComponent.gen.cpp.obj",
 			"Casing.gen.cpp.obj",
 			"CharacterAnimInstance.gen.cpp.obj",
-			"CombatComponent.gen.cpp.obj",
-			"CombatState.gen.cpp.obj",
 			"HealthPickup.gen.cpp.obj",
+			"HitScanWeapon.gen.cpp.obj",
 			"InteractWithCrosshairsInterface.gen.cpp.obj",
 			"JumpPickup.gen.cpp.obj",
 			"LagCompensationComponent.gen.cpp.obj",
 			"LobbyGameMode.gen.cpp.obj",
-			"MasterCharacter.gen.cpp.obj",
 			"MasterGameMode.gen.cpp.obj",
 			"MasterGameState.gen.cpp.obj",
+			"MasterPlayerController.gen.cpp.obj",
 			"MasterPlayerState.gen.cpp.obj",
 			"Pickup.gen.cpp.obj",
 			"PickupSpawnPoint.gen.cpp.obj",
@@ -60,17 +59,18 @@
 			"ProjectileBullet.gen.cpp.obj",
 			"ProjectileGrenade.gen.cpp.obj",
 			"ProjectileRocket.gen.cpp.obj",
+			"ProjectileWeapon.gen.cpp.obj",
 			"RocketMovementComponent.gen.cpp.obj",
 			"ShieldPickup.gen.cpp.obj",
+			"Shotgun.gen.cpp.obj",
 			"SpeedPickup.gen.cpp.obj",
 			"TurningInPlace.gen.cpp.obj",
+			"WeaponBase.gen.cpp.obj",
 			"WeaponTypes.gen.cpp.obj",
+			"CombatComponent.gen.cpp.obj",
+			"CombatState.gen.cpp.obj",
 			"FPS.init.gen.cpp.obj",
-			"HitScanWeapon.gen.cpp.obj",
-			"MasterPlayerController.gen.cpp.obj",
-			"ProjectileWeapon.gen.cpp.obj",
-			"Shotgun.gen.cpp.obj",
-			"WeaponBase.gen.cpp.obj"
+			"MasterCharacter.gen.cpp.obj"
 		]
 	}
 }

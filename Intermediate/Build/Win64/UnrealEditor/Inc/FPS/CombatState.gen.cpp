@@ -37,6 +37,7 @@ void EmptyLinkFunctionForGeneratedCodeCombatState() {}
 		{ "ECombatState::ECS_Unoccupied", (int64)ECombatState::ECS_Unoccupied },
 		{ "ECombatState::ECS_Reloading", (int64)ECombatState::ECS_Reloading },
 		{ "ECombatState::ECS_ThrowingGrenade", (int64)ECombatState::ECS_ThrowingGrenade },
+		{ "ECombatState::ECS_SwappingWeapon", (int64)ECombatState::ECS_SwappingWeapon },
 		{ "ECombatState::ECS_MAX", (int64)ECombatState::ECS_MAX },
 	};
 #if WITH_METADATA
@@ -46,6 +47,8 @@ void EmptyLinkFunctionForGeneratedCodeCombatState() {}
 		{ "ECS_MAX.Name", "ECombatState::ECS_MAX" },
 		{ "ECS_Reloading.DisplayName", "Reloading" },
 		{ "ECS_Reloading.Name", "ECombatState::ECS_Reloading" },
+		{ "ECS_SwappingWeapon.DisplayName", "Swapping Weapons" },
+		{ "ECS_SwappingWeapon.Name", "ECombatState::ECS_SwappingWeapon" },
 		{ "ECS_ThrowingGrenade.DisplayName", "Throwing Grenade" },
 		{ "ECS_ThrowingGrenade.Name", "ECombatState::ECS_ThrowingGrenade" },
 		{ "ECS_Unoccupied.DisplayName", "Unoccupied" },
@@ -78,9 +81,9 @@ void EmptyLinkFunctionForGeneratedCodeCombatState() {}
 		static const FEnumRegisterCompiledInInfo EnumInfo[];
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_TypeClasses_CombatState_h_Statics::EnumInfo[] = {
-		{ ECombatState_StaticEnum, TEXT("ECombatState"), &Z_Registration_Info_UEnum_ECombatState, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1170974792U) },
+		{ ECombatState_StaticEnum, TEXT("ECombatState"), &Z_Registration_Info_UEnum_ECombatState, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 823462366U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_TypeClasses_CombatState_h_239656896(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_TypeClasses_CombatState_h_702875602(TEXT("/Script/FPS"),
 		nullptr, 0,
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_TypeClasses_CombatState_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_TypeClasses_CombatState_h_Statics::EnumInfo));

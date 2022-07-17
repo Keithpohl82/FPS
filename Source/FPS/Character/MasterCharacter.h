@@ -27,11 +27,16 @@ public:
 	virtual void OnRep_ReplicatedMovement() override;
 	virtual void Destroyed() override;
 
+	/*
+		Animations Montages
+	*/
 	void PlayFireMontage(bool bAiming);
 	void PlayReloadMontage();
 	void PlayHitReactMontage();
 	void PlayElimMontage();
 	void PlayThrowGrenadeMontage();
+	void PlaySwapMontage();
+
 
 	void UpdateHUDHealth();
 	void UpdateHUDShield();
@@ -52,6 +57,7 @@ public:
 	UPROPERTY()
 	TMap<FName, class UBoxComponent*>  HitCollisionBoxes;
 
+	bool bFinishedSwapping = false;
 
 private:
 	
@@ -106,6 +112,9 @@ private:
 
 	UPROPERTY(EditAnywhere, Category = Combat)
 	UAnimMontage* ThrowGrenadeMontage;
+
+	UPROPERTY(EditAnywhere, Category = Combat)
+	UAnimMontage* SwapWeaponMontage;
 
 	UPROPERTY(EditAnywhere)
 	float CameraThreshold = 200.f;

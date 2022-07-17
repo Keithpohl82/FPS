@@ -212,7 +212,30 @@ void AMasterCharacter::EquipButtonPressed()
 
 	if (Combat)
 	{
-		ServerEquipButtonPressed();
+		if (Combat->CombatState == ECombatState::ECS_Unoccupied) ServerEquipButtonPressed();
+
+		bool bSwap = Combat->ShouldSwapWeapons() && !HasAuthority() && Combat->CombatState == ECombatState::ECS_Unoccupied && OverlappingWeapon == nullptr;
+		if (bSwap)
+		{
+			PlaySwapMontage();
+			Combat->CombatState = ECombatState::ECS_SwappingWeapon;
+			bFinishedSwapping = false;
+		}
+	}
+}
+
+void AMasterCharacter::ServerEquipButtonPressed_Implementation()
+{
+	if (Combat && HasAuthority())
+	{
+		if (OverlappingWeapon)
+		{
+			Combat->EquipWeapon(OverlappingWeapon);
+		}
+		else if (Combat->ShouldSwapWeapons())
+		{
+			Combat->SwapWeapons();
+		}
 	}
 }
 
@@ -721,6 +744,15 @@ void AMasterCharacter::PlayThrowGrenadeMontage()
 	}
 }
 
+void AMasterCharacter::PlaySwapMontage()
+{
+	UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
+	if (AnimInstance && SwapWeaponMontage)
+	{
+		AnimInstance->Montage_Play(SwapWeaponMontage);
+	}
+}
+
 void AMasterCharacter::Elim()
 {
 	DropOrDestroyWeapons();
@@ -836,21 +868,6 @@ void AMasterCharacter::OnRep_OverlappingWeapon(AWeaponBase* LastWeapon)
 	if (LastWeapon)
 	{
 		LastWeapon->ShowPickupWidget(false);
-	}
-}
-
-void AMasterCharacter::ServerEquipButtonPressed_Implementation()
-{
-	if (Combat && HasAuthority())
-	{
-		if (OverlappingWeapon)
-		{
-			Combat->EquipWeapon(OverlappingWeapon);
-		}
-		else if (Combat->ShouldSwapWeapons())
-		{
-			Combat->SwapWeapons();
-		}
 	}
 }
 

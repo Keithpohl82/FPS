@@ -3,9 +3,7 @@
 	{
 		"Module.FPS.cpp.obj": [
 			"CharacterAnimInstance.cpp.obj",
-			"MasterCharacter.cpp.obj",
 			"BuffComponent.cpp.obj",
-			"CombatComponent.cpp.obj",
 			"LagCompensationComponent.cpp.obj",
 			"FPS.cpp.obj",
 			"LobbyGameMode.cpp.obj",
@@ -33,7 +31,9 @@
 			"ProjectileWeapon.cpp.obj",
 			"RocketMovementComponent.cpp.obj",
 			"Shotgun.cpp.obj",
-			"WeaponBase.cpp.obj"
+			"WeaponBase.cpp.obj",
+			"MasterCharacter.cpp.obj",
+			"CombatComponent.cpp.obj"
 		],
 		"Module.FPS.gen.cpp.obj": [
 			"AmmoPickup.gen.cpp.obj",
@@ -41,16 +41,12 @@
 			"BuffComponent.gen.cpp.obj",
 			"Casing.gen.cpp.obj",
 			"CharacterAnimInstance.gen.cpp.obj",
-			"CombatComponent.gen.cpp.obj",
-			"CombatState.gen.cpp.obj",
-			"FPS.init.gen.cpp.obj",
 			"HealthPickup.gen.cpp.obj",
 			"HitScanWeapon.gen.cpp.obj",
 			"InteractWithCrosshairsInterface.gen.cpp.obj",
 			"JumpPickup.gen.cpp.obj",
 			"LagCompensationComponent.gen.cpp.obj",
 			"LobbyGameMode.gen.cpp.obj",
-			"MasterCharacter.gen.cpp.obj",
 			"MasterGameMode.gen.cpp.obj",
 			"MasterGameState.gen.cpp.obj",
 			"MasterPlayerController.gen.cpp.obj",
@@ -70,7 +66,11 @@
 			"SpeedPickup.gen.cpp.obj",
 			"TurningInPlace.gen.cpp.obj",
 			"WeaponBase.gen.cpp.obj",
-			"WeaponTypes.gen.cpp.obj"
+			"WeaponTypes.gen.cpp.obj",
+			"CombatComponent.gen.cpp.obj",
+			"CombatState.gen.cpp.obj",
+			"FPS.init.gen.cpp.obj",
+			"MasterCharacter.gen.cpp.obj"
 		]
 	}
 }

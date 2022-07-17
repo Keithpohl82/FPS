@@ -20,7 +20,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FOREACH_ENUM_ECOMBATSTATE(op) \
 	op(ECombatState::ECS_Unoccupied) \
 	op(ECombatState::ECS_Reloading) \
-	op(ECombatState::ECS_ThrowingGrenade) 
+	op(ECombatState::ECS_ThrowingGrenade) \
+	op(ECombatState::ECS_SwappingWeapon) 
 
 enum class ECombatState : uint8;
 template<> FPS_API UEnum* StaticEnum<ECombatState>();
