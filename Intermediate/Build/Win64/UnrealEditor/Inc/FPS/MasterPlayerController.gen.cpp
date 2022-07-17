@@ -9,14 +9,60 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeMasterPlayerController() {}
 // Cross Module References
+	FPS_API UFunction* Z_Construct_UDelegateFunction_FPS_HighPingDelegate__DelegateSignature();
+	UPackage* Z_Construct_UPackage__Script_FPS();
 	FPS_API UClass* Z_Construct_UClass_AMasterPlayerController_NoRegister();
 	FPS_API UClass* Z_Construct_UClass_AMasterPlayerController();
 	ENGINE_API UClass* Z_Construct_UClass_APlayerController();
-	UPackage* Z_Construct_UPackage__Script_FPS();
 	FPS_API UClass* Z_Construct_UClass_APlayerHUD_NoRegister();
 	FPS_API UClass* Z_Construct_UClass_UPlayerOverlay_NoRegister();
 	FPS_API UClass* Z_Construct_UClass_AMasterGameMode_NoRegister();
 // End Cross Module References
+	struct Z_Construct_UDelegateFunction_FPS_HighPingDelegate__DelegateSignature_Statics
+	{
+		struct _Script_FPS_eventHighPingDelegate_Parms
+		{
+			bool bPingTooHigh;
+		};
+		static void NewProp_bPingTooHigh_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bPingTooHigh;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UDelegateFunction_FPS_HighPingDelegate__DelegateSignature_Statics::NewProp_bPingTooHigh_SetBit(void* Obj)
+	{
+		((_Script_FPS_eventHighPingDelegate_Parms*)Obj)->bPingTooHigh = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UDelegateFunction_FPS_HighPingDelegate__DelegateSignature_Statics::NewProp_bPingTooHigh = { "bPingTooHigh", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(_Script_FPS_eventHighPingDelegate_Parms), &Z_Construct_UDelegateFunction_FPS_HighPingDelegate__DelegateSignature_Statics::NewProp_bPingTooHigh_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_FPS_HighPingDelegate__DelegateSignature_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_FPS_HighPingDelegate__DelegateSignature_Statics::NewProp_bPingTooHigh,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_FPS_HighPingDelegate__DelegateSignature_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "PlayerController/MasterPlayerController.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_FPS_HighPingDelegate__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_FPS, nullptr, "HighPingDelegate__DelegateSignature", nullptr, nullptr, sizeof(Z_Construct_UDelegateFunction_FPS_HighPingDelegate__DelegateSignature_Statics::_Script_FPS_eventHighPingDelegate_Parms), Z_Construct_UDelegateFunction_FPS_HighPingDelegate__DelegateSignature_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_FPS_HighPingDelegate__DelegateSignature_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00130000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_FPS_HighPingDelegate__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_FPS_HighPingDelegate__DelegateSignature_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UDelegateFunction_FPS_HighPingDelegate__DelegateSignature()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_FPS_HighPingDelegate__DelegateSignature_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	DEFINE_FUNCTION(AMasterPlayerController::execServerReportPingStatus)
+	{
+		P_GET_UBOOL(Z_Param_bHighPing);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ServerReportPingStatus_Implementation(Z_Param_bHighPing);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AMasterPlayerController::execOnRep_MatchState)
 	{
 		P_FINISH;
@@ -84,6 +130,13 @@ void EmptyLinkFunctionForGeneratedCodeMasterPlayerController() {}
 	{
 		ProcessEvent(FindFunctionChecked(NAME_AMasterPlayerController_ServerCheckMatchState),NULL);
 	}
+	static FName NAME_AMasterPlayerController_ServerReportPingStatus = FName(TEXT("ServerReportPingStatus"));
+	void AMasterPlayerController::ServerReportPingStatus(bool bHighPing)
+	{
+		MasterPlayerController_eventServerReportPingStatus_Parms Parms;
+		Parms.bHighPing=bHighPing ? true : false;
+		ProcessEvent(FindFunctionChecked(NAME_AMasterPlayerController_ServerReportPingStatus),&Parms);
+	}
 	static FName NAME_AMasterPlayerController_ServerRequestServerTime = FName(TEXT("ServerRequestServerTime"));
 	void AMasterPlayerController::ServerRequestServerTime(float TimeOfClientRequest)
 	{
@@ -99,6 +152,7 @@ void EmptyLinkFunctionForGeneratedCodeMasterPlayerController() {}
 			{ "ClientReportServerTime", &AMasterPlayerController::execClientReportServerTime },
 			{ "OnRep_MatchState", &AMasterPlayerController::execOnRep_MatchState },
 			{ "ServerCheckMatchState", &AMasterPlayerController::execServerCheckMatchState },
+			{ "ServerReportPingStatus", &AMasterPlayerController::execServerReportPingStatus },
 			{ "ServerRequestServerTime", &AMasterPlayerController::execServerRequestServerTime },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -218,6 +272,39 @@ void EmptyLinkFunctionForGeneratedCodeMasterPlayerController() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AMasterPlayerController_ServerReportPingStatus_Statics
+	{
+		static void NewProp_bHighPing_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bHighPing;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_AMasterPlayerController_ServerReportPingStatus_Statics::NewProp_bHighPing_SetBit(void* Obj)
+	{
+		((MasterPlayerController_eventServerReportPingStatus_Parms*)Obj)->bHighPing = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AMasterPlayerController_ServerReportPingStatus_Statics::NewProp_bHighPing = { "bHighPing", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(MasterPlayerController_eventServerReportPingStatus_Parms), &Z_Construct_UFunction_AMasterPlayerController_ServerReportPingStatus_Statics::NewProp_bHighPing_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMasterPlayerController_ServerReportPingStatus_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMasterPlayerController_ServerReportPingStatus_Statics::NewProp_bHighPing,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMasterPlayerController_ServerReportPingStatus_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "PlayerController/MasterPlayerController.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMasterPlayerController_ServerReportPingStatus_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMasterPlayerController, nullptr, "ServerReportPingStatus", nullptr, nullptr, sizeof(MasterPlayerController_eventServerReportPingStatus_Parms), Z_Construct_UFunction_AMasterPlayerController_ServerReportPingStatus_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMasterPlayerController_ServerReportPingStatus_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00240CC1, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMasterPlayerController_ServerReportPingStatus_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AMasterPlayerController_ServerReportPingStatus_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AMasterPlayerController_ServerReportPingStatus()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMasterPlayerController_ServerReportPingStatus_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_AMasterPlayerController_ServerRequestServerTime_Statics
 	{
 		static const UECodeGen_Private::FFloatPropertyParams NewProp_TimeOfClientRequest;
@@ -305,6 +392,7 @@ void EmptyLinkFunctionForGeneratedCodeMasterPlayerController() {}
 		{ &Z_Construct_UFunction_AMasterPlayerController_ClientReportServerTime, "ClientReportServerTime" }, // 189248043
 		{ &Z_Construct_UFunction_AMasterPlayerController_OnRep_MatchState, "OnRep_MatchState" }, // 2393187143
 		{ &Z_Construct_UFunction_AMasterPlayerController_ServerCheckMatchState, "ServerCheckMatchState" }, // 2435528204
+		{ &Z_Construct_UFunction_AMasterPlayerController_ServerReportPingStatus, "ServerReportPingStatus" }, // 1058657363
 		{ &Z_Construct_UFunction_AMasterPlayerController_ServerRequestServerTime, "ServerRequestServerTime" }, // 1427345142
 	};
 #if WITH_METADATA
@@ -424,9 +512,9 @@ void EmptyLinkFunctionForGeneratedCodeMasterPlayerController() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_PlayerController_MasterPlayerController_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMasterPlayerController, AMasterPlayerController::StaticClass, TEXT("AMasterPlayerController"), &Z_Registration_Info_UClass_AMasterPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMasterPlayerController), 3206159905U) },
+		{ Z_Construct_UClass_AMasterPlayerController, AMasterPlayerController::StaticClass, TEXT("AMasterPlayerController"), &Z_Registration_Info_UClass_AMasterPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMasterPlayerController), 124477880U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_PlayerController_MasterPlayerController_h_3092040485(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_PlayerController_MasterPlayerController_h_1869135779(TEXT("/Script/FPS"),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_PlayerController_MasterPlayerController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_PlayerController_MasterPlayerController_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

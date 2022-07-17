@@ -112,13 +112,16 @@ protected:
 	UPROPERTY(EditAnywhere)
 	float Damage = 20.f;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(Replicated, EditAnywhere)
 	bool bUserServerSideRewind = false;
 
 	UPROPERTY()
 	class AMasterCharacter* OwnerCharacter;
 	UPROPERTY()
 	class AMasterPlayerController* OwnerPlayerController;
+
+	UFUNCTION()
+	void OnPingTooHigh(bool bPingTooHigh);
 
 private:
 

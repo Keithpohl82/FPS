@@ -8,11 +8,8 @@
 /NODEFAULTLIB
 "U:\FPS\Intermediate\Build\Win64\FPSEditor\DebugGame\Engine\SharedPCH.Engine.NonOptimized.ShadowErrors.h.obj"
 "U:\FPS\Intermediate\Build\Win64\UnrealEditor\DebugGame\FPS\Module.FPS.cpp.obj"
-"U:\FPS\Intermediate\Build\Win64\UnrealEditor\DebugGame\FPS\MasterCharacter.cpp.obj"
-"U:\FPS\Intermediate\Build\Win64\UnrealEditor\DebugGame\FPS\LagCompensationComponent.cpp.obj"
-"U:\FPS\Intermediate\Build\Win64\UnrealEditor\DebugGame\FPS\ProjectileBullet.cpp.obj"
-"U:\FPS\Intermediate\Build\Win64\UnrealEditor\DebugGame\FPS\ProjectileWeapon.cpp.obj"
-"U:\FPS\Intermediate\Build\Win64\UnrealEditor\DebugGame\FPS\FPS.cpp.obj"
+"U:\FPS\Intermediate\Build\Win64\UnrealEditor\DebugGame\FPS\MasterPlayerController.cpp.obj"
+"U:\FPS\Intermediate\Build\Win64\UnrealEditor\DebugGame\FPS\WeaponBase.cpp.obj"
 "U:\FPS\Intermediate\Build\Win64\UnrealEditor\DebugGame\FPS\Module.FPS.gen.cpp.obj"
 "U:\FPS\Intermediate\Build\Win64\UnrealEditor\DebugGame\FPS\Default.rc2.res"
 /OUT:"U:\FPS\Intermediate\Build\Win64\UnrealEditor\DebugGame\FPS\UnrealEditor-FPS-Win64-DebugGame.lib"

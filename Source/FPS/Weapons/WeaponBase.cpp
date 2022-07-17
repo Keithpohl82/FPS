@@ -99,6 +99,16 @@ void AWeaponBase::OnEquipped()
 	}
 
 	EnableCustomDepth(false);
+
+	OwnerCharacter = OwnerCharacter == nullptr ? Cast<AMasterCharacter>(GetOwner()) : OwnerCharacter;
+	if (OwnerCharacter && bUserServerSideRewind)
+	{
+		OwnerPlayerController = OwnerPlayerController == nullptr ? Cast<AMasterPlayerController>(OwnerCharacter->Controller) : OwnerPlayerController;
+		if (OwnerPlayerController && HasAuthority() && !OwnerPlayerController->HighPingDelegate.IsBound())
+		{
+			OwnerPlayerController->HighPingDelegate.AddDynamic(this, &AWeaponBase::OnPingTooHigh);
+		}
+	}
 }
 
 void AWeaponBase::OnDropped()
@@ -116,6 +126,16 @@ void AWeaponBase::OnDropped()
 	WeaponMesh->SetCustomDepthStencilValue(CUSTOM_DEPTH_PURPLE);
 	WeaponMesh->MarkRenderStateDirty();
 	EnableCustomDepth(true);
+
+	OwnerCharacter = OwnerCharacter == nullptr ? Cast<AMasterCharacter>(GetOwner()) : OwnerCharacter;
+	if (OwnerCharacter && bUserServerSideRewind)
+	{
+		OwnerPlayerController = OwnerPlayerController == nullptr ? Cast<AMasterPlayerController>(OwnerCharacter->Controller) : OwnerPlayerController;
+		if (OwnerPlayerController && HasAuthority() && OwnerPlayerController->HighPingDelegate.IsBound())
+		{
+			OwnerPlayerController->HighPingDelegate.RemoveDynamic(this, &AWeaponBase::OnPingTooHigh);
+		}
+	}
 }
 
 void AWeaponBase::OnEquippedSecondary()
@@ -137,6 +157,16 @@ void AWeaponBase::OnEquippedSecondary()
 		WeaponMesh->SetCustomDepthStencilValue(CUSTOM_DEPTH_TAN);
 		WeaponMesh->MarkRenderStateDirty();
 	}
+
+	OwnerCharacter = OwnerCharacter == nullptr ? Cast<AMasterCharacter>(GetOwner()) : OwnerCharacter;
+	if (OwnerCharacter && bUserServerSideRewind)
+	{
+		OwnerPlayerController = OwnerPlayerController == nullptr ? Cast<AMasterPlayerController>(OwnerCharacter->Controller) : OwnerPlayerController;
+		if (OwnerPlayerController && HasAuthority() && OwnerPlayerController->HighPingDelegate.IsBound())
+		{
+			OwnerPlayerController->HighPingDelegate.RemoveDynamic(this, &AWeaponBase::OnPingTooHigh);
+		}
+	}
 }
 
 void AWeaponBase::OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
@@ -155,6 +185,11 @@ void AWeaponBase::OnSphereEndOverlap(UPrimitiveComponent* OverlappedComponent, A
 	{
 		CharacterBase->SetOverlappingWeapon(nullptr);
 	}
+}
+
+void AWeaponBase::OnPingTooHigh(bool bPingTooHigh)
+{
+	bUserServerSideRewind = !bPingTooHigh;
 }
 
 void AWeaponBase::SpendRound()
@@ -237,14 +272,13 @@ FVector AWeaponBase::TraceEndWithScatter(const FVector& HitTarget)
 void AWeaponBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 void AWeaponBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 	DOREPLIFETIME(AWeaponBase, WeaponState);
-	
+	DOREPLIFETIME_CONDITION(AWeaponBase, bUserServerSideRewind, COND_OwnerOnly);
 }
 
 void AWeaponBase::OnRep_Owner()
@@ -262,7 +296,6 @@ void AWeaponBase::OnRep_Owner()
 		{
 			SetHUDAmmo();
 		}
-		
 	}
 }
 
