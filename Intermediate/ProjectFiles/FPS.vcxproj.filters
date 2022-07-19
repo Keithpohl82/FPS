@@ -247,6 +247,12 @@
     <ClInclude Include="..\..\Source\FPS\UI\Announcement.h">
       <Filter>Source\FPS\UI</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\FPS\UI\InGameMenu.cpp">
+      <Filter>Source\FPS\UI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\UI\InGameMenu.h">
+      <Filter>Source\FPS\UI</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\FPS\UI\PlayerHUD.cpp">
       <Filter>Source\FPS\UI</Filter>
     </ClCompile>

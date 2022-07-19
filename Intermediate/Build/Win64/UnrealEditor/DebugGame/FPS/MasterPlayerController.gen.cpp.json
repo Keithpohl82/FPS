@@ -1,0 +1,15 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\masterplayercontroller.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "u:\\fps\\intermediate\\build\\win64\\fpseditor\\debuggame\\engine\\sharedpch.engine.nonoptimized.shadowerrors.h.pch",
+        "Includes": [
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\debuggame\\fps\\definitions.fps.h",
+            "u:\\fps\\source\\fps\\playercontroller\\masterplayercontroller.h",
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\masterplayercontroller.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

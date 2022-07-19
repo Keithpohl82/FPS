@@ -17,6 +17,9 @@ class FPS_API AMasterPlayerController : public APlayerController
 	GENERATED_BODY()
 
 public:
+
+	
+
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
 	void SetHUDHealth(float Health, float MaxHealth);
@@ -43,12 +46,16 @@ public:
 
 protected:
 
+	virtual void SetupInputComponent() override;
+	
 	virtual void BeginPlay() override;
 	void SetHUDTime();
 	void PoolInit();
 	void HighPingWarning();
 	void StopHighPingWarning();
 	void CheckPing(float DeltaSeconds);
+
+	void ShowIngameMenu();
 
 	/*
 	 * Sync time between client and server.
@@ -75,6 +82,18 @@ protected:
 	void ClientJoinMidGame(FName StateOfMatch, float Warmup, float Match, float StartingTime, float Cooldown);
 
 private:
+
+/*
+	Return to MainMenu
+*/
+	UPROPERTY(EditAnywhere, Category = HUD)
+	TSubclassOf<class UUserWidget> InGameMenuWidget;
+
+	UPROPERTY()
+	class UInGameMenu* InGameMenu;
+
+	bool bIngameMenuOpen = false;
+
 
 	UPROPERTY()
 	class APlayerHUD* HUD;

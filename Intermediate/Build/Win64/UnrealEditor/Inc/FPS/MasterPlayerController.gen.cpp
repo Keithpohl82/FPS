@@ -14,6 +14,9 @@ void EmptyLinkFunctionForGeneratedCodeMasterPlayerController() {}
 	FPS_API UClass* Z_Construct_UClass_AMasterPlayerController_NoRegister();
 	FPS_API UClass* Z_Construct_UClass_AMasterPlayerController();
 	ENGINE_API UClass* Z_Construct_UClass_APlayerController();
+	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
+	UMG_API UClass* Z_Construct_UClass_UUserWidget_NoRegister();
+	FPS_API UClass* Z_Construct_UClass_UInGameMenu_NoRegister();
 	FPS_API UClass* Z_Construct_UClass_APlayerHUD_NoRegister();
 	FPS_API UClass* Z_Construct_UClass_UPlayerOverlay_NoRegister();
 	FPS_API UClass* Z_Construct_UClass_AMasterGameMode_NoRegister();
@@ -352,6 +355,14 @@ void EmptyLinkFunctionForGeneratedCodeMasterPlayerController() {}
 #endif
 		static const UECodeGen_Private::FFloatPropertyParams NewProp_TimeSyncFrequency;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_InGameMenuWidget_MetaData[];
+#endif
+		static const UECodeGen_Private::FClassPropertyParams NewProp_InGameMenuWidget;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_InGameMenu_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_InGameMenu;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_HUD_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_HUD;
@@ -411,6 +422,22 @@ void EmptyLinkFunctionForGeneratedCodeMasterPlayerController() {}
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_TimeSyncFrequency = { "TimeSyncFrequency", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterPlayerController, TimeSyncFrequency), METADATA_PARAMS(Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_TimeSyncFrequency_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_TimeSyncFrequency_MetaData)) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_InGameMenuWidget_MetaData[] = {
+		{ "Category", "HUD" },
+		{ "Comment", "/*\n\x09Return to MainMenu\n*/" },
+		{ "ModuleRelativePath", "PlayerController/MasterPlayerController.h" },
+		{ "ToolTip", "Return to MainMenu" },
+	};
+#endif
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_InGameMenuWidget = { "InGameMenuWidget", nullptr, (EPropertyFlags)0x0044000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterPlayerController, InGameMenuWidget), Z_Construct_UClass_UUserWidget_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_InGameMenuWidget_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_InGameMenuWidget_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_InGameMenu_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "PlayerController/MasterPlayerController.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_InGameMenu = { "InGameMenu", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterPlayerController, InGameMenu), Z_Construct_UClass_UInGameMenu_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_InGameMenu_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_InGameMenu_MetaData)) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_HUD_MetaData[] = {
 		{ "ModuleRelativePath", "PlayerController/MasterPlayerController.h" },
 	};
@@ -458,6 +485,8 @@ void EmptyLinkFunctionForGeneratedCodeMasterPlayerController() {}
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_HighPingThreshold = { "HighPingThreshold", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterPlayerController, HighPingThreshold), METADATA_PARAMS(Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_HighPingThreshold_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_HighPingThreshold_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AMasterPlayerController_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_TimeSyncFrequency,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_InGameMenuWidget,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_InGameMenu,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_HUD,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_MatchState,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterPlayerController_Statics::NewProp_PlayerOverlay,
@@ -512,9 +541,9 @@ void EmptyLinkFunctionForGeneratedCodeMasterPlayerController() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_PlayerController_MasterPlayerController_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMasterPlayerController, AMasterPlayerController::StaticClass, TEXT("AMasterPlayerController"), &Z_Registration_Info_UClass_AMasterPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMasterPlayerController), 124477880U) },
+		{ Z_Construct_UClass_AMasterPlayerController, AMasterPlayerController::StaticClass, TEXT("AMasterPlayerController"), &Z_Registration_Info_UClass_AMasterPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMasterPlayerController), 713209448U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_PlayerController_MasterPlayerController_h_1869135779(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_PlayerController_MasterPlayerController_h_1313525091(TEXT("/Script/FPS"),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_PlayerController_MasterPlayerController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_PlayerController_MasterPlayerController_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

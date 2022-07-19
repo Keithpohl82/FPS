@@ -16,7 +16,18 @@
 #include "FPS/GameState/MasterGameState.h"
 #include "FPS/PlayerState/MasterPlayerState.h"
 #include "Components/Image.h"
+#include "FPS/UI/InGameMenu.h"
 
+
+void AMasterPlayerController::SetupInputComponent()
+{
+	Super::SetupInputComponent();
+
+	if (InputComponent == nullptr) return;
+
+	InputComponent->BindAction("InGameMenu", IE_Pressed, this, &AMasterPlayerController::ShowIngameMenu);
+
+}
 
 void AMasterPlayerController::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
@@ -66,6 +77,27 @@ void AMasterPlayerController::CheckPing(float DeltaSeconds)
 		if (PingAnimationRunningTime > HighPingDuration)
 		{
 			StopHighPingWarning();
+		}
+	}
+}
+
+void AMasterPlayerController::ShowIngameMenu()
+{
+	if (InGameMenuWidget == nullptr) return;
+	if (InGameMenu == nullptr)
+	{
+		InGameMenu = CreateWidget<UInGameMenu>(this, InGameMenuWidget);
+	}
+	if (InGameMenu)
+	{
+		bIngameMenuOpen = !bIngameMenuOpen;
+		if (bIngameMenuOpen)
+		{
+			InGameMenu->MenuSetup();
+		}
+		else
+		{
+			InGameMenu->MenuTearDown();
 		}
 	}
 }
