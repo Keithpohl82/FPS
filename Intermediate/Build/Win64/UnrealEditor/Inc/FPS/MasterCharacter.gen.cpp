@@ -9,10 +9,11 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 // Cross Module References
+	FPS_API UFunction* Z_Construct_UDelegateFunction_FPS_OnLeftGame__DelegateSignature();
+	UPackage* Z_Construct_UPackage__Script_FPS();
 	FPS_API UClass* Z_Construct_UClass_AMasterCharacter_NoRegister();
 	FPS_API UClass* Z_Construct_UClass_AMasterCharacter();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
-	UPackage* Z_Construct_UPackage__Script_FPS();
 	FPS_API UClass* Z_Construct_UClass_AWeaponBase_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UDamageType_NoRegister();
@@ -37,6 +38,28 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	FPS_API UClass* Z_Construct_UClass_UInteractWithCrosshairsInterface_NoRegister();
 // End Cross Module References
+	struct Z_Construct_UDelegateFunction_FPS_OnLeftGame__DelegateSignature_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_FPS_OnLeftGame__DelegateSignature_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Character/MasterCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_FPS_OnLeftGame__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_FPS, nullptr, "OnLeftGame__DelegateSignature", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00130000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_FPS_OnLeftGame__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_FPS_OnLeftGame__DelegateSignature_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UDelegateFunction_FPS_OnLeftGame__DelegateSignature()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_FPS_OnLeftGame__DelegateSignature_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	DEFINE_FUNCTION(AMasterCharacter::execReceivedDamage)
 	{
 		P_GET_OBJECT(AActor,Z_Param_DamagedActor);
@@ -88,22 +111,37 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 		P_THIS->OnRep_OverlappingWeapon(Z_Param_LastWeapon);
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(AMasterCharacter::execMulticastElim)
+	DEFINE_FUNCTION(AMasterCharacter::execServerLeaveGame)
 	{
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->MulticastElim_Implementation();
+		P_THIS->ServerLeaveGame_Implementation();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AMasterCharacter::execMulticastElim)
+	{
+		P_GET_UBOOL(Z_Param_bPlayerLeftGame);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->MulticastElim_Implementation(Z_Param_bPlayerLeftGame);
 		P_NATIVE_END;
 	}
 	static FName NAME_AMasterCharacter_MulticastElim = FName(TEXT("MulticastElim"));
-	void AMasterCharacter::MulticastElim()
+	void AMasterCharacter::MulticastElim(bool bPlayerLeftGame)
 	{
-		ProcessEvent(FindFunctionChecked(NAME_AMasterCharacter_MulticastElim),NULL);
+		MasterCharacter_eventMulticastElim_Parms Parms;
+		Parms.bPlayerLeftGame=bPlayerLeftGame ? true : false;
+		ProcessEvent(FindFunctionChecked(NAME_AMasterCharacter_MulticastElim),&Parms);
 	}
 	static FName NAME_AMasterCharacter_ServerEquipButtonPressed = FName(TEXT("ServerEquipButtonPressed"));
 	void AMasterCharacter::ServerEquipButtonPressed()
 	{
 		ProcessEvent(FindFunctionChecked(NAME_AMasterCharacter_ServerEquipButtonPressed),NULL);
+	}
+	static FName NAME_AMasterCharacter_ServerLeaveGame = FName(TEXT("ServerLeaveGame"));
+	void AMasterCharacter::ServerLeaveGame()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_AMasterCharacter_ServerLeaveGame),NULL);
 	}
 	static FName NAME_AMasterCharacter_ShowSniperScopeWidget = FName(TEXT("ShowSniperScopeWidget"));
 	void AMasterCharacter::ShowSniperScopeWidget(bool bShowScopeWidget)
@@ -122,23 +160,35 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 			{ "OnRep_Shield", &AMasterCharacter::execOnRep_Shield },
 			{ "ReceivedDamage", &AMasterCharacter::execReceivedDamage },
 			{ "ServerEquipButtonPressed", &AMasterCharacter::execServerEquipButtonPressed },
+			{ "ServerLeaveGame", &AMasterCharacter::execServerLeaveGame },
 			{ "UpdateDissolveMaterial", &AMasterCharacter::execUpdateDissolveMaterial },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
 	struct Z_Construct_UFunction_AMasterCharacter_MulticastElim_Statics
 	{
+		static void NewProp_bPlayerLeftGame_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bPlayerLeftGame;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_AMasterCharacter_MulticastElim_Statics::NewProp_bPlayerLeftGame_SetBit(void* Obj)
+	{
+		((MasterCharacter_eventMulticastElim_Parms*)Obj)->bPlayerLeftGame = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AMasterCharacter_MulticastElim_Statics::NewProp_bPlayerLeftGame = { "bPlayerLeftGame", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(MasterCharacter_eventMulticastElim_Parms), &Z_Construct_UFunction_AMasterCharacter_MulticastElim_Statics::NewProp_bPlayerLeftGame_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMasterCharacter_MulticastElim_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMasterCharacter_MulticastElim_Statics::NewProp_bPlayerLeftGame,
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMasterCharacter_MulticastElim_Statics::Function_MetaDataParams[] = {
 		{ "ModuleRelativePath", "Character/MasterCharacter.h" },
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMasterCharacter_MulticastElim_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMasterCharacter, nullptr, "MulticastElim", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00024CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMasterCharacter_MulticastElim_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AMasterCharacter_MulticastElim_Statics::Function_MetaDataParams)) };
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMasterCharacter_MulticastElim_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMasterCharacter, nullptr, "MulticastElim", nullptr, nullptr, sizeof(MasterCharacter_eventMulticastElim_Parms), Z_Construct_UFunction_AMasterCharacter_MulticastElim_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMasterCharacter_MulticastElim_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00024CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMasterCharacter_MulticastElim_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AMasterCharacter_MulticastElim_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_AMasterCharacter_MulticastElim()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -319,6 +369,28 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMasterCharacter_ServerEquipButtonPressed_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AMasterCharacter_ServerLeaveGame_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMasterCharacter_ServerLeaveGame_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Character/MasterCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMasterCharacter_ServerLeaveGame_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMasterCharacter, nullptr, "ServerLeaveGame", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00220CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMasterCharacter_ServerLeaveGame_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AMasterCharacter_ServerLeaveGame_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AMasterCharacter_ServerLeaveGame()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMasterCharacter_ServerLeaveGame_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -604,12 +676,13 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_FPS,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AMasterCharacter_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_AMasterCharacter_MulticastElim, "MulticastElim" }, // 3551899359
+		{ &Z_Construct_UFunction_AMasterCharacter_MulticastElim, "MulticastElim" }, // 2583641884
 		{ &Z_Construct_UFunction_AMasterCharacter_OnRep_Health, "OnRep_Health" }, // 1595230739
 		{ &Z_Construct_UFunction_AMasterCharacter_OnRep_OverlappingWeapon, "OnRep_OverlappingWeapon" }, // 823773337
 		{ &Z_Construct_UFunction_AMasterCharacter_OnRep_Shield, "OnRep_Shield" }, // 1355617023
 		{ &Z_Construct_UFunction_AMasterCharacter_ReceivedDamage, "ReceivedDamage" }, // 3740417203
 		{ &Z_Construct_UFunction_AMasterCharacter_ServerEquipButtonPressed, "ServerEquipButtonPressed" }, // 1891842035
+		{ &Z_Construct_UFunction_AMasterCharacter_ServerLeaveGame, "ServerLeaveGame" }, // 1901005884
 		{ &Z_Construct_UFunction_AMasterCharacter_ShowSniperScopeWidget, "ShowSniperScopeWidget" }, // 27566159
 		{ &Z_Construct_UFunction_AMasterCharacter_UpdateDissolveMaterial, "UpdateDissolveMaterial" }, // 4117495447
 	};
@@ -1107,9 +1180,9 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMasterCharacter, AMasterCharacter::StaticClass, TEXT("AMasterCharacter"), &Z_Registration_Info_UClass_AMasterCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMasterCharacter), 362234760U) },
+		{ Z_Construct_UClass_AMasterCharacter, AMasterCharacter::StaticClass, TEXT("AMasterCharacter"), &Z_Registration_Info_UClass_AMasterCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMasterCharacter), 4266084217U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_1932934555(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_2754928478(TEXT("/Script/FPS"),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

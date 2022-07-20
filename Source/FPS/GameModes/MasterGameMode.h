@@ -39,6 +39,8 @@ public:
 
 	float LevelStartingTime = 0.f;
 
+	void PlayerLeftGame(class AMasterPlayerState* PlayerLeaving);
+
 protected:
 
 	virtual void BeginPlay() override;

@@ -753,15 +753,17 @@ void AMasterCharacter::PlaySwapMontage()
 	}
 }
 
-void AMasterCharacter::Elim()
+void AMasterCharacter::Elim(bool bPlayerLeftGame)
 {
 	DropOrDestroyWeapons();
-	MulticastElim();
-	GetWorldTimerManager().SetTimer(RespawnTimer, this, &AMasterCharacter::RespawnTimerFinished, RespawnTimeDelay);
+	MulticastElim(bPlayerLeftGame);
+	
 }
 
-void AMasterCharacter::MulticastElim_Implementation()
+void AMasterCharacter::MulticastElim_Implementation(bool bPlayerLeftGame)
 {
+	bLeftGame = bPlayerLeftGame;
+
 	if (MasterPlayercontroller)
 	{
 		MasterPlayercontroller->SetHUDWeaponAmmo(0);
@@ -812,6 +814,7 @@ void AMasterCharacter::MulticastElim_Implementation()
 	{
 		ShowSniperScopeWidget(false);
 	}
+	GetWorldTimerManager().SetTimer(RespawnTimer, this, &AMasterCharacter::RespawnTimerFinished, RespawnTimeDelay);
 }
 
 
@@ -923,9 +926,23 @@ void AMasterCharacter::OnRep_Shield(float LastShield)
 void AMasterCharacter::RespawnTimerFinished()
 {
 	AMasterGameMode* MasterGameMode = GetWorld()->GetAuthGameMode<AMasterGameMode>();
-	if (MasterGameMode)
+	if (MasterGameMode && !bLeftGame)
 	{
 		MasterGameMode->RequestRespawn(this, Controller);
+	}
+	if (bLeftGame && IsLocallyControlled())
+	{
+		OnLeftGame.Broadcast();
+	}
+}
+
+void AMasterCharacter::ServerLeaveGame_Implementation()
+{
+	AMasterGameMode* MasterGameMode = GetWorld()->GetAuthGameMode<AMasterGameMode>();
+	MasterPlayerState = MasterPlayerState == nullptr ? GetPlayerState<AMasterPlayerState>() : MasterPlayerState;
+	if (MasterGameMode && MasterPlayerState)
+	{
+		MasterGameMode->PlayerLeftGame(MasterPlayerState);
 	}
 }
 

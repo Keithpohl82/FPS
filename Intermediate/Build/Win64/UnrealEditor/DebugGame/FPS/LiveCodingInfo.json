@@ -3,13 +3,11 @@
 	{
 		"Module.FPS.cpp.obj": [
 			"CharacterAnimInstance.cpp.obj",
-			"MasterCharacter.cpp.obj",
 			"BuffComponent.cpp.obj",
 			"CombatComponent.cpp.obj",
 			"LagCompensationComponent.cpp.obj",
 			"FPS.cpp.obj",
 			"LobbyGameMode.cpp.obj",
-			"MasterGameMode.cpp.obj",
 			"MasterGameState.cpp.obj",
 			"InteractWithCrosshairsInterface.cpp.obj",
 			"AmmoPickup.cpp.obj",
@@ -19,6 +17,7 @@
 			"PickupSpawnPoint.cpp.obj",
 			"ShieldPickup.cpp.obj",
 			"SpeedPickup.cpp.obj",
+			"MasterPlayerController.cpp.obj",
 			"MasterPlayerState.cpp.obj",
 			"Announcement.cpp.obj",
 			"PlayerHUD.cpp.obj",
@@ -33,7 +32,8 @@
 			"RocketMovementComponent.cpp.obj",
 			"Shotgun.cpp.obj",
 			"WeaponBase.cpp.obj",
-			"MasterPlayerController.cpp.obj",
+			"MasterCharacter.cpp.obj",
+			"MasterGameMode.cpp.obj",
 			"InGameMenu.cpp.obj"
 		],
 		"Module.FPS.gen.cpp.obj": [
@@ -50,9 +50,9 @@
 			"JumpPickup.gen.cpp.obj",
 			"LagCompensationComponent.gen.cpp.obj",
 			"LobbyGameMode.gen.cpp.obj",
-			"MasterCharacter.gen.cpp.obj",
 			"MasterGameMode.gen.cpp.obj",
 			"MasterGameState.gen.cpp.obj",
+			"MasterPlayerController.gen.cpp.obj",
 			"MasterPlayerState.gen.cpp.obj",
 			"Pickup.gen.cpp.obj",
 			"PickupSpawnPoint.gen.cpp.obj",
@@ -72,7 +72,7 @@
 			"WeaponTypes.gen.cpp.obj",
 			"FPS.init.gen.cpp.obj",
 			"InGameMenu.gen.cpp.obj",
-			"MasterPlayerController.gen.cpp.obj"
+			"MasterCharacter.gen.cpp.obj"
 		]
 	}
 }

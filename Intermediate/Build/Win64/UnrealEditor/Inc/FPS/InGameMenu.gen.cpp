@@ -24,6 +24,13 @@ void EmptyLinkFunctionForGeneratedCodeInGameMenu() {}
 		P_THIS->ReturnButtonClicked();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(UInGameMenu::execOnPlayerLeftGame)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->OnPlayerLeftGame();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UInGameMenu::execOnDestroySession)
 	{
 		P_GET_UBOOL(Z_Param_bWasSuccessful);
@@ -37,6 +44,7 @@ void EmptyLinkFunctionForGeneratedCodeInGameMenu() {}
 		UClass* Class = UInGameMenu::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "OnDestroySession", &UInGameMenu::execOnDestroySession },
+			{ "OnPlayerLeftGame", &UInGameMenu::execOnPlayerLeftGame },
 			{ "ReturnButtonClicked", &UInGameMenu::execReturnButtonClicked },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -75,6 +83,28 @@ void EmptyLinkFunctionForGeneratedCodeInGameMenu() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UInGameMenu_OnDestroySession_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UInGameMenu_OnPlayerLeftGame_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UInGameMenu_OnPlayerLeftGame_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "UI/InGameMenu.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UInGameMenu_OnPlayerLeftGame_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UInGameMenu, nullptr, "OnPlayerLeftGame", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UInGameMenu_OnPlayerLeftGame_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UInGameMenu_OnPlayerLeftGame_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UInGameMenu_OnPlayerLeftGame()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UInGameMenu_OnPlayerLeftGame_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -134,6 +164,7 @@ void EmptyLinkFunctionForGeneratedCodeInGameMenu() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UInGameMenu_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UInGameMenu_OnDestroySession, "OnDestroySession" }, // 112988532
+		{ &Z_Construct_UFunction_UInGameMenu_OnPlayerLeftGame, "OnPlayerLeftGame" }, // 18525847
 		{ &Z_Construct_UFunction_UInGameMenu_ReturnButtonClicked, "ReturnButtonClicked" }, // 2285156543
 	};
 #if WITH_METADATA
@@ -204,9 +235,9 @@ void EmptyLinkFunctionForGeneratedCodeInGameMenu() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_UI_InGameMenu_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UInGameMenu, UInGameMenu::StaticClass, TEXT("UInGameMenu"), &Z_Registration_Info_UClass_UInGameMenu, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInGameMenu), 191899724U) },
+		{ Z_Construct_UClass_UInGameMenu, UInGameMenu::StaticClass, TEXT("UInGameMenu"), &Z_Registration_Info_UClass_UInGameMenu, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInGameMenu), 712123344U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_UI_InGameMenu_h_3244097295(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_UI_InGameMenu_h_822117799(TEXT("/Script/FPS"),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_UI_InGameMenu_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_UI_InGameMenu_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

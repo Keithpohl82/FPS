@@ -17,12 +17,14 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_FPS_Source_FPS_UI_InGameMenu_h_15_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execReturnButtonClicked); \
+	DECLARE_FUNCTION(execOnPlayerLeftGame); \
 	DECLARE_FUNCTION(execOnDestroySession);
 
 
 #define FID_FPS_Source_FPS_UI_InGameMenu_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execReturnButtonClicked); \
+	DECLARE_FUNCTION(execOnPlayerLeftGame); \
 	DECLARE_FUNCTION(execOnDestroySession);
 
 

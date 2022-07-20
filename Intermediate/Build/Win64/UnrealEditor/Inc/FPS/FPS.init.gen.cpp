@@ -8,6 +8,7 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeFPS_init() {}
 	FPS_API UFunction* Z_Construct_UDelegateFunction_FPS_HighPingDelegate__DelegateSignature();
+	FPS_API UFunction* Z_Construct_UDelegateFunction_FPS_OnLeftGame__DelegateSignature();
 	static FPackageRegistrationInfo Z_Registration_Info_UPackage__Script_FPS;
 	FORCENOINLINE UPackage* Z_Construct_UPackage__Script_FPS()
 	{
@@ -15,19 +16,20 @@ void EmptyLinkFunctionForGeneratedCodeFPS_init() {}
 		{
 			static UObject* (*const SingletonFuncArray[])() = {
 				(UObject* (*)())Z_Construct_UDelegateFunction_FPS_HighPingDelegate__DelegateSignature,
+				(UObject* (*)())Z_Construct_UDelegateFunction_FPS_OnLeftGame__DelegateSignature,
 			};
 			static const UECodeGen_Private::FPackageParams PackageParams = {
 				"/Script/FPS",
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0xA32F05D3,
-				0xF688C25E,
+				0xAAE30938,
+				0x44BB44A3,
 				METADATA_PARAMS(nullptr, 0)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_FPS.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_FPS.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_FPS(Z_Construct_UPackage__Script_FPS, TEXT("/Script/FPS"), Z_Registration_Info_UPackage__Script_FPS, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xA32F05D3, 0xF688C25E));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_FPS(Z_Construct_UPackage__Script_FPS, TEXT("/Script/FPS"), Z_Registration_Info_UPackage__Script_FPS, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xAAE30938, 0x44BB44A3));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

@@ -6,6 +6,7 @@
 #include "Components/Button.h"
 #include "MultiplayerSessionsSubsystem.h"
 #include "GameFramework/GameModeBase.h"
+#include "FPS/Character/MasterCharacter.h"
 
 void UInGameMenu::MenuSetup()
 {
@@ -108,6 +109,29 @@ void UInGameMenu::MenuTearDown()
 void UInGameMenu::ReturnButtonClicked()
 {
 	ReturnToMenuBtn->SetIsEnabled(false);
+
+	UWorld* World = GetWorld();
+	if (World)
+	{
+		APlayerController* FirstPlayerController =  World->GetFirstPlayerController();
+		if (FirstPlayerController)
+		{
+			AMasterCharacter* MasterCharacter =  Cast<AMasterCharacter>(FirstPlayerController->GetPawn());
+			if (MasterCharacter)
+			{
+				MasterCharacter->ServerLeaveGame();
+				MasterCharacter->OnLeftGame.AddDynamic(this, &UInGameMenu::OnPlayerLeftGame);
+			}
+			else
+			{
+				ReturnToMenuBtn->SetIsEnabled(true);
+			}
+		}
+	}
+}
+
+void UInGameMenu::OnPlayerLeftGame()
+{
 	if (MultiplayerSessionsSubsystem)
 	{
 		MultiplayerSessionsSubsystem->DestroySession();

@@ -11,6 +11,8 @@
 
 #include "MasterCharacter.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnLeftGame);
+
 UCLASS()
 class FPS_API AMasterCharacter : public ACharacter, public IInteractWithCrosshairsInterface
 {
@@ -42,9 +44,15 @@ public:
 	void UpdateHUDShield();
 	void UpdateHUDAmmo();
 
-	void Elim();
+	void Elim(bool bPlayerLeftGame);
+
 	UFUNCTION(NetMulticast, Reliable)
-	void MulticastElim();
+	void MulticastElim(bool bPlayerLeftGame);
+
+	UFUNCTION(Server, Reliable)
+	void ServerLeaveGame();
+
+	FOnLeftGame OnLeftGame;
 
 	UPROPERTY(Replicated)
 	bool bDisableGameplay = false;
@@ -164,6 +172,12 @@ private:
 	float RespawnTimeDelay = 2.f;
 
 	void RespawnTimerFinished();
+
+	bool bLeftGame = false;
+
+	
+
+
 
 	/*
 	 * Dissolve Effect
