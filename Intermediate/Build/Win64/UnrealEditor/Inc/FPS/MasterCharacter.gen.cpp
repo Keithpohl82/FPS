@@ -34,6 +34,8 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 	ENGINE_API UClass* Z_Construct_UClass_UParticleSystemComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USoundCue_NoRegister();
 	FPS_API UClass* Z_Construct_UClass_AMasterPlayerState_NoRegister();
+	NIAGARA_API UClass* Z_Construct_UClass_UNiagaraSystem_NoRegister();
+	NIAGARA_API UClass* Z_Construct_UClass_UNiagaraComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	FPS_API UClass* Z_Construct_UClass_UInteractWithCrosshairsInterface_NoRegister();
@@ -111,6 +113,20 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 		P_THIS->OnRep_OverlappingWeapon(Z_Param_LastWeapon);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(AMasterCharacter::execMulticastLostTheLead)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->MulticastLostTheLead_Implementation();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AMasterCharacter::execMulticastGainedTheLead)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->MulticastGainedTheLead_Implementation();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AMasterCharacter::execServerLeaveGame)
 	{
 		P_FINISH;
@@ -132,6 +148,16 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 		MasterCharacter_eventMulticastElim_Parms Parms;
 		Parms.bPlayerLeftGame=bPlayerLeftGame ? true : false;
 		ProcessEvent(FindFunctionChecked(NAME_AMasterCharacter_MulticastElim),&Parms);
+	}
+	static FName NAME_AMasterCharacter_MulticastGainedTheLead = FName(TEXT("MulticastGainedTheLead"));
+	void AMasterCharacter::MulticastGainedTheLead()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_AMasterCharacter_MulticastGainedTheLead),NULL);
+	}
+	static FName NAME_AMasterCharacter_MulticastLostTheLead = FName(TEXT("MulticastLostTheLead"));
+	void AMasterCharacter::MulticastLostTheLead()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_AMasterCharacter_MulticastLostTheLead),NULL);
 	}
 	static FName NAME_AMasterCharacter_ServerEquipButtonPressed = FName(TEXT("ServerEquipButtonPressed"));
 	void AMasterCharacter::ServerEquipButtonPressed()
@@ -155,6 +181,8 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 		UClass* Class = AMasterCharacter::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "MulticastElim", &AMasterCharacter::execMulticastElim },
+			{ "MulticastGainedTheLead", &AMasterCharacter::execMulticastGainedTheLead },
+			{ "MulticastLostTheLead", &AMasterCharacter::execMulticastLostTheLead },
 			{ "OnRep_Health", &AMasterCharacter::execOnRep_Health },
 			{ "OnRep_OverlappingWeapon", &AMasterCharacter::execOnRep_OverlappingWeapon },
 			{ "OnRep_Shield", &AMasterCharacter::execOnRep_Shield },
@@ -195,6 +223,50 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMasterCharacter_MulticastElim_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AMasterCharacter_MulticastGainedTheLead_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMasterCharacter_MulticastGainedTheLead_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Character/MasterCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMasterCharacter_MulticastGainedTheLead_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMasterCharacter, nullptr, "MulticastGainedTheLead", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00024CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMasterCharacter_MulticastGainedTheLead_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AMasterCharacter_MulticastGainedTheLead_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AMasterCharacter_MulticastGainedTheLead()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMasterCharacter_MulticastGainedTheLead_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AMasterCharacter_MulticastLostTheLead_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMasterCharacter_MulticastLostTheLead_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Character/MasterCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMasterCharacter_MulticastLostTheLead_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMasterCharacter, nullptr, "MulticastLostTheLead", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00024CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMasterCharacter_MulticastLostTheLead_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AMasterCharacter_MulticastLostTheLead_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AMasterCharacter_MulticastLostTheLead()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMasterCharacter_MulticastLostTheLead_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -595,6 +667,14 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_MasterPlayerState;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CrownSystem_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_CrownSystem;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CrownComponent_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_CrownComponent;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_AttachedGrenade_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_AttachedGrenade;
@@ -677,6 +757,8 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AMasterCharacter_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AMasterCharacter_MulticastElim, "MulticastElim" }, // 2583641884
+		{ &Z_Construct_UFunction_AMasterCharacter_MulticastGainedTheLead, "MulticastGainedTheLead" }, // 3958546355
+		{ &Z_Construct_UFunction_AMasterCharacter_MulticastLostTheLead, "MulticastLostTheLead" }, // 956403999
 		{ &Z_Construct_UFunction_AMasterCharacter_OnRep_Health, "OnRep_Health" }, // 1595230739
 		{ &Z_Construct_UFunction_AMasterCharacter_OnRep_OverlappingWeapon, "OnRep_OverlappingWeapon" }, // 823773337
 		{ &Z_Construct_UFunction_AMasterCharacter_OnRep_Shield, "OnRep_Shield" }, // 1355617023
@@ -925,6 +1007,20 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMasterCharacter_Statics::NewProp_MasterPlayerState = { "MasterPlayerState", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterCharacter, MasterPlayerState), Z_Construct_UClass_AMasterPlayerState_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_MasterPlayerState_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_MasterPlayerState_MetaData)) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterCharacter_Statics::NewProp_CrownSystem_MetaData[] = {
+		{ "Category", "MasterCharacter" },
+		{ "ModuleRelativePath", "Character/MasterCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMasterCharacter_Statics::NewProp_CrownSystem = { "CrownSystem", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterCharacter, CrownSystem), Z_Construct_UClass_UNiagaraSystem_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_CrownSystem_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_CrownSystem_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterCharacter_Statics::NewProp_CrownComponent_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Character/MasterCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMasterCharacter_Statics::NewProp_CrownComponent = { "CrownComponent", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterCharacter, CrownComponent), Z_Construct_UClass_UNiagaraComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_CrownComponent_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_CrownComponent_MetaData)) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterCharacter_Statics::NewProp_AttachedGrenade_MetaData[] = {
 		{ "Category", "MasterCharacter" },
 		{ "Comment", "/*\n\x09  Grenade\n\x09*/" },
@@ -1106,6 +1202,8 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_ElimBotComponent,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_ElimBotSound,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_MasterPlayerState,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_CrownSystem,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_CrownComponent,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_AttachedGrenade,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_DefaultWeaponClass,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_Head,
@@ -1180,9 +1278,9 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMasterCharacter, AMasterCharacter::StaticClass, TEXT("AMasterCharacter"), &Z_Registration_Info_UClass_AMasterCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMasterCharacter), 4266084217U) },
+		{ Z_Construct_UClass_AMasterCharacter, AMasterCharacter::StaticClass, TEXT("AMasterCharacter"), &Z_Registration_Info_UClass_AMasterCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMasterCharacter), 2101607032U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_2754928478(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_3861813621(TEXT("/Script/FPS"),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

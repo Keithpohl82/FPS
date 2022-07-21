@@ -60,10 +60,38 @@ void AMasterGameMode::PlayerEliminated(class AMasterCharacter* ElimmedCharacter,
 
 	AMasterGameState* MasterGameState = GetGameState<AMasterGameState>();
 
+
 	if (KillerPlayerState && KillerPlayerState != VictimPlayerState && MasterGameState)
 	{
+		TArray<AMasterPlayerState*> PlayersCurrentlyInTheLead;
+		for (auto LeadPlayer : MasterGameState->TopScoringPlayers)
+		{
+			PlayersCurrentlyInTheLead.Add(LeadPlayer);
+		}
+
 		KillerPlayerState->AddToScore(1.f);
 		MasterGameState->UpdateTopScore(KillerPlayerState);
+
+		if (MasterGameState->TopScoringPlayers.Contains(KillerPlayerState))
+		{
+			AMasterCharacter * Leader = Cast<AMasterCharacter>(KillerPlayerState->GetPawn());
+			if (Leader)
+			{
+				Leader->MulticastGainedTheLead();
+			}
+		}
+
+		for (int32 i = 0; i < PlayersCurrentlyInTheLead.Num(); i++)
+		{
+			if (!MasterGameState->TopScoringPlayers.Contains(PlayersCurrentlyInTheLead[i]))
+			{
+				AMasterCharacter* Loser = Cast<AMasterCharacter>(PlayersCurrentlyInTheLead[i]->GetPawn());
+				if (Loser)
+				{
+					Loser->MulticastLostTheLead();
+				}
+			}
+		}
 	}
 	if (VictimPlayerState)
 	{

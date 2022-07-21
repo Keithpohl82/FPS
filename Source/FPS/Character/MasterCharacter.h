@@ -67,6 +67,12 @@ public:
 
 	bool bFinishedSwapping = false;
 
+	UFUNCTION(NetMulticast, Reliable)
+	void MulticastGainedTheLead();
+
+	UFUNCTION(NetMulticast, Reliable)
+	void MulticastLostTheLead();
+
 private:
 	
 	UPROPERTY(EditDefaultsOnly, Category = Camera)
@@ -175,9 +181,6 @@ private:
 
 	bool bLeftGame = false;
 
-	
-
-
 
 	/*
 	 * Dissolve Effect
@@ -217,6 +220,14 @@ private:
 
 	UPROPERTY()
 	class AMasterPlayerState* MasterPlayerState;
+
+	UPROPERTY(EditAnywhere)
+	class UNiagaraSystem* CrownSystem;
+
+	UPROPERTY()
+	class UNiagaraComponent* CrownComponent;
+
+
 
 	/*
 	  Grenade

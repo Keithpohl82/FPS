@@ -28,6 +28,7 @@ public:
 	UPROPERTY(EditAnywhere)
 	float InitialSpeed = 15000;
 
+	UPROPERTY(EditAnywhere)
 	float Damage = 20.f;
 
 protected:

@@ -27,6 +27,8 @@ static inline void FOnLeftGame_DelegateWrapper(const FMulticastScriptDelegate& O
 #define FID_FPS_Source_FPS_Character_MasterCharacter_h_19_SPARSE_DATA
 #define FID_FPS_Source_FPS_Character_MasterCharacter_h_19_RPC_WRAPPERS \
 	virtual void ServerEquipButtonPressed_Implementation(); \
+	virtual void MulticastLostTheLead_Implementation(); \
+	virtual void MulticastGainedTheLead_Implementation(); \
 	virtual void ServerLeaveGame_Implementation(); \
 	virtual void MulticastElim_Implementation(bool bPlayerLeftGame); \
  \
@@ -36,12 +38,16 @@ static inline void FOnLeftGame_DelegateWrapper(const FMulticastScriptDelegate& O
 	DECLARE_FUNCTION(execOnRep_Health); \
 	DECLARE_FUNCTION(execServerEquipButtonPressed); \
 	DECLARE_FUNCTION(execOnRep_OverlappingWeapon); \
+	DECLARE_FUNCTION(execMulticastLostTheLead); \
+	DECLARE_FUNCTION(execMulticastGainedTheLead); \
 	DECLARE_FUNCTION(execServerLeaveGame); \
 	DECLARE_FUNCTION(execMulticastElim);
 
 
 #define FID_FPS_Source_FPS_Character_MasterCharacter_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
 	virtual void ServerEquipButtonPressed_Implementation(); \
+	virtual void MulticastLostTheLead_Implementation(); \
+	virtual void MulticastGainedTheLead_Implementation(); \
 	virtual void ServerLeaveGame_Implementation(); \
 	virtual void MulticastElim_Implementation(bool bPlayerLeftGame); \
  \
@@ -51,6 +57,8 @@ static inline void FOnLeftGame_DelegateWrapper(const FMulticastScriptDelegate& O
 	DECLARE_FUNCTION(execOnRep_Health); \
 	DECLARE_FUNCTION(execServerEquipButtonPressed); \
 	DECLARE_FUNCTION(execOnRep_OverlappingWeapon); \
+	DECLARE_FUNCTION(execMulticastLostTheLead); \
+	DECLARE_FUNCTION(execMulticastGainedTheLead); \
 	DECLARE_FUNCTION(execServerLeaveGame); \
 	DECLARE_FUNCTION(execMulticastElim);
 

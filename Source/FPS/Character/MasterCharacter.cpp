@@ -21,8 +21,11 @@
 #include "FPS/PlayerController/MasterPlayerController.h"
 #include "FPS/PlayerState/MasterPlayerState.h"
 #include "FPS/Weapons/WeaponBase.h"
+#include "FPS/GameState/MasterGameState.h"
 #include "Components/BoxComponent.h"
 #include "FPS/Components/LagCompensationComponent.h"
+#include "NiagaraComponent.h"
+#include "NiagaraFunctionLibrary.h"
 
 
 AMasterCharacter::AMasterCharacter()
@@ -380,6 +383,13 @@ void AMasterCharacter::PollInit()
 		{
 			MasterPlayerState->AddToScore(0.f);
 			MasterPlayerState->AddToDeaths(0);
+
+			AMasterGameState* MasterGameState = Cast<AMasterGameState>(UGameplayStatics::GetGameState(this));
+
+			if (MasterGameState && MasterGameState->TopScoringPlayers.Contains(MasterPlayerState))
+			{
+				MulticastGainedTheLead();
+			}
 		}
 	}
 }
@@ -814,6 +824,10 @@ void AMasterCharacter::MulticastElim_Implementation(bool bPlayerLeftGame)
 	{
 		ShowSniperScopeWidget(false);
 	}
+	if (CrownComponent)
+	{
+		CrownComponent->DestroyComponent();
+	}
 	GetWorldTimerManager().SetTimer(RespawnTimer, this, &AMasterCharacter::RespawnTimerFinished, RespawnTimeDelay);
 }
 
@@ -859,6 +873,35 @@ void AMasterCharacter::SpawnDefaultWeapon()
 		{
 			Combat->EquipWeapon(StartingWeapon);
 		}
+	}
+}
+
+void AMasterCharacter::MulticastGainedTheLead_Implementation()
+{
+	if (CrownSystem == nullptr) return;
+
+	if (CrownComponent == nullptr)
+	{
+		   CrownComponent =  UNiagaraFunctionLibrary::SpawnSystemAttached(
+			CrownSystem,
+			GetCapsuleComponent(),
+			FName(),
+			GetActorLocation() + FVector(0.f, 0.f, 110.f),
+			GetActorRotation(),
+			EAttachLocation::KeepWorldPosition,
+			false);
+	}
+	if (CrownComponent)
+	{
+		CrownComponent->Activate();
+	}
+}
+
+void AMasterCharacter::MulticastLostTheLead_Implementation()
+{
+	if (CrownComponent)
+	{
+		CrownComponent->DestroyComponent();
 	}
 }
 
