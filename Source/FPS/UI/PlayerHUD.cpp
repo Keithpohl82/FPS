@@ -6,6 +6,10 @@
 #include "Announcement.h"
 #include "Blueprint/UserWidget.h"
 #include "GameFramework/PlayerController.h"
+#include "ElimAnnouncment.h"
+#include "Blueprint/WidgetLayoutLibrary.h"
+#include "Components/HorizontalBox.h"
+#include "Components/CanvasPanelSlot.h"
 
 void APlayerHUD::DrawHUD()
 {
@@ -67,9 +71,54 @@ void APlayerHUD::AddCharacterOverlay()
 	}
 }
 
+void APlayerHUD::AddElimAnnouncement(FString Killer, FString Victim)
+{
+	OwningPlayer = OwningPlayer == nullptr ? GetOwningPlayerController() : OwningPlayer;
+	if (OwningPlayer && ElimAnnouncmentClass)
+	{
+		UElimAnnouncment* ElimAnnouncmentWidget = CreateWidget<UElimAnnouncment>(OwningPlayer, ElimAnnouncmentClass);
+		if (ElimAnnouncmentWidget)
+		{
+			ElimAnnouncmentWidget->SetElimAnnouncementText(Killer, Victim);
+			ElimAnnouncmentWidget->AddToViewport();
+
+			for (UElimAnnouncment* Msg : ElimMessages)
+			{
+				if (Msg && Msg->AnnouncementBox)
+				{
+					UCanvasPanelSlot* CanvasSlot = UWidgetLayoutLibrary::SlotAsCanvasSlot(Msg->AnnouncementBox);
+					if (CanvasSlot)
+					{
+						FVector2D Position = CanvasSlot->GetPosition();
+						FVector2D NewPosition(CanvasSlot->GetPosition().X, Position.Y + CanvasSlot->GetSize().Y);
+						CanvasSlot->SetPosition(NewPosition);
+					}
+				}
+			}
+
+			ElimMessages.Add(ElimAnnouncmentWidget);
+
+			FTimerHandle ElimMsgTimer;
+			FTimerDelegate ElimMsgDelegate;
+			ElimMsgDelegate.BindUFunction(this, FName("ElimAnnouncementTimerFinished"), ElimAnnouncmentWidget);
+			GetWorldTimerManager().SetTimer(ElimMsgTimer, ElimMsgDelegate, ElimAnnouncementTime, false);
+		}
+	}
+}
+
+void APlayerHUD::ElimAnnouncementTimerFinished(UElimAnnouncment* MsgToRemove)
+{
+	if (MsgToRemove)
+	{
+		MsgToRemove->RemoveFromParent();
+	}
+}
+
 void APlayerHUD::BeginPlay()
 {
 	Super::BeginPlay();
+
+	
 }
 
 void APlayerHUD::DrawCrosshair(UTexture2D* Texture, FVector2D ViewportCenter, FVector2D Spread, FLinearColor CrosshairColor)
@@ -91,3 +140,5 @@ void APlayerHUD::DrawCrosshair(UTexture2D* Texture, FVector2D ViewportCenter, FV
 		1.f,
 		CrosshairColor);
 }
+
+

@@ -8,6 +8,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class APlayerState;
 #ifdef FPS_MasterPlayerController_generated_h
 #error "MasterPlayerController.generated.h already included, missing '#pragma once' in MasterPlayerController.h"
 #endif
@@ -33,13 +34,15 @@ static inline void FHighPingDelegate_DelegateWrapper(const FMulticastScriptDeleg
 	virtual void ServerCheckMatchState_Implementation(); \
 	virtual void ClientReportServerTime_Implementation(float TimeOfClientRequest, float TimeServerReceivedClientRequest); \
 	virtual void ServerRequestServerTime_Implementation(float TimeOfClientRequest); \
+	virtual void ClientElimAnnouncement_Implementation(APlayerState* Killer, APlayerState* Victim); \
  \
 	DECLARE_FUNCTION(execServerReportPingStatus); \
 	DECLARE_FUNCTION(execOnRep_MatchState); \
 	DECLARE_FUNCTION(execClientJoinMidGame); \
 	DECLARE_FUNCTION(execServerCheckMatchState); \
 	DECLARE_FUNCTION(execClientReportServerTime); \
-	DECLARE_FUNCTION(execServerRequestServerTime);
+	DECLARE_FUNCTION(execServerRequestServerTime); \
+	DECLARE_FUNCTION(execClientElimAnnouncement);
 
 
 #define FID_FPS_Source_FPS_PlayerController_MasterPlayerController_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
@@ -48,16 +51,23 @@ static inline void FHighPingDelegate_DelegateWrapper(const FMulticastScriptDeleg
 	virtual void ServerCheckMatchState_Implementation(); \
 	virtual void ClientReportServerTime_Implementation(float TimeOfClientRequest, float TimeServerReceivedClientRequest); \
 	virtual void ServerRequestServerTime_Implementation(float TimeOfClientRequest); \
+	virtual void ClientElimAnnouncement_Implementation(APlayerState* Killer, APlayerState* Victim); \
  \
 	DECLARE_FUNCTION(execServerReportPingStatus); \
 	DECLARE_FUNCTION(execOnRep_MatchState); \
 	DECLARE_FUNCTION(execClientJoinMidGame); \
 	DECLARE_FUNCTION(execServerCheckMatchState); \
 	DECLARE_FUNCTION(execClientReportServerTime); \
-	DECLARE_FUNCTION(execServerRequestServerTime);
+	DECLARE_FUNCTION(execServerRequestServerTime); \
+	DECLARE_FUNCTION(execClientElimAnnouncement);
 
 
 #define FID_FPS_Source_FPS_PlayerController_MasterPlayerController_h_17_EVENT_PARMS \
+	struct MasterPlayerController_eventClientElimAnnouncement_Parms \
+	{ \
+		APlayerState* Killer; \
+		APlayerState* Victim; \
+	}; \
 	struct MasterPlayerController_eventClientJoinMidGame_Parms \
 	{ \
 		FName StateOfMatch; \

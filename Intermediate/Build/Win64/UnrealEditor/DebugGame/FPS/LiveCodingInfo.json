@@ -3,6 +3,7 @@
 	{
 		"Module.FPS.cpp.obj": [
 			"CharacterAnimInstance.cpp.obj",
+			"MasterCharacter.cpp.obj",
 			"BuffComponent.cpp.obj",
 			"CombatComponent.cpp.obj",
 			"LagCompensationComponent.cpp.obj",
@@ -17,14 +18,13 @@
 			"PickupSpawnPoint.cpp.obj",
 			"ShieldPickup.cpp.obj",
 			"SpeedPickup.cpp.obj",
-			"MasterPlayerController.cpp.obj",
 			"MasterPlayerState.cpp.obj",
 			"Announcement.cpp.obj",
 			"InGameMenu.cpp.obj",
-			"PlayerHUD.cpp.obj",
 			"PlayerOverlay.cpp.obj",
 			"HitScanWeapon.cpp.obj",
 			"Casing.cpp.obj",
+			"ProjectileBase.cpp.obj",
 			"ProjectileBullet.cpp.obj",
 			"ProjectileGrenade.cpp.obj",
 			"ProjectileRocket.cpp.obj",
@@ -32,9 +32,10 @@
 			"RocketMovementComponent.cpp.obj",
 			"Shotgun.cpp.obj",
 			"WeaponBase.cpp.obj",
-			"MasterCharacter.cpp.obj",
 			"MasterGameMode.cpp.obj",
-			"ProjectileBase.cpp.obj"
+			"MasterPlayerController.cpp.obj",
+			"ElimAnnouncment.cpp.obj",
+			"PlayerHUD.cpp.obj"
 		],
 		"Module.FPS.gen.cpp.obj": [
 			"AmmoPickup.gen.cpp.obj",
@@ -51,14 +52,17 @@
 			"JumpPickup.gen.cpp.obj",
 			"LagCompensationComponent.gen.cpp.obj",
 			"LobbyGameMode.gen.cpp.obj",
+			"MasterCharacter.gen.cpp.obj",
 			"MasterGameMode.gen.cpp.obj",
 			"MasterGameState.gen.cpp.obj",
-			"MasterPlayerController.gen.cpp.obj",
 			"MasterPlayerState.gen.cpp.obj",
 			"Pickup.gen.cpp.obj",
 			"PickupSpawnPoint.gen.cpp.obj",
-			"PlayerHUD.gen.cpp.obj",
 			"PlayerOverlay.gen.cpp.obj",
+			"ProjectileBase.gen.cpp.obj",
+			"ProjectileBullet.gen.cpp.obj",
+			"ProjectileGrenade.gen.cpp.obj",
+			"ProjectileRocket.gen.cpp.obj",
 			"ProjectileWeapon.gen.cpp.obj",
 			"RocketMovementComponent.gen.cpp.obj",
 			"ShieldPickup.gen.cpp.obj",
@@ -67,12 +71,10 @@
 			"TurningInPlace.gen.cpp.obj",
 			"WeaponBase.gen.cpp.obj",
 			"WeaponTypes.gen.cpp.obj",
+			"ElimAnnouncment.gen.cpp.obj",
 			"FPS.init.gen.cpp.obj",
-			"MasterCharacter.gen.cpp.obj",
-			"ProjectileBase.gen.cpp.obj",
-			"ProjectileBullet.gen.cpp.obj",
-			"ProjectileGrenade.gen.cpp.obj",
-			"ProjectileRocket.gen.cpp.obj"
+			"MasterPlayerController.gen.cpp.obj",
+			"PlayerHUD.gen.cpp.obj"
 		]
 	}
 }

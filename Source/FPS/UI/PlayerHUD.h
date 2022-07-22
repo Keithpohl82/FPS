@@ -46,6 +46,7 @@ public:
 
 	void AddAnnouncement();
 	void AddCharacterOverlay();
+	void AddElimAnnouncement(FString Killer, FString Victim);
 
 
 protected:
@@ -53,11 +54,26 @@ protected:
 
 private:
 
+	UPROPERTY()
+	class APlayerController* OwningPlayer;
+
 	FHUDPackage HUDPackage;
 	void DrawCrosshair(UTexture2D* Texture, FVector2D ViewportCenter, FVector2D Spread, FLinearColor CrosshairColor);
 
 	UPROPERTY(EditAnywhere)
-		float CrosshairSpreadMax = 16.f;
+	float CrosshairSpreadMax = 16.f;
+
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<class UElimAnnouncment> ElimAnnouncmentClass;
+
+	UPROPERTY(EditAnywhere)
+	float ElimAnnouncementTime = 2.5f;
+
+	UFUNCTION()
+	void ElimAnnouncementTimerFinished(UElimAnnouncment* MsgToRemove);
+
+	UPROPERTY()
+	TArray <UElimAnnouncment*> ElimMessages;
 
 public:
 

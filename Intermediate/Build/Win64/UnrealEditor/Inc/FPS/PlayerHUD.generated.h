@@ -8,6 +8,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class UElimAnnouncment;
 #ifdef FPS_PlayerHUD_generated_h
 #error "PlayerHUD.generated.h already included, missing '#pragma once' in PlayerHUD.h"
 #endif
@@ -21,8 +22,16 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 template<> FPS_API UScriptStruct* StaticStruct<struct FHUDPackage>();
 
 #define FID_FPS_Source_FPS_UI_PlayerHUD_h_30_SPARSE_DATA
-#define FID_FPS_Source_FPS_UI_PlayerHUD_h_30_RPC_WRAPPERS
-#define FID_FPS_Source_FPS_UI_PlayerHUD_h_30_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_FPS_Source_FPS_UI_PlayerHUD_h_30_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execElimAnnouncementTimerFinished);
+
+
+#define FID_FPS_Source_FPS_UI_PlayerHUD_h_30_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execElimAnnouncementTimerFinished);
+
+
 #define FID_FPS_Source_FPS_UI_PlayerHUD_h_30_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAPlayerHUD(); \

@@ -44,6 +44,8 @@ public:
 
 	FHighPingDelegate HighPingDelegate;
 
+	void BroadcastElim(APlayerState* Killer, APlayerState* Victim);
+
 protected:
 
 	virtual void SetupInputComponent() override;
@@ -56,6 +58,9 @@ protected:
 	void CheckPing(float DeltaSeconds);
 
 	void ShowIngameMenu();
+
+	UFUNCTION(Client, Reliable)
+	void ClientElimAnnouncement(APlayerState* Killer, APlayerState* Victim);
 
 	/*
 	 * Sync time between client and server.

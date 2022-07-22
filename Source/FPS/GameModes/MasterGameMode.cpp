@@ -101,6 +101,15 @@ void AMasterGameMode::PlayerEliminated(class AMasterCharacter* ElimmedCharacter,
 	{
 		ElimmedCharacter->Elim(false);
 	}
+
+	for (FConstPlayerControllerIterator It = GetWorld()->GetPlayerControllerIterator(); It; ++It)
+	{
+		AMasterPlayerController* MasterPlayer = Cast<AMasterPlayerController>(*It);
+		if (MasterPlayer && KillerPlayerState && VictimPlayerState)
+		{
+			MasterPlayer->BroadcastElim(KillerPlayerState, VictimPlayerState);
+		}
+	}
 }
 
 void AMasterGameMode::RequestRespawn(ACharacter* ElimmedCharacter, AController* ElimmedController)

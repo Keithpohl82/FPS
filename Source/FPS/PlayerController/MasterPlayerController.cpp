@@ -102,6 +102,44 @@ void AMasterPlayerController::ShowIngameMenu()
 	}
 }
 
+void AMasterPlayerController::ClientElimAnnouncement_Implementation(APlayerState* Killer, APlayerState* Victim)
+{
+	APlayerState* Self = GetPlayerState<APlayerState>();
+	if (Killer && Victim && Self)
+	{
+		HUD = HUD == nullptr ? Cast<APlayerHUD>(GetHUD()) : HUD;
+		if (HUD)
+		{
+			if (Killer == Self && Victim != Self)
+			{
+				HUD->AddElimAnnouncement("You", Victim->GetPlayerName());
+				return;
+			}
+			if (Victim == Self && Killer != Self)
+			{
+				HUD->AddElimAnnouncement(Killer->GetPlayerName(), "You");
+				return;
+			}
+			if (Killer == Victim && Killer == Self)
+			{
+				HUD->AddElimAnnouncement("You" , "Yourself");
+				return;
+			}
+			if (Killer == Victim && Killer != Self)
+			{
+				HUD->AddElimAnnouncement(Killer->GetPlayerName(), "ThemSelves");
+				return;
+			}
+			HUD->AddElimAnnouncement(Killer->GetPlayerName(), Victim->GetPlayerName());
+		}
+	}
+}
+
+void AMasterPlayerController::BroadcastElim(APlayerState* Killer, APlayerState* Victim)
+{
+	ClientElimAnnouncement(Killer, Victim);
+}
+
 // Is the Ping Too High?
 void AMasterPlayerController::ServerReportPingStatus_Implementation(bool bHighPing)
 {
