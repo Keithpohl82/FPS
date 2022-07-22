@@ -6,6 +6,7 @@
 #include "U:/FPS/Intermediate/Build/Win64/UnrealEditor/Inc/FPS/CharacterAnimInstance.gen.cpp"
 #include "U:/FPS/Intermediate/Build/Win64/UnrealEditor/Inc/FPS/CombatComponent.gen.cpp"
 #include "U:/FPS/Intermediate/Build/Win64/UnrealEditor/Inc/FPS/CombatState.gen.cpp"
+#include "U:/FPS/Intermediate/Build/Win64/UnrealEditor/Inc/FPS/ElimAnnouncment.gen.cpp"
 #include "U:/FPS/Intermediate/Build/Win64/UnrealEditor/Inc/FPS/FPS.init.gen.cpp"
 #include "U:/FPS/Intermediate/Build/Win64/UnrealEditor/Inc/FPS/HealthPickup.gen.cpp"
 #include "U:/FPS/Intermediate/Build/Win64/UnrealEditor/Inc/FPS/HitScanWeapon.gen.cpp"

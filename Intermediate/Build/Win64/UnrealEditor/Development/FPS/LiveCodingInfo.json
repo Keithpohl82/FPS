@@ -3,11 +3,13 @@
 	{
 		"Module.FPS.cpp.obj": [
 			"CharacterAnimInstance.cpp.obj",
+			"MasterCharacter.cpp.obj",
 			"BuffComponent.cpp.obj",
 			"CombatComponent.cpp.obj",
 			"LagCompensationComponent.cpp.obj",
 			"FPS.cpp.obj",
 			"LobbyGameMode.cpp.obj",
+			"MasterGameMode.cpp.obj",
 			"MasterGameState.cpp.obj",
 			"InteractWithCrosshairsInterface.cpp.obj",
 			"AmmoPickup.cpp.obj",
@@ -20,6 +22,7 @@
 			"MasterPlayerController.cpp.obj",
 			"MasterPlayerState.cpp.obj",
 			"Announcement.cpp.obj",
+			"ElimAnnouncment.cpp.obj",
 			"InGameMenu.cpp.obj",
 			"PlayerHUD.cpp.obj",
 			"PlayerOverlay.cpp.obj",
@@ -32,9 +35,7 @@
 			"ProjectileWeapon.cpp.obj",
 			"RocketMovementComponent.cpp.obj",
 			"Shotgun.cpp.obj",
-			"WeaponBase.cpp.obj",
-			"MasterCharacter.cpp.obj",
-			"MasterGameMode.cpp.obj"
+			"WeaponBase.cpp.obj"
 		],
 		"Module.FPS.gen.cpp.obj": [
 			"AmmoPickup.gen.cpp.obj",
@@ -44,6 +45,7 @@
 			"CharacterAnimInstance.gen.cpp.obj",
 			"CombatComponent.gen.cpp.obj",
 			"CombatState.gen.cpp.obj",
+			"ElimAnnouncment.gen.cpp.obj",
 			"FPS.init.gen.cpp.obj",
 			"HealthPickup.gen.cpp.obj",
 			"HitScanWeapon.gen.cpp.obj",
