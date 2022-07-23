@@ -11,6 +11,7 @@ void AMasterPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& O
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 
 	DOREPLIFETIME(AMasterPlayerState, NumDeaths);
+	DOREPLIFETIME(AMasterPlayerState, Team);
 }
 
 void AMasterPlayerState::OnRep_Score()

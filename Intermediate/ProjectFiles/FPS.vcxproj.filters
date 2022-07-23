@@ -148,6 +148,12 @@
     <ClInclude Include="..\..\Source\FPS\GameModes\MasterGameMode.h">
       <Filter>Source\FPS\GameModes</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\FPS\GameModes\TeamDeathMatchrGameMode.cpp">
+      <Filter>Source\FPS\GameModes</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\GameModes\TeamDeathMatchrGameMode.h">
+      <Filter>Source\FPS\GameModes</Filter>
+    </ClInclude>
     <Filter Include="Source\FPS\GameState">
       <UniqueIdentifier>{D1C6923D-8163-39FD-8A63-F3A90F327926}</UniqueIdentifier>
     </Filter>
@@ -233,6 +239,9 @@
       <UniqueIdentifier>{44D7CC98-65C5-3437-B16D-CDECE03FE18C}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\FPS\TypeClasses\CombatState.h">
+      <Filter>Source\FPS\TypeClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\FPS\TypeClasses\Team.h">
       <Filter>Source\FPS\TypeClasses</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\FPS\TypeClasses\TurningInPlace.h">

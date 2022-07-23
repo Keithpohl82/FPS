@@ -4,7 +4,12 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerState.h"
+#include "FPS/TypeClasses/Team.h"
+
 #include "MasterPlayerState.generated.h"
+
+
+
 
 /**
  * 
@@ -31,4 +36,13 @@ private:
 
 	UPROPERTY(ReplicatedUsing = OnRep_Deaths)
 	int32 NumDeaths;
+
+	UPROPERTY(Replicated)
+	ETeam Team = ETeam::ET_Spectator;
+
+
+public:
+
+	FORCEINLINE ETeam GetTeam() const { return Team; }
+	FORCEINLINE void SetTeam(ETeam TeamToSet) { Team = TeamToSet; }
 };

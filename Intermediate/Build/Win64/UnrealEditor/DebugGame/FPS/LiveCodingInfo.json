@@ -6,10 +6,10 @@
 			"MasterCharacter.cpp.obj",
 			"BuffComponent.cpp.obj",
 			"CombatComponent.cpp.obj",
+			"LagCompensationComponent.cpp.obj",
 			"FPS.cpp.obj",
 			"LobbyGameMode.cpp.obj",
 			"MasterGameMode.cpp.obj",
-			"MasterGameState.cpp.obj",
 			"InteractWithCrosshairsInterface.cpp.obj",
 			"AmmoPickup.cpp.obj",
 			"HealthPickup.cpp.obj",
@@ -19,12 +19,12 @@
 			"ShieldPickup.cpp.obj",
 			"SpeedPickup.cpp.obj",
 			"MasterPlayerController.cpp.obj",
-			"MasterPlayerState.cpp.obj",
 			"Announcement.cpp.obj",
 			"ElimAnnouncment.cpp.obj",
 			"InGameMenu.cpp.obj",
 			"PlayerHUD.cpp.obj",
 			"PlayerOverlay.cpp.obj",
+			"HitScanWeapon.cpp.obj",
 			"Casing.cpp.obj",
 			"ProjectileBase.cpp.obj",
 			"ProjectileBullet.cpp.obj",
@@ -34,8 +34,9 @@
 			"RocketMovementComponent.cpp.obj",
 			"Shotgun.cpp.obj",
 			"WeaponBase.cpp.obj",
-			"LagCompensationComponent.cpp.obj",
-			"HitScanWeapon.cpp.obj"
+			"TeamDeathMatchrGameMode.cpp.obj",
+			"MasterGameState.cpp.obj",
+			"MasterPlayerState.cpp.obj"
 		],
 		"Module.FPS.gen.cpp.obj": [
 			"AmmoPickup.gen.cpp.obj",
@@ -51,12 +52,11 @@
 			"InGameMenu.gen.cpp.obj",
 			"InteractWithCrosshairsInterface.gen.cpp.obj",
 			"JumpPickup.gen.cpp.obj",
+			"LagCompensationComponent.gen.cpp.obj",
 			"LobbyGameMode.gen.cpp.obj",
 			"MasterCharacter.gen.cpp.obj",
 			"MasterGameMode.gen.cpp.obj",
-			"MasterGameState.gen.cpp.obj",
 			"MasterPlayerController.gen.cpp.obj",
-			"MasterPlayerState.gen.cpp.obj",
 			"Pickup.gen.cpp.obj",
 			"PickupSpawnPoint.gen.cpp.obj",
 			"PlayerHUD.gen.cpp.obj",
@@ -74,7 +74,10 @@
 			"WeaponBase.gen.cpp.obj",
 			"WeaponTypes.gen.cpp.obj",
 			"FPS.init.gen.cpp.obj",
-			"LagCompensationComponent.gen.cpp.obj"
+			"MasterGameState.gen.cpp.obj",
+			"MasterPlayerState.gen.cpp.obj",
+			"Team.gen.cpp.obj",
+			"TeamDeathMatchrGameMode.gen.cpp.obj"
 		]
 	}
 }

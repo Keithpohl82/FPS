@@ -14,8 +14,18 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FPS_MasterGameState_generated_h
 
 #define FID_FPS_Source_FPS_GameState_MasterGameState_h_15_SPARSE_DATA
-#define FID_FPS_Source_FPS_GameState_MasterGameState_h_15_RPC_WRAPPERS
-#define FID_FPS_Source_FPS_GameState_MasterGameState_h_15_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_FPS_Source_FPS_GameState_MasterGameState_h_15_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execOnRep_BlueTeamScore); \
+	DECLARE_FUNCTION(execOnRep_RedTeamScore);
+
+
+#define FID_FPS_Source_FPS_GameState_MasterGameState_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execOnRep_BlueTeamScore); \
+	DECLARE_FUNCTION(execOnRep_RedTeamScore);
+
+
 #define FID_FPS_Source_FPS_GameState_MasterGameState_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMasterGameState(); \
@@ -27,7 +37,9 @@ public: \
 	{ \
 		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
 		TopScoringPlayers=NETFIELD_REP_START, \
-		NETFIELD_REP_END=TopScoringPlayers	}; \
+		RedTeamScore, \
+		BlueTeamScore, \
+		NETFIELD_REP_END=BlueTeamScore	}; \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
@@ -42,7 +54,9 @@ public: \
 	{ \
 		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
 		TopScoringPlayers=NETFIELD_REP_START, \
-		NETFIELD_REP_END=TopScoringPlayers	}; \
+		RedTeamScore, \
+		BlueTeamScore, \
+		NETFIELD_REP_END=BlueTeamScore	}; \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
