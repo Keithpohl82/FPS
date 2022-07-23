@@ -83,7 +83,7 @@ void AHitScanWeapon::WeaponTraceHit(const FVector& TraceStart, const FVector& Hi
 	if (World)
 	{
 		FVector End =  TraceStart + (HitTarget - TraceStart) * 1.25f;
-		World->LineTraceSingleByChannel(OutHit, TraceStart + 50.f, End, ECollisionChannel::ECC_Visibility);
+		World->LineTraceSingleByChannel(OutHit, TraceStart, End, ECollisionChannel::ECC_Visibility);
 		FVector BeamEnd = End;
 		if (OutHit.bBlockingHit)
 		{
