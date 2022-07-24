@@ -17,15 +17,15 @@ class AWeaponBase;
 #endif
 #define FPS_MasterCharacter_generated_h
 
-#define FID_FPS_Source_FPS_Character_MasterCharacter_h_14_DELEGATE \
+#define FID_FPS_Source_FPS_Character_MasterCharacter_h_15_DELEGATE \
 static inline void FOnLeftGame_DelegateWrapper(const FMulticastScriptDelegate& OnLeftGame) \
 { \
 	OnLeftGame.ProcessMulticastDelegate<UObject>(NULL); \
 }
 
 
-#define FID_FPS_Source_FPS_Character_MasterCharacter_h_19_SPARSE_DATA
-#define FID_FPS_Source_FPS_Character_MasterCharacter_h_19_RPC_WRAPPERS \
+#define FID_FPS_Source_FPS_Character_MasterCharacter_h_20_SPARSE_DATA
+#define FID_FPS_Source_FPS_Character_MasterCharacter_h_20_RPC_WRAPPERS \
 	virtual void ServerEquipButtonPressed_Implementation(); \
 	virtual void MulticastLostTheLead_Implementation(); \
 	virtual void MulticastGainedTheLead_Implementation(); \
@@ -44,7 +44,7 @@ static inline void FOnLeftGame_DelegateWrapper(const FMulticastScriptDelegate& O
 	DECLARE_FUNCTION(execMulticastElim);
 
 
-#define FID_FPS_Source_FPS_Character_MasterCharacter_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_FPS_Source_FPS_Character_MasterCharacter_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
 	virtual void ServerEquipButtonPressed_Implementation(); \
 	virtual void MulticastLostTheLead_Implementation(); \
 	virtual void MulticastGainedTheLead_Implementation(); \
@@ -63,7 +63,7 @@ static inline void FOnLeftGame_DelegateWrapper(const FMulticastScriptDelegate& O
 	DECLARE_FUNCTION(execMulticastElim);
 
 
-#define FID_FPS_Source_FPS_Character_MasterCharacter_h_19_EVENT_PARMS \
+#define FID_FPS_Source_FPS_Character_MasterCharacter_h_20_EVENT_PARMS \
 	struct MasterCharacter_eventMulticastElim_Parms \
 	{ \
 		bool bPlayerLeftGame; \
@@ -74,8 +74,8 @@ static inline void FOnLeftGame_DelegateWrapper(const FMulticastScriptDelegate& O
 	};
 
 
-#define FID_FPS_Source_FPS_Character_MasterCharacter_h_19_CALLBACK_WRAPPERS
-#define FID_FPS_Source_FPS_Character_MasterCharacter_h_19_INCLASS_NO_PURE_DECLS \
+#define FID_FPS_Source_FPS_Character_MasterCharacter_h_20_CALLBACK_WRAPPERS
+#define FID_FPS_Source_FPS_Character_MasterCharacter_h_20_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMasterCharacter(); \
 	friend struct Z_Construct_UClass_AMasterCharacter_Statics; \
@@ -94,7 +94,7 @@ public: \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
-#define FID_FPS_Source_FPS_Character_MasterCharacter_h_19_INCLASS \
+#define FID_FPS_Source_FPS_Character_MasterCharacter_h_20_INCLASS \
 private: \
 	static void StaticRegisterNativesAMasterCharacter(); \
 	friend struct Z_Construct_UClass_AMasterCharacter_Statics; \
@@ -113,7 +113,7 @@ public: \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
-#define FID_FPS_Source_FPS_Character_MasterCharacter_h_19_STANDARD_CONSTRUCTORS \
+#define FID_FPS_Source_FPS_Character_MasterCharacter_h_20_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AMasterCharacter(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AMasterCharacter) \
@@ -126,7 +126,7 @@ private: \
 public:
 
 
-#define FID_FPS_Source_FPS_Character_MasterCharacter_h_19_ENHANCED_CONSTRUCTORS \
+#define FID_FPS_Source_FPS_Character_MasterCharacter_h_20_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AMasterCharacter(AMasterCharacter&&); \
@@ -137,30 +137,30 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AMasterCharacter)
 
 
-#define FID_FPS_Source_FPS_Character_MasterCharacter_h_16_PROLOG \
-	FID_FPS_Source_FPS_Character_MasterCharacter_h_19_EVENT_PARMS
+#define FID_FPS_Source_FPS_Character_MasterCharacter_h_17_PROLOG \
+	FID_FPS_Source_FPS_Character_MasterCharacter_h_20_EVENT_PARMS
 
 
-#define FID_FPS_Source_FPS_Character_MasterCharacter_h_19_GENERATED_BODY_LEGACY \
+#define FID_FPS_Source_FPS_Character_MasterCharacter_h_20_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_FPS_Source_FPS_Character_MasterCharacter_h_19_SPARSE_DATA \
-	FID_FPS_Source_FPS_Character_MasterCharacter_h_19_RPC_WRAPPERS \
-	FID_FPS_Source_FPS_Character_MasterCharacter_h_19_CALLBACK_WRAPPERS \
-	FID_FPS_Source_FPS_Character_MasterCharacter_h_19_INCLASS \
-	FID_FPS_Source_FPS_Character_MasterCharacter_h_19_STANDARD_CONSTRUCTORS \
+	FID_FPS_Source_FPS_Character_MasterCharacter_h_20_SPARSE_DATA \
+	FID_FPS_Source_FPS_Character_MasterCharacter_h_20_RPC_WRAPPERS \
+	FID_FPS_Source_FPS_Character_MasterCharacter_h_20_CALLBACK_WRAPPERS \
+	FID_FPS_Source_FPS_Character_MasterCharacter_h_20_INCLASS \
+	FID_FPS_Source_FPS_Character_MasterCharacter_h_20_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define FID_FPS_Source_FPS_Character_MasterCharacter_h_19_GENERATED_BODY \
+#define FID_FPS_Source_FPS_Character_MasterCharacter_h_20_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_FPS_Source_FPS_Character_MasterCharacter_h_19_SPARSE_DATA \
-	FID_FPS_Source_FPS_Character_MasterCharacter_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_FPS_Source_FPS_Character_MasterCharacter_h_19_CALLBACK_WRAPPERS \
-	FID_FPS_Source_FPS_Character_MasterCharacter_h_19_INCLASS_NO_PURE_DECLS \
-	FID_FPS_Source_FPS_Character_MasterCharacter_h_19_ENHANCED_CONSTRUCTORS \
+	FID_FPS_Source_FPS_Character_MasterCharacter_h_20_SPARSE_DATA \
+	FID_FPS_Source_FPS_Character_MasterCharacter_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_FPS_Source_FPS_Character_MasterCharacter_h_20_CALLBACK_WRAPPERS \
+	FID_FPS_Source_FPS_Character_MasterCharacter_h_20_INCLASS_NO_PURE_DECLS \
+	FID_FPS_Source_FPS_Character_MasterCharacter_h_20_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

@@ -143,6 +143,11 @@ void AMasterGameMode::PlayerLeftGame(AMasterPlayerState* PlayerLeaving)
 	}
 }
 
+float AMasterGameMode::CalculateDamage(AController* Attacker, AController* Victim, float BaseDamage)
+{
+	return BaseDamage;
+}
+
 void AMasterGameMode::BeginPlay()
 {
 	Super::BeginPlay();
@@ -159,7 +164,7 @@ void AMasterGameMode::OnMatchStateSet()
 		AMasterPlayerController* MasterPlayerController = Cast<AMasterPlayerController>(*It);
 		if (MasterPlayerController)
 		{
-			MasterPlayerController->OnMatchStateSet(MatchState);
+			MasterPlayerController->OnMatchStateSet(MatchState, bTeamsMatch);
 		}
 	}
 }

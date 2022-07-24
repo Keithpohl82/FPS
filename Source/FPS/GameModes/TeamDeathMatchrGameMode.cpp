@@ -4,8 +4,34 @@
 #include "TeamDeathMatchrGameMode.h"
 #include "FPS/GameState/MasterGameState.h"
 #include "FPS/PlayerState/MasterPlayerState.h"
+#include "FPS/PlayerController/MasterPlayerController.h"
 #include "Kismet/GameplayStatics.h"
 
+
+ATeamDeathMatchrGameMode::ATeamDeathMatchrGameMode()
+{
+	bTeamsMatch = true;
+}
+
+void ATeamDeathMatchrGameMode::PlayerEliminated(AMasterCharacter* ElimmedCharacter, AMasterPlayerController* VictimController, AMasterPlayerController* KillerController)
+{
+	Super::PlayerEliminated(ElimmedCharacter,  VictimController,  KillerController);
+
+	AMasterGameState* MasterGameState = Cast<AMasterGameState>(UGameplayStatics::GetGameState(this));
+	AMasterPlayerState* AttackerPlayerState = KillerController ? Cast<AMasterPlayerState>(KillerController->PlayerState) : nullptr;
+
+	if (MasterGameState && AttackerPlayerState)
+	{
+		if (AttackerPlayerState->GetTeam() == ETeam::ET_BlueTeam)
+		{
+			MasterGameState->BlueTeamScores();
+		}
+		if (AttackerPlayerState->GetTeam() == ETeam::ET_RedTeam)
+		{
+			MasterGameState->RedTeamScores();
+		}
+	}
+}
 
 void ATeamDeathMatchrGameMode::PostLogin(APlayerController* NewPlayer)
 {
@@ -46,6 +72,23 @@ void ATeamDeathMatchrGameMode::Logout(AController* Exiting)
 			MasterGameState->BlueTeam.Remove(MPState);
 		}
 	}
+}
+
+float ATeamDeathMatchrGameMode::CalculateDamage(AController* Attacker, AController* Victim, float BaseDamage)
+{
+	AMasterPlayerState* AttackerPState = Attacker->GetPlayerState<AMasterPlayerState>();
+	AMasterPlayerState* VictimPState = Victim->GetPlayerState<AMasterPlayerState>();
+
+	if (AttackerPState == nullptr || VictimPState == nullptr) return BaseDamage;
+	if (VictimPState == AttackerPState)
+	{
+		return BaseDamage;
+	}
+	if (AttackerPState->GetTeam() == VictimPState->GetTeam())
+	{
+		return 0.f;
+	}
+	return BaseDamage;
 }
 
 void ATeamDeathMatchrGameMode::HandleMatchHasStarted()

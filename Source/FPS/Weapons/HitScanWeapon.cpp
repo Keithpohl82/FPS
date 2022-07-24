@@ -34,7 +34,7 @@ void AHitScanWeapon::Fire(const FVector& HitTarget)
 		{
 			
 			bool bCauseAuthDamage = !bUserServerSideRewind || OwnerPawn->IsLocallyControlled();
-			if (HasAuthority() && !bCauseAuthDamage)
+			if (HasAuthority() && bCauseAuthDamage)
 			{
 				const float DamageToCause = FireHit.BoneName.ToString() == FString("head") ? HeadshotDamage : Damage;
 	
@@ -99,7 +99,7 @@ void AHitScanWeapon::WeaponTraceHit(const FVector& TraceStart, const FVector& Hi
 
 		if (BeamParticle)
 		{
-			UParticleSystemComponent* Beam = UGameplayStatics::SpawnEmitterAtLocation(World, BeamParticle, TraceStart, FRotator::ZeroRotator);
+			UParticleSystemComponent* Beam = UGameplayStatics::SpawnEmitterAtLocation(World, BeamParticle, TraceStart, FRotator::ZeroRotator, true);
 			if (Beam)
 			{
 				Beam->SetVectorParameter(FName("Target"), BeamEnd);

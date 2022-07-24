@@ -16,11 +16,13 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_FPS_Source_FPS_PlayerState_MasterPlayerState_h_20_SPARSE_DATA
 #define FID_FPS_Source_FPS_PlayerState_MasterPlayerState_h_20_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execOnRep_Team); \
 	DECLARE_FUNCTION(execOnRep_Deaths);
 
 
 #define FID_FPS_Source_FPS_PlayerState_MasterPlayerState_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execOnRep_Team); \
 	DECLARE_FUNCTION(execOnRep_Deaths);
 
 

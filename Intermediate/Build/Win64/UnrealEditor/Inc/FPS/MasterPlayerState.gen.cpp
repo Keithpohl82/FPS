@@ -17,6 +17,13 @@ void EmptyLinkFunctionForGeneratedCodeMasterPlayerState() {}
 	FPS_API UClass* Z_Construct_UClass_AMasterPlayerController_NoRegister();
 	FPS_API UEnum* Z_Construct_UEnum_FPS_ETeam();
 // End Cross Module References
+	DEFINE_FUNCTION(AMasterPlayerState::execOnRep_Team)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->OnRep_Team();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AMasterPlayerState::execOnRep_Deaths)
 	{
 		P_FINISH;
@@ -29,6 +36,7 @@ void EmptyLinkFunctionForGeneratedCodeMasterPlayerState() {}
 		UClass* Class = AMasterPlayerState::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "OnRep_Deaths", &AMasterPlayerState::execOnRep_Deaths },
+			{ "OnRep_Team", &AMasterPlayerState::execOnRep_Team },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -51,6 +59,28 @@ void EmptyLinkFunctionForGeneratedCodeMasterPlayerState() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMasterPlayerState_OnRep_Deaths_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AMasterPlayerState_OnRep_Team_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMasterPlayerState_OnRep_Team_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "PlayerState/MasterPlayerState.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMasterPlayerState_OnRep_Team_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMasterPlayerState, nullptr, "OnRep_Team", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMasterPlayerState_OnRep_Team_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AMasterPlayerState_OnRep_Team_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AMasterPlayerState_OnRep_Team()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMasterPlayerState_OnRep_Team_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -93,6 +123,7 @@ void EmptyLinkFunctionForGeneratedCodeMasterPlayerState() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AMasterPlayerState_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AMasterPlayerState_OnRep_Deaths, "OnRep_Deaths" }, // 33450309
+		{ &Z_Construct_UFunction_AMasterPlayerState_OnRep_Team, "OnRep_Team" }, // 987782110
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterPlayerState_Statics::Class_MetaDataParams[] = {
@@ -127,7 +158,7 @@ void EmptyLinkFunctionForGeneratedCodeMasterPlayerState() {}
 		{ "ModuleRelativePath", "PlayerState/MasterPlayerState.h" },
 	};
 #endif
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AMasterPlayerState_Statics::NewProp_Team = { "Team", nullptr, (EPropertyFlags)0x0040000000000020, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterPlayerState, Team), Z_Construct_UEnum_FPS_ETeam, METADATA_PARAMS(Z_Construct_UClass_AMasterPlayerState_Statics::NewProp_Team_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterPlayerState_Statics::NewProp_Team_MetaData)) }; // 722182970
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AMasterPlayerState_Statics::NewProp_Team = { "Team", "OnRep_Team", (EPropertyFlags)0x0040000100000020, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterPlayerState, Team), Z_Construct_UEnum_FPS_ETeam, METADATA_PARAMS(Z_Construct_UClass_AMasterPlayerState_Statics::NewProp_Team_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterPlayerState_Statics::NewProp_Team_MetaData)) }; // 722182970
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AMasterPlayerState_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterPlayerState_Statics::NewProp_MasterCharacter,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterPlayerState_Statics::NewProp_MasterPlayerController,
@@ -183,9 +214,9 @@ void EmptyLinkFunctionForGeneratedCodeMasterPlayerState() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_PlayerState_MasterPlayerState_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMasterPlayerState, AMasterPlayerState::StaticClass, TEXT("AMasterPlayerState"), &Z_Registration_Info_UClass_AMasterPlayerState, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMasterPlayerState), 3887040482U) },
+		{ Z_Construct_UClass_AMasterPlayerState, AMasterPlayerState::StaticClass, TEXT("AMasterPlayerState"), &Z_Registration_Info_UClass_AMasterPlayerState, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMasterPlayerState), 4153075541U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_PlayerState_MasterPlayerState_h_303215819(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_PlayerState_MasterPlayerState_h_430704434(TEXT("/Script/FPS"),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_PlayerState_MasterPlayerState_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_PlayerState_MasterPlayerState_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

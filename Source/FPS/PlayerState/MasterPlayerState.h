@@ -37,12 +37,14 @@ private:
 	UPROPERTY(ReplicatedUsing = OnRep_Deaths)
 	int32 NumDeaths;
 
-	UPROPERTY(Replicated)
+	UPROPERTY(ReplicatedUsing = OnRep_Team)
 	ETeam Team = ETeam::ET_Spectator;
 
+	UFUNCTION()
+	void OnRep_Team();
 
 public:
 
 	FORCEINLINE ETeam GetTeam() const { return Team; }
-	FORCEINLINE void SetTeam(ETeam TeamToSet) { Team = TeamToSet; }
+	void SetTeam(ETeam TeamToSet);
 };

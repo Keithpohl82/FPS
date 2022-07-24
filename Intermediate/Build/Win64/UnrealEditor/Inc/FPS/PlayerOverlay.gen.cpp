@@ -57,6 +57,14 @@ void EmptyLinkFunctionForGeneratedCodePlayerOverlay() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_ScoreAmount;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_RedTeamScore_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_RedTeamScore;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_BlueTeamScore_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_BlueTeamScore;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_DeathsAmount_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_DeathsAmount;
@@ -144,6 +152,22 @@ void EmptyLinkFunctionForGeneratedCodePlayerOverlay() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_ScoreAmount = { "ScoreAmount", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerOverlay, ScoreAmount), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_ScoreAmount_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_ScoreAmount_MetaData)) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_RedTeamScore_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/PlayerOverlay.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_RedTeamScore = { "RedTeamScore", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerOverlay, RedTeamScore), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_RedTeamScore_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_RedTeamScore_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_BlueTeamScore_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/PlayerOverlay.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_BlueTeamScore = { "BlueTeamScore", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerOverlay, BlueTeamScore), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_BlueTeamScore_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_BlueTeamScore_MetaData)) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_DeathsAmount_MetaData[] = {
 		{ "BindWidget", "" },
 		{ "EditInline", "true" },
@@ -197,6 +221,8 @@ void EmptyLinkFunctionForGeneratedCodePlayerOverlay() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_ShieldBar,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_ShieldText,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_ScoreAmount,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_RedTeamScore,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_BlueTeamScore,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_DeathsAmount,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_WeaponAmmoAmount,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerOverlay_Statics::NewProp_CarriedAmmoAmount,
@@ -240,9 +266,9 @@ void EmptyLinkFunctionForGeneratedCodePlayerOverlay() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_UI_PlayerOverlay_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UPlayerOverlay, UPlayerOverlay::StaticClass, TEXT("UPlayerOverlay"), &Z_Registration_Info_UClass_UPlayerOverlay, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPlayerOverlay), 203113006U) },
+		{ Z_Construct_UClass_UPlayerOverlay, UPlayerOverlay::StaticClass, TEXT("UPlayerOverlay"), &Z_Registration_Info_UClass_UPlayerOverlay, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPlayerOverlay), 4212940586U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_UI_PlayerOverlay_h_1697850571(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_UI_PlayerOverlay_h_276725766(TEXT("/Script/FPS"),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_UI_PlayerOverlay_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_UI_PlayerOverlay_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

@@ -41,6 +41,12 @@ public:
 
 	void PlayerLeftGame(class AMasterPlayerState* PlayerLeaving);
 
+	virtual float CalculateDamage(AController* Attacker, AController* Victim, float BaseDamage);
+
+	UPROPERTY(EditAnywhere)
+	bool bFriendlyFireOn = false;
+
+	bool bTeamsMatch = false;
 protected:
 
 	virtual void BeginPlay() override;

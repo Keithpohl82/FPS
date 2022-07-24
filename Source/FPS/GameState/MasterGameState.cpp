@@ -3,6 +3,7 @@
 
 #include "MasterGameState.h"
 #include "Net/UnrealNetwork.h"
+#include "FPS/PlayerController/MasterPlayerController.h"
 #include "FPS/PlayerState/MasterPlayerState.h"
 
 void AMasterGameState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
@@ -33,12 +34,42 @@ void AMasterGameState::UpdateTopScore(class AMasterPlayerState* ScoringPlayer)
 	}
 }
 
+void AMasterGameState::RedTeamScores()
+{
+	++RedTeamScore;
+
+	AMasterPlayerController* MasterController = Cast<AMasterPlayerController>(GetWorld()->GetFirstPlayerController());
+	if (MasterController)
+	{
+		MasterController->SetHUDRedTeamScore(RedTeamScore);
+	}
+}
+
+void AMasterGameState::BlueTeamScores()
+{
+	++BlueTeamScore;
+
+	AMasterPlayerController* MasterController = Cast<AMasterPlayerController>(GetWorld()->GetFirstPlayerController());
+	if (MasterController)
+	{
+		MasterController->SetHUDBuleTeamScore(BlueTeamScore);
+	}
+}
+
 void AMasterGameState::OnRep_RedTeamScore()
 {
-	
+	AMasterPlayerController* MasterController = Cast<AMasterPlayerController>(GetWorld()->GetFirstPlayerController());
+	if (MasterController)
+	{
+		MasterController->SetHUDRedTeamScore(RedTeamScore);
+	}
 }
 
 void AMasterGameState::OnRep_BlueTeamScore()
 {
-
+	AMasterPlayerController* MasterController = Cast<AMasterPlayerController>(GetWorld()->GetFirstPlayerController());
+	if (MasterController)
+	{
+		MasterController->SetHUDBuleTeamScore(BlueTeamScore);
+	}
 }

@@ -29,6 +29,8 @@ public:
 		TEAMS
 	*/
 
+	void RedTeamScores();
+	void BlueTeamScores();
 	TArray<AMasterPlayerState*> RedTeam;
 	TArray<AMasterPlayerState*> BlueTeam;
 

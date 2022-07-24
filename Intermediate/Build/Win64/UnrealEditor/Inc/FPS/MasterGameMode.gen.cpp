@@ -40,6 +40,11 @@ void EmptyLinkFunctionForGeneratedCodeMasterGameMode() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_CooldownTime_MetaData[];
 #endif
 		static const UECodeGen_Private::FFloatPropertyParams NewProp_CooldownTime;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_bFriendlyFireOn_MetaData[];
+#endif
+		static void NewProp_bFriendlyFireOn_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bFriendlyFireOn;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -78,10 +83,22 @@ void EmptyLinkFunctionForGeneratedCodeMasterGameMode() {}
 	};
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMasterGameMode_Statics::NewProp_CooldownTime = { "CooldownTime", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterGameMode, CooldownTime), METADATA_PARAMS(Z_Construct_UClass_AMasterGameMode_Statics::NewProp_CooldownTime_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterGameMode_Statics::NewProp_CooldownTime_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterGameMode_Statics::NewProp_bFriendlyFireOn_MetaData[] = {
+		{ "Category", "MasterGameMode" },
+		{ "ModuleRelativePath", "GameModes/MasterGameMode.h" },
+	};
+#endif
+	void Z_Construct_UClass_AMasterGameMode_Statics::NewProp_bFriendlyFireOn_SetBit(void* Obj)
+	{
+		((AMasterGameMode*)Obj)->bFriendlyFireOn = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AMasterGameMode_Statics::NewProp_bFriendlyFireOn = { "bFriendlyFireOn", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AMasterGameMode), &Z_Construct_UClass_AMasterGameMode_Statics::NewProp_bFriendlyFireOn_SetBit, METADATA_PARAMS(Z_Construct_UClass_AMasterGameMode_Statics::NewProp_bFriendlyFireOn_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterGameMode_Statics::NewProp_bFriendlyFireOn_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AMasterGameMode_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterGameMode_Statics::NewProp_WarmupTime,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterGameMode_Statics::NewProp_MatchTime,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterGameMode_Statics::NewProp_CooldownTime,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterGameMode_Statics::NewProp_bFriendlyFireOn,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AMasterGameMode_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AMasterGameMode>::IsAbstract,
@@ -119,9 +136,9 @@ void EmptyLinkFunctionForGeneratedCodeMasterGameMode() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_GameModes_MasterGameMode_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMasterGameMode, AMasterGameMode::StaticClass, TEXT("AMasterGameMode"), &Z_Registration_Info_UClass_AMasterGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMasterGameMode), 2119262682U) },
+		{ Z_Construct_UClass_AMasterGameMode, AMasterGameMode::StaticClass, TEXT("AMasterGameMode"), &Z_Registration_Info_UClass_AMasterGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMasterGameMode), 3261183533U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_GameModes_MasterGameMode_h_1209383854(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_GameModes_MasterGameMode_h_3877273402(TEXT("/Script/FPS"),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_GameModes_MasterGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_GameModes_MasterGameMode_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

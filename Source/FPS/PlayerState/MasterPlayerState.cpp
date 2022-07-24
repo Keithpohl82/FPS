@@ -69,3 +69,23 @@ void AMasterPlayerState::AddToDeaths(int32 Deaths)
 		}
 	}
 }
+
+void AMasterPlayerState::SetTeam(ETeam TeamToSet)
+{
+	Team = TeamToSet;
+
+	AMasterCharacter* MasterChar = Cast<AMasterCharacter>(GetPawn());
+	if (MasterChar)
+	{
+		MasterChar->SetTeamColor(Team);
+	}
+}
+
+void AMasterPlayerState::OnRep_Team()
+{
+	AMasterCharacter* MasterChar = Cast<AMasterCharacter>(GetPawn());
+	if (MasterChar)
+	{
+		MasterChar->SetTeamColor(Team);
+	}
+}

@@ -27,6 +27,8 @@
             "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\playerstate.generated.h",
             "u:\\fps\\source\\fps\\typeclasses\\team.h",
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\masterplayerstate.generated.h",
+            "u:\\fps\\source\\fps\\playercontroller\\masterplayercontroller.h",
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\masterplayercontroller.generated.h",
             "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\kismet\\gameplaystatics.h",
             "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\kismet\\kismetsystemlibrary.h",
             "d:\\ue_5.0\\engine\\source\\runtime\\coreuobject\\public\\uobject\\propertyaccessutil.h",

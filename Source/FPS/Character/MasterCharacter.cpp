@@ -391,7 +391,7 @@ void AMasterCharacter::PollInit()
 		{
 			MasterPlayerState->AddToScore(0.f);
 			MasterPlayerState->AddToDeaths(0);
-
+			SetTeamColor(MasterPlayerState->GetTeam());
 			AMasterGameState* MasterGameState = Cast<AMasterGameState>(UGameplayStatics::GetGameState(this));
 
 			if (MasterGameState && MasterGameState->TopScoringPlayers.Contains(MasterPlayerState))
@@ -480,8 +480,12 @@ void AMasterCharacter::SimProxyTurn()
 
 void AMasterCharacter::ReceivedDamage(AActor* DamagedActor, float Damage, const UDamageType* DamageType, class AController* InstigatorController, AActor* DamageCauser)
 {
-	if (bElimmed) return;
 
+	MasterGameMode = MasterGameMode == nullptr ? GetWorld()->GetAuthGameMode<AMasterGameMode>() : MasterGameMode;
+
+	if (bElimmed || MasterGameMode == nullptr) return;
+
+	Damage = MasterGameMode->CalculateDamage(InstigatorController, Controller, Damage);
 	float DamageToHealth = Damage;
 
 	if (Shield > 0.f)
@@ -505,7 +509,6 @@ void AMasterCharacter::ReceivedDamage(AActor* DamagedActor, float Damage, const 
 	PlayHitReactMontage();
 	if (Health == 0.f)
 	{
-		AMasterGameMode* MasterGameMode = GetWorld()->GetAuthGameMode<AMasterGameMode>();
 		if (MasterGameMode)
 		{
 			MasterPlayercontroller = MasterPlayercontroller == nullptr ? Cast<AMasterPlayerController>(Controller) : MasterPlayercontroller;
@@ -672,7 +675,7 @@ void AMasterCharacter::Destroyed()
 		ElimBotComponent->DestroyComponent();
 	}
 
-	AMasterGameMode* MasterGameMode = Cast<AMasterGameMode>(UGameplayStatics::GetGameMode(this));
+	MasterGameMode = MasterGameMode == nullptr ? GetWorld()->GetAuthGameMode<AMasterGameMode>() : MasterGameMode;
 	bool bMatchNotInProgress = MasterGameMode && MasterGameMode->GetMatchState() != MatchState::InProgress;
 
 	if (Combat && Combat->EquippedWeapon && bMatchNotInProgress)
@@ -872,7 +875,7 @@ void AMasterCharacter::DropOrDestroyWeapons()
 
 void AMasterCharacter::SpawnDefaultWeapon()
 {
-	AMasterGameMode* MasterGameMode = Cast<AMasterGameMode>(UGameplayStatics::GetGameMode(this));
+	MasterGameMode = MasterGameMode == nullptr ? GetWorld()->GetAuthGameMode<AMasterGameMode>() : MasterGameMode;
 	UWorld* World = GetWorld();
 	if (MasterGameMode && World && !bElimmed && DefaultWeaponClass)
 	{
@@ -911,6 +914,52 @@ void AMasterCharacter::MulticastLostTheLead_Implementation()
 	if (CrownComponent)
 	{
 		CrownComponent->DestroyComponent();
+	}
+}
+
+void AMasterCharacter::SetTeamColor(ETeam Team)
+{
+	if(GetMesh() == nullptr || DefaultMaterial1 == nullptr || DefaultMaterial2 == nullptr) return;
+	
+	switch (Team)
+	{
+	case ETeam::ET_RedTeam:
+
+		GetMesh()->SetMaterial(0, RedMaterial1);
+		GetMesh()->SetMaterial(1, RedMaterial2);
+		DissolveMaterialInstance = RedDissolveMatInst;
+		break;
+
+	case ETeam::ET_BlueTeam:
+		GetMesh()->SetMaterial(0, BlueMaterial1);
+		GetMesh()->SetMaterial(1, BlueMaterial2);
+		DissolveMaterialInstance = BlueDissolveMatInst;
+
+		break;
+	case ETeam::ET_GreenTeam:
+		GetMesh()->SetMaterial(0, GreenMaterial1);
+		GetMesh()->SetMaterial(1, GreenMaterial2);
+		DissolveMaterialInstance = GreenDissolveMatInst;
+		break;
+	case ETeam::ET_BlackTeam:
+		GetMesh()->SetMaterial(0, BlackMaterial1);
+		GetMesh()->SetMaterial(1, BlackMaterial2);
+		DissolveMaterialInstance = BlackDissolveMatInst;
+		break;
+	case ETeam::ET_OrangeTeam:
+		break;
+	case ETeam::ET_Spectator:
+
+		GetMesh()->SetMaterial(0, DefaultMaterial1);
+		GetMesh()->SetMaterial(1, DefaultMaterial2);
+		DissolveMaterialInstance = DefaultDissolveMatInst;
+		break;
+
+	case ETeam::ET_MAX:
+
+		break;
+	default:
+		break;
 	}
 }
 
@@ -977,7 +1026,7 @@ void AMasterCharacter::OnRep_Shield(float LastShield)
 
 void AMasterCharacter::RespawnTimerFinished()
 {
-	AMasterGameMode* MasterGameMode = GetWorld()->GetAuthGameMode<AMasterGameMode>();
+	MasterGameMode = MasterGameMode == nullptr ? GetWorld()->GetAuthGameMode<AMasterGameMode>() : MasterGameMode;
 	if (MasterGameMode && !bLeftGame)
 	{
 		MasterGameMode->RequestRespawn(this, Controller);
@@ -990,7 +1039,7 @@ void AMasterCharacter::RespawnTimerFinished()
 
 void AMasterCharacter::ServerLeaveGame_Implementation()
 {
-	AMasterGameMode* MasterGameMode = GetWorld()->GetAuthGameMode<AMasterGameMode>();
+	MasterGameMode = MasterGameMode == nullptr ? GetWorld()->GetAuthGameMode<AMasterGameMode>() : MasterGameMode;
 	MasterPlayerState = MasterPlayerState == nullptr ? GetPlayerState<AMasterPlayerState>() : MasterPlayerState;
 	if (MasterGameMode && MasterPlayerState)
 	{

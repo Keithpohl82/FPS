@@ -38,6 +38,7 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 	NIAGARA_API UClass* Z_Construct_UClass_UNiagaraComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
+	FPS_API UClass* Z_Construct_UClass_AMasterGameMode_NoRegister();
 	FPS_API UClass* Z_Construct_UClass_UInteractWithCrosshairsInterface_NoRegister();
 // End Cross Module References
 	struct Z_Construct_UDelegateFunction_FPS_OnLeftGame__DelegateSignature_Statics
@@ -651,6 +652,66 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_DissolveMaterialInstance;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_RedMaterial1_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_RedMaterial1;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_RedMaterial2_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_RedMaterial2;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_BlueMaterial1_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_BlueMaterial1;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_BlueMaterial2_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_BlueMaterial2;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_GreenMaterial1_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_GreenMaterial1;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_GreenMaterial2_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_GreenMaterial2;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_BlackMaterial1_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_BlackMaterial1;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_BlackMaterial2_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_BlackMaterial2;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_DefaultMaterial1_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_DefaultMaterial1;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_DefaultMaterial2_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_DefaultMaterial2;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_RedDissolveMatInst_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_RedDissolveMatInst;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_BlueDissolveMatInst_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_BlueDissolveMatInst;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_BlackDissolveMatInst_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_BlackDissolveMatInst;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_GreenDissolveMatInst_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_GreenDissolveMatInst;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_DefaultDissolveMatInst_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_DefaultDissolveMatInst;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_ElimBotEffect_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_ElimBotEffect;
@@ -682,6 +743,10 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_DefaultWeaponClass_MetaData[];
 #endif
 		static const UECodeGen_Private::FClassPropertyParams NewProp_DefaultWeaponClass;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_MasterGameMode_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_MasterGameMode;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_Head_MetaData[];
 #endif
@@ -975,7 +1040,114 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 		{ "ModuleRelativePath", "Character/MasterCharacter.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMasterCharacter_Statics::NewProp_DissolveMaterialInstance = { "DissolveMaterialInstance", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterCharacter, DissolveMaterialInstance), Z_Construct_UClass_UMaterialInstance_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_DissolveMaterialInstance_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_DissolveMaterialInstance_MetaData)) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMasterCharacter_Statics::NewProp_DissolveMaterialInstance = { "DissolveMaterialInstance", nullptr, (EPropertyFlags)0x0040000000020001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterCharacter, DissolveMaterialInstance), Z_Construct_UClass_UMaterialInstance_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_DissolveMaterialInstance_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_DissolveMaterialInstance_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterCharacter_Statics::NewProp_RedMaterial1_MetaData[] = {
+		{ "Category", "Teams" },
+		{ "Comment", "/*\n\x09\x09Team Colors\n\x09*/" },
+		{ "ModuleRelativePath", "Character/MasterCharacter.h" },
+		{ "ToolTip", "Team Colors" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMasterCharacter_Statics::NewProp_RedMaterial1 = { "RedMaterial1", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterCharacter, RedMaterial1), Z_Construct_UClass_UMaterialInstance_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_RedMaterial1_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_RedMaterial1_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterCharacter_Statics::NewProp_RedMaterial2_MetaData[] = {
+		{ "Category", "Teams" },
+		{ "ModuleRelativePath", "Character/MasterCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMasterCharacter_Statics::NewProp_RedMaterial2 = { "RedMaterial2", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterCharacter, RedMaterial2), Z_Construct_UClass_UMaterialInstance_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_RedMaterial2_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_RedMaterial2_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterCharacter_Statics::NewProp_BlueMaterial1_MetaData[] = {
+		{ "Category", "Teams" },
+		{ "ModuleRelativePath", "Character/MasterCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMasterCharacter_Statics::NewProp_BlueMaterial1 = { "BlueMaterial1", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterCharacter, BlueMaterial1), Z_Construct_UClass_UMaterialInstance_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_BlueMaterial1_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_BlueMaterial1_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterCharacter_Statics::NewProp_BlueMaterial2_MetaData[] = {
+		{ "Category", "Teams" },
+		{ "ModuleRelativePath", "Character/MasterCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMasterCharacter_Statics::NewProp_BlueMaterial2 = { "BlueMaterial2", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterCharacter, BlueMaterial2), Z_Construct_UClass_UMaterialInstance_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_BlueMaterial2_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_BlueMaterial2_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterCharacter_Statics::NewProp_GreenMaterial1_MetaData[] = {
+		{ "Category", "Teams" },
+		{ "ModuleRelativePath", "Character/MasterCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMasterCharacter_Statics::NewProp_GreenMaterial1 = { "GreenMaterial1", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterCharacter, GreenMaterial1), Z_Construct_UClass_UMaterialInstance_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_GreenMaterial1_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_GreenMaterial1_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterCharacter_Statics::NewProp_GreenMaterial2_MetaData[] = {
+		{ "Category", "Teams" },
+		{ "ModuleRelativePath", "Character/MasterCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMasterCharacter_Statics::NewProp_GreenMaterial2 = { "GreenMaterial2", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterCharacter, GreenMaterial2), Z_Construct_UClass_UMaterialInstance_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_GreenMaterial2_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_GreenMaterial2_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterCharacter_Statics::NewProp_BlackMaterial1_MetaData[] = {
+		{ "Category", "Teams" },
+		{ "ModuleRelativePath", "Character/MasterCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMasterCharacter_Statics::NewProp_BlackMaterial1 = { "BlackMaterial1", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterCharacter, BlackMaterial1), Z_Construct_UClass_UMaterialInstance_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_BlackMaterial1_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_BlackMaterial1_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterCharacter_Statics::NewProp_BlackMaterial2_MetaData[] = {
+		{ "Category", "Teams" },
+		{ "ModuleRelativePath", "Character/MasterCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMasterCharacter_Statics::NewProp_BlackMaterial2 = { "BlackMaterial2", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterCharacter, BlackMaterial2), Z_Construct_UClass_UMaterialInstance_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_BlackMaterial2_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_BlackMaterial2_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterCharacter_Statics::NewProp_DefaultMaterial1_MetaData[] = {
+		{ "Category", "Teams" },
+		{ "ModuleRelativePath", "Character/MasterCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMasterCharacter_Statics::NewProp_DefaultMaterial1 = { "DefaultMaterial1", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterCharacter, DefaultMaterial1), Z_Construct_UClass_UMaterialInstance_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_DefaultMaterial1_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_DefaultMaterial1_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterCharacter_Statics::NewProp_DefaultMaterial2_MetaData[] = {
+		{ "Category", "Teams" },
+		{ "ModuleRelativePath", "Character/MasterCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMasterCharacter_Statics::NewProp_DefaultMaterial2 = { "DefaultMaterial2", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterCharacter, DefaultMaterial2), Z_Construct_UClass_UMaterialInstance_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_DefaultMaterial2_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_DefaultMaterial2_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterCharacter_Statics::NewProp_RedDissolveMatInst_MetaData[] = {
+		{ "Category", "Elim" },
+		{ "ModuleRelativePath", "Character/MasterCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMasterCharacter_Statics::NewProp_RedDissolveMatInst = { "RedDissolveMatInst", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterCharacter, RedDissolveMatInst), Z_Construct_UClass_UMaterialInstance_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_RedDissolveMatInst_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_RedDissolveMatInst_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterCharacter_Statics::NewProp_BlueDissolveMatInst_MetaData[] = {
+		{ "Category", "Elim" },
+		{ "ModuleRelativePath", "Character/MasterCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMasterCharacter_Statics::NewProp_BlueDissolveMatInst = { "BlueDissolveMatInst", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterCharacter, BlueDissolveMatInst), Z_Construct_UClass_UMaterialInstance_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_BlueDissolveMatInst_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_BlueDissolveMatInst_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterCharacter_Statics::NewProp_BlackDissolveMatInst_MetaData[] = {
+		{ "Category", "Elim" },
+		{ "ModuleRelativePath", "Character/MasterCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMasterCharacter_Statics::NewProp_BlackDissolveMatInst = { "BlackDissolveMatInst", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterCharacter, BlackDissolveMatInst), Z_Construct_UClass_UMaterialInstance_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_BlackDissolveMatInst_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_BlackDissolveMatInst_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterCharacter_Statics::NewProp_GreenDissolveMatInst_MetaData[] = {
+		{ "Category", "Elim" },
+		{ "ModuleRelativePath", "Character/MasterCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMasterCharacter_Statics::NewProp_GreenDissolveMatInst = { "GreenDissolveMatInst", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterCharacter, GreenDissolveMatInst), Z_Construct_UClass_UMaterialInstance_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_GreenDissolveMatInst_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_GreenDissolveMatInst_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterCharacter_Statics::NewProp_DefaultDissolveMatInst_MetaData[] = {
+		{ "Category", "Elim" },
+		{ "ModuleRelativePath", "Character/MasterCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMasterCharacter_Statics::NewProp_DefaultDissolveMatInst = { "DefaultDissolveMatInst", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterCharacter, DefaultDissolveMatInst), Z_Construct_UClass_UMaterialInstance_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_DefaultDissolveMatInst_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_DefaultDissolveMatInst_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterCharacter_Statics::NewProp_ElimBotEffect_MetaData[] = {
 		{ "Category", "MasterCharacter" },
@@ -1039,6 +1211,12 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 	};
 #endif
 	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AMasterCharacter_Statics::NewProp_DefaultWeaponClass = { "DefaultWeaponClass", nullptr, (EPropertyFlags)0x0044000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterCharacter, DefaultWeaponClass), Z_Construct_UClass_AWeaponBase_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_DefaultWeaponClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_DefaultWeaponClass_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterCharacter_Statics::NewProp_MasterGameMode_MetaData[] = {
+		{ "ModuleRelativePath", "Character/MasterCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMasterCharacter_Statics::NewProp_MasterGameMode = { "MasterGameMode", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterCharacter, MasterGameMode), Z_Construct_UClass_AMasterGameMode_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_MasterGameMode_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_MasterGameMode_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterCharacter_Statics::NewProp_Head_MetaData[] = {
 		{ "Category", "MasterCharacter" },
@@ -1198,6 +1376,21 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_DissolveCurve,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_DynamicDissolveMaterialInstance,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_DissolveMaterialInstance,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_RedMaterial1,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_RedMaterial2,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_BlueMaterial1,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_BlueMaterial2,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_GreenMaterial1,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_GreenMaterial2,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_BlackMaterial1,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_BlackMaterial2,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_DefaultMaterial1,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_DefaultMaterial2,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_RedDissolveMatInst,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_BlueDissolveMatInst,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_BlackDissolveMatInst,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_GreenDissolveMatInst,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_DefaultDissolveMatInst,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_ElimBotEffect,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_ElimBotComponent,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_ElimBotSound,
@@ -1206,6 +1399,7 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_CrownComponent,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_AttachedGrenade,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_DefaultWeaponClass,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_MasterGameMode,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_Head,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_Pelvis,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_Spine_02,
@@ -1278,9 +1472,9 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMasterCharacter, AMasterCharacter::StaticClass, TEXT("AMasterCharacter"), &Z_Registration_Info_UClass_AMasterCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMasterCharacter), 2101607032U) },
+		{ Z_Construct_UClass_AMasterCharacter, AMasterCharacter::StaticClass, TEXT("AMasterCharacter"), &Z_Registration_Info_UClass_AMasterCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMasterCharacter), 831365206U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_3861813621(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_373669952(TEXT("/Script/FPS"),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

@@ -38,6 +38,7 @@ static inline void FHighPingDelegate_DelegateWrapper(const FMulticastScriptDeleg
  \
 	DECLARE_FUNCTION(execServerReportPingStatus); \
 	DECLARE_FUNCTION(execOnRep_MatchState); \
+	DECLARE_FUNCTION(execOnRep_ShowTeamScores); \
 	DECLARE_FUNCTION(execClientJoinMidGame); \
 	DECLARE_FUNCTION(execServerCheckMatchState); \
 	DECLARE_FUNCTION(execClientReportServerTime); \
@@ -55,6 +56,7 @@ static inline void FHighPingDelegate_DelegateWrapper(const FMulticastScriptDeleg
  \
 	DECLARE_FUNCTION(execServerReportPingStatus); \
 	DECLARE_FUNCTION(execOnRep_MatchState); \
+	DECLARE_FUNCTION(execOnRep_ShowTeamScores); \
 	DECLARE_FUNCTION(execClientJoinMidGame); \
 	DECLARE_FUNCTION(execServerCheckMatchState); \
 	DECLARE_FUNCTION(execClientReportServerTime); \
@@ -102,7 +104,8 @@ public: \
 	enum class ENetFields_Private : uint16 \
 	{ \
 		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
-		MatchState=NETFIELD_REP_START, \
+		bShowTeamScores=NETFIELD_REP_START, \
+		MatchState, \
 		NETFIELD_REP_END=MatchState	}; \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
@@ -117,7 +120,8 @@ public: \
 	enum class ENetFields_Private : uint16 \
 	{ \
 		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
-		MatchState=NETFIELD_REP_START, \
+		bShowTeamScores=NETFIELD_REP_START, \
+		MatchState, \
 		NETFIELD_REP_END=MatchState	}; \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 

@@ -8,6 +8,7 @@
 #include "FPS/TypeClasses/CombatState.h"
 #include "FPS/TypeClasses/TurningInPlace.h"
 #include "FPS/Interfaces/InteractWithCrosshairsInterface.h"
+#include "FPS/TypeClasses/Team.h"
 
 #include "MasterCharacter.generated.h"
 
@@ -72,6 +73,8 @@ public:
 
 	UFUNCTION(NetMulticast, Reliable)
 	void MulticastLostTheLead();
+
+	void SetTeamColor(ETeam Team);
 
 private:
 	
@@ -202,8 +205,57 @@ private:
 	UPROPERTY(VisibleAnywhere, Category = Elim)
 	UMaterialInstanceDynamic* DynamicDissolveMaterialInstance;
 
-	UPROPERTY(EditAnywhere, Category = Elim)
+	UPROPERTY(VisibleAnywhere, Category = Elim)
 	UMaterialInstance* DissolveMaterialInstance;
+
+	/*
+		Team Colors
+	*/
+
+	UPROPERTY(EditAnywhere, Category = Teams)
+	UMaterialInstance* RedMaterial1;
+
+	UPROPERTY(EditAnywhere, Category = Teams)
+	UMaterialInstance* RedMaterial2;
+
+	UPROPERTY(EditAnywhere, Category = Teams)
+	UMaterialInstance* BlueMaterial1;
+
+	UPROPERTY(EditAnywhere, Category = Teams)
+	UMaterialInstance* BlueMaterial2;
+
+	UPROPERTY(EditAnywhere, Category = Teams)
+	UMaterialInstance* GreenMaterial1;
+
+	UPROPERTY(EditAnywhere, Category = Teams)
+	UMaterialInstance* GreenMaterial2;
+
+	UPROPERTY(EditAnywhere, Category = Teams)
+	UMaterialInstance* BlackMaterial1;
+
+	UPROPERTY(EditAnywhere, Category = Teams)
+	UMaterialInstance* BlackMaterial2;
+
+	UPROPERTY(EditAnywhere, Category = Teams)
+	UMaterialInstance* DefaultMaterial1;
+
+	UPROPERTY(EditAnywhere, Category = Teams)
+	UMaterialInstance* DefaultMaterial2;
+
+	UPROPERTY(EditAnywhere, Category = Elim)
+	UMaterialInstance* RedDissolveMatInst;
+
+	UPROPERTY(EditAnywhere, Category = Elim)
+	UMaterialInstance* BlueDissolveMatInst;
+
+	UPROPERTY(EditAnywhere, Category = Elim)
+	UMaterialInstance* BlackDissolveMatInst;
+
+	UPROPERTY(EditAnywhere, Category = Elim)
+	UMaterialInstance* GreenDissolveMatInst;
+
+	UPROPERTY(EditAnywhere, Category = Elim)
+	UMaterialInstance* DefaultDissolveMatInst;
 
 	/*
 	 *Elim bot. Does not need to be used if wanted
@@ -242,6 +294,9 @@ private:
 
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AWeaponBase> DefaultWeaponClass;
+
+	UPROPERTY()
+	class AMasterGameMode* MasterGameMode;
 	
 protected:
 	
@@ -261,8 +316,8 @@ protected:
 	void FireButtonReleased();
 	void GrenadeButtonPressed();
 	void RotateInPlace(float DeltaTime);
-
 	void HideCameraIfCharacterClose();
+
 	// Poll for any relevent classes and init our hud
 	void PollInit();
 	void CalculateAO_Pitch();

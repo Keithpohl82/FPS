@@ -36,9 +36,14 @@ public:
 	virtual float GetServerTime();
 	virtual void ReceivedPlayer() override;
 
-	void HandleMatchHasStarted();
-	void OnMatchStateSet(FName State);
+	void HandleMatchHasStarted(bool bTeamsMatch = false);
+	void OnMatchStateSet(FName State, bool bTeamsMatch = false);
 	void HandleCooldown();
+
+	void HideTeamScores();
+	void InitTeamScores();
+	void SetHUDRedTeamScore(int32 RedScore);
+	void SetHUDBuleTeamScore(int32 BlueScore);
 
 	float SingleTripTime = 0.f;
 
@@ -85,6 +90,12 @@ protected:
 
 	UFUNCTION(Client, Reliable)
 	void ClientJoinMidGame(FName StateOfMatch, float Warmup, float Match, float StartingTime, float Cooldown);
+
+	UPROPERTY(ReplicatedUsing = OnRep_ShowTeamScores)
+	bool bShowTeamScores = false;
+
+	UFUNCTION()
+	void OnRep_ShowTeamScores();
 
 private:
 
