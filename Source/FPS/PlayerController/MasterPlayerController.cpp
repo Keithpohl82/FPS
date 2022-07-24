@@ -15,6 +15,7 @@
 #include "FPS/Components/CombatComponent.h"
 #include "FPS/GameState/MasterGameState.h"
 #include "FPS/PlayerState/MasterPlayerState.h"
+#include "FPS/TypeClasses/Announcement.h"
 #include "Components/Image.h"
 #include "FPS/UI/InGameMenu.h"
 
@@ -186,7 +187,7 @@ void AMasterPlayerController::HandleCooldown()
 		if (bHUDValid)
 		{
 			HUD->Announcement->SetVisibility(ESlateVisibility::Visible);
-			FString AnnouncementText("New Match Starts In :");
+			FString AnnouncementText = Announcement::NewMatchStartsIn;
 			HUD->Announcement->AnnouncementText->SetText(FText::FromString(AnnouncementText));
 
 			AMasterGameState* MasterGameState = Cast<AMasterGameState>(UGameplayStatics::GetGameState(this));
@@ -194,27 +195,8 @@ void AMasterPlayerController::HandleCooldown()
 			if (MasterGameState && MasterPlayerState)
 			{
 				TArray<AMasterPlayerState*> TopPlayers = MasterGameState->TopScoringPlayers;
-				FString InfoTextString;
-				if (TopPlayers.Num() == 0)
-				{
-				InfoTextString = FString("No Winner!");
-				}
-				else if (TopPlayers.Num() == 1 && TopPlayers[0] == MasterPlayerState)
-				{
-					InfoTextString = FString("You Are the Winner!");
-				}
-				else if (TopPlayers.Num() == 1)
-				{
-					InfoTextString = FString::Printf(TEXT("Winner: \n%s"), *TopPlayers[0]->GetPlayerName());
-				}
-				else if (TopPlayers.Num() > 1)
-				{
-					InfoTextString = FString("Players tied for the win:\n");
-					for (auto TiedPlayer : TopPlayers)
-					{
-						InfoTextString.Append(FString::Printf(TEXT("%s\n"), *TiedPlayer->GetPlayerName()));
-					}
-				}
+
+				FString InfoTextString = bShowTeamScores ? GetTeamsInfoText(MasterGameState) : GetInfoText(TopPlayers);
 
 				HUD->Announcement->InfoText->SetText(FText::FromString(InfoTextString));
 			}
@@ -226,6 +208,78 @@ void AMasterPlayerController::HandleCooldown()
 		MasterCharacter->bDisableGameplay = true;
 		MasterCharacter->GetCombat()->FireButtonPressed(false);
 	}
+}
+
+FString AMasterPlayerController::GetInfoText(const TArray<class AMasterPlayerState*>& Players)
+{
+	AMasterPlayerState* MasterPlayerState = GetPlayerState<AMasterPlayerState>();
+	if (MasterPlayerState == nullptr) return FString();
+	FString InfoTextString;
+
+	if (Players.Num() == 0)
+	{
+		InfoTextString = Announcement::ThereIsNoWinner;
+	}
+	else if (Players.Num() == 1 && Players[0] == MasterPlayerState)
+	{
+		InfoTextString = Announcement::YouAreTheWinner;
+	}
+	else if (Players.Num() == 1)
+	{
+		InfoTextString = FString::Printf(TEXT("Winner: \n%s"), *Players[0]->GetPlayerName());
+	}
+	else if (Players.Num() > 1)
+	{
+		InfoTextString = Announcement::PlayersTiedForTheWin;
+		InfoTextString.Append(FString("\n"));
+		for (auto TiedPlayer : Players)
+		{
+			InfoTextString.Append(FString::Printf(TEXT("%s\n"), *TiedPlayer->GetPlayerName()));
+		}
+	}
+	return InfoTextString;
+}
+
+FString AMasterPlayerController::GetTeamsInfoText(class AMasterGameState* MasterGameState)
+{
+	if (MasterGameState == nullptr) return FString();
+	FString InfoTextString;
+
+	const int32 RedTeamScore = MasterGameState->RedTeamScore;
+	const int32 BlueTeamScore = MasterGameState->BlueTeamScore;
+
+	if (RedTeamScore == 0 && BlueTeamScore == 0)
+	{
+		InfoTextString = Announcement::ThereIsNoWinner;
+	}
+	else if ( RedTeamScore == BlueTeamScore)
+	{
+		InfoTextString = FString::Printf(TEXT("%s\n"), *Announcement::TeamsTied);
+		InfoTextString.Append(Announcement::RedTeam);
+		InfoTextString.Append(TEXT("\n"));
+		InfoTextString.Append(Announcement::BlueTeam);
+		InfoTextString.Append(TEXT("\n"));
+	}
+	else if (RedTeamScore > BlueTeamScore)
+	{
+		InfoTextString = Announcement::RedTeamWins;
+		InfoTextString.Append(TEXT("\n"));
+		InfoTextString.Append(FString::Printf(TEXT("%s: %d"), *Announcement::RedTeam, RedTeamScore));
+		InfoTextString.Append(TEXT("\n"));
+		InfoTextString.Append(FString::Printf(TEXT("%s: %d"), *Announcement::BlueTeam, BlueTeamScore));
+	}
+	else if (BlueTeamScore > RedTeamScore)
+	{
+		InfoTextString = Announcement::BlueTeamWins;
+		InfoTextString.Append(TEXT("\n"));
+		InfoTextString.Append(FString::Printf(TEXT("%s: %d"), *Announcement::BlueTeam, BlueTeamScore));
+		InfoTextString.Append(TEXT("\n"));
+		InfoTextString.Append(FString::Printf(TEXT("%s: %d"), *Announcement::RedTeam, RedTeamScore));
+	}
+
+
+	return InfoTextString;
+	
 }
 
 void AMasterPlayerController::HideTeamScores()

@@ -350,4 +350,9 @@
       <Filter>Source\FPS\Weapons\Projectiles</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\FPS\TypeClasses\Announcement.h">
+      <Filter>Source\FPS\TypeClasses</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>

@@ -18,8 +18,6 @@ class FPS_API AMasterPlayerController : public APlayerController
 
 public:
 
-	
-
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
 	void SetHUDHealth(float Health, float MaxHealth);
@@ -96,6 +94,9 @@ protected:
 
 	UFUNCTION()
 	void OnRep_ShowTeamScores();
+
+	FString GetInfoText(const TArray<class AMasterPlayerState*>& Players);
+	FString GetTeamsInfoText(class AMasterGameState* MasterGameState);
 
 private:
 
