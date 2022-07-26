@@ -74,23 +74,6 @@ void ATeamDeathMatchrGameMode::Logout(AController* Exiting)
 	}
 }
 
-float ATeamDeathMatchrGameMode::CalculateDamage(AController* Attacker, AController* Victim, float BaseDamage)
-{
-	AMasterPlayerState* AttackerPState = Attacker->GetPlayerState<AMasterPlayerState>();
-	AMasterPlayerState* VictimPState = Victim->GetPlayerState<AMasterPlayerState>();
-
-	if (AttackerPState == nullptr || VictimPState == nullptr) return BaseDamage;
-	if (VictimPState == AttackerPState)
-	{
-		return BaseDamage;
-	}
-	if (AttackerPState->GetTeam() == VictimPState->GetTeam())
-	{
-		return 0.f;
-	}
-	return BaseDamage;
-}
-
 void ATeamDeathMatchrGameMode::HandleMatchHasStarted()
 {
 	Super::HandleMatchHasStarted();
@@ -117,3 +100,22 @@ void ATeamDeathMatchrGameMode::HandleMatchHasStarted()
 		}
 	}
 }
+
+float ATeamDeathMatchrGameMode::CalculateDamage(AController* Attacker, AController* Victim, float BaseDamage)
+{
+	AMasterPlayerState* AttackerPState = Attacker->GetPlayerState<AMasterPlayerState>();
+	AMasterPlayerState* VictimPState = Victim->GetPlayerState<AMasterPlayerState>();
+
+	if (AttackerPState == nullptr || VictimPState == nullptr) return BaseDamage;
+	if (VictimPState == AttackerPState)
+	{
+		return BaseDamage;
+	}
+	if (AttackerPState->GetTeam() == VictimPState->GetTeam())
+	{
+		return 0.f;
+	}
+	return BaseDamage;
+}
+
+

@@ -32,4 +32,3 @@
 #include "U:/FPS/Source/FPS/Weapons/ProjectileWeapon.cpp"
 #include "U:/FPS/Source/FPS/Weapons/RocketMovementComponent.cpp"
 #include "U:/FPS/Source/FPS/Weapons/Shotgun.cpp"
-#include "U:/FPS/Source/FPS/Weapons/WeaponBase.cpp"

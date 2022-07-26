@@ -8,6 +8,8 @@
 /NODEFAULTLIB
 "U:\FPS\Intermediate\Build\Win64\FPSEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
 "U:\FPS\Intermediate\Build\Win64\UnrealEditor\Development\FPS\Module.FPS.cpp.obj"
+"U:\FPS\Intermediate\Build\Win64\UnrealEditor\Development\FPS\TeamDeathMatchrGameMode.cpp.obj"
+"U:\FPS\Intermediate\Build\Win64\UnrealEditor\Development\FPS\WeaponBase.cpp.obj"
 "U:\FPS\Intermediate\Build\Win64\UnrealEditor\Development\FPS\Module.FPS.gen.cpp.obj"
 "U:\FPS\Intermediate\Build\Win64\UnrealEditor\Development\FPS\Default.rc2.res"
 /OUT:"U:\FPS\Intermediate\Build\Win64\UnrealEditor\Development\FPS\UnrealEditor-FPS.lib"

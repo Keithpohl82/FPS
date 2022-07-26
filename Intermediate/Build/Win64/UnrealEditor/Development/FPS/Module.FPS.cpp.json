@@ -46,6 +46,7 @@
             "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\timelinecomponent.generated.h",
             "u:\\fps\\source\\fps\\interfaces\\interactwithcrosshairsinterface.h",
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\interactwithcrosshairsinterface.generated.h",
+            "u:\\fps\\source\\fps\\typeclasses\\team.h",
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\mastercharacter.generated.h",
             "u:\\fps\\source\\fps\\character\\mastercharacter.cpp",
             "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\camera\\cameracomponent.h",
@@ -431,6 +432,7 @@
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\playeroverlay.generated.h",
             "u:\\fps\\source\\fps\\ui\\announcement.h",
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\announcement.generated.h",
+            "u:\\fps\\source\\fps\\typeclasses\\announcement.h",
             "d:\\ue_5.0\\engine\\source\\runtime\\umg\\public\\components\\image.h",
             "d:\\ue_5.0\\engine\\source\\runtime\\engine\\public\\slate\\slatetextureatlasinterface.h",
             "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\slatetextureatlasinterface.generated.h",
@@ -507,10 +509,7 @@
             "u:\\fps\\source\\fps\\weapons\\projectileweapon.h",
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\projectileweapon.generated.h",
             "u:\\fps\\source\\fps\\weapons\\rocketmovementcomponent.cpp",
-            "u:\\fps\\source\\fps\\weapons\\shotgun.cpp",
-            "u:\\fps\\source\\fps\\weapons\\weaponbase.cpp",
-            "d:\\ue_5.0\\engine\\source\\runtime\\umg\\public\\components\\widgetcomponent.h",
-            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\widgetcomponent.generated.h"
+            "u:\\fps\\source\\fps\\weapons\\shotgun.cpp"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

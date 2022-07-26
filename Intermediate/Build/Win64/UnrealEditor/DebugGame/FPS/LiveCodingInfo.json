@@ -2,15 +2,11 @@
 	"RemapUnityFiles": 
 	{
 		"Module.FPS.cpp.obj": [
-			"CharacterAnimInstance.cpp.obj",
-			"MasterCharacter.cpp.obj",
 			"BuffComponent.cpp.obj",
-			"CombatComponent.cpp.obj",
 			"LagCompensationComponent.cpp.obj",
 			"FPS.cpp.obj",
 			"LobbyGameMode.cpp.obj",
 			"MasterGameMode.cpp.obj",
-			"TeamDeathMatchrGameMode.cpp.obj",
 			"MasterGameState.cpp.obj",
 			"InteractWithCrosshairsInterface.cpp.obj",
 			"AmmoPickup.cpp.obj",
@@ -20,6 +16,7 @@
 			"PickupSpawnPoint.cpp.obj",
 			"ShieldPickup.cpp.obj",
 			"SpeedPickup.cpp.obj",
+			"MasterPlayerController.cpp.obj",
 			"MasterPlayerState.cpp.obj",
 			"Announcement.cpp.obj",
 			"ElimAnnouncment.cpp.obj",
@@ -35,19 +32,22 @@
 			"ProjectileWeapon.cpp.obj",
 			"RocketMovementComponent.cpp.obj",
 			"Shotgun.cpp.obj",
-			"WeaponBase.cpp.obj",
-			"MasterPlayerController.cpp.obj"
+			"CharacterAnimInstance.cpp.obj",
+			"MasterCharacter.cpp.obj",
+			"CombatComponent.cpp.obj",
+			"TeamDeathMatchrGameMode.cpp.obj",
+			"Flag.cpp.obj",
+			"WeaponBase.cpp.obj"
 		],
 		"Module.FPS.gen.cpp.obj": [
 			"AmmoPickup.gen.cpp.obj",
 			"Announcement.gen.cpp.obj",
 			"BuffComponent.gen.cpp.obj",
 			"Casing.gen.cpp.obj",
-			"CharacterAnimInstance.gen.cpp.obj",
 			"CombatComponent.gen.cpp.obj",
 			"CombatState.gen.cpp.obj",
 			"ElimAnnouncment.gen.cpp.obj",
-			"FPS.init.gen.cpp.obj",
+			"Flag.gen.cpp.obj",
 			"HealthPickup.gen.cpp.obj",
 			"HitScanWeapon.gen.cpp.obj",
 			"InGameMenu.gen.cpp.obj",
@@ -77,7 +77,9 @@
 			"TeamDeathMatchrGameMode.gen.cpp.obj",
 			"TurningInPlace.gen.cpp.obj",
 			"WeaponBase.gen.cpp.obj",
-			"WeaponTypes.gen.cpp.obj"
+			"WeaponTypes.gen.cpp.obj",
+			"CharacterAnimInstance.gen.cpp.obj",
+			"FPS.init.gen.cpp.obj"
 		]
 	}
 }

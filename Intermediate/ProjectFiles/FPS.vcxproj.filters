@@ -238,6 +238,9 @@
     <Filter Include="Source\FPS\TypeClasses">
       <UniqueIdentifier>{44D7CC98-65C5-3437-B16D-CDECE03FE18C}</UniqueIdentifier>
     </Filter>
+    <ClInclude Include="..\..\Source\FPS\TypeClasses\Announcement.h">
+      <Filter>Source\FPS\TypeClasses</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\FPS\TypeClasses\CombatState.h">
       <Filter>Source\FPS\TypeClasses</Filter>
     </ClInclude>
@@ -283,6 +286,12 @@
     <Filter Include="Source\FPS\Weapons">
       <UniqueIdentifier>{996C991C-084B-3CE0-9BC8-A13B75FBCA84}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\FPS\Weapons\Flag.cpp">
+      <Filter>Source\FPS\Weapons</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\Weapons\Flag.h">
+      <Filter>Source\FPS\Weapons</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\FPS\Weapons\HitScanWeapon.cpp">
       <Filter>Source\FPS\Weapons</Filter>
     </ClCompile>
@@ -348,11 +357,6 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\FPS\Weapons\Projectiles\ProjectileRocket.h">
       <Filter>Source\FPS\Weapons\Projectiles</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\Source\FPS\TypeClasses\Announcement.h">
-      <Filter>Source\FPS\TypeClasses</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

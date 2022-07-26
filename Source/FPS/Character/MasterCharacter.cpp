@@ -1065,3 +1065,8 @@ void AMasterCharacter::StartDissolve()
 	}
 }
 
+bool AMasterCharacter::IsHoldingFlag() const
+{
+	if (Combat == nullptr) return false;
+	return Combat->bHoldingFlag;
+}

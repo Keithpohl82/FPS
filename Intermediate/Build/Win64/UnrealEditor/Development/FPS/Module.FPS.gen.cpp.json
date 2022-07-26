@@ -211,6 +211,7 @@
             "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\character.generated.h",
             "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\components\\timelinecomponent.h",
             "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\timelinecomponent.generated.h",
+            "u:\\fps\\source\\fps\\typeclasses\\team.h",
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\mastercharacter.generated.h",
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\mastergamemode.gen.cpp",
             "u:\\fps\\source\\fps\\gamemodes\\mastergamemode.h",
@@ -269,6 +270,10 @@
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\speedpickup.gen.cpp",
             "u:\\fps\\source\\fps\\pickups\\speedpickup.h",
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\speedpickup.generated.h",
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\team.gen.cpp",
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\teamdeathmatchrgamemode.gen.cpp",
+            "u:\\fps\\source\\fps\\gamemodes\\teamdeathmatchrgamemode.h",
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\teamdeathmatchrgamemode.generated.h",
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\turninginplace.gen.cpp",
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\weaponbase.gen.cpp",
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\weapontypes.gen.cpp"

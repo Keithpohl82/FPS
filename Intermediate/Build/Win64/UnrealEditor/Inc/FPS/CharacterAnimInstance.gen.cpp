@@ -125,6 +125,11 @@ void EmptyLinkFunctionForGeneratedCodeCharacterAnimInstance() {}
 #endif
 		static void NewProp_bTransformRightHand_SetBit(void* Obj);
 		static const UECodeGen_Private::FBoolPropertyParams NewProp_bTransformRightHand;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_bHoldingTheFlag_MetaData[];
+#endif
+		static void NewProp_bHoldingTheFlag_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bHoldingTheFlag;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -346,6 +351,18 @@ void EmptyLinkFunctionForGeneratedCodeCharacterAnimInstance() {}
 		((UCharacterAnimInstance*)Obj)->bTransformRightHand = 1;
 	}
 	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UCharacterAnimInstance_Statics::NewProp_bTransformRightHand = { "bTransformRightHand", nullptr, (EPropertyFlags)0x0040000000000014, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UCharacterAnimInstance), &Z_Construct_UClass_UCharacterAnimInstance_Statics::NewProp_bTransformRightHand_SetBit, METADATA_PARAMS(Z_Construct_UClass_UCharacterAnimInstance_Statics::NewProp_bTransformRightHand_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCharacterAnimInstance_Statics::NewProp_bTransformRightHand_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCharacterAnimInstance_Statics::NewProp_bHoldingTheFlag_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Movement" },
+		{ "ModuleRelativePath", "Character/CharacterAnimInstance.h" },
+	};
+#endif
+	void Z_Construct_UClass_UCharacterAnimInstance_Statics::NewProp_bHoldingTheFlag_SetBit(void* Obj)
+	{
+		((UCharacterAnimInstance*)Obj)->bHoldingTheFlag = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UCharacterAnimInstance_Statics::NewProp_bHoldingTheFlag = { "bHoldingTheFlag", nullptr, (EPropertyFlags)0x0040000000000014, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UCharacterAnimInstance), &Z_Construct_UClass_UCharacterAnimInstance_Statics::NewProp_bHoldingTheFlag_SetBit, METADATA_PARAMS(Z_Construct_UClass_UCharacterAnimInstance_Statics::NewProp_bHoldingTheFlag_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCharacterAnimInstance_Statics::NewProp_bHoldingTheFlag_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UCharacterAnimInstance_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCharacterAnimInstance_Statics::NewProp_MasterCharacter,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCharacterAnimInstance_Statics::NewProp_Speed,
@@ -368,6 +385,7 @@ void EmptyLinkFunctionForGeneratedCodeCharacterAnimInstance() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCharacterAnimInstance_Statics::NewProp_bUseFABRIK,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCharacterAnimInstance_Statics::NewProp_bUseAimOffsets,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCharacterAnimInstance_Statics::NewProp_bTransformRightHand,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCharacterAnimInstance_Statics::NewProp_bHoldingTheFlag,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UCharacterAnimInstance_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UCharacterAnimInstance>::IsAbstract,
@@ -405,9 +423,9 @@ void EmptyLinkFunctionForGeneratedCodeCharacterAnimInstance() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_CharacterAnimInstance_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCharacterAnimInstance, UCharacterAnimInstance::StaticClass, TEXT("UCharacterAnimInstance"), &Z_Registration_Info_UClass_UCharacterAnimInstance, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCharacterAnimInstance), 2745062610U) },
+		{ Z_Construct_UClass_UCharacterAnimInstance, UCharacterAnimInstance::StaticClass, TEXT("UCharacterAnimInstance"), &Z_Registration_Info_UClass_UCharacterAnimInstance, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCharacterAnimInstance), 2315076423U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_CharacterAnimInstance_h_1235056206(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_CharacterAnimInstance_h_2540164003(TEXT("/Script/FPS"),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_CharacterAnimInstance_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_CharacterAnimInstance_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
