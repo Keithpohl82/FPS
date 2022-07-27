@@ -27,6 +27,8 @@ void AFlag::Dropped()
 	OwnerCharacter = nullptr;
 	OwnerPlayerController = nullptr;
 	//Set Timer for flag to return here??
+	UE_LOG(LogTemp, Warning, TEXT("Dropped called from Flag"));
+	//Set Timer for flag to return here??
 }
 
 void AFlag::OnEquipped()
@@ -37,6 +39,7 @@ void AFlag::OnEquipped()
 	FlagMesh->SetSimulatePhysics(false);
 	FlagMesh->SetEnableGravity(false);
 	FlagMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	FlagMesh->SetCollisionResponseToChannel(ECollisionChannel::ECC_WorldDynamic, ECollisionResponse::ECR_Overlap);
 }
 
 void AFlag::OnDropped()
@@ -51,4 +54,8 @@ void AFlag::OnDropped()
 	FlagMesh->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Block);
 	FlagMesh->SetCollisionResponseToChannel(ECollisionChannel::ECC_Pawn, ECollisionResponse::ECR_Ignore);
 	FlagMesh->SetCollisionResponseToChannel(ECollisionChannel::ECC_Camera, ECollisionResponse::ECR_Ignore);
+	FlagMesh->SetCustomDepthStencilValue(CUSTOM_DEPTH_PURPLE);
+	FlagMesh->MarkRenderStateDirty();
+	EnableCustomDepth(true);
+	UE_LOG(LogTemp, Warning, TEXT("OnDropped called from Flag"));
 }

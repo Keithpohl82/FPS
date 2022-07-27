@@ -100,12 +100,10 @@ void UCombatComponent::ServerSetAiming_Implementation(bool bIsAiming)
 	}
 }
 
-void UCombatComponent::EquipWeapon(class AWeaponBase* WeaponToEquip)
+void UCombatComponent::EquipWeapon(AWeaponBase* WeaponToEquip)
 {
 	if (MasterCharacter == nullptr || WeaponToEquip == nullptr) return;
 	if (CombatState != ECombatState::ECS_Unoccupied) return;
-
-	PState = PState == nullptr ? Cast<AMasterPlayerState>(MasterCharacter->GetPlayerState()) : PState;
 
 	if (WeaponToEquip->GetWeaponType() == EWeaponType::EWT_Flag)
 	{

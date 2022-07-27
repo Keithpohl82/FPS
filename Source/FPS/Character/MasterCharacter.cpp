@@ -1076,3 +1076,10 @@ bool AMasterCharacter::IsHoldingFlag() const
 	if (Combat == nullptr) return false;
 	return Combat->bHoldingFlag;
 }
+
+ETeam AMasterCharacter::GetTeam()
+{
+	MasterPlayerState = MasterPlayerState == nullptr ? GetPlayerState<AMasterPlayerState>() : MasterPlayerState;
+	if (MasterPlayerState == nullptr) return ETeam::ET_Spectator;
+	return MasterPlayerState->GetTeam();
+}

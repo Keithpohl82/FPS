@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "WeaponTypes.h"
+#include "FPS/TypeClasses/Team.h"
 
 #include "WeaponBase.generated.h"
 
@@ -181,7 +182,8 @@ private:
 	UPROPERTY(EditAnywhere)
 	EWeaponType WeaponType;
 
-
+	UPROPERTY(EditAnywhere)
+	ETeam Team;
 
 public:	
 

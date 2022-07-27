@@ -40,10 +40,12 @@
 			"WeaponBase.cpp.obj"
 		],
 		"Module.FPS.gen.cpp.obj": [
+			"AmmoPickup.gen.cpp.obj",
 			"Announcement.gen.cpp.obj",
 			"BuffComponent.gen.cpp.obj",
 			"Casing.gen.cpp.obj",
 			"CharacterAnimInstance.gen.cpp.obj",
+			"CombatComponent.gen.cpp.obj",
 			"CombatState.gen.cpp.obj",
 			"ElimAnnouncment.gen.cpp.obj",
 			"HealthPickup.gen.cpp.obj",
@@ -71,15 +73,13 @@
 			"Team.gen.cpp.obj",
 			"TeamDeathMatchrGameMode.gen.cpp.obj",
 			"TurningInPlace.gen.cpp.obj",
-			"AmmoPickup.gen.cpp.obj",
-			"CombatComponent.gen.cpp.obj",
+			"WeaponTypes.gen.cpp.obj",
 			"Flag.gen.cpp.obj",
 			"FPS.init.gen.cpp.obj",
 			"HitScanWeapon.gen.cpp.obj",
 			"ProjectileWeapon.gen.cpp.obj",
 			"Shotgun.gen.cpp.obj",
-			"WeaponBase.gen.cpp.obj",
-			"WeaponTypes.gen.cpp.obj"
+			"WeaponBase.gen.cpp.obj"
 		]
 	}
 }

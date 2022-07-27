@@ -1,0 +1,19 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\projectileweapon.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "u:\\fps\\intermediate\\build\\win64\\fpseditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\development\\fps\\definitions.fps.h",
+            "u:\\fps\\source\\fps\\weapons\\projectileweapon.h",
+            "u:\\fps\\source\\fps\\weapons\\weaponbase.h",
+            "u:\\fps\\source\\fps\\weapons\\weapontypes.h",
+            "u:\\fps\\source\\fps\\typeclasses\\team.h",
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\weaponbase.generated.h",
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\projectileweapon.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
