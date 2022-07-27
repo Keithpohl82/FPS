@@ -24,7 +24,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	op(EWeaponType::EWT_SubMachineGun) \
 	op(EWeaponType::EWT_ShotGun) \
 	op(EWeaponType::EWT_SniperRifle) \
-	op(EWeaponType::EWT_GrenadeLauncher) 
+	op(EWeaponType::EWT_GrenadeLauncher) \
+	op(EWeaponType::EWT_Flag) 
 
 enum class EWeaponType : uint8;
 template<> FPS_API UEnum* StaticEnum<EWeaponType>();

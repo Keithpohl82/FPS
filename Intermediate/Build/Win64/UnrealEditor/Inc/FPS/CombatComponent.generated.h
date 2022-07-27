@@ -27,6 +27,7 @@ struct FVector_NetQuantize;
 	virtual void ServerSetAiming_Implementation(bool bIsAiming); \
 	virtual void ServerLaunchGrenade_Implementation(FVector_NetQuantize const& Target); \
  \
+	DECLARE_FUNCTION(execOnRep_HoldingTheFlag); \
 	DECLARE_FUNCTION(execOnRep_CombatState); \
 	DECLARE_FUNCTION(execOnRep_Grenades); \
 	DECLARE_FUNCTION(execOnRep_CarriedAmmo); \
@@ -61,6 +62,7 @@ struct FVector_NetQuantize;
 	virtual void ServerSetAiming_Implementation(bool bIsAiming); \
 	virtual void ServerLaunchGrenade_Implementation(FVector_NetQuantize const& Target); \
  \
+	DECLARE_FUNCTION(execOnRep_HoldingTheFlag); \
 	DECLARE_FUNCTION(execOnRep_CombatState); \
 	DECLARE_FUNCTION(execOnRep_Grenades); \
 	DECLARE_FUNCTION(execOnRep_CarriedAmmo); \
@@ -129,7 +131,8 @@ public: \
 		CarriedAmmo, \
 		Grenades, \
 		CombatState, \
-		NETFIELD_REP_END=CombatState	}; \
+		bHoldingFlag, \
+		NETFIELD_REP_END=bHoldingFlag	}; \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
@@ -149,7 +152,8 @@ public: \
 		CarriedAmmo, \
 		Grenades, \
 		CombatState, \
-		NETFIELD_REP_END=CombatState	}; \
+		bHoldingFlag, \
+		NETFIELD_REP_END=bHoldingFlag	}; \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 

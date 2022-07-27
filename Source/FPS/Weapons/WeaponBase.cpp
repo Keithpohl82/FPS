@@ -10,6 +10,8 @@
 #include "FPS/Character/MasterCharacter.h"
 #include "FPS/Components/CombatComponent.h"
 #include "FPS/PlayerController/MasterPlayerController.h"
+#include "FPS/PlayerState/MasterPlayerState.h"
+#include "Flag.h"
 #include "Kismet/KismetMathLibrary.h"
 
 
@@ -21,7 +23,6 @@ AWeaponBase::AWeaponBase()
 
 	WeaponMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("WeaponMesh"));
 	SetRootComponent(WeaponMesh);
-	//WeaponMesh->SetupAttachment(RootComponent);
 
 	WeaponMesh->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Block);
 	WeaponMesh->SetCollisionResponseToChannel(ECollisionChannel::ECC_Pawn, ECollisionResponse::ECR_Ignore);
@@ -174,6 +175,14 @@ void AWeaponBase::OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, AAct
 	if (CharacterBase)
 	{
 		CharacterBase->SetOverlappingWeapon(this);
+
+		UCombatComponent* Combat = CharacterBase->GetCombat();
+		
+		//call attachflag here?
+		if (Combat && GetWeaponType() == EWeaponType::EWT_Flag)
+		{
+			Combat->EquipWeapon(this);
+		}
 	}
 }
 
@@ -350,6 +359,7 @@ void AWeaponBase::Dropped()
 	SetOwner(nullptr);
 	OwnerCharacter = nullptr;
 	OwnerPlayerController = nullptr;
+	//Set Timer for flag to return here??
 }
 
 

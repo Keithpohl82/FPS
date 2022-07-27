@@ -330,6 +330,7 @@ void AMasterCharacter::GrenadeButtonPressed()
 
 void AMasterCharacter::RotateInPlace(float DeltaTime)
 {
+
 	if (bDisableGameplay)
 	{
 		bUseControllerRotationYaw = false;
@@ -847,6 +848,7 @@ void AMasterCharacter::MulticastElim_Implementation(bool bPlayerLeftGame)
 void AMasterCharacter::DropOrDestroyWeapon(AWeaponBase* Weapon)
 {	
 	if (Weapon == nullptr) return;
+
 	if (Weapon->bDestroyWeapon)
 	{
 		Weapon->Destroy();
@@ -869,6 +871,10 @@ void AMasterCharacter::DropOrDestroyWeapons()
 		if (Combat->SecondaryWeapon)
 		{
 			DropOrDestroyWeapon(Combat->SecondaryWeapon);
+		}
+		if (Combat->TheFlag)
+		{
+			Combat->TheFlag->Dropped();
 		}
 	}
 }

@@ -15,6 +15,8 @@
 #include "Sound/SoundCue.h"
 #include "FPS/UI/PlayerHUD.h"
 #include "FPS/Weapons/Projectiles/ProjectileBase.h"
+#include "FPS/PlayerState/MasterPlayerState.h"
+#include "FPS/Weapons/Flag.h"
 #include "FPS/Weapons/Shotgun.h"
 
 
@@ -68,7 +70,7 @@ void UCombatComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out
 	DOREPLIFETIME(UCombatComponent, bAiming);
 	DOREPLIFETIME(UCombatComponent, CombatState);
 	DOREPLIFETIME(UCombatComponent, Grenades);
-
+	DOREPLIFETIME(UCombatComponent, bHoldingFlag);
 	DOREPLIFETIME_CONDITION(UCombatComponent, CarriedAmmo, COND_OwnerOnly);
 }
 
@@ -103,18 +105,32 @@ void UCombatComponent::EquipWeapon(class AWeaponBase* WeaponToEquip)
 	if (MasterCharacter == nullptr || WeaponToEquip == nullptr) return;
 	if (CombatState != ECombatState::ECS_Unoccupied) return;
 
-	if (EquippedWeapon != nullptr && SecondaryWeapon == nullptr)
+	PState = PState == nullptr ? Cast<AMasterPlayerState>(MasterCharacter->GetPlayerState()) : PState;
+
+	if (WeaponToEquip->GetWeaponType() == EWeaponType::EWT_Flag)
 	{
-		EquipSecondaryWeapon(WeaponToEquip);
-		UE_LOG(LogTemp, Warning, TEXT("Secondary should be on back"))
+		TheFlag = WeaponToEquip;
+		bHoldingFlag = true;
+		WeaponToEquip->SetWeaponState(EWeaponState::EWS_Equipped);
+		AttachFlag(WeaponToEquip);
+		WeaponToEquip->SetOwner(MasterCharacter);
+		
 	}
 	else
 	{
-		EquipPrimaryWeapon(WeaponToEquip);
-	}
+		if (EquippedWeapon != nullptr && SecondaryWeapon == nullptr)
+		{
+			EquipSecondaryWeapon(WeaponToEquip);
+			UE_LOG(LogTemp, Warning, TEXT("Secondary should be on back"))
+		}
+		else
+		{
+			EquipPrimaryWeapon(WeaponToEquip);
+		}
 
-	MasterCharacter->GetCharacterMovement()->bOrientRotationToMovement = false;
-	MasterCharacter->bUseControllerRotationYaw = true;
+		MasterCharacter->GetCharacterMovement()->bOrientRotationToMovement = false;
+		MasterCharacter->bUseControllerRotationYaw = true;
+	}
 }
 
 void UCombatComponent::SwapWeapons()
@@ -261,7 +277,6 @@ void UCombatComponent::SetHUDCrosshairs(float DeltaTime)
 				HUDPackage.CrosshairsRight = nullptr;
 				HUDPackage.CrosshairsTop = nullptr;
 				HUDPackage.CrosshairsBottom = nullptr;
-
 			}
 			// Calculate Crosshair Spread
 
@@ -341,6 +356,16 @@ void UCombatComponent::AttachActorToBackpack(AActor* ActorToAttach)
 	if (BackpackSocket)
 	{
 		BackpackSocket->AttachActor(ActorToAttach, MasterCharacter->GetMesh());
+	}
+}
+
+void UCombatComponent::AttachFlag(AWeaponBase* Flag)
+{
+	if (MasterCharacter == nullptr || MasterCharacter->GetMesh() == nullptr || Flag == nullptr) return;
+	const USkeletalMeshSocket* FlagSocket = MasterCharacter->GetMesh()->GetSocketByName(FName("FlagSocket"));
+	if (FlagSocket)
+	{
+		FlagSocket->AttachActor(Flag, MasterCharacter->GetMesh());
 	}
 }
 
@@ -439,6 +464,14 @@ void UCombatComponent::UpdateShotgunAmmoValues()
 	if (EquippedWeapon->IsFull() || CarriedAmmo == 0)
 	{
 		JumpToShotgunEnd();
+	}
+}
+
+void UCombatComponent::OnRep_HoldingTheFlag()
+{
+	if (bHoldingFlag && MasterCharacter && MasterCharacter->IsLocallyControlled())
+	{
+		//Most llikely not needed. 
 	}
 }
 

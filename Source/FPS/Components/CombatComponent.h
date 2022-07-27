@@ -86,6 +86,8 @@ protected:
 
 	void AttachActorToBackpack(AActor* ActorToAttach);
 
+	void AttachFlag(AWeaponBase* Flag);
+
 	void UpdateCarriedAmmo();
 	
 	void PlayEquipWeaponSound(AWeaponBase* WeaponToEquip);
@@ -135,6 +137,8 @@ protected:
 private:
 
 	AMasterCharacter* MasterCharacter;
+
+	class AMasterPlayerState* PState;
 
 	UPROPERTY()
 	class AMasterPlayerController* MasterPlayerController;
@@ -263,7 +267,14 @@ private:
 
 	void UpdateShotgunAmmoValues();
 
+	UPROPERTY(ReplicatedUsing = OnRep_HoldingTheFlag)
 	bool bHoldingFlag = false;
+
+	UFUNCTION()
+	void OnRep_HoldingTheFlag();
+
+	UPROPERTY()
+	AWeaponBase* TheFlag;
 
 public:	
 

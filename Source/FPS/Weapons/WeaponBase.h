@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "WeaponTypes.h"
+
 #include "WeaponBase.generated.h"
 
 UENUM(BlueprintType)
@@ -42,7 +43,7 @@ public:
 	void SetHUDAmmo();
 	virtual void Fire(const FVector& HitTarget);
 	void ShowPickupWidget(bool bShowWidget);
-	void Dropped();
+	virtual void Dropped();
 	void AddAmmo(int32 AmmoToAdd);
 
 	UPROPERTY(EditAnywhere, Category = Crosshairs)
@@ -122,6 +123,8 @@ protected:
 	class AMasterCharacter* OwnerCharacter;
 	UPROPERTY()
 	class AMasterPlayerController* OwnerPlayerController;
+	UPROPERTY()
+	class AMasterPlayerState* PlayerState;
 
 	UFUNCTION()
 	void OnPingTooHigh(bool bPingTooHigh);
@@ -185,6 +188,7 @@ public:
 	void SetWeaponState(EWeaponState State);
 	FORCEINLINE USphereComponent* GetAreaSphere() const { return AreaSphere; }
 	FORCEINLINE USkeletalMeshComponent* GetWeaponMesh() const { return WeaponMesh; }
+	FORCEINLINE UWidgetComponent* GetPickupWidget() const { return PickupWidget; }
 	FORCEINLINE float GetZoomedFOV() const { return ZoomedFOV; }
 	FORCEINLINE float GetZoomedInterpSpeed() const { return ZoomInterpSpeed; }
 	bool IsEmpty();
