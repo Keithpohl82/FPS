@@ -11,7 +11,6 @@
 #include "U:/FPS/Source/FPS/Pickups/AmmoPickup.cpp"
 #include "U:/FPS/Source/FPS/Pickups/HealthPickup.cpp"
 #include "U:/FPS/Source/FPS/Pickups/JumpPickup.cpp"
-#include "U:/FPS/Source/FPS/Pickups/Pickup.cpp"
 #include "U:/FPS/Source/FPS/Pickups/PickupSpawnPoint.cpp"
 #include "U:/FPS/Source/FPS/Pickups/ShieldPickup.cpp"
 #include "U:/FPS/Source/FPS/Pickups/SpeedPickup.cpp"

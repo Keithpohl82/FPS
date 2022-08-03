@@ -18,8 +18,9 @@ class FPS_API AFlag : public AWeaponBase
 public:
 
 	AFlag();
-
+	virtual void BeginPlay() override;
 	virtual void Dropped() override;
+	void ResetFlag();
 
 protected:
 
@@ -32,7 +33,9 @@ private:
 	UPROPERTY(EditAnywhere)
 	UStaticMeshComponent* FlagMesh;
 
+	FTransform InitialTransform;
+
 public:
 
-	
+	FORCEINLINE FTransform GetInitialTransform() const { return InitialTransform; }
 };

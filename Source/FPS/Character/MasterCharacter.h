@@ -76,6 +76,9 @@ public:
 
 	void SetTeamColor(ETeam Team);
 
+	UPROPERTY(EditAnywhere, Category = Flag)
+	FName FlagSocket;
+
 private:
 	
 	UPROPERTY(EditDefaultsOnly, Category = Camera)
@@ -324,6 +327,11 @@ protected:
 	void AimOffset(float DeltaTime);
 	void SimProxyTurn();
 
+	void SetSpawnPoint();
+	void OnPlayerStateInitialized();
+
+	void PickupFlag(class ABaseFlag* FlagToPickup);
+
 	UFUNCTION()
 	void ReceivedDamage(AActor* DamagedActor, float Damage, const UDamageType* DamageType, class AController* InstigatorController, AActor* DamageCauser);
 	
@@ -412,4 +420,5 @@ public:
 	FORCEINLINE ULagCompensationComponent* GetLagCompensation() const { return LagCompensation; }
 	FORCEINLINE bool IsHoldingFlag() const;
 	ETeam GetTeam();
+	void SetHoldingFlag(bool bHolding);
 };

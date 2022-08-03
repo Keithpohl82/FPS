@@ -1,0 +1,20 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "u:\\fps\\source\\fps\\teamplayerstart.cpp",
+        "ProvidedModule": "",
+        "PCH": "u:\\fps\\intermediate\\build\\win64\\fpseditor\\debuggame\\engine\\sharedpch.engine.nonoptimized.shadowerrors.h.pch",
+        "Includes": [
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\debuggame\\fps\\definitions.fps.h",
+            "u:\\fps\\source\\fps\\teamplayerstart.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\playerstart.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\engine\\navigationobjectbase.h",
+            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\navigationobjectbase.generated.h",
+            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\playerstart.generated.h",
+            "u:\\fps\\source\\fps\\typeclasses\\team.h",
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\teamplayerstart.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

@@ -97,6 +97,33 @@
     <ClInclude Include="..\..\Source\FPS\FPS.h">
       <Filter>Source\FPS</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\FPS\TeamPlayerStart.cpp">
+      <Filter>Source\FPS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\TeamPlayerStart.h">
+      <Filter>Source\FPS</Filter>
+    </ClInclude>
+    <Filter Include="Source\FPS\CaptureTheFlag">
+      <UniqueIdentifier>{1CE9A651-C153-3A05-8B9B-894BB36EB531}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\FPS\CaptureTheFlag\BaseFlag.cpp">
+      <Filter>Source\FPS\CaptureTheFlag</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\CaptureTheFlag\BaseFlag.h">
+      <Filter>Source\FPS\CaptureTheFlag</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\FPS\CaptureTheFlag\FlagPickup.cpp">
+      <Filter>Source\FPS\CaptureTheFlag</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\CaptureTheFlag\FlagPickup.h">
+      <Filter>Source\FPS\CaptureTheFlag</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\FPS\CaptureTheFlag\FlagZone.cpp">
+      <Filter>Source\FPS\CaptureTheFlag</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\CaptureTheFlag\FlagZone.h">
+      <Filter>Source\FPS\CaptureTheFlag</Filter>
+    </ClInclude>
     <Filter Include="Source\FPS\Character">
       <UniqueIdentifier>{D9C015CA-0E0D-37A6-A18C-FF540724D590}</UniqueIdentifier>
     </Filter>
@@ -136,6 +163,12 @@
     <Filter Include="Source\FPS\GameModes">
       <UniqueIdentifier>{6808A2EB-22CD-3E81-AEDE-5555C6F8938D}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\FPS\GameModes\CTFGameMode.cpp">
+      <Filter>Source\FPS\GameModes</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\GameModes\CTFGameMode.h">
+      <Filter>Source\FPS\GameModes</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\FPS\GameModes\LobbyGameMode.cpp">
       <Filter>Source\FPS\GameModes</Filter>
     </ClCompile>

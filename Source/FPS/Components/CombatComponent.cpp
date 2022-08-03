@@ -18,6 +18,7 @@
 #include "FPS/PlayerState/MasterPlayerState.h"
 #include "FPS/Weapons/Flag.h"
 #include "FPS/Weapons/Shotgun.h"
+#include "FPS/CaptureTheFlag/BaseFlag.h"
 
 
 UCombatComponent::UCombatComponent()
@@ -105,21 +106,21 @@ void UCombatComponent::EquipWeapon(AWeaponBase* WeaponToEquip)
 	if (MasterCharacter == nullptr || WeaponToEquip == nullptr) return;
 	if (CombatState != ECombatState::ECS_Unoccupied) return;
 
+	
 	if (WeaponToEquip->GetWeaponType() == EWeaponType::EWT_Flag)
 	{
-		TheFlag = WeaponToEquip;
 		bHoldingFlag = true;
-		WeaponToEquip->SetWeaponState(EWeaponState::EWS_Equipped);
 		AttachFlag(WeaponToEquip);
+		WeaponToEquip->SetWeaponState(EWeaponState::EWS_Equipped);
 		WeaponToEquip->SetOwner(MasterCharacter);
-		
+		TheFlag = WeaponToEquip;
 	}
 	else
 	{
 		if (EquippedWeapon != nullptr && SecondaryWeapon == nullptr)
 		{
 			EquipSecondaryWeapon(WeaponToEquip);
-			UE_LOG(LogTemp, Warning, TEXT("Secondary should be on back"))
+			UE_LOG(LogTemp, Warning, TEXT("Secondary should be on back"));
 		}
 		else
 		{
@@ -356,6 +357,7 @@ void UCombatComponent::AttachActorToBackpack(AActor* ActorToAttach)
 		BackpackSocket->AttachActor(ActorToAttach, MasterCharacter->GetMesh());
 	}
 }
+
 
 void UCombatComponent::AttachFlag(AWeaponBase* Flag)
 {

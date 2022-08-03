@@ -1,0 +1,18 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\ammopickup.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "u:\\fps\\intermediate\\build\\win64\\fpseditor\\debuggame\\engine\\sharedpch.engine.nonoptimized.shadowerrors.h.pch",
+        "Includes": [
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\debuggame\\fps\\definitions.fps.h",
+            "u:\\fps\\source\\fps\\pickups\\ammopickup.h",
+            "u:\\fps\\source\\fps\\pickups\\pickup.h",
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\pickup.generated.h",
+            "u:\\fps\\source\\fps\\weapons\\weapontypes.h",
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\ammopickup.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

@@ -20,6 +20,7 @@
 #include "FPS/GameModes/MasterGameMode.h"
 #include "FPS/PlayerController/MasterPlayerController.h"
 #include "FPS/PlayerState/MasterPlayerState.h"
+#include "FPS/TeamPlayerStart.h"
 #include "FPS/Weapons/WeaponBase.h"
 #include "FPS/GameState/MasterGameState.h"
 #include "Components/BoxComponent.h"
@@ -333,7 +334,8 @@ void AMasterCharacter::RotateInPlace(float DeltaTime)
 
 	if (bDisableGameplay)
 	{
-		bUseControllerRotationYaw = false;
+		if (Combat && Combat->EquippedWeapon) GetCharacterMovement()->bOrientRotationToMovement = false;
+		if (Combat && Combat->EquippedWeapon) bUseControllerRotationYaw = true;
 		TurningInPlace = ETurningInPlace::ETIP_NotTurning;
 		return;
 	}
@@ -390,9 +392,8 @@ void AMasterCharacter::PollInit()
 		MasterPlayerState = GetPlayerState<AMasterPlayerState>();
 		if (MasterPlayerState)
 		{
-			MasterPlayerState->AddToScore(0.f);
-			MasterPlayerState->AddToDeaths(0);
-			SetTeamColor(MasterPlayerState->GetTeam());
+			OnPlayerStateInitialized();
+
 			AMasterGameState* MasterGameState = Cast<AMasterGameState>(UGameplayStatics::GetGameState(this));
 
 			if (MasterGameState && MasterGameState->TopScoringPlayers.Contains(MasterPlayerState))
@@ -477,6 +478,37 @@ void AMasterCharacter::SimProxyTurn()
 		return;
 	}
 	TurningInPlace = ETurningInPlace::ETIP_NotTurning;
+}
+
+void AMasterCharacter::SetSpawnPoint()
+{
+	if (HasAuthority() && MasterPlayerState->GetTeam() != ETeam::ET_Spectator)
+	{
+		TArray<AActor*> PlayerStarts;
+		UGameplayStatics::GetAllActorsOfClass(this, ATeamPlayerStart::StaticClass(), PlayerStarts);
+		TArray<ATeamPlayerStart*> TeamPlayerStarts;
+		for (auto Start : PlayerStarts)
+		{
+			ATeamPlayerStart* TeamStart = Cast<ATeamPlayerStart>(Start);
+			if (TeamStart && TeamStart->Team == MasterPlayerState->GetTeam())
+			{
+				TeamPlayerStarts.Add(TeamStart);
+			}
+		}
+		if (TeamPlayerStarts.Num() > 0)
+		{
+			ATeamPlayerStart* ChosenPlayerStart = TeamPlayerStarts[FMath::RandRange(0, TeamPlayerStarts.Num() - 1)];
+			SetActorLocationAndRotation(ChosenPlayerStart->GetActorLocation(), ChosenPlayerStart->GetActorRotation());
+		}
+	}
+}
+
+void AMasterCharacter::OnPlayerStateInitialized()
+{
+	MasterPlayerState->AddToScore(0.f);
+	MasterPlayerState->AddToDeaths(0);
+	SetTeamColor(MasterPlayerState->GetTeam());
+	SetSpawnPoint();
 }
 
 void AMasterCharacter::ReceivedDamage(AActor* DamagedActor, float Damage, const UDamageType* DamageType, class AController* InstigatorController, AActor* DamageCauser)
@@ -1082,4 +1114,10 @@ ETeam AMasterCharacter::GetTeam()
 	MasterPlayerState = MasterPlayerState == nullptr ? GetPlayerState<AMasterPlayerState>() : MasterPlayerState;
 	if (MasterPlayerState == nullptr) return ETeam::ET_Spectator;
 	return MasterPlayerState->GetTeam();
+}
+
+void AMasterCharacter::SetHoldingFlag(bool bHolding)
+{
+	if (Combat == nullptr) return;
+	Combat->bHoldingFlag = bHolding;
 }

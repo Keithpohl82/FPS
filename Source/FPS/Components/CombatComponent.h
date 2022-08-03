@@ -59,6 +59,8 @@ public:
 
 	bool bLocallyReloading = false;
 
+	void AttachFlag(class AWeaponBase* Flag);
+
 protected:
 
 	virtual void BeginPlay() override;
@@ -86,7 +88,7 @@ protected:
 
 	void AttachActorToBackpack(AActor* ActorToAttach);
 
-	void AttachFlag(AWeaponBase* Flag);
+	
 
 	void UpdateCarriedAmmo();
 	

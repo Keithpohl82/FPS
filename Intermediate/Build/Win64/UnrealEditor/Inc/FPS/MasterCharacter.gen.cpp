@@ -556,6 +556,10 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 #endif
 		static const UECodeGen_Private::FMapPropertyParams NewProp_HitCollisionBoxes;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_FlagSocket_MetaData[];
+#endif
+		static const UECodeGen_Private::FNamePropertyParams NewProp_FlagSocket;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_SpringArm_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_SpringArm;
@@ -859,6 +863,13 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 	};
 #endif
 	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_AMasterCharacter_Statics::NewProp_HitCollisionBoxes = { "HitCollisionBoxes", nullptr, (EPropertyFlags)0x0010008000000008, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterCharacter, HitCollisionBoxes), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_HitCollisionBoxes_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_HitCollisionBoxes_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterCharacter_Statics::NewProp_FlagSocket_MetaData[] = {
+		{ "Category", "Flag" },
+		{ "ModuleRelativePath", "Character/MasterCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_AMasterCharacter_Statics::NewProp_FlagSocket = { "FlagSocket", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMasterCharacter, FlagSocket), METADATA_PARAMS(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_FlagSocket_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMasterCharacter_Statics::NewProp_FlagSocket_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMasterCharacter_Statics::NewProp_SpringArm_MetaData[] = {
 		{ "Category", "Camera" },
@@ -1352,6 +1363,7 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_HitCollisionBoxes_ValueProp,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_HitCollisionBoxes_Key_KeyProp,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_HitCollisionBoxes,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_FlagSocket,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_SpringArm,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_TPPCamera,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMasterCharacter_Statics::NewProp_FPPCamera,
@@ -1472,9 +1484,9 @@ void EmptyLinkFunctionForGeneratedCodeMasterCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMasterCharacter, AMasterCharacter::StaticClass, TEXT("AMasterCharacter"), &Z_Registration_Info_UClass_AMasterCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMasterCharacter), 831365206U) },
+		{ Z_Construct_UClass_AMasterCharacter, AMasterCharacter::StaticClass, TEXT("AMasterCharacter"), &Z_Registration_Info_UClass_AMasterCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMasterCharacter), 818533729U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_373669952(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_731291395(TEXT("/Script/FPS"),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_Character_MasterCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

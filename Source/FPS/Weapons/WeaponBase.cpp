@@ -173,13 +173,14 @@ void AWeaponBase::OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, AAct
 {
 	AMasterCharacter* CharacterBase = Cast<AMasterCharacter>(OtherActor);
 	if (CharacterBase)
-	{
-		 if (WeaponType == EWeaponType::EWT_Flag && CharacterBase->GetTeam() != Team)
-		{
-			CharacterBase->GetCombat()->EquipWeapon(this);
-		}
-		 if (CharacterBase->IsHoldingFlag()) return;
+	{	 
+		if (CharacterBase->IsHoldingFlag()) return;
 
+		if (WeaponType == EWeaponType::EWT_Flag && CharacterBase->GetTeam() != Team)
+		{
+			CharacterBase->GetCombat()->AttachFlag(this);
+		}
+		
 		CharacterBase->SetOverlappingWeapon(this);
 	}
 }

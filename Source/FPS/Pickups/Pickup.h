@@ -27,6 +27,8 @@ protected:
 	UPROPERTY(EditAnywhere)
 	float BaseTurnRate = 45.f;
 
+	UPROPERTY(EditAnywhere)
+	UStaticMeshComponent* PickupMesh;
 private:
 
 	UPROPERTY(EditAnywhere)
@@ -35,8 +37,7 @@ private:
 	UPROPERTY(EditAnywhere)
 	class USoundCue* PickupSound;
 
-	UPROPERTY(EditAnywhere)
-	UStaticMeshComponent* PickupMesh;
+
 
 	UPROPERTY(VisibleAnywhere)
 	class UNiagaraComponent* PickupEffectComponent;
