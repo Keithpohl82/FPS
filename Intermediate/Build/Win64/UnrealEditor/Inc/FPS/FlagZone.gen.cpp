@@ -17,7 +17,6 @@ void EmptyLinkFunctionForGeneratedCodeFlagZone() {}
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
 	FPS_API UEnum* Z_Construct_UEnum_FPS_ETeam();
-	FPS_API UClass* Z_Construct_UClass_AFlagPickup_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USphereComponent_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(AFlagZone::execOnSphereOverlap)
@@ -140,10 +139,6 @@ void EmptyLinkFunctionForGeneratedCodeFlagZone() {}
 #endif
 		static const UECodeGen_Private::FEnumPropertyParams NewProp_Team;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_Flag_MetaData[];
-#endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_Flag;
-#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_ZoneSphere_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_ZoneSphere;
@@ -173,12 +168,6 @@ void EmptyLinkFunctionForGeneratedCodeFlagZone() {}
 #endif
 	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AFlagZone_Statics::NewProp_Team = { "Team", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AFlagZone, Team), Z_Construct_UEnum_FPS_ETeam, METADATA_PARAMS(Z_Construct_UClass_AFlagZone_Statics::NewProp_Team_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFlagZone_Statics::NewProp_Team_MetaData)) }; // 722182970
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFlagZone_Statics::NewProp_Flag_MetaData[] = {
-		{ "ModuleRelativePath", "CaptureTheFlag/FlagZone.h" },
-	};
-#endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFlagZone_Statics::NewProp_Flag = { "Flag", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AFlagZone, Flag), Z_Construct_UClass_AFlagPickup_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AFlagZone_Statics::NewProp_Flag_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFlagZone_Statics::NewProp_Flag_MetaData)) };
-#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFlagZone_Statics::NewProp_ZoneSphere_MetaData[] = {
 		{ "Category", "FlagZone" },
 		{ "EditInline", "true" },
@@ -189,7 +178,6 @@ void EmptyLinkFunctionForGeneratedCodeFlagZone() {}
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFlagZone_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFlagZone_Statics::NewProp_Team_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFlagZone_Statics::NewProp_Team,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFlagZone_Statics::NewProp_Flag,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFlagZone_Statics::NewProp_ZoneSphere,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AFlagZone_Statics::StaticCppClassTypeInfo = {
@@ -228,9 +216,9 @@ void EmptyLinkFunctionForGeneratedCodeFlagZone() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_CaptureTheFlag_FlagZone_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AFlagZone, AFlagZone::StaticClass, TEXT("AFlagZone"), &Z_Registration_Info_UClass_AFlagZone, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFlagZone), 1573390667U) },
+		{ Z_Construct_UClass_AFlagZone, AFlagZone::StaticClass, TEXT("AFlagZone"), &Z_Registration_Info_UClass_AFlagZone, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFlagZone), 399480400U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_CaptureTheFlag_FlagZone_h_3849588724(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_CaptureTheFlag_FlagZone_h_246414390(TEXT("/Script/FPS"),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_CaptureTheFlag_FlagZone_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_CaptureTheFlag_FlagZone_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

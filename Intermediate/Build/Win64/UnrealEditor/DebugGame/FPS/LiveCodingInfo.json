@@ -3,12 +3,14 @@
 	{
 		"Module.FPS.cpp.obj": [
 			"BaseFlag.cpp.obj",
+			"FlagPickup.cpp.obj",
 			"CharacterAnimInstance.cpp.obj",
 			"MasterCharacter.cpp.obj",
 			"BuffComponent.cpp.obj",
 			"CombatComponent.cpp.obj",
 			"LagCompensationComponent.cpp.obj",
 			"FPS.cpp.obj",
+			"CTFGameMode.cpp.obj",
 			"LobbyGameMode.cpp.obj",
 			"MasterGameMode.cpp.obj",
 			"TeamDeathMatchrGameMode.cpp.obj",
@@ -17,6 +19,7 @@
 			"AmmoPickup.cpp.obj",
 			"HealthPickup.cpp.obj",
 			"JumpPickup.cpp.obj",
+			"Pickup.cpp.obj",
 			"PickupSpawnPoint.cpp.obj",
 			"ShieldPickup.cpp.obj",
 			"SpeedPickup.cpp.obj",
@@ -39,10 +42,7 @@
 			"RocketMovementComponent.cpp.obj",
 			"Shotgun.cpp.obj",
 			"WeaponBase.cpp.obj",
-			"FlagPickup.cpp.obj",
-			"FlagZone.cpp.obj",
-			"CTFGameMode.cpp.obj",
-			"Pickup.cpp.obj"
+			"FlagZone.cpp.obj"
 		],
 		"Module.FPS.gen.cpp.obj": [
 			"AmmoPickup.gen.cpp.obj",
@@ -56,6 +56,9 @@
 			"CTFGameMode.gen.cpp.obj",
 			"ElimAnnouncment.gen.cpp.obj",
 			"Flag.gen.cpp.obj",
+			"FlagPickup.gen.cpp.obj",
+			"FlagZone.gen.cpp.obj",
+			"FPS.init.gen.cpp.obj",
 			"HealthPickup.gen.cpp.obj",
 			"HitScanWeapon.gen.cpp.obj",
 			"InGameMenu.gen.cpp.obj",
@@ -86,10 +89,7 @@
 			"TeamPlayerStart.gen.cpp.obj",
 			"TurningInPlace.gen.cpp.obj",
 			"WeaponBase.gen.cpp.obj",
-			"WeaponTypes.gen.cpp.obj",
-			"FlagPickup.gen.cpp.obj",
-			"FlagZone.gen.cpp.obj",
-			"FPS.init.gen.cpp.obj"
+			"WeaponTypes.gen.cpp.obj"
 		]
 	}
 }

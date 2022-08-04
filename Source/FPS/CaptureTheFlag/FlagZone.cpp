@@ -28,7 +28,7 @@ void AFlagZone::BeginPlay()
 
 void AFlagZone::OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	 Flag = Cast<AFlagPickup>(OtherActor);
+	AFlagPickup* Flag = Cast<AFlagPickup>(OtherActor);
 
 	if (Flag == nullptr)
 	{

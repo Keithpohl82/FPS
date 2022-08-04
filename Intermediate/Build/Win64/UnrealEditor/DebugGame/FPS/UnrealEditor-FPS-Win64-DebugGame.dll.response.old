@@ -35,13 +35,7 @@
 /FUNCTIONPADMIN
 "U:\FPS\Intermediate\Build\Win64\FPSEditor\DebugGame\Engine\SharedPCH.Engine.NonOptimized.ShadowErrors.h.obj"
 "U:\FPS\Intermediate\Build\Win64\UnrealEditor\DebugGame\FPS\Module.FPS.cpp.obj"
-"U:\FPS\Intermediate\Build\Win64\UnrealEditor\DebugGame\FPS\FlagPickup.cpp.obj"
-"U:\FPS\Intermediate\Build\Win64\UnrealEditor\DebugGame\FPS\FlagZone.cpp.obj"
-"U:\FPS\Intermediate\Build\Win64\UnrealEditor\DebugGame\FPS\CTFGameMode.cpp.obj"
 "U:\FPS\Intermediate\Build\Win64\UnrealEditor\DebugGame\FPS\Module.FPS.gen.cpp.obj"
-"U:\FPS\Intermediate\Build\Win64\UnrealEditor\DebugGame\FPS\FlagPickup.gen.cpp.obj"
-"U:\FPS\Intermediate\Build\Win64\UnrealEditor\DebugGame\FPS\FlagZone.gen.cpp.obj"
-"U:\FPS\Intermediate\Build\Win64\UnrealEditor\DebugGame\FPS\FPS.init.gen.cpp.obj"
 "U:\FPS\Intermediate\Build\Win64\UnrealEditor\DebugGame\FPS\Default.rc2.res"
 "..\Intermediate\Build\Win64\UnrealEditor\Development\Engine\UnrealEditor-Engine.lib"
 "..\Intermediate\Build\Win64\UnrealEditor\Development\UMG\UnrealEditor-UMG.lib"
