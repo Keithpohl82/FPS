@@ -9,6 +9,7 @@
             "u:\\fps\\source\\fps\\capturetheflag\\flagpickup.h",
             "u:\\fps\\source\\fps\\pickups\\pickup.h",
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\pickup.generated.h",
+            "u:\\fps\\source\\fps\\typeclasses\\team.h",
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\flagpickup.generated.h"
         ],
         "ImportedModules": [],

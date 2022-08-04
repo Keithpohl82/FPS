@@ -4,6 +4,7 @@
 #include "FlagPickup.h"
 #include "FPS/Character/MasterCharacter.h"
 #include "Components/SkeletalMeshComponent.h"
+#include "Components/SphereComponent.h"
 #include "Components/SceneComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Kismet/GameplayStatics.h"
@@ -16,12 +17,57 @@ AFlagPickup::AFlagPickup()
 	}
 }
 
+void AFlagPickup::BeginPlay()
+{
+	Super::BeginPlay();
+
+	InitialTransform = GetActorTransform();
+	
+}
+
+void AFlagPickup::AttachFlagToPlayer(AMasterCharacter* Character)
+{
+	if (Team != Character->GetTeam())
+	{
+		this->AttachToComponent(Character->GetMesh(), FAttachmentTransformRules::SnapToTargetIncludingScale, Character->FlagSocket);
+		SetOwner(Character);
+	}
+}
+
+void AFlagPickup::ResetFlag()
+{
+	AMasterCharacter* FlagBearer = Cast<AMasterCharacter>(GetOwner());
+
+	//if (FlagBearer)
+	//{
+		//FlagBearer->SetHoldingFlag(false);
+		//FlagBearer->SetOverlappingWeapon(nullptr);
+	//}
+
+	if (!HasAuthority()) return;
+
+	FDetachmentTransformRules DetachRules(EDetachmentRule::KeepWorld, true);
+	PickupMesh->DetachFromComponent(DetachRules);
+	//SetWeaponState(EWeaponState::EWS_Initial);
+	//GetAreaSphere()->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	//GetAreaSphere()->SetCollisionResponseToChannel(ECollisionChannel::ECC_Pawn, ECollisionResponse::ECR_Overlap);
+
+	SetOwner(nullptr);
+	OwnerCharacter = nullptr;
+	OwnerPlayerController = nullptr;
+
+	SetActorTransform(InitialTransform);
+}
+
 void AFlagPickup::OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	Super::OnSphereOverlap(OverlappedComponent, OtherActor, OtherComp, OtherBodyIndex, bFromSweep, SweepResult);
 
 	AMasterCharacter* MasterCharacter = Cast<AMasterCharacter>(OtherActor);
 
-	//FName Socket = MasterCharacter->FlagSocket;
-	AttachToComponent(MasterCharacter->GetMesh(), FAttachmentTransformRules::SnapToTargetIncludingScale, MasterCharacter->FlagSocket);
+	if (MasterCharacter)
+	{
+		AttachFlagToPlayer(MasterCharacter);
+	}
+
 }

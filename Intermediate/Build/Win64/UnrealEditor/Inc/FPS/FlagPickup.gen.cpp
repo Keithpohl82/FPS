@@ -13,6 +13,9 @@ void EmptyLinkFunctionForGeneratedCodeFlagPickup() {}
 	FPS_API UClass* Z_Construct_UClass_AFlagPickup();
 	FPS_API UClass* Z_Construct_UClass_APickup();
 	UPackage* Z_Construct_UPackage__Script_FPS();
+	FPS_API UEnum* Z_Construct_UEnum_FPS_ETeam();
+	FPS_API UClass* Z_Construct_UClass_AMasterCharacter_NoRegister();
+	FPS_API UClass* Z_Construct_UClass_AMasterPlayerController_NoRegister();
 // End Cross Module References
 	void AFlagPickup::StaticRegisterNativesAFlagPickup()
 	{
@@ -28,6 +31,20 @@ void EmptyLinkFunctionForGeneratedCodeFlagPickup() {}
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+		static const UECodeGen_Private::FBytePropertyParams NewProp_Team_Underlying;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_Team_MetaData[];
+#endif
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_Team;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_OwnerCharacter_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_OwnerCharacter;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_OwnerPlayerController_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_OwnerPlayerController;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
 	};
@@ -42,6 +59,32 @@ void EmptyLinkFunctionForGeneratedCodeFlagPickup() {}
 		{ "ModuleRelativePath", "CaptureTheFlag/FlagPickup.h" },
 	};
 #endif
+	const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_AFlagPickup_Statics::NewProp_Team_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFlagPickup_Statics::NewProp_Team_MetaData[] = {
+		{ "Category", "FlagPickup" },
+		{ "ModuleRelativePath", "CaptureTheFlag/FlagPickup.h" },
+	};
+#endif
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AFlagPickup_Statics::NewProp_Team = { "Team", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AFlagPickup, Team), Z_Construct_UEnum_FPS_ETeam, METADATA_PARAMS(Z_Construct_UClass_AFlagPickup_Statics::NewProp_Team_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFlagPickup_Statics::NewProp_Team_MetaData)) }; // 722182970
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFlagPickup_Statics::NewProp_OwnerCharacter_MetaData[] = {
+		{ "ModuleRelativePath", "CaptureTheFlag/FlagPickup.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFlagPickup_Statics::NewProp_OwnerCharacter = { "OwnerCharacter", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AFlagPickup, OwnerCharacter), Z_Construct_UClass_AMasterCharacter_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AFlagPickup_Statics::NewProp_OwnerCharacter_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFlagPickup_Statics::NewProp_OwnerCharacter_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFlagPickup_Statics::NewProp_OwnerPlayerController_MetaData[] = {
+		{ "ModuleRelativePath", "CaptureTheFlag/FlagPickup.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFlagPickup_Statics::NewProp_OwnerPlayerController = { "OwnerPlayerController", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AFlagPickup, OwnerPlayerController), Z_Construct_UClass_AMasterPlayerController_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AFlagPickup_Statics::NewProp_OwnerPlayerController_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFlagPickup_Statics::NewProp_OwnerPlayerController_MetaData)) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFlagPickup_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFlagPickup_Statics::NewProp_Team_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFlagPickup_Statics::NewProp_Team,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFlagPickup_Statics::NewProp_OwnerCharacter,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFlagPickup_Statics::NewProp_OwnerPlayerController,
+	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AFlagPickup_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AFlagPickup>::IsAbstract,
 	};
@@ -51,11 +94,11 @@ void EmptyLinkFunctionForGeneratedCodeFlagPickup() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		nullptr,
-		nullptr,
+		Z_Construct_UClass_AFlagPickup_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		0,
-		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_AFlagPickup_Statics::PropPointers),
 		0,
 		0x009000A4u,
 		METADATA_PARAMS(Z_Construct_UClass_AFlagPickup_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_AFlagPickup_Statics::Class_MetaDataParams))
@@ -78,9 +121,9 @@ void EmptyLinkFunctionForGeneratedCodeFlagPickup() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_CaptureTheFlag_FlagPickup_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AFlagPickup, AFlagPickup::StaticClass, TEXT("AFlagPickup"), &Z_Registration_Info_UClass_AFlagPickup, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFlagPickup), 3942429423U) },
+		{ Z_Construct_UClass_AFlagPickup, AFlagPickup::StaticClass, TEXT("AFlagPickup"), &Z_Registration_Info_UClass_AFlagPickup, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFlagPickup), 3059163930U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_CaptureTheFlag_FlagPickup_h_4177198042(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_CaptureTheFlag_FlagPickup_h_2461521285(TEXT("/Script/FPS"),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_CaptureTheFlag_FlagPickup_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_CaptureTheFlag_FlagPickup_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

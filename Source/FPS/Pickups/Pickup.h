@@ -17,6 +17,9 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	virtual void Destroyed() override;
+
+	UPROPERTY(EditAnywhere)
+	class USphereComponent* OverlapSphere;
 protected:
 
 	virtual void BeginPlay() override;
@@ -27,12 +30,13 @@ protected:
 	UPROPERTY(EditAnywhere)
 	float BaseTurnRate = 45.f;
 
+
+
 	UPROPERTY(EditAnywhere)
 	UStaticMeshComponent* PickupMesh;
 private:
 
-	UPROPERTY(EditAnywhere)
-	class USphereComponent* OverlapSphere;
+
 
 	UPROPERTY(EditAnywhere)
 	class USoundCue* PickupSound;

@@ -4,6 +4,7 @@
 #include "CTFGameMode.h"
 #include "Kismet/GameplayStatics.h"
 #include "FPS/Weapons/Flag.h"
+#include "FPS/CaptureTheFlag/FlagPickup.h"
 #include "FPS/CaptureTheFlag/FlagZone.h"
 #include "FPS/GameState/MasterGameState.h"
 
@@ -12,7 +13,7 @@ void ACTFGameMode::PlayerEliminated(class AMasterCharacter* ElimmedCharacter, cl
 	AMasterGameMode::PlayerEliminated(ElimmedCharacter, VictimController, KillerController);
 }
 
-void ACTFGameMode::FlagCaptured(AFlag* Flag, AFlagZone* Zone)
+void ACTFGameMode::FlagCaptured(AFlagPickup* Flag, AFlagZone* Zone)
 {
 	bool bValidCapture = Flag->GetTeam() != Zone->Team;
 

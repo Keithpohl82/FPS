@@ -6,6 +6,7 @@
 #include "FPS/Weapons/Flag.h"
 #include "FPS/GameModes/CTFGameMode.h"
 #include "FPS/Character/MasterCharacter.h"
+#include "FlagPickup.h"
 
 
 // Sets default values
@@ -27,17 +28,24 @@ void AFlagZone::BeginPlay()
 
 void AFlagZone::OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	AFlag* OverlappingFlag = Cast<AFlag>(OtherActor);
-	if (OverlappingFlag && OverlappingFlag->GetTeam() != Team)
+	 Flag = Cast<AFlagPickup>(OtherActor);
+
+	if (Flag == nullptr)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Sphere overlap on zone"));
+		UE_LOG(LogTemp, Warning, TEXT("Flag is a nullptr"));
+		return;
+	}
+	UE_LOG(LogTemp, Warning, TEXT("Sphere overlap on zone outside if check"));
+	if (Flag->GetTeam() != Team)
+	{
+		
 		ACTFGameMode* GameMode = GetWorld()->GetAuthGameMode<ACTFGameMode>();
 		if (GameMode)
 		{
-			GameMode->FlagCaptured(OverlappingFlag, this);
+			GameMode->FlagCaptured(Flag, this);
 			
 		}
-		OverlappingFlag->ResetFlag();
+		Flag->ResetFlag();
 	}
 }
 
