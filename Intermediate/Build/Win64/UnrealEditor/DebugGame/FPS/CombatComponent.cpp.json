@@ -79,14 +79,10 @@
             "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\playerstate.h",
             "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\playerstate.generated.h",
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\masterplayerstate.generated.h",
-            "u:\\fps\\source\\fps\\weapons\\flag.h",
-            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\flag.generated.h",
             "u:\\fps\\source\\fps\\weapons\\shotgun.h",
             "u:\\fps\\source\\fps\\weapons\\hitscanweapon.h",
             "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\hitscanweapon.generated.h",
-            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\shotgun.generated.h",
-            "u:\\fps\\source\\fps\\capturetheflag\\baseflag.h",
-            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\baseflag.generated.h"
+            "u:\\fps\\intermediate\\build\\win64\\unrealeditor\\inc\\fps\\shotgun.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

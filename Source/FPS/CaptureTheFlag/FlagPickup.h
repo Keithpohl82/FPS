@@ -22,6 +22,7 @@ public:
 	virtual void BeginPlay() override;
 
 	void AttachFlagToPlayer(class AMasterCharacter* Character);
+
 	void ResetFlag();
 
 private:
@@ -42,5 +43,5 @@ protected:
 
 public:
 
-FORCEINLINE ETeam GetTeam() const {return Team;}
+	FORCEINLINE ETeam GetTeam() const {return Team;}
 };

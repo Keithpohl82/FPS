@@ -11,7 +11,6 @@
 #include "FPS/Components/CombatComponent.h"
 #include "FPS/PlayerController/MasterPlayerController.h"
 #include "FPS/PlayerState/MasterPlayerState.h"
-#include "Flag.h"
 #include "Kismet/KismetMathLibrary.h"
 
 

@@ -16,9 +16,7 @@
 #include "FPS/UI/PlayerHUD.h"
 #include "FPS/Weapons/Projectiles/ProjectileBase.h"
 #include "FPS/PlayerState/MasterPlayerState.h"
-#include "FPS/Weapons/Flag.h"
 #include "FPS/Weapons/Shotgun.h"
-#include "FPS/CaptureTheFlag/BaseFlag.h"
 
 
 UCombatComponent::UCombatComponent()

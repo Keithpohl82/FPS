@@ -106,12 +106,6 @@
     <Filter Include="Source\FPS\CaptureTheFlag">
       <UniqueIdentifier>{1CE9A651-C153-3A05-8B9B-894BB36EB531}</UniqueIdentifier>
     </Filter>
-    <ClCompile Include="..\..\Source\FPS\CaptureTheFlag\BaseFlag.cpp">
-      <Filter>Source\FPS\CaptureTheFlag</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\FPS\CaptureTheFlag\BaseFlag.h">
-      <Filter>Source\FPS\CaptureTheFlag</Filter>
-    </ClInclude>
     <ClCompile Include="..\..\Source\FPS\CaptureTheFlag\FlagPickup.cpp">
       <Filter>Source\FPS\CaptureTheFlag</Filter>
     </ClCompile>
@@ -122,6 +116,12 @@
       <Filter>Source\FPS\CaptureTheFlag</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\FPS\CaptureTheFlag\FlagZone.h">
+      <Filter>Source\FPS\CaptureTheFlag</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\FPS\CaptureTheFlag\NewFlag.cpp">
+      <Filter>Source\FPS\CaptureTheFlag</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\CaptureTheFlag\NewFlag.h">
       <Filter>Source\FPS\CaptureTheFlag</Filter>
     </ClInclude>
     <Filter Include="Source\FPS\Character">
@@ -319,12 +319,6 @@
     <Filter Include="Source\FPS\Weapons">
       <UniqueIdentifier>{996C991C-084B-3CE0-9BC8-A13B75FBCA84}</UniqueIdentifier>
     </Filter>
-    <ClCompile Include="..\..\Source\FPS\Weapons\Flag.cpp">
-      <Filter>Source\FPS\Weapons</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\FPS\Weapons\Flag.h">
-      <Filter>Source\FPS\Weapons</Filter>
-    </ClInclude>
     <ClCompile Include="..\..\Source\FPS\Weapons\HitScanWeapon.cpp">
       <Filter>Source\FPS\Weapons</Filter>
     </ClCompile>

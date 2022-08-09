@@ -3,7 +3,6 @@
 
 #include "FlagZone.h"
 #include "Components/SphereComponent.h"
-#include "FPS/Weapons/Flag.h"
 #include "FPS/GameModes/CTFGameMode.h"
 #include "FPS/Character/MasterCharacter.h"
 #include "FlagPickup.h"
@@ -16,6 +15,7 @@ AFlagZone::AFlagZone()
 
 	ZoneSphere = CreateDefaultSubobject<USphereComponent>(TEXT("Zone Sphere"));
 	SetRootComponent(ZoneSphere);
+	
 }
 
 
@@ -28,7 +28,7 @@ void AFlagZone::BeginPlay()
 
 void AFlagZone::OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	AFlagPickup* Flag = Cast<AFlagPickup>(OtherActor);
+	Flag = Cast<AFlagPickup>(OtherActor);
 
 	if (Flag == nullptr)
 	{

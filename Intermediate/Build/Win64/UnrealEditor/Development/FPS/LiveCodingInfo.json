@@ -2,11 +2,15 @@
 	"RemapUnityFiles": 
 	{
 		"Module.FPS.cpp.obj": [
+			"BaseFlag.cpp.obj",
+			"FlagZone.cpp.obj",
 			"CharacterAnimInstance.cpp.obj",
+			"MasterCharacter.cpp.obj",
 			"BuffComponent.cpp.obj",
 			"CombatComponent.cpp.obj",
 			"LagCompensationComponent.cpp.obj",
 			"FPS.cpp.obj",
+			"CTFGameMode.cpp.obj",
 			"LobbyGameMode.cpp.obj",
 			"MasterGameMode.cpp.obj",
 			"TeamDeathMatchrGameMode.cpp.obj",
@@ -21,6 +25,7 @@
 			"SpeedPickup.cpp.obj",
 			"MasterPlayerController.cpp.obj",
 			"MasterPlayerState.cpp.obj",
+			"TeamPlayerStart.cpp.obj",
 			"Announcement.cpp.obj",
 			"ElimAnnouncment.cpp.obj",
 			"InGameMenu.cpp.obj",
@@ -36,19 +41,26 @@
 			"ProjectileWeapon.cpp.obj",
 			"RocketMovementComponent.cpp.obj",
 			"Shotgun.cpp.obj",
-			"MasterCharacter.cpp.obj",
-			"WeaponBase.cpp.obj"
+			"WeaponBase.cpp.obj",
+			"FlagPickup.cpp.obj"
 		],
 		"Module.FPS.gen.cpp.obj": [
 			"AmmoPickup.gen.cpp.obj",
 			"Announcement.gen.cpp.obj",
+			"BaseFlag.gen.cpp.obj",
 			"BuffComponent.gen.cpp.obj",
 			"Casing.gen.cpp.obj",
 			"CharacterAnimInstance.gen.cpp.obj",
 			"CombatComponent.gen.cpp.obj",
 			"CombatState.gen.cpp.obj",
+			"CTFGameMode.gen.cpp.obj",
 			"ElimAnnouncment.gen.cpp.obj",
+			"Flag.gen.cpp.obj",
+			"FlagPickup.gen.cpp.obj",
+			"FlagZone.gen.cpp.obj",
+			"FPS.init.gen.cpp.obj",
 			"HealthPickup.gen.cpp.obj",
+			"HitScanWeapon.gen.cpp.obj",
 			"InGameMenu.gen.cpp.obj",
 			"InteractWithCrosshairsInterface.gen.cpp.obj",
 			"JumpPickup.gen.cpp.obj",
@@ -67,19 +79,17 @@
 			"ProjectileBullet.gen.cpp.obj",
 			"ProjectileGrenade.gen.cpp.obj",
 			"ProjectileRocket.gen.cpp.obj",
+			"ProjectileWeapon.gen.cpp.obj",
 			"RocketMovementComponent.gen.cpp.obj",
 			"ShieldPickup.gen.cpp.obj",
+			"Shotgun.gen.cpp.obj",
 			"SpeedPickup.gen.cpp.obj",
 			"Team.gen.cpp.obj",
 			"TeamDeathMatchrGameMode.gen.cpp.obj",
+			"TeamPlayerStart.gen.cpp.obj",
 			"TurningInPlace.gen.cpp.obj",
-			"WeaponTypes.gen.cpp.obj",
-			"Flag.gen.cpp.obj",
-			"FPS.init.gen.cpp.obj",
-			"HitScanWeapon.gen.cpp.obj",
-			"ProjectileWeapon.gen.cpp.obj",
-			"Shotgun.gen.cpp.obj",
-			"WeaponBase.gen.cpp.obj"
+			"WeaponBase.gen.cpp.obj",
+			"WeaponTypes.gen.cpp.obj"
 		]
 	}
 }

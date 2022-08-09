@@ -3,7 +3,6 @@
 
 #include "CTFGameMode.h"
 #include "Kismet/GameplayStatics.h"
-#include "FPS/Weapons/Flag.h"
 #include "FPS/CaptureTheFlag/FlagPickup.h"
 #include "FPS/CaptureTheFlag/FlagZone.h"
 #include "FPS/GameState/MasterGameState.h"

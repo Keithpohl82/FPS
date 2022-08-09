@@ -18,6 +18,7 @@ void EmptyLinkFunctionForGeneratedCodeFlagZone() {}
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
 	FPS_API UEnum* Z_Construct_UEnum_FPS_ETeam();
 	ENGINE_API UClass* Z_Construct_UClass_USphereComponent_NoRegister();
+	FPS_API UClass* Z_Construct_UClass_AFlagPickup_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(AFlagZone::execOnSphereOverlap)
 	{
@@ -142,6 +143,10 @@ void EmptyLinkFunctionForGeneratedCodeFlagZone() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_ZoneSphere_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_ZoneSphere;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_Flag_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_Flag;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -175,10 +180,17 @@ void EmptyLinkFunctionForGeneratedCodeFlagZone() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFlagZone_Statics::NewProp_ZoneSphere = { "ZoneSphere", nullptr, (EPropertyFlags)0x0040000000080009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AFlagZone, ZoneSphere), Z_Construct_UClass_USphereComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AFlagZone_Statics::NewProp_ZoneSphere_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFlagZone_Statics::NewProp_ZoneSphere_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFlagZone_Statics::NewProp_Flag_MetaData[] = {
+		{ "ModuleRelativePath", "CaptureTheFlag/FlagZone.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFlagZone_Statics::NewProp_Flag = { "Flag", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AFlagZone, Flag), Z_Construct_UClass_AFlagPickup_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AFlagZone_Statics::NewProp_Flag_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFlagZone_Statics::NewProp_Flag_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFlagZone_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFlagZone_Statics::NewProp_Team_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFlagZone_Statics::NewProp_Team,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFlagZone_Statics::NewProp_ZoneSphere,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFlagZone_Statics::NewProp_Flag,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AFlagZone_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AFlagZone>::IsAbstract,
@@ -216,9 +228,9 @@ void EmptyLinkFunctionForGeneratedCodeFlagZone() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_CaptureTheFlag_FlagZone_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AFlagZone, AFlagZone::StaticClass, TEXT("AFlagZone"), &Z_Registration_Info_UClass_AFlagZone, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFlagZone), 399480400U) },
+		{ Z_Construct_UClass_AFlagZone, AFlagZone::StaticClass, TEXT("AFlagZone"), &Z_Registration_Info_UClass_AFlagZone, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFlagZone), 3177723488U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_CaptureTheFlag_FlagZone_h_246414390(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_CaptureTheFlag_FlagZone_h_647444640(TEXT("/Script/FPS"),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_CaptureTheFlag_FlagZone_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_CaptureTheFlag_FlagZone_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

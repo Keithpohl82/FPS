@@ -8,6 +8,7 @@
 #include "Components/SceneComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "GameFramework/Actor.h"
 
 AFlagPickup::AFlagPickup()
 {
@@ -29,7 +30,7 @@ void AFlagPickup::AttachFlagToPlayer(AMasterCharacter* Character)
 {
 	if (Team != Character->GetTeam())
 	{
-		this->AttachToComponent(Character->GetMesh(), FAttachmentTransformRules::SnapToTargetIncludingScale, Character->FlagSocket);
+		AttachToComponent(Character->GetMesh(), FAttachmentTransformRules::SnapToTargetIncludingScale, Character->FlagSocket);
 		SetOwner(Character);
 	}
 }
