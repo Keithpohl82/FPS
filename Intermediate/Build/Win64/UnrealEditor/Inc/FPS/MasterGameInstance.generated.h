@@ -44,7 +44,7 @@ public: \
 
 #define FID_FPS_Source_FPS_GameInstance_MasterGameInstance_h_15_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API UMasterGameInstance(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
+	NO_API UMasterGameInstance(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UMasterGameInstance) \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UMasterGameInstance); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UMasterGameInstance); \
@@ -56,8 +56,6 @@ public:
 
 
 #define FID_FPS_Source_FPS_GameInstance_MasterGameInstance_h_15_ENHANCED_CONSTRUCTORS \
-	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API UMasterGameInstance(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API UMasterGameInstance(UMasterGameInstance&&); \
@@ -65,7 +63,7 @@ private: \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UMasterGameInstance); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UMasterGameInstance); \
-	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UMasterGameInstance)
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(UMasterGameInstance)
 
 
 #define FID_FPS_Source_FPS_GameInstance_MasterGameInstance_h_12_PROLOG

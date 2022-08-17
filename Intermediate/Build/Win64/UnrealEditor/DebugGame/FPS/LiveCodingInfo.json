@@ -2,11 +2,17 @@
 	"RemapUnityFiles": 
 	{
 		"Module.FPS.cpp.obj": [
+			"CapturePoint.cpp.obj",
+			"FlagPickup.cpp.obj",
+			"FlagZone.cpp.obj",
+			"NewFlag.cpp.obj",
 			"CharacterAnimInstance.cpp.obj",
+			"MasterCharacter.cpp.obj",
 			"BuffComponent.cpp.obj",
 			"CombatComponent.cpp.obj",
 			"LagCompensationComponent.cpp.obj",
 			"FPS.cpp.obj",
+			"CTFGameMode.cpp.obj",
 			"LobbyGameMode.cpp.obj",
 			"MasterGameMode.cpp.obj",
 			"TeamDeathMatchrGameMode.cpp.obj",
@@ -19,6 +25,7 @@
 			"PickupSpawnPoint.cpp.obj",
 			"ShieldPickup.cpp.obj",
 			"SpeedPickup.cpp.obj",
+			"MasterPlayerController.cpp.obj",
 			"MasterPlayerState.cpp.obj",
 			"TeamPlayerStart.cpp.obj",
 			"Announcement.cpp.obj",
@@ -36,19 +43,13 @@
 			"RocketMovementComponent.cpp.obj",
 			"Shotgun.cpp.obj",
 			"WeaponBase.cpp.obj",
-			"CapturePoint.cpp.obj",
-			"FlagPickup.cpp.obj",
-			"FlagZone.cpp.obj",
-			"NewFlag.cpp.obj",
-			"MasterCharacter.cpp.obj",
-			"MasterGameInstance.cpp.obj",
-			"CTFGameMode.cpp.obj",
-			"MasterPlayerController.cpp.obj"
+			"MasterGameInstance.cpp.obj"
 		],
 		"Module.FPS.gen.1_of_2.cpp.obj": [
 			"AmmoPickup.gen.cpp.obj",
 			"Announcement.gen.cpp.obj",
 			"BuffComponent.gen.cpp.obj",
+			"CapturePoint.gen.cpp.obj",
 			"Casing.gen.cpp.obj",
 			"CharacterAnimInstance.gen.cpp.obj",
 			"CombatComponent.gen.cpp.obj",
@@ -56,6 +57,8 @@
 			"CTFGameMode.gen.cpp.obj",
 			"ElimAnnouncment.gen.cpp.obj",
 			"FlagPickup.gen.cpp.obj",
+			"FlagZone.gen.cpp.obj",
+			"FPS.init.gen.cpp.obj",
 			"HealthPickup.gen.cpp.obj",
 			"HitScanWeapon.gen.cpp.obj",
 			"InGameMenu.gen.cpp.obj",
@@ -63,16 +66,15 @@
 			"JumpPickup.gen.cpp.obj",
 			"LagCompensationComponent.gen.cpp.obj",
 			"LobbyGameMode.gen.cpp.obj",
-			"MasterCharacter.gen.cpp.obj",
-			"CapturePoint.gen.cpp.obj",
-			"FlagZone.gen.cpp.obj",
-			"FPS.init.gen.cpp.obj"
+			"MasterCharacter.gen.cpp.obj"
 		],
 		"Module.FPS.gen.2_of_2.cpp.obj": [
+			"MasterGameInstance.gen.cpp.obj",
 			"MasterGameMode.gen.cpp.obj",
 			"MasterGameState.gen.cpp.obj",
 			"MasterPlayerController.gen.cpp.obj",
 			"MasterPlayerState.gen.cpp.obj",
+			"NewFlag.gen.cpp.obj",
 			"Pickup.gen.cpp.obj",
 			"PickupSpawnPoint.gen.cpp.obj",
 			"PlayerHUD.gen.cpp.obj",
@@ -91,9 +93,7 @@
 			"TeamPlayerStart.gen.cpp.obj",
 			"TurningInPlace.gen.cpp.obj",
 			"WeaponBase.gen.cpp.obj",
-			"WeaponTypes.gen.cpp.obj",
-			"MasterGameInstance.gen.cpp.obj",
-			"NewFlag.gen.cpp.obj"
+			"WeaponTypes.gen.cpp.obj"
 		]
 	}
 }

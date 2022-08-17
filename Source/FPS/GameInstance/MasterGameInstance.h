@@ -17,6 +17,12 @@ class FPS_API UMasterGameInstance : public UGameInstance
 
 
 public:
+
+	UMasterGameInstance();
+
+	class IOnlineSubsystem* Subsystem;
+
+	virtual void Init() override;
 	
 	UFUNCTION(BlueprintCallable)
 	void GetAllFriends();
