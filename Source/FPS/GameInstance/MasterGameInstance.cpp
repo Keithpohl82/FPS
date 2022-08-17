@@ -3,8 +3,10 @@
 
 #include "MasterGameInstance.h"
 #include "Interfaces/OnlineIdentityInterface.h"
+#include "Interfaces/OnlinePresenceInterface.h"
 #include "Interfaces/OnlineSessionInterface.h"
 #include "Interfaces/OnlineFriendsInterface.h"
+#include "Interfaces/OnlineExternalUIInterface.h"
 #include "OnlineSubsystem.h"
 
 UMasterGameInstance::UMasterGameInstance()
@@ -56,9 +58,11 @@ void UMasterGameInstance::OnGetAllFriendsComplete(int32 LocalUserNum, bool bWasS
 		{
 			if (IOnlineFriendsPtr FriendsPtr = Subsystem->GetFriendsInterface())
 			{
+				
 				TArray<TSharedRef<FOnlineFriend>> FriendsList;
 				if (FriendsPtr->GetFriendsList(0, ListName, FriendsList))
 				{
+
 					for (TSharedRef<FOnlineFriend> Friend : FriendsList)
 					{
 						FString FriendName = Friend.Get().GetRealName();
@@ -71,8 +75,17 @@ void UMasterGameInstance::OnGetAllFriendsComplete(int32 LocalUserNum, bool bWasS
 				}
 			}
 		}
-	
 	}
+}
 
-
+void UMasterGameInstance::ShowInviteUI()
+{
+	if (Subsystem)
+	{
+		IOnlineExternalUIPtr UIPtr = Subsystem->GetExternalUIInterface();
+		if (UIPtr)
+		{
+			UIPtr->ShowInviteUI(0);
+		}
+	}
 }

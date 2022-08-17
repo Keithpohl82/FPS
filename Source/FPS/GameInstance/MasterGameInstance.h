@@ -29,5 +29,7 @@ public:
 
 	void OnGetAllFriendsComplete(int32 LocalUserNum, bool bWasSuccessful, const FString& ListName, const FString& ErrorStr);
 
+	UFUNCTION(BlueprintCallable)
+	void ShowInviteUI();
 
 };

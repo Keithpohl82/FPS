@@ -58,7 +58,6 @@
 			"ElimAnnouncment.gen.cpp.obj",
 			"FlagPickup.gen.cpp.obj",
 			"FlagZone.gen.cpp.obj",
-			"FPS.init.gen.cpp.obj",
 			"HealthPickup.gen.cpp.obj",
 			"HitScanWeapon.gen.cpp.obj",
 			"InGameMenu.gen.cpp.obj",
@@ -66,10 +65,10 @@
 			"JumpPickup.gen.cpp.obj",
 			"LagCompensationComponent.gen.cpp.obj",
 			"LobbyGameMode.gen.cpp.obj",
-			"MasterCharacter.gen.cpp.obj"
+			"MasterCharacter.gen.cpp.obj",
+			"FPS.init.gen.cpp.obj"
 		],
 		"Module.FPS.gen.2_of_2.cpp.obj": [
-			"MasterGameInstance.gen.cpp.obj",
 			"MasterGameMode.gen.cpp.obj",
 			"MasterGameState.gen.cpp.obj",
 			"MasterPlayerController.gen.cpp.obj",
@@ -93,7 +92,8 @@
 			"TeamPlayerStart.gen.cpp.obj",
 			"TurningInPlace.gen.cpp.obj",
 			"WeaponBase.gen.cpp.obj",
-			"WeaponTypes.gen.cpp.obj"
+			"WeaponTypes.gen.cpp.obj",
+			"MasterGameInstance.gen.cpp.obj"
 		]
 	}
 }

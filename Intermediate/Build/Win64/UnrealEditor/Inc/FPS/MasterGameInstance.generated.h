@@ -16,11 +16,13 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_FPS_Source_FPS_GameInstance_MasterGameInstance_h_15_SPARSE_DATA
 #define FID_FPS_Source_FPS_GameInstance_MasterGameInstance_h_15_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execShowInviteUI); \
 	DECLARE_FUNCTION(execGetAllFriends);
 
 
 #define FID_FPS_Source_FPS_GameInstance_MasterGameInstance_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execShowInviteUI); \
 	DECLARE_FUNCTION(execGetAllFriends);
 
 
