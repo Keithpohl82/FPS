@@ -26,6 +26,7 @@ protected:
 	UFUNCTION()
 	virtual void OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 	
+	
 
 private:
 
@@ -33,7 +34,7 @@ private:
 	class USphereComponent* ZoneSphere;
 
 	UPROPERTY()
-	class AFlagPickup* Flag;
+	class ANewFlag* Flag;
 public:	
 
 

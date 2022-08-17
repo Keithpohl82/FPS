@@ -17,5 +17,7 @@ class FPS_API ACTFGameMode : public ATeamDeathMatchrGameMode
 public:
 	virtual void PlayerEliminated(class AMasterCharacter* ElimmedCharacter, class AMasterPlayerController* VictimController, AMasterPlayerController* KillerController) override;
 
-	void FlagCaptured(class AFlagPickup* Flag, class AFlagZone* Zone);
+	void FlagCaptured(class ACapturePoint* Zone, class ANewFlag* Flag);
+
+	class AMasterCharacter* ScoringPlayer;
 };

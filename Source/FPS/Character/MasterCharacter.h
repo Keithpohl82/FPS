@@ -300,6 +300,8 @@ private:
 
 	UPROPERTY()
 	class AMasterGameMode* MasterGameMode;
+
+	
 	
 protected:
 	
@@ -330,13 +332,13 @@ protected:
 	void SetSpawnPoint();
 	void OnPlayerStateInitialized();
 
-	void PickupFlag(class ABaseFlag* FlagToPickup);
-
 	UFUNCTION()
 	void ReceivedDamage(AActor* DamagedActor, float Damage, const UDamageType* DamageType, class AController* InstigatorController, AActor* DamageCauser);
 	
 	void DropOrDestroyWeapon(AWeaponBase* Weapon);
 	void DropOrDestroyWeapons();
+
+	void DropFlag(class ANewFlag* CarriedFlag);
 
 	/*
 	Hitboxes user for serverside-rewind
@@ -391,7 +393,7 @@ protected:
 		UBoxComponent* Foot_R;
 
 public:	
-	
+	class ANewFlag* FlagBeingCarried = nullptr;
 	void SetOverlappingWeapon(AWeaponBase* Weapon);
 	bool IsWeaponEquipped();
 	bool IsAiming();

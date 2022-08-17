@@ -18,7 +18,7 @@ void EmptyLinkFunctionForGeneratedCodeFlagZone() {}
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
 	FPS_API UEnum* Z_Construct_UEnum_FPS_ETeam();
 	ENGINE_API UClass* Z_Construct_UClass_USphereComponent_NoRegister();
-	FPS_API UClass* Z_Construct_UClass_AFlagPickup_NoRegister();
+	FPS_API UClass* Z_Construct_UClass_ANewFlag_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(AFlagZone::execOnSphereOverlap)
 	{
@@ -185,7 +185,7 @@ void EmptyLinkFunctionForGeneratedCodeFlagZone() {}
 		{ "ModuleRelativePath", "CaptureTheFlag/FlagZone.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFlagZone_Statics::NewProp_Flag = { "Flag", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AFlagZone, Flag), Z_Construct_UClass_AFlagPickup_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AFlagZone_Statics::NewProp_Flag_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFlagZone_Statics::NewProp_Flag_MetaData)) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFlagZone_Statics::NewProp_Flag = { "Flag", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AFlagZone, Flag), Z_Construct_UClass_ANewFlag_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AFlagZone_Statics::NewProp_Flag_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFlagZone_Statics::NewProp_Flag_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFlagZone_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFlagZone_Statics::NewProp_Team_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFlagZone_Statics::NewProp_Team,
@@ -228,9 +228,9 @@ void EmptyLinkFunctionForGeneratedCodeFlagZone() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_CaptureTheFlag_FlagZone_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AFlagZone, AFlagZone::StaticClass, TEXT("AFlagZone"), &Z_Registration_Info_UClass_AFlagZone, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFlagZone), 3177723488U) },
+		{ Z_Construct_UClass_AFlagZone, AFlagZone::StaticClass, TEXT("AFlagZone"), &Z_Registration_Info_UClass_AFlagZone, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFlagZone), 3303670676U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_CaptureTheFlag_FlagZone_h_647444640(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_CaptureTheFlag_FlagZone_h_641499855(TEXT("/Script/FPS"),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_CaptureTheFlag_FlagZone_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_CaptureTheFlag_FlagZone_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

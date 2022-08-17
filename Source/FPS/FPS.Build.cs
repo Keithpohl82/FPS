@@ -8,7 +8,7 @@ public class FPS : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "UMG", "Niagara", "MultiplayerSessions", "OnlineSubsystem", "OnlineSubsystemSteam", "MultiplayerSessions" });
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "UMG", "Niagara", "MultiplayerSessions", "OnlineSubsystem", "OnlineSubsystemSteam", "MultiplayerSessions", "OnlineSubsystemEOS", "OnlineSubsystemEOSPlus" });
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
 

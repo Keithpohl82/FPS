@@ -31,11 +31,13 @@ public:
 	//
 	//To handle session functionality. The Menu Class will call these
 	//
+	UFUNCTION(BlueprintCallable)
 	void CreateSession(int32 NumPublicConnections, FString MatchType);
 	void FindSessions(int32 MaxSearchResults);
 	void JoinSession(const FOnlineSessionSearchResult& SessionResult);
 	void DestroySession();
 	void StartSession();
+	
 
 	//
 	// Our own custom delegates for the Menu class to bind callbacks to.
@@ -57,6 +59,7 @@ protected:
 	void OnJoinSessionComplete(FName SessionName, EOnJoinSessionCompleteResult::Type Result);
 	void OnDestroySessionComplete(FName SessionName, bool bWasSuccessful);
 	void OnStartSessionComplete(FName SessionName, bool bWasSuccessful);
+	
 
 private:
 	IOnlineSessionPtr SessionInterface;
@@ -80,4 +83,8 @@ private:
 	bool bCreateSessionOnDestroy{false};
 	int32 LastNumPublicConnections;
 	FString LastMatchType;
+
+public:
+
+
 };

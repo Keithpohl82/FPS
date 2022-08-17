@@ -131,8 +131,60 @@ void EmptyLinkFunctionForGeneratedCodeMultiplayerSessionsSubsystem() {}
 		}
 		return ReturnFunction;
 	}
+	DEFINE_FUNCTION(UMultiplayerSessionsSubsystem::execCreateSession)
+	{
+		P_GET_PROPERTY(FIntProperty,Z_Param_NumPublicConnections);
+		P_GET_PROPERTY(FStrProperty,Z_Param_MatchType);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->CreateSession(Z_Param_NumPublicConnections,Z_Param_MatchType);
+		P_NATIVE_END;
+	}
 	void UMultiplayerSessionsSubsystem::StaticRegisterNativesUMultiplayerSessionsSubsystem()
 	{
+		UClass* Class = UMultiplayerSessionsSubsystem::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "CreateSession", &UMultiplayerSessionsSubsystem::execCreateSession },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_UMultiplayerSessionsSubsystem_CreateSession_Statics
+	{
+		struct MultiplayerSessionsSubsystem_eventCreateSession_Parms
+		{
+			int32 NumPublicConnections;
+			FString MatchType;
+		};
+		static const UECodeGen_Private::FIntPropertyParams NewProp_NumPublicConnections;
+		static const UECodeGen_Private::FStrPropertyParams NewProp_MatchType;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UMultiplayerSessionsSubsystem_CreateSession_Statics::NewProp_NumPublicConnections = { "NumPublicConnections", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(MultiplayerSessionsSubsystem_eventCreateSession_Parms, NumPublicConnections), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UMultiplayerSessionsSubsystem_CreateSession_Statics::NewProp_MatchType = { "MatchType", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(MultiplayerSessionsSubsystem_eventCreateSession_Parms, MatchType), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UMultiplayerSessionsSubsystem_CreateSession_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMultiplayerSessionsSubsystem_CreateSession_Statics::NewProp_NumPublicConnections,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMultiplayerSessionsSubsystem_CreateSession_Statics::NewProp_MatchType,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMultiplayerSessionsSubsystem_CreateSession_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "//\n//To handle session functionality. The Menu Class will call these\n//\n" },
+		{ "ModuleRelativePath", "Public/MultiplayerSessionsSubsystem.h" },
+		{ "ToolTip", "To handle session functionality. The Menu Class will call these" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMultiplayerSessionsSubsystem_CreateSession_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMultiplayerSessionsSubsystem, nullptr, "CreateSession", nullptr, nullptr, sizeof(Z_Construct_UFunction_UMultiplayerSessionsSubsystem_CreateSession_Statics::MultiplayerSessionsSubsystem_eventCreateSession_Parms), Z_Construct_UFunction_UMultiplayerSessionsSubsystem_CreateSession_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UMultiplayerSessionsSubsystem_CreateSession_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UMultiplayerSessionsSubsystem_CreateSession_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UMultiplayerSessionsSubsystem_CreateSession_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UMultiplayerSessionsSubsystem_CreateSession()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UMultiplayerSessionsSubsystem_CreateSession_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UMultiplayerSessionsSubsystem);
 	UClass* Z_Construct_UClass_UMultiplayerSessionsSubsystem_NoRegister()
@@ -142,6 +194,7 @@ void EmptyLinkFunctionForGeneratedCodeMultiplayerSessionsSubsystem() {}
 	struct Z_Construct_UClass_UMultiplayerSessionsSubsystem_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -151,6 +204,9 @@ void EmptyLinkFunctionForGeneratedCodeMultiplayerSessionsSubsystem() {}
 	UObject* (*const Z_Construct_UClass_UMultiplayerSessionsSubsystem_Statics::DependentSingletons[])() = {
 		(UObject* (*)())Z_Construct_UClass_UGameInstanceSubsystem,
 		(UObject* (*)())Z_Construct_UPackage__Script_MultiplayerSessions,
+	};
+	const FClassFunctionLinkInfo Z_Construct_UClass_UMultiplayerSessionsSubsystem_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_UMultiplayerSessionsSubsystem_CreateSession, "CreateSession" }, // 2208113299
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMultiplayerSessionsSubsystem_Statics::Class_MetaDataParams[] = {
@@ -167,11 +223,11 @@ void EmptyLinkFunctionForGeneratedCodeMultiplayerSessionsSubsystem() {}
 		nullptr,
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		nullptr,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
 		0,
 		0,
 		0x001000A0u,
@@ -195,9 +251,9 @@ void EmptyLinkFunctionForGeneratedCodeMultiplayerSessionsSubsystem() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_MultiplayerSessionsSubsystem_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UMultiplayerSessionsSubsystem, UMultiplayerSessionsSubsystem::StaticClass, TEXT("UMultiplayerSessionsSubsystem"), &Z_Registration_Info_UClass_UMultiplayerSessionsSubsystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMultiplayerSessionsSubsystem), 3562458849U) },
+		{ Z_Construct_UClass_UMultiplayerSessionsSubsystem, UMultiplayerSessionsSubsystem::StaticClass, TEXT("UMultiplayerSessionsSubsystem"), &Z_Registration_Info_UClass_UMultiplayerSessionsSubsystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMultiplayerSessionsSubsystem), 2914380887U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_MultiplayerSessionsSubsystem_h_2476693519(TEXT("/Script/MultiplayerSessions"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_MultiplayerSessionsSubsystem_h_1422709702(TEXT("/Script/MultiplayerSessions"),
 		Z_CompiledInDeferFile_FID_FPS_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_MultiplayerSessionsSubsystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_MultiplayerSessionsSubsystem_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

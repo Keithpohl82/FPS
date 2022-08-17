@@ -106,6 +106,12 @@
     <Filter Include="Source\FPS\CaptureTheFlag">
       <UniqueIdentifier>{1CE9A651-C153-3A05-8B9B-894BB36EB531}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\FPS\CaptureTheFlag\CapturePoint.cpp">
+      <Filter>Source\FPS\CaptureTheFlag</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\CaptureTheFlag\CapturePoint.h">
+      <Filter>Source\FPS\CaptureTheFlag</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\FPS\CaptureTheFlag\FlagPickup.cpp">
       <Filter>Source\FPS\CaptureTheFlag</Filter>
     </ClCompile>
@@ -159,6 +165,15 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\FPS\Components\LagCompensationComponent.h">
       <Filter>Source\FPS\Components</Filter>
+    </ClInclude>
+    <Filter Include="Source\FPS\GameInstance">
+      <UniqueIdentifier>{CC7BB127-D1D9-3FC6-8C65-1E9452DDDAA8}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\FPS\GameInstance\MasterGameInstance.cpp">
+      <Filter>Source\FPS\GameInstance</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPS\GameInstance\MasterGameInstance.h">
+      <Filter>Source\FPS\GameInstance</Filter>
     </ClInclude>
     <Filter Include="Source\FPS\GameModes">
       <UniqueIdentifier>{6808A2EB-22CD-3E81-AEDE-5555C6F8938D}</UniqueIdentifier>

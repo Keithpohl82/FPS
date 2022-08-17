@@ -27,6 +27,7 @@
 #include "FPS/Components/LagCompensationComponent.h"
 #include "NiagaraComponent.h"
 #include "NiagaraFunctionLibrary.h"
+#include "FPS/CaptureTheFlag/NewFlag.h"
 
 
 AMasterCharacter::AMasterCharacter()
@@ -785,6 +786,7 @@ void AMasterCharacter::PlayElimMontage()
 	UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
 	if (AnimInstance && ElimMontage)
 	{
+		//DropFlag(FlagBeingCarried);
 		AnimInstance->Montage_Play(ElimMontage);
 	}
 }
@@ -810,8 +812,8 @@ void AMasterCharacter::PlaySwapMontage()
 void AMasterCharacter::Elim(bool bPlayerLeftGame)
 {
 	DropOrDestroyWeapons();
+	DropFlag(FlagBeingCarried);
 	MulticastElim(bPlayerLeftGame);
-	
 }
 
 void AMasterCharacter::MulticastElim_Implementation(bool bPlayerLeftGame)
@@ -909,6 +911,12 @@ void AMasterCharacter::DropOrDestroyWeapons()
 			Combat->TheFlag->Dropped();
 		}
 	}
+}
+
+void AMasterCharacter::DropFlag(class ANewFlag* CarriedFlag)
+{
+	CarriedFlag->DropFlag();
+	
 }
 
 void AMasterCharacter::SpawnDefaultWeapon()

@@ -18,7 +18,7 @@ class MULTIPLAYERSESSIONS_API UMenu : public UUserWidget
 public:
 	UFUNCTION(BlueprintCallable)
 	void MenuSetup(int32 NumberOfPublicConnections = 6, FString TypeOfMatch = FString (TEXT("CaptureTheFlag")), FString LobbyPath = FString(TEXT("/Game/Maps/TestingLevel")));
-	
+
 
 protected:
 
@@ -36,6 +36,7 @@ protected:
 	void OnDestroySession(bool bWasSuccessful);
 	UFUNCTION()
 	void OnStartSession(bool bWasSuccessful);
+
 	
 private:
 
@@ -45,11 +46,14 @@ private:
 	UPROPERTY(meta = (BindWidget))
 	UButton* JoinButton;
 
+
+
 	UFUNCTION()
 	void HostButtonClicked();
 
 	UFUNCTION()
 	void JoinButtonClicked();
+
 
 	void MenuTearDown();
 	

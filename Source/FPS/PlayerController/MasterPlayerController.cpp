@@ -57,7 +57,7 @@ void AMasterPlayerController::CheckPing(float DeltaSeconds)
 		if (PlayerState)
 		{
 
-			UE_LOG(LogTemp, Warning, TEXT("PlayerState->GetCompressedPing() * 4: %d"), PlayerState->GetCompressedPing() * 4)
+			//UE_LOG(LogTemp, Warning, TEXT("PlayerState->GetCompressedPing() * 4: %d"), PlayerState->GetCompressedPing() * 4)
 
 			if (PlayerState->GetCompressedPing() * 4 > HighPingThreshold) //Ping is compressed by 4
 			{

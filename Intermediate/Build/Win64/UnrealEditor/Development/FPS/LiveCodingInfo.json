@@ -2,15 +2,11 @@
 	"RemapUnityFiles": 
 	{
 		"Module.FPS.cpp.obj": [
-			"BaseFlag.cpp.obj",
-			"FlagZone.cpp.obj",
 			"CharacterAnimInstance.cpp.obj",
-			"MasterCharacter.cpp.obj",
 			"BuffComponent.cpp.obj",
 			"CombatComponent.cpp.obj",
 			"LagCompensationComponent.cpp.obj",
 			"FPS.cpp.obj",
-			"CTFGameMode.cpp.obj",
 			"LobbyGameMode.cpp.obj",
 			"MasterGameMode.cpp.obj",
 			"TeamDeathMatchrGameMode.cpp.obj",
@@ -31,7 +27,6 @@
 			"InGameMenu.cpp.obj",
 			"PlayerHUD.cpp.obj",
 			"PlayerOverlay.cpp.obj",
-			"Flag.cpp.obj",
 			"HitScanWeapon.cpp.obj",
 			"Casing.cpp.obj",
 			"ProjectileBase.cpp.obj",
@@ -42,12 +37,17 @@
 			"RocketMovementComponent.cpp.obj",
 			"Shotgun.cpp.obj",
 			"WeaponBase.cpp.obj",
-			"FlagPickup.cpp.obj"
+			"CapturePoint.cpp.obj",
+			"FlagPickup.cpp.obj",
+			"FlagZone.cpp.obj",
+			"NewFlag.cpp.obj",
+			"MasterCharacter.cpp.obj",
+			"CTFGameMode.cpp.obj"
 		],
 		"Module.FPS.gen.cpp.obj": [
+			"CapturePoint.gen.cpp.obj",
 			"AmmoPickup.gen.cpp.obj",
 			"Announcement.gen.cpp.obj",
-			"BaseFlag.gen.cpp.obj",
 			"BuffComponent.gen.cpp.obj",
 			"Casing.gen.cpp.obj",
 			"CharacterAnimInstance.gen.cpp.obj",
@@ -55,7 +55,6 @@
 			"CombatState.gen.cpp.obj",
 			"CTFGameMode.gen.cpp.obj",
 			"ElimAnnouncment.gen.cpp.obj",
-			"Flag.gen.cpp.obj",
 			"FlagPickup.gen.cpp.obj",
 			"FlagZone.gen.cpp.obj",
 			"FPS.init.gen.cpp.obj",
@@ -66,30 +65,7 @@
 			"JumpPickup.gen.cpp.obj",
 			"LagCompensationComponent.gen.cpp.obj",
 			"LobbyGameMode.gen.cpp.obj",
-			"MasterCharacter.gen.cpp.obj",
-			"MasterGameMode.gen.cpp.obj",
-			"MasterGameState.gen.cpp.obj",
-			"MasterPlayerController.gen.cpp.obj",
-			"MasterPlayerState.gen.cpp.obj",
-			"Pickup.gen.cpp.obj",
-			"PickupSpawnPoint.gen.cpp.obj",
-			"PlayerHUD.gen.cpp.obj",
-			"PlayerOverlay.gen.cpp.obj",
-			"ProjectileBase.gen.cpp.obj",
-			"ProjectileBullet.gen.cpp.obj",
-			"ProjectileGrenade.gen.cpp.obj",
-			"ProjectileRocket.gen.cpp.obj",
-			"ProjectileWeapon.gen.cpp.obj",
-			"RocketMovementComponent.gen.cpp.obj",
-			"ShieldPickup.gen.cpp.obj",
-			"Shotgun.gen.cpp.obj",
-			"SpeedPickup.gen.cpp.obj",
-			"Team.gen.cpp.obj",
-			"TeamDeathMatchrGameMode.gen.cpp.obj",
-			"TeamPlayerStart.gen.cpp.obj",
-			"TurningInPlace.gen.cpp.obj",
-			"WeaponBase.gen.cpp.obj",
-			"WeaponTypes.gen.cpp.obj"
+			"MasterCharacter.gen.cpp.obj"
 		]
 	}
 }

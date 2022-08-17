@@ -32,6 +32,7 @@ void AFlagPickup::AttachFlagToPlayer(AMasterCharacter* Character)
 	{
 		AttachToComponent(Character->GetMesh(), FAttachmentTransformRules::SnapToTargetIncludingScale, Character->FlagSocket);
 		SetOwner(Character);
+
 	}
 }
 

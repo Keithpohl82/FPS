@@ -8,14 +8,33 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class AMasterCharacter;
 #ifdef FPS_NewFlag_generated_h
 #error "NewFlag.generated.h already included, missing '#pragma once' in NewFlag.h"
 #endif
 #define FPS_NewFlag_generated_h
 
 #define FID_FPS_Source_FPS_CaptureTheFlag_NewFlag_h_13_SPARSE_DATA
-#define FID_FPS_Source_FPS_CaptureTheFlag_NewFlag_h_13_RPC_WRAPPERS
-#define FID_FPS_Source_FPS_CaptureTheFlag_NewFlag_h_13_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_FPS_Source_FPS_CaptureTheFlag_NewFlag_h_13_RPC_WRAPPERS \
+	virtual void ServerAttachFlag_Implementation(AMasterCharacter* Character); \
+ \
+	DECLARE_FUNCTION(execServerAttachFlag);
+
+
+#define FID_FPS_Source_FPS_CaptureTheFlag_NewFlag_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void ServerAttachFlag_Implementation(AMasterCharacter* Character); \
+ \
+	DECLARE_FUNCTION(execServerAttachFlag);
+
+
+#define FID_FPS_Source_FPS_CaptureTheFlag_NewFlag_h_13_EVENT_PARMS \
+	struct NewFlag_eventServerAttachFlag_Parms \
+	{ \
+		AMasterCharacter* Character; \
+	};
+
+
+#define FID_FPS_Source_FPS_CaptureTheFlag_NewFlag_h_13_CALLBACK_WRAPPERS
 #define FID_FPS_Source_FPS_CaptureTheFlag_NewFlag_h_13_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesANewFlag(); \
@@ -58,12 +77,16 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ANewFlag)
 
 
-#define FID_FPS_Source_FPS_CaptureTheFlag_NewFlag_h_10_PROLOG
+#define FID_FPS_Source_FPS_CaptureTheFlag_NewFlag_h_10_PROLOG \
+	FID_FPS_Source_FPS_CaptureTheFlag_NewFlag_h_13_EVENT_PARMS
+
+
 #define FID_FPS_Source_FPS_CaptureTheFlag_NewFlag_h_13_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	FID_FPS_Source_FPS_CaptureTheFlag_NewFlag_h_13_SPARSE_DATA \
 	FID_FPS_Source_FPS_CaptureTheFlag_NewFlag_h_13_RPC_WRAPPERS \
+	FID_FPS_Source_FPS_CaptureTheFlag_NewFlag_h_13_CALLBACK_WRAPPERS \
 	FID_FPS_Source_FPS_CaptureTheFlag_NewFlag_h_13_INCLASS \
 	FID_FPS_Source_FPS_CaptureTheFlag_NewFlag_h_13_STANDARD_CONSTRUCTORS \
 public: \
@@ -75,6 +98,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	FID_FPS_Source_FPS_CaptureTheFlag_NewFlag_h_13_SPARSE_DATA \
 	FID_FPS_Source_FPS_CaptureTheFlag_NewFlag_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_FPS_Source_FPS_CaptureTheFlag_NewFlag_h_13_CALLBACK_WRAPPERS \
 	FID_FPS_Source_FPS_CaptureTheFlag_NewFlag_h_13_INCLASS_NO_PURE_DECLS \
 	FID_FPS_Source_FPS_CaptureTheFlag_NewFlag_h_13_ENHANCED_CONSTRUCTORS \
 private: \

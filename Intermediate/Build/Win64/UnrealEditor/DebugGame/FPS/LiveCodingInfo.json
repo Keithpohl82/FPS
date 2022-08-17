@@ -3,8 +3,8 @@
 	{
 		"Module.FPS.cpp.obj": [
 			"CharacterAnimInstance.cpp.obj",
-			"MasterCharacter.cpp.obj",
 			"BuffComponent.cpp.obj",
+			"CombatComponent.cpp.obj",
 			"LagCompensationComponent.cpp.obj",
 			"FPS.cpp.obj",
 			"LobbyGameMode.cpp.obj",
@@ -19,7 +19,6 @@
 			"PickupSpawnPoint.cpp.obj",
 			"ShieldPickup.cpp.obj",
 			"SpeedPickup.cpp.obj",
-			"MasterPlayerController.cpp.obj",
 			"MasterPlayerState.cpp.obj",
 			"TeamPlayerStart.cpp.obj",
 			"Announcement.cpp.obj",
@@ -36,14 +35,17 @@
 			"ProjectileWeapon.cpp.obj",
 			"RocketMovementComponent.cpp.obj",
 			"Shotgun.cpp.obj",
+			"WeaponBase.cpp.obj",
+			"CapturePoint.cpp.obj",
 			"FlagPickup.cpp.obj",
 			"FlagZone.cpp.obj",
 			"NewFlag.cpp.obj",
-			"CombatComponent.cpp.obj",
+			"MasterCharacter.cpp.obj",
+			"MasterGameInstance.cpp.obj",
 			"CTFGameMode.cpp.obj",
-			"WeaponBase.cpp.obj"
+			"MasterPlayerController.cpp.obj"
 		],
-		"Module.FPS.gen.cpp.obj": [
+		"Module.FPS.gen.1_of_2.cpp.obj": [
 			"AmmoPickup.gen.cpp.obj",
 			"Announcement.gen.cpp.obj",
 			"BuffComponent.gen.cpp.obj",
@@ -62,6 +64,11 @@
 			"LagCompensationComponent.gen.cpp.obj",
 			"LobbyGameMode.gen.cpp.obj",
 			"MasterCharacter.gen.cpp.obj",
+			"CapturePoint.gen.cpp.obj",
+			"FlagZone.gen.cpp.obj",
+			"FPS.init.gen.cpp.obj"
+		],
+		"Module.FPS.gen.2_of_2.cpp.obj": [
 			"MasterGameMode.gen.cpp.obj",
 			"MasterGameState.gen.cpp.obj",
 			"MasterPlayerController.gen.cpp.obj",
@@ -85,8 +92,7 @@
 			"TurningInPlace.gen.cpp.obj",
 			"WeaponBase.gen.cpp.obj",
 			"WeaponTypes.gen.cpp.obj",
-			"FlagZone.gen.cpp.obj",
-			"FPS.init.gen.cpp.obj",
+			"MasterGameInstance.gen.cpp.obj",
 			"NewFlag.gen.cpp.obj"
 		]
 	}

@@ -13,11 +13,60 @@ void EmptyLinkFunctionForGeneratedCodeNewFlag() {}
 	FPS_API UClass* Z_Construct_UClass_ANewFlag();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	UPackage* Z_Construct_UPackage__Script_FPS();
+	FPS_API UClass* Z_Construct_UClass_AMasterCharacter_NoRegister();
 	FPS_API UEnum* Z_Construct_UEnum_FPS_ETeam();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(ANewFlag::execServerAttachFlag)
+	{
+		P_GET_OBJECT(AMasterCharacter,Z_Param_Character);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ServerAttachFlag_Implementation(Z_Param_Character);
+		P_NATIVE_END;
+	}
+	static FName NAME_ANewFlag_ServerAttachFlag = FName(TEXT("ServerAttachFlag"));
+	void ANewFlag::ServerAttachFlag(AMasterCharacter* Character)
+	{
+		NewFlag_eventServerAttachFlag_Parms Parms;
+		Parms.Character=Character;
+		ProcessEvent(FindFunctionChecked(NAME_ANewFlag_ServerAttachFlag),&Parms);
+	}
 	void ANewFlag::StaticRegisterNativesANewFlag()
 	{
+		UClass* Class = ANewFlag::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "ServerAttachFlag", &ANewFlag::execServerAttachFlag },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_ANewFlag_ServerAttachFlag_Statics
+	{
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_Character;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ANewFlag_ServerAttachFlag_Statics::NewProp_Character = { "Character", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(NewFlag_eventServerAttachFlag_Parms, Character), Z_Construct_UClass_AMasterCharacter_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ANewFlag_ServerAttachFlag_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ANewFlag_ServerAttachFlag_Statics::NewProp_Character,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ANewFlag_ServerAttachFlag_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "CaptureTheFlag/NewFlag.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ANewFlag_ServerAttachFlag_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ANewFlag, nullptr, "ServerAttachFlag", nullptr, nullptr, sizeof(NewFlag_eventServerAttachFlag_Parms), Z_Construct_UFunction_ANewFlag_ServerAttachFlag_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ANewFlag_ServerAttachFlag_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00280CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ANewFlag_ServerAttachFlag_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ANewFlag_ServerAttachFlag_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ANewFlag_ServerAttachFlag()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ANewFlag_ServerAttachFlag_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(ANewFlag);
 	UClass* Z_Construct_UClass_ANewFlag_NoRegister()
@@ -27,6 +76,7 @@ void EmptyLinkFunctionForGeneratedCodeNewFlag() {}
 	struct Z_Construct_UClass_ANewFlag_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -46,6 +96,9 @@ void EmptyLinkFunctionForGeneratedCodeNewFlag() {}
 	UObject* (*const Z_Construct_UClass_ANewFlag_Statics::DependentSingletons[])() = {
 		(UObject* (*)())Z_Construct_UClass_AActor,
 		(UObject* (*)())Z_Construct_UPackage__Script_FPS,
+	};
+	const FClassFunctionLinkInfo Z_Construct_UClass_ANewFlag_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_ANewFlag_ServerAttachFlag, "ServerAttachFlag" }, // 1515827692
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ANewFlag_Statics::Class_MetaDataParams[] = {
@@ -82,11 +135,11 @@ void EmptyLinkFunctionForGeneratedCodeNewFlag() {}
 		"Engine",
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		Z_Construct_UClass_ANewFlag_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
 		UE_ARRAY_COUNT(Z_Construct_UClass_ANewFlag_Statics::PropPointers),
 		0,
 		0x009000A4u,
@@ -110,9 +163,9 @@ void EmptyLinkFunctionForGeneratedCodeNewFlag() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_CaptureTheFlag_NewFlag_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ANewFlag, ANewFlag::StaticClass, TEXT("ANewFlag"), &Z_Registration_Info_UClass_ANewFlag, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ANewFlag), 945489967U) },
+		{ Z_Construct_UClass_ANewFlag, ANewFlag::StaticClass, TEXT("ANewFlag"), &Z_Registration_Info_UClass_ANewFlag, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ANewFlag), 9507184U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_CaptureTheFlag_NewFlag_h_415117631(TEXT("/Script/FPS"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FPS_Source_FPS_CaptureTheFlag_NewFlag_h_3407253163(TEXT("/Script/FPS"),
 		Z_CompiledInDeferFile_FID_FPS_Source_FPS_CaptureTheFlag_NewFlag_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FPS_Source_FPS_CaptureTheFlag_NewFlag_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
