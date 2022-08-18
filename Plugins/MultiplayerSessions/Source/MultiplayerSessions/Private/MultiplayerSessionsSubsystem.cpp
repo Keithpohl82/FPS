@@ -19,6 +19,7 @@ StartSessionCompleteDelegate(FOnStartSessionCompleteDelegate::CreateUObject(this
 	if (Subsystem)
 	{
 		SessionInterface = Subsystem->GetSessionInterface();
+		
 	}
 	
 }
